@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Enumerations::SupplyViewTypeEnum</title>
+<title>Enumerations::PublicTransportTypeEnum</title>
 <link href="../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Enumerations::SupplyViewTypeEnum </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Enumerations::PublicTransportTypeEnum </h1>
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA743.htm">PayloadPublication</a> / <a href="../EA1655.htm">Parking</a> / <a href="EA1819.htm">Enumerations</a> / <a href="EA1861.htm">SupplyViewTypeEnum</a></p>
+			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA759.htm">PayloadPublication</a> / <a href="../EA1693.htm">Parking</a> / <a href="EA1857.htm">Enumerations</a> / <a href="EA1861.htm">PublicTransportTypeEnum</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,20 +110,20 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA1819.htm">Enumerations</a></ul>
+<a href="EA1857.htm">Enumerations</a></ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">SupplyViewTypeEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
+	<span class="ObjectTitle">PublicTransportTypeEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">18.06.2018 09:13:12</td>
+			<td width="85%" class="ObjectDetailsValue">21.12.2020 13:28:54</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">29.11.2022 17:26:20</td>
+			<td class="ObjectDetailsValue">29.02.2024 15:56:51</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -106,7 +132,7 @@
 		</tr>
 		<tr id="proj00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue">jon</td>
+			<td class="ObjectDetailsValue">Freudenstein</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
@@ -142,11 +168,11 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{E9EF6671-D814-4985-9B27-981B4777C99C}</td>
+			<td class="ObjectDetailsValue">{420F0103-498E-47ce-9323-F27F52B8A97E}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="../EA1/EA14/EA1788.htm">Supply</a></td>
+			<td class="ObjectDetailsValue"></td>
 		</tr>
 	</table>
 	
@@ -165,35 +191,86 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					spaceView
+					<a name="{D18DB104-D209-4fe5-9D62-370750F46E07}"></a>freePublicTransport
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					Enumeration
+					
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Each space is physically marked and identifiable.<br>order=0<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Use of public transport is free at all.<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					vehicleView
+					<a name="{6C48922B-ADF3-42b8-BA6A-CD282428E23D}"></a>nonFreePublicTransport
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					Enumeration
+					
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The vehicle capacity in an area is estimated based on calculating a capacity (i.e. curb length divided by a length of vehicle).   The distributing party decides on the appropriate length of vehicle to use.<br>order=1<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=For the use of this public transport a fee must be paid / a ticket must be purchased<br>order=1<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{ECC64187-E60A-42a9-9603-D1962C2DE07F}"></a>onDemandTraffic
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=This service is running only on demand<br>order=2<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{C21A4584-1486-4305-9CF0-C637D4AD5F3F}"></a>railReplacementService
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=There is a replacement service for rail traffic in place, usually served by buses.<br>order=3<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{57141792-8C09-4988-B07B-496A129E5BC8}"></a>shuttleService
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Shuttle services are in place, usually to reach a specific destination or event.<br>order=4<br>
 						&nbsp;
 						
 				</td>
@@ -208,7 +285,7 @@
 		</tr>
 					<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">Define if space quantity is demarcated or estimated.</td>
+				<td width="50%" class="TableRow" valign="top">Special measures in the context of public transport.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">

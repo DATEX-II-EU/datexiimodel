@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Enumerations::AlertCDirectionEnum</title>
+<title>Enumerations::OpenlrFormOfWayEnum</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Enumerations::AlertCDirectionEnum </h1>
-			<!-- <img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Enumerations::OpenlrFormOfWayEnum </h1>
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA463.htm">LocationReferencing</a> / <a href="EA477.htm">Enumerations</a> / <a href="EA503.htm">AlertCDirectionEnum</a></p>
+			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA479.htm">LocationReferencing</a> / <a href="EA493.htm">Enumerations</a> / <a href="EA503.htm">OpenlrFormOfWayEnum</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,20 +110,20 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA477.htm">Enumerations</a></ul>
+<a href="EA493.htm">Enumerations</a></ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">AlertCDirectionEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
+	<span class="ObjectTitle">OpenlrFormOfWayEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">21.06.2004 07:45:06</td>
+			<td width="85%" class="ObjectDetailsValue">18.03.2010 13:42:56</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">29.11.2022 17:26:00</td>
+			<td class="ObjectDetailsValue">29.11.2022 17:25:59</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -142,11 +168,11 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{5A62C6CA-28AA-4848-AFF3-992315B92E7D}</td>
+			<td class="ObjectDetailsValue">{E404840F-C8A0-4c64-9F82-1924AC176581}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA475.htm">Enumerations</a></td>
+			<td class="ObjectDetailsValue"><a href="EA491.htm">Enumerations</a></td>
 		</tr>
 	</table>
 	
@@ -165,7 +191,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					negative
+					<a name="{47C3514A-3DAC-41ba-A488-5EC6E44D7136}"></a>undefined
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -175,14 +201,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The direction of navigation in an ALERT-C table that corresponds to the negative offset usage to go from the secondary location to the primary location within the ALERT-C location table.<br>order=1<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Undefined<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					positive
+					<a name="{09B9B518-5AED-4ab9-8A32-35E84927B012}"></a>motorway
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -192,8 +218,110 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The direction of navigation in an ALERT-C table that corresponds to the positive offset usage to go from the secondary location to the primary location within the ALERT-C location table.<br>order=2<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Motorway<br>order=1<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{AD9C97B1-8AFC-4822-8B90-E120E2A6BE00}"></a>multipleCarriageway
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Multiple carriageway<br>order=2<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{FE14217A-75C5-4b2d-9D93-70697A5305D0}"></a>singleCarriageway
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Single carriageway<br>order=3<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{B0D69B37-6AC1-4819-84F8-C8F2D86C4FC0}"></a>roundabout
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Roundabout<br>order=4<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{32741834-CF09-40d0-82BB-16266629CB75}"></a>slipRoad
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Slip road<br>order=5<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{97A416CE-6B09-45ac-8FD8-682CD5F3C579}"></a>trafficSquare
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Traffic square<br>order=6<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{6D742B66-D84A-4340-8675-A032187DB3EA}"></a>other
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Other<br>order=7<br>
 						&nbsp;
 						
 				</td>
@@ -208,7 +336,7 @@
 		</tr>
 					<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">Direction used to reach the primary location from the secondary location in ALERT-C location table, as defined in CEN ISO 14819-1</td>
+				<td width="50%" class="TableRow" valign="top">Enumeration of for of way</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">

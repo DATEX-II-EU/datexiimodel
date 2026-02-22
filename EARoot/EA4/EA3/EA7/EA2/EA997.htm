@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Rates::UnspecifiedRates</title>
+<title>Rates::FreeOfCharge</title>
 <link href="../../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Rates::UnspecifiedRates </h1>
-			<!-- <img class="header_image" src="../../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Rates::FreeOfCharge </h1>
+			<!-- <img class="header_image" src="../../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../../EA3.htm">D2Payload</a> / <a href="../../../EA743.htm">PayloadPublication</a> / <a href="../../EA887.htm">Facilities</a> / <a href="../EA964.htm">RatesPublication</a> / <a href="EA981.htm">Rates</a> / <a href="EA997.htm">UnspecifiedRates</a></p>
+			<p><a href="../../../../EA3.htm">D2Payload</a> / <a href="../../../EA759.htm">PayloadPublication</a> / <a href="../../EA900.htm">Facilities</a> / <a href="../EA977.htm">RatesPublication</a> / <a href="EA994.htm">Rates</a> / <a href="EA997.htm">FreeOfCharge</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,16 +110,16 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA981.htm">Rates</a></ul>
+<a href="EA994.htm">Rates</a></ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">UnspecifiedRates  : Public  &lt;&lt;D2Class&gt;&gt; Class</span>
+	<span class="ObjectTitle">FreeOfCharge  : Public  &lt;&lt;D2Class&gt;&gt; Class</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">02.04.2021 13:20:16</td>
+			<td width="85%" class="ObjectDetailsValue">02.04.2021 13:20:19</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
@@ -142,11 +168,11 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{6B88E336-094E-49df-8011-D59450526BF6}</td>
+			<td class="ObjectDetailsValue">{B070DED4-8F44-47dd-92C4-DEA855DEEB84}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="../EA960.htm">Rates</a></td>
+			<td class="ObjectDetailsValue"><a href="../EA973.htm">Rates</a></td>
 		</tr>
 	</table>
 	
@@ -164,7 +190,7 @@
 		</tr>
 					<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">Rates are not (yet) specified.</td>
+				<td width="50%" class="TableRow" valign="top">There are no rates or fees to be paid.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -196,7 +222,7 @@
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA990.htm">«D2Class» Rates</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA1003.htm">«D2Class» Rates</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">To</td>

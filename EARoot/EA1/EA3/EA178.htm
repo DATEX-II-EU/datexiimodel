@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> Enumerations::ComputationMethodEnum </h1>
-			<!-- <img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA10.htm">Common</a> / <a href="EA175.htm">Enumerations</a> / <a href="EA178.htm">ComputationMethodEnum</a></p>
@@ -146,7 +172,7 @@
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA173.htm">Enumerations</a>, <a href="../../EA4/EA9/EA1/EA9/EA1750.htm">ParkingStatus</a>, <a href="../../EA4/EA9/EA4/EA1879.htm">ParkingStatusPublicationBig</a>, <a href="../../EA4/EA9/EA4/EA1885.htm">Occupancy</a></td>
+			<td class="ObjectDetailsValue"><a href="EA173.htm">Enumerations</a>, <a href="../../EA4/EA9/EA1/EA9/EA1788.htm">ParkingStatus</a>, <a href="../../EA4/EA9/EA4/EA1917.htm">ParkingStatusPublicationBig</a>, <a href="../../EA4/EA9/EA4/EA1923.htm">Occupancy</a></td>
 		</tr>
 	</table>
 	
@@ -165,7 +191,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					arithmeticAverageOfSamplesBasedOnAFixedNumberOfSamples
+					<a name="{0C72CF50-AAA3-4000-9DBC-00EF0CFCF253}"></a>arithmeticAverageOfSamplesBasedOnAFixedNumberOfSamples
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -175,14 +201,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Arithmetic average of sample values based on a fixed number of samples.<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					arithmeticAverageOfSamplesInATimePeriod
+					<a name="{7C69F8DE-6132-4d87-B8E0-2D737E86C84C}"></a>arithmeticAverageOfSamplesInATimePeriod
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -192,14 +218,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Arithmetic average of sample values in a time period.<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					harmonicAverageOfSamplesInATimePeriod
+					<a name="{85117F56-17BA-46c3-8CB5-2C6EDFB4CAF3}"></a>harmonicAverageOfSamplesInATimePeriod
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -209,14 +235,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Harmonic average of sample values in a time period.<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					medianOfSamplesInATimePeriod
+					<a name="{246A7B95-9709-4d21-AA07-D4138A126B99}"></a>medianOfSamplesInATimePeriod
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -226,14 +252,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Median of sample values taken over a time period.<br>order=3<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					movingAverageOfSamples
+					<a name="{82C4EB03-F8B2-443e-B25C-525953CB3626}"></a>movingAverageOfSamples
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -243,7 +269,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Moving average of sample values.<br>order=4<br>
 						&nbsp;
 						

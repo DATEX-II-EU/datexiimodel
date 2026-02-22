@@ -1,0 +1,609 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Enumerations::ServiceDisruptionTypeEnum</title>
+<link href="../../../../css/ea.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="../../../../js/displayToc.js" type="text/javascript"></script>
+<script>
+
+  function switchProjectProperties() {
+			if (document.getElementById("proj00").style.display == "none") {
+				document.getElementById("proj00").style.display = "revert";
+				document.getElementById("proj01").style.display = "revert";
+				document.getElementById("proj02").style.display = "revert";
+				document.getElementById("proj03").style.display = "revert";
+				document.getElementById("proj04").style.display = "revert";
+				document.getElementById("proj05").style.display = "revert";
+			} else {
+				document.getElementById("proj00").style.display = "none";
+				document.getElementById("proj01").style.display = "none";
+				document.getElementById("proj02").style.display = "none";
+				document.getElementById("proj03").style.display = "none";
+				document.getElementById("proj04").style.display = "none";
+				document.getElementById("proj05").style.display = "none";
+			}
+}
+
+		function switchAdvancedProperties(){
+
+			if (document.getElementById("adv00").style.display == "none") {;
+				document.getElementById("adv00").style.display = "revert";
+				document.getElementById("adv01").style.display = "revert";
+			} else {
+				document.getElementById("adv00").style.display = "none";
+				document.getElementById("adv01").style.display = "none";
+			}
+		}
+		function initPage()
+        {			
+			var divs = document.getElementsByClassName("ObjectDetailsNotes");
+			for (var j = 0; j < divs.length; j++) {
+				var tmpStr = divs[j].innerHTML;
+				tmpStr = tmpStr.replace(/#gt;/g, "&gt;");
+				tmpStr = tmpStr.replace(/#lt;/g, "&lt;");
+
+				tmpStr = tmpStr.replace(/&gt;/g, ">");
+				tmpStr = tmpStr.replace(/&lt;/g, "<");
+
+				divs[j].innerHTML = tmpStr;
+			}
+
+            if (document.getElementById('TableGroup') != null)
+            {
+                toggleItem(document.getElementById('TableGroup').getElementsByTagName('li')[0].id.replace("Title", ""));
+            }
+
+        }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
+</script>
+<style>
+
+</style>
+</head>
+<body onload="initPage();">
+<div class="section group" >
+
+		<div class="col span_2_of_2 header_frame">
+			<h1> Enumerations::ServiceDisruptionTypeEnum </h1>
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
+		</div>
+		<div class="col span_2_of_2 breadcrumb_frame">
+			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA759.htm">PayloadPublication</a> / <a href="../EA1271.htm">Situation</a> / <a href="EA1366.htm">Enumerations</a> / <a href="EA1412.htm">ServiceDisruptionTypeEnum</a></p>
+		</div>
+			
+		<table class="contentmaintable">
+			<!-- <tfoot>
+				<tr>
+					<td>foot1</td>
+					<td>foot2</td>
+				</tr>
+			</tfoot> -->
+			<tbody>
+				<tr>
+					<td class="indexcell">
+						<div class="projectBrowserTitle">Project: </div>
+						<ul>
+<a href="EA1366.htm">Enumerations</a></ul>
+
+					</td>
+					<td class="contentcell"><div class="pageHeader"></div>
+<div class="PageBody">
+	<span class="ObjectTitle">ServiceDisruptionTypeEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
+	<table border="0" class="ObjectDetails">
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Created:</td>
+			<td width="85%" class="ObjectDetailsValue">22.06.2004 13:21:09</td>
+		</tr>
+		<tr>
+			<td class="ObjectDetailsTopic">Modified:</td>
+			<td class="ObjectDetailsValue">29.11.2022 17:26:12</td>
+		</tr>
+		<tr style="height: 10px"><td colspan="2"></td></tr>
+		<tr>
+			<td class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="../../../../images/plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="proj00" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="proj01" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
+			<td class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr id="proj02" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Phase:</td>
+			<td class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr id="proj03" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Status:</td>
+			<td class="ObjectDetailsValue">Proposed</td>
+		</tr>
+		<tr id="proj04" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Complexity:</td>
+			<td class="ObjectDetailsValue">Easy</td>
+		</tr>
+		<tr id="proj05" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Difficulty:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="proj06" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Priority:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="proj05" style="display: none;">
+			<td class="ObjectDetailsTopic" >Multiplicity:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr>
+			<td class="ObjectDetailsTopic"><button onclick="switchAdvancedProperties()"><img src="../../../../images/plus03.gif" align="absmiddle" id="adv" /></button>Advanced:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="adv00" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
+			<td class="ObjectDetailsValue">{A5D45882-2346-433c-9444-415689FC888E}</td>
+		</tr>
+		<tr id="adv01" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
+			<td class="ObjectDetailsValue"><a href="EA1364.htm">Enumerations</a></td>
+		</tr>
+	</table>
+	
+	<div class="TableGroup" id="TableGroup">
+		<ul class="ItemTitle">
+			<li onClick="parent != null ? parent.toggleItem('Attributes') : toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
+			<li onClick="parent != null ? parent.toggleItem('TaggedVal') : toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
+			<li onClick="parent != null ? parent.toggleItem('CustomProperties') : toggleItem('CustomProperties');" id="CustomPropertiesTitle">Advanced</li>
+		</ul>
+<div class="ItemBody" id="AttributesTable">
+	<table border="0" cellspacing="0" cellpadding="0" class="Table">
+		<tr>
+			<td width="50%" class="TableHeading">Attribute</td>
+			<td width="25%" class="TableHeading">Scope</td>
+			<td width="25%" class="TableHeading">Type</td>
+		</tr>
+						<tr>
+				<td width="50%" class="TableRow">
+					<a name="{26AB9625-C7C4-43eb-AFCB-6BE564D16BB2}"></a>barClosed
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Bar closed.<br>order=0<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{05042EE4-559A-4139-8194-B7ED3ED114A6}"></a>dieselShortage
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=There is a shortage of diesel at the specified location.<br>order=1<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{B8599F69-6F39-42cd-A8B5-852D91E667B3}"></a>fuelShortage
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=There is a shortage of fuel (of one or more types) at the specified location.<br>order=2<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{73F195D7-4CC2-4260-885A-DD368F41E718}"></a>lpgShortage
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=There is a shortage of liquid petroleum gas at the specified location.<br>order=3<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{B460C65A-F885-4e07-A3EC-3B41D6CF3B1F}"></a>methaneShortage
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=There is a shortage of methane at the specified location.<br>order=4<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{9D03287A-BE1A-4672-A974-7660F6071BC0}"></a>noDieselForHeavyVehicles
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=There is no diesel available for heavy goods vehicles at the specified location.<br>order=5<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{D3EA2DE6-FA2A-4e28-A394-FE19E7B6E664}"></a>noDieselForLightVehicles
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=There is no diesel available for light vehicles at the specified location.<br>order=6<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{336F84FD-A03F-470f-ACA6-F64E8619BE6C}"></a>noParkingAvailability
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=There is little or no availbility of parking<br>order=7<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{F9F2E2C5-51BA-4731-B2EA-7E620CE26637}"></a>noPublicTelephones
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=There are no available public telephones at the specified location.<br>order=8<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{902077FF-A3BC-484f-A322-8B29BC3C67A7}"></a>noToiletFacilities
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=There are no available public toilet facilities at the specified location.<br>order=9<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{BD47583E-E84A-4c97-BD3C-8A546B10E729}"></a>noVehicleRepairFacilities
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=There are no available vehicle repair facilities at the specified location.<br>order=10<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{517D69AC-417B-43a6-8905-11FE79F0F6EA}"></a>petrolShortage
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=There is a shortage of petrol at the specified location.<br>order=11<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{4E68ADDB-A5DE-4096-B6D6-FE84517C2EB4}"></a>restAreaBusy
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The rest area at the specified location is busy.<br>order=12<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{D40CEC8C-A710-4295-A24B-C61C506827B5}"></a>restAreaClosed
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The rest area at the specified location is closed.<br>order=13<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{FB891108-EEB3-441d-BC5E-34931178CFBF}"></a>restAreaOvercrowdedDriveToAnotherRestArea
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The rest area at the specified location is close to capacity and motorists are advised to seek an alternative.<br>order=14<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{497DE3A0-E0F9-4802-801E-C90392AD1DF4}"></a>serviceAreaBusy
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The service area at the specified location is close to capacity.<br>order=15<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{69DE44FE-E4A6-420a-8F67-20E160DD64B5}"></a>serviceAreaClosed
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The service area at the specified location is closed.<br>order=16<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{EEBAF11D-18B4-4f85-BEA6-8CBA847721CA}"></a>serviceAreaFuelStationClosed
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The fuel station at the specified service area is closed.<br>order=17<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{B6179F71-3906-41b0-BE45-3B6984DCB07C}"></a>serviceAreaOvercrowdedDriveToAnotherServiceArea
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The service area at the specified location is close to capacity and motorists are advised to seek an alternative.<br>order=18<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{DC12722E-0F9E-4021-AB84-3761854AEB1C}"></a>serviceAreaRestaurantClosed
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The restaurant at the specified service area is closed.<br>order=19<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{04E2B356-C684-4d9c-9356-B4F299200706}"></a>someCommercialServicesClosed
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Some commercial services are closed at the specified location.<br>order=20<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{806C278B-D297-473c-97D9-2D5C9547966F}"></a>waterShortage
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=There is a shortage of water at the specified location.<br>order=21<br>
+						&nbsp;
+						
+				</td>
+			</tr>
+	</table>
+</div>
+<div class="ItemBody" id="TaggedValTable">
+	<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
+		<tr>
+			<td width="50%" class="TableHeading">Tag</td>
+			<td width="50%" class="TableHeading">Value</td>
+		</tr>
+					<tr>
+				<td width="50%" class="TableRow" valign="top">definition</td>
+				<td width="50%" class="TableRow" valign="top">Types of disruption to services relevant to road users.</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>
+	</table>
+</div>		<div class="ItemBody" id="CustomPropertiesTable">
+			<table class="Table ea_table">
+				<tr>
+					<td width="30%" class="TableHeading">Property</td>
+					<td width="70%" class="TableHeading">Value</td>
+				</tr>
+			<tr>
+				<td width="30%" class="TableRow">isFinalSpecialization:</td>
+				<td width="70%" class="TableRow">0</td>
+			</tr>
+
+
+			</table>
+		</div>	</div>
+ </div>
+ </td>
+				</tr>
+			</tbody>
+		</table>
+		
+</div>
+</body>
+</html>
+

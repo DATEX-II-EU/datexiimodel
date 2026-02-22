@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,11 +91,11 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> PayloadPublication </h1>
-			<!-- <img class="header_image" src="../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="EA3.htm">D2Payload</a> / <a href="./EA4/EA743.htm">PayloadPublication</a></p>
+			<p><a href="EA3.htm">D2Payload</a> / <a href="./EA4/EA759.htm">PayloadPublication</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,18 +110,18 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<li><img src="../images/4.png" alt="Package"/> <a href="./EA4/EA1/EA758.htm">ControlledZone</a></li>
-<li><img src="../images/4.png" alt="Package"/> <a href="./EA4/EA2/EA807.htm">EnergyInfrastructure</a></li>
-<li><img src="../images/4.png" alt="Package"/> <a href="./EA4/EA3/EA887.htm">Facilities</a></li>
-<li><img src="../images/4.png" alt="Package"/> <a href="./EA4/EA4/EA1053.htm">FaultAndStatus</a></li>
-<li><img src="../images/4.png" alt="Package"/> <a href="./EA4/EA5/EA1117.htm">RoadTrafficData</a></li>
-<li><img src="../images/4.png" alt="Package"/> <a href="./EA4/EA6/EA1258.htm">Situation</a></li>
-<li><img src="../images/4.png" alt="Package"/> <a href="./EA4/EA7/EA1417.htm">TrafficRegulation</a></li>
-<li><img src="../images/4.png" alt="Package"/> <a href="./EA4/EA8/EA1545.htm">Vms</a></li>
-<li><img src="../images/4.png" alt="Package"/> <a href="./EA4/EA9/EA1655.htm">Parking</a></li>
-<li><img src="../images/4.png" alt="Package"/> <a href="./EA4/EA10/EA1894.htm">TrafficManagementPlan</a></li>
-<li><img src="../images/176.png" alt="Diagram"/> <a href="./EA4/EA739.htm">PayloadPublication</a></li>
-<li><img src="../images/175.png" alt="Diagram"/> <a href="./EA4/EA741.htm">PayloadPublication classes</a></li>
+<li><img src="../images/4.png" alt="Package"/> <a href="./EA4/EA1/EA774.htm">ControlledZone</a></li>
+<li><img src="../images/4.png" alt="Package"/> <a href="./EA4/EA2/EA820.htm">EnergyInfrastructure</a></li>
+<li><img src="../images/4.png" alt="Package"/> <a href="./EA4/EA3/EA900.htm">Facilities</a></li>
+<li><img src="../images/4.png" alt="Package"/> <a href="./EA4/EA4/EA1066.htm">FaultAndStatus</a></li>
+<li><img src="../images/4.png" alt="Package"/> <a href="./EA4/EA5/EA1130.htm">RoadTrafficData</a></li>
+<li><img src="../images/4.png" alt="Package"/> <a href="./EA4/EA6/EA1271.htm">Situation</a></li>
+<li><img src="../images/4.png" alt="Package"/> <a href="./EA4/EA7/EA1430.htm">TrafficRegulation</a></li>
+<li><img src="../images/4.png" alt="Package"/> <a href="./EA4/EA8/EA1583.htm">Vms</a></li>
+<li><img src="../images/4.png" alt="Package"/> <a href="./EA4/EA9/EA1693.htm">Parking</a></li>
+<li><img src="../images/4.png" alt="Package"/> <a href="./EA4/EA10/EA1932.htm">TrafficManagementPlan</a></li>
+<li><img src="../images/176.png" alt="Diagram"/> <a href="./EA4/EA755.htm">PayloadPublication</a></li>
+<li><img src="../images/175.png" alt="Diagram"/> <a href="./EA4/EA757.htm">PayloadPublication classes</a></li>
 </ul>
 
 					</td>
@@ -109,7 +135,7 @@
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">23.02.2024 10:46:12</td>
+			<td class="ObjectDetailsValue">18.02.2025 16:19:24</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -122,7 +148,7 @@
 		</tr>
 		<tr id="proj01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
-			<td class="ObjectDetailsValue">3.5</td>
+			<td class="ObjectDetailsValue">3.6</td>
 		</tr>
 		<tr id="proj02" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Phase:</td>
@@ -194,7 +220,7 @@
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="./EA3/EA463.htm">«D2Namespace» LocationReferencing</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="./EA1/EA10.htm">«D2Namespace» Common</a></td>
 					<td width="10%" class="TableRow" valign="top">Package</td>
 					<td width="10%" class="TableRow" valign="top">Usage</td>
 					<td width="10%" class="TableRow" valign="top">To</td>
@@ -208,7 +234,7 @@
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="./EA1/EA10.htm">«D2Namespace» Common</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="./EA3/EA479.htm">«D2Namespace» LocationReferencing</a></td>
 					<td width="10%" class="TableRow" valign="top">Package</td>
 					<td width="10%" class="TableRow" valign="top">Usage</td>
 					<td width="10%" class="TableRow" valign="top">To</td>

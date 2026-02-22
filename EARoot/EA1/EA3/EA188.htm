@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> Enumerations::InformationStatusEnum </h1>
-			<!-- <img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA10.htm">Common</a> / <a href="EA175.htm">Enumerations</a> / <a href="EA188.htm">InformationStatusEnum</a></p>
@@ -165,7 +191,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					real
+					<a name="{6EE579DA-D490-49a2-B768-5003B68E9687}"></a>real
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -175,14 +201,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=The information is real. It is not a test or exercise.<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					securityExercise
+					<a name="{15E94C2E-3D28-47f1-B9BE-67A26A1CD503}"></a>securityExercise
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -192,14 +218,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=The information is part of an exercise which is for testing security.<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					technicalExercise
+					<a name="{E0F9886E-D4F5-4389-89AF-9D1E2A3BF6B0}"></a>technicalExercise
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -209,14 +235,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=The information is part of an exercise which includes tests of associated technical subsystems.<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					test
+					<a name="{F370396C-F895-40a9-8837-26C62859708D}"></a>test
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -226,7 +252,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=The information is part of a test for checking the exchange of this type of information.<br>order=3<br>
 						&nbsp;
 						

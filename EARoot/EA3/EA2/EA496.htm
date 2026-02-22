@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Enumerations::TpegLoc01LinearLocationSubtypeEnum</title>
+<title>Enumerations::DirectionEnum</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Enumerations::TpegLoc01LinearLocationSubtypeEnum </h1>
-			<!-- <img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Enumerations::DirectionEnum </h1>
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA463.htm">LocationReferencing</a> / <a href="EA477.htm">Enumerations</a> / <a href="EA496.htm">TpegLoc01LinearLocationSubtypeEnum</a></p>
+			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA479.htm">LocationReferencing</a> / <a href="EA493.htm">Enumerations</a> / <a href="EA496.htm">DirectionEnum</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,20 +110,20 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA477.htm">Enumerations</a></ul>
+<a href="EA493.htm">Enumerations</a></ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">TpegLoc01LinearLocationSubtypeEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
+	<span class="ObjectTitle">DirectionEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">25.11.2004 06:53:49</td>
+			<td width="85%" class="ObjectDetailsValue">25.11.2004 06:45:53</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">29.11.2022 17:26:00</td>
+			<td class="ObjectDetailsValue">29.11.2022 17:25:59</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -142,11 +168,11 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{3CF93CD5-3A52-4373-9C91-015BB008FC8C}</td>
+			<td class="ObjectDetailsValue">{21079C67-C37F-4608-A1B6-3203D8F4FBF4}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA475.htm">Enumerations</a></td>
+			<td class="ObjectDetailsValue"><a href="EA491.htm">Enumerations</a>, <a href="../../EA4/EA9/EA1/EA8/EA1781.htm">ParkingRoute</a></td>
 		</tr>
 	</table>
 	
@@ -165,7 +191,24 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					segment
+					<a name="{4CA5653B-F23E-4b35-867C-53DE67BF1F02}"></a>aligned
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					int
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Same direction as the normal direction of flow at this point on the road network.<br>order=0<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{A1A7C0F6-D812-4c2a-AD41-DE7CECA7E16C}"></a>allDirections
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -175,8 +218,314 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A segment (or link) of the road network corresponding to the way in which the road operator has segmented the network.<br>order=0<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=All directions (where more than two are applicable) at this point on the road network.<br>order=1<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{4EF19453-D073-4cfe-B903-5F98876E1BC1}"></a>anticlockwise
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Anti-clockwise.<br>order=2<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{DFF7EDD0-448D-4e8a-953B-654B97A875FC}"></a>bothWays
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Both directions that are applicable at this point on the road network.<br>order=3<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{9A764CF1-8637-48e8-BCE4-40E55FDA879A}"></a>clockwise
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Clockwise.<br>order=4<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{163DA1C9-D240-4c67-8508-DBD0EF3EC2B8}"></a>innerRing
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Inner ring direction.<br>order=5<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{CCE3C1BF-6965-474d-BEAA-6F1B1A1EAAB6}"></a>outerRing
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Outer ring direction.<br>order=6<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{DE655F3D-F5F6-406e-9502-C8AF09097860}"></a>eastBound
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=East bound general direction.<br>order=7<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{769F7D4E-4497-4ff7-8679-57E2DD5AB4BA}"></a>northBound
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=North bound general direction.<br>order=8<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{051E0B4D-B4CC-4119-94DA-5C63A1A631E3}"></a>northEastBound
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=North east bound general direction.<br>order=9<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{0A7E0DA2-32E0-460b-B7C1-919D8760EFD7}"></a>northWestBound
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=North west bound general direction.<br>order=10<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{CE73AF79-F408-454c-BBD0-39393A3D66A7}"></a>southBound
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=South bound general direction.<br>order=11<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{F2475382-1181-4bc1-8807-047D23FA613D}"></a>southEastBound
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=South east bound general direction.<br>order=12<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{D1FA6814-4C34-4f51-A949-9455683189EA}"></a>southWestBound
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=South west bound general direction.<br>order=13<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{FA46EF1A-9031-4c5a-96D7-768F9F92B8BD}"></a>westBound
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=West bound general direction.<br>order=14<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{2CFAA54A-F129-4bf5-A3C0-8179A31F6F96}"></a>inboundTowardsTown
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Heading towards town centre direction of travel.<br>order=15<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{5C9D851C-B91B-4190-BA78-7669ED658A07}"></a>outboundFromTown
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Heading out of or away from the town centre direction of travel.<br>order=16<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{2CB6D425-BE0F-44e2-AEAE-737C2E926067}"></a>opposite
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Opposite direction to the normal direction of flow at this point on the road network.<br>order=17<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{70DFFB34-599D-446d-89D8-470954FAD6F8}"></a>unknown
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Direction is unknown.<br>order=18<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{1CEDD736-DE43-41d6-86EC-1D68C5BD1719}"></a>other
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Other than as defined in this enumeration.<br>order=19<br>
 						&nbsp;
 						
 				</td>
@@ -191,7 +540,7 @@
 		</tr>
 					<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">Types of linear location.</td>
+				<td width="50%" class="TableRow" valign="top">List of directions of travel.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">

@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> Enumerations::DayEnum </h1>
-			<!-- <img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA10.htm">Common</a> / <a href="EA175.htm">Enumerations</a> / <a href="EA181.htm">DayEnum</a></p>
@@ -146,7 +172,7 @@
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA173.htm">Enumerations</a>, <a href="../../EA4/EA3/EA9/EA1035.htm">OperatingHours</a>, <a href="../../EA4/EA3/EA9/EA1037.htm">OperatingHoursPublication</a></td>
+			<td class="ObjectDetailsValue"><a href="EA173.htm">Enumerations</a>, <a href="../../EA4/EA3/EA9/EA1048.htm">OperatingHours</a>, <a href="../../EA4/EA3/EA9/EA1050.htm">OperatingHoursPublication</a></td>
 		</tr>
 	</table>
 	
@@ -165,7 +191,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					monday
+					<a name="{B9DBF5E3-48AB-44ce-B695-5304599A9976}"></a>monday
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -175,14 +201,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Monday.<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					tuesday
+					<a name="{7C8C1B44-F533-48a2-9F55-332B3A160EA7}"></a>tuesday
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -192,14 +218,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Tuesday.<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					wednesday
+					<a name="{915AE1F8-BEF8-4e20-BDE7-59F09123558F}"></a>wednesday
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -209,14 +235,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Wednesday.<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					thursday
+					<a name="{8BA12DC7-C03C-4983-A5BD-EF4596411030}"></a>thursday
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -226,14 +252,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Thursday.<br>order=3<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					friday
+					<a name="{A490CEDA-85D7-438e-9475-E659615AABD4}"></a>friday
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -243,14 +269,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Friday.<br>order=4<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					saturday
+					<a name="{0665986F-1590-4aaa-9105-047BD3E40513}"></a>saturday
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -260,14 +286,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Saturday.<br>order=5<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					sunday
+					<a name="{E8C16132-8A56-40f1-BF11-D2496E96125E}"></a>sunday
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -277,7 +303,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Sunday.<br>order=6<br>
 						&nbsp;
 						

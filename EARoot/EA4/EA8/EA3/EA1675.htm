@@ -1,0 +1,1102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Enumerations::PictogramEnum</title>
+<link href="../../../../css/ea.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="../../../../js/displayToc.js" type="text/javascript"></script>
+<script>
+
+  function switchProjectProperties() {
+			if (document.getElementById("proj00").style.display == "none") {
+				document.getElementById("proj00").style.display = "revert";
+				document.getElementById("proj01").style.display = "revert";
+				document.getElementById("proj02").style.display = "revert";
+				document.getElementById("proj03").style.display = "revert";
+				document.getElementById("proj04").style.display = "revert";
+				document.getElementById("proj05").style.display = "revert";
+			} else {
+				document.getElementById("proj00").style.display = "none";
+				document.getElementById("proj01").style.display = "none";
+				document.getElementById("proj02").style.display = "none";
+				document.getElementById("proj03").style.display = "none";
+				document.getElementById("proj04").style.display = "none";
+				document.getElementById("proj05").style.display = "none";
+			}
+}
+
+		function switchAdvancedProperties(){
+
+			if (document.getElementById("adv00").style.display == "none") {;
+				document.getElementById("adv00").style.display = "revert";
+				document.getElementById("adv01").style.display = "revert";
+			} else {
+				document.getElementById("adv00").style.display = "none";
+				document.getElementById("adv01").style.display = "none";
+			}
+		}
+		function initPage()
+        {			
+			var divs = document.getElementsByClassName("ObjectDetailsNotes");
+			for (var j = 0; j < divs.length; j++) {
+				var tmpStr = divs[j].innerHTML;
+				tmpStr = tmpStr.replace(/#gt;/g, "&gt;");
+				tmpStr = tmpStr.replace(/#lt;/g, "&lt;");
+
+				tmpStr = tmpStr.replace(/&gt;/g, ">");
+				tmpStr = tmpStr.replace(/&lt;/g, "<");
+
+				divs[j].innerHTML = tmpStr;
+			}
+
+            if (document.getElementById('TableGroup') != null)
+            {
+                toggleItem(document.getElementById('TableGroup').getElementsByTagName('li')[0].id.replace("Title", ""));
+            }
+
+        }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
+</script>
+<style>
+
+</style>
+</head>
+<body onload="initPage();">
+<div class="section group" >
+
+		<div class="col span_2_of_2 header_frame">
+			<h1> Enumerations::PictogramEnum </h1>
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
+		</div>
+		<div class="col span_2_of_2 breadcrumb_frame">
+			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA759.htm">PayloadPublication</a> / <a href="../EA1583.htm">Vms</a> / <a href="EA1658.htm">Enumerations</a> / <a href="EA1675.htm">PictogramEnum</a></p>
+		</div>
+			
+		<table class="contentmaintable">
+			<!-- <tfoot>
+				<tr>
+					<td>foot1</td>
+					<td>foot2</td>
+				</tr>
+			</tfoot> -->
+			<tbody>
+				<tr>
+					<td class="indexcell">
+						<div class="projectBrowserTitle">Project: </div>
+						<ul>
+<a href="EA1658.htm">Enumerations</a></ul>
+
+					</td>
+					<td class="contentcell"><div class="pageHeader"></div>
+<div class="PageBody">
+	<span class="ObjectTitle">PictogramEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
+	<table border="0" class="ObjectDetails">
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Created:</td>
+			<td width="85%" class="ObjectDetailsValue">27.02.2020 00:06:04</td>
+		</tr>
+		<tr>
+			<td class="ObjectDetailsTopic">Modified:</td>
+			<td class="ObjectDetailsValue">29.11.2022 17:26:14</td>
+		</tr>
+		<tr style="height: 10px"><td colspan="2"></td></tr>
+		<tr>
+			<td class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="../../../../images/plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="proj00" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="proj01" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
+			<td class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr id="proj02" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Phase:</td>
+			<td class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr id="proj03" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Status:</td>
+			<td class="ObjectDetailsValue">Proposed</td>
+		</tr>
+		<tr id="proj04" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Complexity:</td>
+			<td class="ObjectDetailsValue">Easy</td>
+		</tr>
+		<tr id="proj05" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Difficulty:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="proj06" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Priority:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="proj05" style="display: none;">
+			<td class="ObjectDetailsTopic" >Multiplicity:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr>
+			<td class="ObjectDetailsTopic"><button onclick="switchAdvancedProperties()"><img src="../../../../images/plus03.gif" align="absmiddle" id="adv" /></button>Advanced:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="adv00" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
+			<td class="ObjectDetailsValue">{BB611B32-9216-4251-97EF-86CB487A3CD2}</td>
+		</tr>
+		<tr id="adv01" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
+			<td class="ObjectDetailsValue"><a href="EA1656.htm">Enumerations</a></td>
+		</tr>
+	</table>
+	
+	<div class="TableGroup" id="TableGroup">
+		<ul class="ItemTitle">
+			<li onClick="parent != null ? parent.toggleItem('Attributes') : toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
+			<li onClick="parent != null ? parent.toggleItem('TaggedVal') : toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
+			<li onClick="parent != null ? parent.toggleItem('CustomProperties') : toggleItem('CustomProperties');" id="CustomPropertiesTitle">Advanced</li>
+		</ul>
+<div class="ItemBody" id="AttributesTable">
+	<table border="0" cellspacing="0" cellpadding="0" class="Table">
+		<tr>
+			<td width="50%" class="TableHeading">Attribute</td>
+			<td width="25%" class="TableHeading">Scope</td>
+			<td width="25%" class="TableHeading">Type</td>
+		</tr>
+						<tr>
+				<td width="50%" class="TableRow">
+					<a name="{C7F55EB7-F157-4b50-9439-EA8FB16EDFF1}"></a>blankVoid
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Blank or void.<br>order=0<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{19252F9C-BAEB-4baa-908A-FC9F4ABE9D60}"></a>bridgeClosed
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Bridge closed.<br>order=1<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{606F595B-1EAC-41f2-8F3E-5709577FA563}"></a>carParkFull
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Car park full.<br>order=2<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{BF3D5B3C-3576-473a-AD42-3117D5E8DFC8}"></a>carParkSpacesAvailable
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Spaces available in car park.<br>order=3<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{560EC3AA-A4EB-499a-9357-B2B74EEE2794}"></a>corridorForEmergencyVehicleAccess
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Corridor for emergency vehicle access<br>order=4<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{AA5D2FC9-A725-42e7-A71F-F1E021918F8A}"></a>curveArrowToLeft
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumeration
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Single curve arrow to the left corresponding to an exit (without fork).<br>order=5<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{6AEB696C-8D9A-4cf4-B911-A41B8531B34D}"></a>curveArrowToRight
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumeration
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Single curve arrow to the right corresponding to an exit (without fork).<br>order=6<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{D59BD98C-DF52-4705-B3A3-6E618C332FD2}"></a>dangerOfFire
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Danger of fire.<br>order=7<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{B050AB71-5E8D-4af3-9C7F-CFF59EA26AE6}"></a>doubleExitToLeft
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumeration
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Triple arrow corresponding to two sequential exits to the left.<br>order=8<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{C75DA0A8-9B2F-465c-89DB-A988F0ADD14F}"></a>doubleExitToRight
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumeration
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Triple arrow corresponding to two sequential exits to the right.<br>order=9<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{A9AAF406-D9F4-4fd1-8D9F-EA18A0D16D71}"></a>endOfAdvisorySpeed
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=End of advisory speed.<br>order=10<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{65B9C311-71CA-4747-A00C-7923CF9B568A}"></a>fastenChildrensSeatBelts
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Fasten the seat belts of children.<br>order=11<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{0BA3AF91-9ABE-4458-8905-BCF6AB3D07AD}"></a>fastenYourSeatBelt
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Fasten your seat belt.<br>order=12<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{E534D259-E480-4ef5-9FC5-28382034F6E0}"></a>fire
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Fire.<br>order=13<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{E1A8F849-EC60-4755-A0E5-6B40C960C558}"></a>footballMatch
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Football match (current or anticipated disruption due to football match).<br>order=14<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{E9A37A83-E180-4f7b-922A-B008C95C761A}"></a>hardShoulderNotRunning
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The hard shoulder is not being used as a regular traffic lane but is reserved as a hard shoulder.<br>order=15<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{63946AC3-ED7A-4018-9178-D4B80C99966D}"></a>hardShoulderRunning
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The hard shoulder is being used as a regular traffic lane i.e. the lane is not acting as a hard shoulder.<br>order=16<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{8FB026D6-65C1-4954-A8D2-5C4B200C7750}"></a>horizontalDiversionToLeft
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumeration
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Correspond to the horizontal orange (to the left) sign for diversion<br>order=17<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{3F6DFA3B-1307-46fb-99EB-3D3CB48255E2}"></a>horizontalDiversionToRight
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumeration
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Correspond to the horizontal orange (to the right) sign for diversion<br>order=18<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{975F6156-B8C6-415f-A68A-8C25CD8BA30F}"></a>keepASafeDistance
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Keep a safe distance.<br>order=19<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{81FBC93A-370D-4e05-B4F8-8DC280BBCA17}"></a>keepLeft
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Keep left.<br>order=30<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{41EEC6B2-3F53-4fa4-BC87-871EC18AEFF6}"></a>keepRight
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Keep right.<br>order=31<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{38B000FD-01C4-422f-92A6-9C6559D85642}"></a>lane1ClosedOf2
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Lane 1 closed on a 2 lane carriageway. Lanes numbered from nearside (next to hard shoulder on motorway) to central median.<br>order=32<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{210494B1-0E53-4ef1-AD74-0850B0895D93}"></a>lane2ClosedOf2
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Lane 2 closed on a 2 lane carriageway. Lanes numbered from nearside (next to hard shoulder on motorway) to central median.<br>order=33<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{1D5FF93C-BC54-419e-822C-33114CDA25A5}"></a>lane1ClosedOf3
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Lane 1 closed on a 3 lane carriageway. Lanes numbered from nearside (next to hard shoulder on motorway) to central median.<br>order=34<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{B5D928B5-3AF0-4d86-8554-B33ECA4BAA76}"></a>lane3ClosedOf3
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Lane 3 closed on a 3 lane carriageway. Lanes numbered from nearside (next to hard shoulder on motorway) to central median.<br>order=35<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{003AF766-1D95-426a-894F-483A3B3DACEF}"></a>lanes1And2ClosedOf3
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Lanes 1 and 2 closed on a 3 lane carriageway. Lanes numbered from nearside (next to hard shoulder on motorway) to central median.<br>order=36<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{EB9D6715-7E63-42dc-8CE2-87A32EEB1DD8}"></a>lanes2And3ClosedOf3
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Lanes 2 and 3 closed on a 3 lane carriageway. Lanes numbered from nearside (next to hard shoulder on motorway) to central median.<br>order=37<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{CF4F4C6D-A2FC-4e53-9457-B02838827B83}"></a>lane1ClosedOf4
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Lane 1 closed on a 4 lane carriageway. Lanes numbered from nearside (next to hard shoulder on motorway) to central median.<br>order=38<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{8885D623-89D8-460b-983A-02DB46FAEE80}"></a>lane4ClosedOf4
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Lane 4 closed on a 4 lane carriageway. Lanes numbered from nearside (next to hard shoulder on motorway) to central median.<br>order=39<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{7663680C-F40D-4c21-B072-734C147E5A4A}"></a>lanes1And2ClosedOf4
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Lanes 1 and 2 closed on a 4 lane carriageway. Lanes numbered from nearside (next to hard shoulder on motorway) to central median.<br>order=40<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{951A5F2D-A24E-47f7-AEEA-F2060DBEE0E9}"></a>lanes3And4ClosedOf4
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Lanes 3 and 4 closed on a 4 lane carriageway. Lanes numbered from nearside (next to hard shoulder on motorway) to central median.<br>order=41<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{0CA6FCC2-777F-43f5-A076-10F6737AC05A}"></a>lanes1And2And3ClosedOf4
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Lanes 1, 2 and 3 closed on a 4 lane carriageway. Lanes numbered from nearside (next to hard shoulder on motorway) to central median.<br>order=42<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{EC11C4B7-5B30-4ded-8E2A-A8F808CE2872}"></a>lanes2And3And4ClosedOf4
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Lanes 2, 3 and 4 closed on a 4 lane carriageway. Lanes numbered from nearside (next to hard shoulder on motorway) to central median.<br>order=43<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{EBEDA98D-DB70-4c05-BD6D-F95790922E88}"></a>leftHandLaneClosed
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Left-hand lane closed ahead.<br>order=50<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{4A4DEAB1-343C-4899-8080-413AF7705139}"></a>narrowLanesAhead
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Narrow lanes ahead.<br>order=51<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{78896FAD-37DF-4cbe-819D-5E4025FC4DD4}"></a>obliqueArrowToLeft
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumeration
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Single oblique straight arrow to the left corresponding to an exit (without fork).<br>order=52<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{1E8A62D7-7010-466e-B041-D22BCBD98198}"></a>obliqueArrowToRight
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumeration
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Single oblique straight arrow to the right corresponding to an exit (without fork).<br>order=53<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{42FCD1F4-9D6D-4f48-A283-E62EE5AA0E92}"></a>pollutionOrSmogAlert
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Pollution or smog alert.<br>order=54<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{66E70342-4282-4177-8266-C915000903E4}"></a>rightHandLaneClosed
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Right-hand lane closed ahead.<br>order=55<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{DD79672C-B27C-4a41-AF88-A2309C373861}"></a>singleExitToLeft
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumeration
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Double arrow corresponding to a single exit to the left.<br>order=56<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{9FD62F95-61C1-4afe-AD2A-9EB2A882DBD4}"></a>singleExitToRight
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumeration
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Double arrow corresponding to a single exit to the right.<br>order=57<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{360BC7AB-F401-41c7-92FF-6B27320E5F52}"></a>smoke
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Smoke.<br>order=61<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{CD2E8E6C-EE00-4aba-9F5D-693A4B53707E}"></a>snowPloughInAction
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Snow plough(s) in action.<br>order=62<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{C9402F9C-5786-4b36-8E13-18A0910E34D0}"></a>speedCamerasInAction
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Speed cameras in action.<br>order=63<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{441235AD-C1E7-4ed4-8007-B76638C30521}"></a>straightVerticalArrow
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumeration
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Straight vertical arrow (towards top).<br>order=64<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{65782165-4576-4ba7-BD34-FA8D32D14A0C}"></a>trafficDeviatedToOppositeCarriagewayAhead
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=All traffic is diverted to the opposite carriageway ahead in a contraflow layout.<br>order=65<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{B946CDFB-F37F-4f56-B620-AED7028B6681}"></a>trafficPartiallyDeviatedToOppositeCarriagewayAhead
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Traffic is partially diverted to the opposite carriageway ahead in a contraflow layout.<br>order=66<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{EF4DFC45-E6D6-4210-9CF9-CD7BB07F2E82}"></a>tunnelClosed
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Tunnel closed.<br>order=67<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{5374B023-D3BC-4a25-9177-D41A9BE6FFA6}"></a>verticalDiversion
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumeration
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Correspond to the vertical orange sign for diversion.<br>order=68<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{224E5DCF-F489-4a61-8E4A-C5DFE231872F}"></a>other
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Other than as defined in this enumeration.<br>order=100<br>
+						&nbsp;
+						
+				</td>
+			</tr>
+	</table>
+</div>
+<div class="ItemBody" id="TaggedValTable">
+	<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
+		<tr>
+			<td width="50%" class="TableHeading">Tag</td>
+			<td width="50%" class="TableHeading">Value</td>
+		</tr>
+					<tr>
+				<td width="50%" class="TableRow" valign="top">definition</td>
+				<td width="50%" class="TableRow" valign="top">Types of pictogram not currently covered by ISO 14823 Graphic Data Dictionary</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>
+	</table>
+</div>		<div class="ItemBody" id="CustomPropertiesTable">
+			<table class="Table ea_table">
+				<tr>
+					<td width="30%" class="TableHeading">Property</td>
+					<td width="70%" class="TableHeading">Value</td>
+				</tr>
+			<tr>
+				<td width="30%" class="TableRow">isFinalSpecialization:</td>
+				<td width="70%" class="TableRow">0</td>
+			</tr>
+
+
+			</table>
+		</div>	</div>
+ </div>
+ </td>
+				</tr>
+			</tbody>
+		</table>
+		
+</div>
+</body>
+</html>
+

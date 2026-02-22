@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> Vehicle::Vehicle </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA10.htm">Common</a> / <a href="../EA16.htm">Classes</a> / <a href="EA110.htm">Vehicle</a> / <a href="EA113.htm">Vehicle</a></p>
@@ -146,7 +172,7 @@
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA108.htm">Vehicle</a>, <a href="../../../EA4/EA5/EA1/EA4/EA1/EA1178.htm">IndividualVehicleData</a>, <a href="../../../EA4/EA6/EA1/EA4/EA3/EA1338.htm">Accident</a>, <a href="../../../EA4/EA6/EA1/EA4/EA4/EA1342.htm">Obstruction</a></td>
+			<td class="ObjectDetailsValue"><a href="EA108.htm">Vehicle</a>, <a href="../../../EA4/EA5/EA1/EA4/EA1/EA1191.htm">IndividualVehicleData</a>, <a href="../../../EA4/EA6/EA1/EA4/EA3/EA1351.htm">Accident</a>, <a href="../../../EA4/EA6/EA1/EA4/EA4/EA1355.htm">Obstruction</a></td>
 		</tr>
 	</table>
 	
@@ -168,7 +194,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					anonymizedVehicleReference
+					<a name="{192527C6-461E-41b5-8455-B5F898ADE70F}"></a>anonymizedVehicleReference
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -178,14 +204,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A reference for a vehicle derived from vehicle properties such as registration number but encoded so that it does not allow a human to identify the vehicle directly from the encoded value<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					vehicleColour
+					<a name="{E1F26F0D-3389-4aff-8665-557B12193B74}"></a>vehicleColour
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -195,14 +221,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=The colour of the vehicle.<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					vehicleCountryOfOrigin
+					<a name="{C473D797-F10D-422e-AEA4-2414ED53D774}"></a>vehicleCountryOfOrigin
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -212,14 +238,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Specification of the country in which the vehicle is registered. The code is the 2-alpha code as given in EN ISO 3166-1 which is updated by the ISO 3166 Maintenance Agency.<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					vehicleIdentifier
+					<a name="{E3AFC892-2F05-47f2-A5B4-BC6161E55062}"></a>vehicleIdentifier
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -229,14 +255,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A vehicle identification number (VIN) comprising 17 characters that is based on either ISO 3779 or ISO 3780 and uniquely identifies the individual vehicle. This is normally securely attached to the vehicle chassis.<br>order=3<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					vehicleManufacturer
+					<a name="{C878EF83-61EF-4f24-A6C3-E8D8C894CE10}"></a>vehicleManufacturer
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -246,14 +272,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Indicates the stated manufacturer of the vehicle, e.g. Ford.<br>order=4<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					vehicleModel
+					<a name="{38AE2967-2A37-4309-866E-8AC07B358E90}"></a>vehicleModel
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -263,14 +289,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Indicates the model (or range name) of the vehicle, e.g. Mondeo.<br>order=5<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					vehicleRegistrationPlateIdentifier
+					<a name="{34FD9700-3E77-4c8e-A8F5-5BBA9B84EA40}"></a>vehicleRegistrationPlateIdentifier
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -280,14 +306,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=An identifier or code displayed on a vehicle registration plate attached to the vehicle used for official identification purposes. The registration identifier is numeric or alphanumeric and is unique within the issuing authority's region.<br>order=6<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					vehicleStatus
+					<a name="{01DF9474-9C96-4821-AEEC-438BC535B173}"></a>vehicleStatus
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -297,7 +323,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle status.<br>order=7<br>
 						&nbsp;
 						
@@ -314,11 +340,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA6/EA1/EA4/EA4/EA1350.htm">«D2Class» VehicleObstruction</a><br />
+						<a href="../../../EA4/EA5/EA1/EA4/EA1/EA1194.htm">«D2Class» IndividualVehicleDataValues</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> obstructingVehicle<br />
+						<strong>Name:</strong> individualVehicle<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -337,11 +363,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA5/EA1/EA4/EA1/EA1181.htm">«D2Class» IndividualVehicleDataValues</a><br />
+						<a href="../../../EA4/EA6/EA1/EA4/EA3/EA1354.htm">«D2Class» Accident</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> individualVehicle<br />
+						<strong>Name:</strong> vehicleInvolved<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -360,11 +386,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA6/EA1/EA4/EA3/EA1341.htm">«D2Class» Accident</a><br />
+						<a href="../../../EA4/EA6/EA1/EA4/EA4/EA1363.htm">«D2Class» VehicleObstruction</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> vehicleInvolved<br />
+						<strong>Name:</strong> obstructingVehicle<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -393,11 +419,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA111.htm">«D2Class» AxleSpacing</a><br />
+						<a href="../EA25.htm">«D2Class» HazardousMaterials</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> axleSpacingOnVehicle<br />
+						<strong>Name:</strong> hazardousGoodsAssociatedWithVehicle<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -439,11 +465,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA112.htm">«D2Class» AxleWeight</a><br />
+						<a href="EA111.htm">«D2Class» AxleSpacing</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> specificAxleWeight<br />
+						<strong>Name:</strong> axleSpacingOnVehicle<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -462,11 +488,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../EA25.htm">«D2Class» HazardousMaterials</a><br />
+						<a href="EA112.htm">«D2Class» AxleWeight</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> hazardousGoodsAssociatedWithVehicle<br />
+						<strong>Name:</strong> specificAxleWeight<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -526,14 +552,28 @@
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA6/EA1/EA4/EA4/EA1350.htm">«D2Class» VehicleObstruction</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA25.htm">«D2Class» HazardousMaterials</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA5/EA1/EA4/EA1/EA1194.htm">«D2Class» IndividualVehicleDataValues</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">To</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA5/EA1/EA4/EA1/EA1181.htm">«D2Class» IndividualVehicleDataValues</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA6/EA124.htm">«D2Class» VehicleCharacteristics</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA6/EA1/EA4/EA3/EA1354.htm">«D2Class» Accident</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">To</td>
@@ -547,13 +587,6 @@
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA6/EA124.htm">«D2Class» VehicleCharacteristics</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">From</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
 					<td width="30%" class="TableRow" valign="top"><a href="EA112.htm">«D2Class» AxleWeight</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
@@ -561,17 +594,10 @@
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA6/EA1/EA4/EA3/EA1341.htm">«D2Class» Accident</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA6/EA1/EA4/EA4/EA1363.htm">«D2Class» VehicleObstruction</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA25.htm">«D2Class» HazardousMaterials</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 

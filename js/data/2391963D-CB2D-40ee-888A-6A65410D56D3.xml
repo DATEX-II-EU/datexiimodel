@@ -1,5 +1,5 @@
-tocTab[tocTab.length] = new Array("0.4.9.4:1", "", "ParkingStatusPublicationBig", "EARoot/EA4/EA9/EA4/EA1879.htm", "175.png", "188", "0", "", "Logical diagram0","{7AA796C5-74D3-465d-962E-B09BBBD44B0E}");
-tocTab[tocTab.length] = new Array("0.4.9.4:2", "", "ParkingStatusPublication", "EARoot/EA4/EA9/EA4/EA1881.htm", "175.png", "186", "0", "", "Logical diagram0","{920956AC-CE14-45ad-887F-366D608FB4F3}");
-tocTab[tocTab.length] = new Array("0.4.9.4:3", "", "ParkingStatus", "EARoot/EA4/EA9/EA4/EA1883.htm", "175.png", "187", "0", "", "Logical diagram0","{CF1AA4C4-BD74-405c-A73C-C633429ED9A2}");
-tocTab[tocTab.length] = new Array("0.4.9.4:4", "", "Occupancy", "EARoot/EA4/EA9/EA4/EA1885.htm", "175.png", "189", "0", "", "Logical diagram0","{0414328F-4288-425f-95F8-A29EC6FB8C93}");
-tocTab[tocTab.length] = new Array("0.4.9.4:5", "", "«D2Class» ParkingStatusPublication", "EARoot/EA4/EA9/EA4/EA1889.htm", "5.png", "E1110", "0", "", "Class0","{B54ED62D-454D-47f5-82E7-B2D6109D0CA3}");
+tocTab[tocTab.length] = new Array("0.4.9.4:1", "", "ParkingStatusPublicationBig", "EARoot/EA4/EA9/EA4/EA1917.htm", "175.png", "188", "0", "", "Logical diagram0","{7AA796C5-74D3-465d-962E-B09BBBD44B0E}");
+tocTab[tocTab.length] = new Array("0.4.9.4:2", "", "ParkingStatusPublication", "EARoot/EA4/EA9/EA4/EA1919.htm", "175.png", "186", "0", "", "Logical diagram0","{920956AC-CE14-45ad-887F-366D608FB4F3}");
+tocTab[tocTab.length] = new Array("0.4.9.4:3", "", "ParkingStatus", "EARoot/EA4/EA9/EA4/EA1921.htm", "175.png", "187", "0", "", "Logical diagram0","{CF1AA4C4-BD74-405c-A73C-C633429ED9A2}");
+tocTab[tocTab.length] = new Array("0.4.9.4:4", "", "Occupancy", "EARoot/EA4/EA9/EA4/EA1923.htm", "175.png", "189", "0", "", "Logical diagram0","{0414328F-4288-425f-95F8-A29EC6FB8C93}");
+tocTab[tocTab.length] = new Array("0.4.9.4:5", "", "«D2Class» ParkingStatusPublication", "EARoot/EA4/EA9/EA4/EA1927.htm", "5.png", "E1110", "0", "", "Class0","{B54ED62D-454D-47f5-82E7-B2D6109D0CA3}");

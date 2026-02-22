@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> RoadSurfaceConditionMeasurements </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA10.htm">Common</a> / <a href="../EA16.htm">Classes</a> / <a href="EA52.htm">WeatherRelated</a> / <a href="EA44.htm">RoadSurfaceConditionMeasurements</a></p>
@@ -107,17 +133,17 @@
 					</td>
 					<td class="contentcell"><div class="PageBody">
 	<div class="diagram_image"> 
-<img src="EA45.png" usemap="#EA45" border="0" />
+<img src="EA45.png" usemap="#EA45" width="1754" height="846" border="0" />
 
 <MAP NAME="EA45">
-<area shape="rect" coords="962,443,1159,535" href="../EA2/EA81.htm" target="_self">
-<area shape="rect" coords="47,159,307,235" href="EA59.htm" target="_self">
-<area shape="rect" coords="700,443,897,535" href="../EA2/EA77.htm" target="_self">
-<area shape="rect" coords="858,329,1084,421" href="../EA2/EA76.htm" target="_self">
-<area shape="rect" coords="578,297,791,402" href="../EA2/EA79.htm" target="_self">
-<area shape="rect" coords="405,181,692,273" href="../EA2/EA72.htm" target="_self">
-<area shape="rect" coords="48,316,480,408" href="../EA2/EA85.htm" target="_self">
-<area shape="rect" coords="48,10,1159,68" href="EA44.htm" target="_self">
+<area shape="rect" coords="1443,665,1739,803" href="../EA2/EA81.htm" target="_self">
+<area shape="rect" coords="71,239,461,353" href="EA59.htm" target="_self">
+<area shape="rect" coords="1050,665,1346,803" href="../EA2/EA77.htm" target="_self">
+<area shape="rect" coords="1287,494,1626,632" href="../EA2/EA76.htm" target="_self">
+<area shape="rect" coords="867,446,1187,603" href="../EA2/EA79.htm" target="_self">
+<area shape="rect" coords="608,272,1038,410" href="../EA2/EA72.htm" target="_self">
+<area shape="rect" coords="72,474,720,612" href="../EA2/EA85.htm" target="_self">
+<area shape="rect" coords="72,15,1739,102" href="EA44.htm" target="_self">
 </MAP>
  </div>
 	<div class="ObjectTitle">RoadSurfaceConditionMeasurements : Class diagram</div>

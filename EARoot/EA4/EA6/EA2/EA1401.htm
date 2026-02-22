@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Enumerations::RoadworksDurationEnum</title>
+<title>Enumerations::TransitServiceTypeEnum</title>
 <link href="../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Enumerations::RoadworksDurationEnum </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Enumerations::TransitServiceTypeEnum </h1>
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA743.htm">PayloadPublication</a> / <a href="../EA1258.htm">Situation</a> / <a href="EA1353.htm">Enumerations</a> / <a href="EA1401.htm">RoadworksDurationEnum</a></p>
+			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA759.htm">PayloadPublication</a> / <a href="../EA1271.htm">Situation</a> / <a href="EA1366.htm">Enumerations</a> / <a href="EA1401.htm">TransitServiceTypeEnum</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,20 +110,20 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA1353.htm">Enumerations</a></ul>
+<a href="EA1366.htm">Enumerations</a></ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">RoadworksDurationEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
+	<span class="ObjectTitle">TransitServiceTypeEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">24.11.2006 11:23:31</td>
+			<td width="85%" class="ObjectDetailsValue">02.09.2006 12:02:53</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">29.11.2022 17:26:12</td>
+			<td class="ObjectDetailsValue">29.11.2022 17:26:11</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -142,11 +168,11 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{A97D64A9-35B7-40d2-90CA-A68F28DBA689}</td>
+			<td class="ObjectDetailsValue">{AD08E672-AB4B-4d5c-B12F-365C0EB5B156}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA1351.htm">Enumerations</a></td>
+			<td class="ObjectDetailsValue"><a href="EA1364.htm">Enumerations</a></td>
 		</tr>
 	</table>
 	
@@ -165,7 +191,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					longTerm
+					<a name="{B1CA65D4-7E79-4cfa-BE55-352C9FFB2844}"></a>air
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -175,14 +201,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The roadworks are expected to last for a long term (according to a classification scheme used by the responsible road operator)<br>order=0<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Air service.<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					mediumTerm
+					<a name="{EA4FB404-F05E-4307-B2A2-14C15261B4DF}"></a>bus
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -192,14 +218,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The roadworks are expected to last for a medium term (according to a classification scheme used by the responsible road operator)<br>order=1<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Bus service.<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					shortTerm
+					<a name="{33F88F1D-0521-4989-B461-31EC655B28E8}"></a>ferry
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -209,8 +235,76 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The roadworks are expected to last for a short term (according to a classification scheme used by the responsible road operator)<br>order=2<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Ferry service.<br>order=2<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{A91921D9-3CA8-4958-B71F-FB463D2F9515}"></a>hydrofoil
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Hydrofoil service.<br>order=3<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{BA074A9A-B4BC-4795-A5EF-5838E055EB3F}"></a>rail
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Rail service.<br>order=4<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{290BC555-BF9C-45b6-8890-02EE9F6BE489}"></a>tram
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Tram service.<br>order=5<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{3562FCE3-02E4-49e2-9541-40718C1C9EF8}"></a>undergroundMetro
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Underground or metro service.<br>order=6<br>
 						&nbsp;
 						
 				</td>
@@ -225,7 +319,7 @@
 		</tr>
 					<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">Expected durations of roadworks in general terms.</td>
+				<td width="50%" class="TableRow" valign="top">Types of transport services available to the general public.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">

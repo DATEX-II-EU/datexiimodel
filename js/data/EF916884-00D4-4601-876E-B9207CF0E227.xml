@@ -1,2 +1,12 @@
-tocTab[tocTab.length] = new Array("0.4.7.4:1", "", "TrafficRegulationPublication", "EARoot/EA4/EA7/EA4/EA1537.htm", "175.png", "158", "0", "", "Logical diagram0","{E91388A2-BA8C-4d83-A879-E9ACA9F6975E}");
-tocTab[tocTab.length] = new Array("0.4.7.4:2", "", "«D2Identifiable» TrafficRegulationPublication", "EARoot/EA4/EA7/EA4/EA1540.htm", "5.png", "E985", "0", "", "Class0","{F7C1C37C-8425-4564-B8DC-C09071312CD3}");
+tocTab[tocTab.length] = new Array("0.4.7.5:1", "", "TrafficRegulationPublication", "EARoot/EA4/EA7/EA5/EA1559.htm", "175.png", "271", "0", "", "Logical diagram0","{435786FB-8194-4dea-90F2-27816DE1E03C}");
+tocTab[tocTab.length] = new Array("0.4.7.5:2", "", "«D2Class» ActivatedRegulation", "EARoot/EA4/EA7/EA5/EA1563.htm", "5.png", "E1442", "0", "", "Class0","{C89E1588-682B-44b0-A683-62AA8C48CBFC}");
+tocTab[tocTab.length] = new Array("0.4.7.5:3", "", "«D2Class» AdHocTrafficRegulation", "EARoot/EA4/EA7/EA5/EA1564.htm", "5.png", "E1443", "0", "", "Class0","{DDE580B1-1F33-49c9-84E8-2EC7CBF5F50D}");
+tocTab[tocTab.length] = new Array("0.4.7.5:4", "", "«D2Class» AdHocTrafficRegulations", "EARoot/EA4/EA7/EA5/EA1565.htm", "5.png", "E1444", "0", "", "Class0","{21F3F65C-AFCA-429f-A93F-63578B6DEBC3}");
+tocTab[tocTab.length] = new Array("0.4.7.5:5", "", "«D2Class» DynamicTrafficManagement", "EARoot/EA4/EA7/EA5/EA1566.htm", "5.png", "E1445", "0", "", "Class0","{99D31100-CFC6-49d2-85F8-E9D58CD6F812}");
+tocTab[tocTab.length] = new Array("0.4.7.5:6", "", "«D2Class» DynamicTrafficRegulation", "EARoot/EA4/EA7/EA5/EA1567.htm", "5.png", "E1446", "0", "", "Class0","{B09BC11C-E79A-478f-B405-9CD3457D5486}");
+tocTab[tocTab.length] = new Array("0.4.7.5:7", "", "«D2Class» DynamicTrafficRegulations", "EARoot/EA4/EA7/EA5/EA1568.htm", "5.png", "E1447", "0", "", "Class0","{C91E161A-08C9-46a9-ADC2-0138753B371F}");
+tocTab[tocTab.length] = new Array("0.4.7.5:8", "", "«D2Identifiable» TrafficRegulationPublication", "EARoot/EA4/EA7/EA5/EA1569.htm", "5.png", "E1448", "0", "", "Class0","{F7C1C37C-8425-4564-B8DC-C09071312CD3}");
+tocTab[tocTab.length] = new Array("0.4.7.5:9", "", "«D2Class» TrafficRegulationsByAuthorisedActors", "EARoot/EA4/EA7/EA5/EA1570.htm", "5.png", "E1449", "0", "", "Class0","{297F8EA4-D587-47e2-8151-A88FF80BB20C}");
+tocTab[tocTab.length] = new Array("0.4.7.5:10", "", "«D2Class» TrafficRegulationsFromCompetentAuthorities", "EARoot/EA4/EA7/EA5/EA1571.htm", "5.png", "E1450", "0", "", "Class0","{F9F5C08B-1A04-4972-A7D4-FE0FCBE4302A}");
+tocTab[tocTab.length] = new Array("0.4.7.5:11", "", "«D2Class» TrafficRegulationsWithoutTrafficRegulationOrder", "EARoot/EA4/EA7/EA5/EA1572.htm", "5.png", "E1451", "0", "", "Class0","{302ABDF9-E0E5-4293-8099-1B5CD88534DC}");
+tocTab[tocTab.length] = new Array("0.4.7.5:12", "", "«D2Class» TrafficSignals", "EARoot/EA4/EA7/EA5/EA1573.htm", "5.png", "E1452", "0", "", "Class0","{0A1D12BA-31F9-4203-BB53-17285273B34E}");

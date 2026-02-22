@@ -1,6 +1,8 @@
-tocTab[tocTab.length] = new Array("0.4.7:1", "", "namespace dependencies", "EARoot/EA4/EA7/EA1413.htm", "176.png", "147", "0", "", "Package diagram0","{5C9E306C-AB57-42ae-A572-A0DC88E6FB53}");
-tocTab[tocTab.length] = new Array("0.4.7:2", "", "TrafficRegulation", "EARoot/EA4/EA7/EA1415.htm", "175.png", "146", "0", "", "Logical diagram0","{D64BB582-AB94-4774-9E1D-5F27B64C6952}");
-tocTab[tocTab.length] = new Array("0.4.7.1", "1", "«D2Package» Classes", "EARoot/EA4/EA7/EA1/EA1424.htm", "4.png", "", "", "{BB062706-2A94-4f75-BBBD-D0F169FC6967}", "Package");
-tocTab[tocTab.length] = new Array("0.4.7.2", "1", "«D2Package» DataTypes", "EARoot/EA4/EA7/EA2/EA1505.htm", "4.png", "", "", "{F001684D-3467-4f12-943B-1F5B39805E40}", "Package");
-tocTab[tocTab.length] = new Array("0.4.7.3", "1", "«D2Package» Enumerations", "EARoot/EA4/EA7/EA3/EA1511.htm", "4.png", "", "", "{751305A1-1731-4589-ABEA-66C9B288F226}", "Package");
-tocTab[tocTab.length] = new Array("0.4.7.4", "1", "«D2Package» TrafficRegulationPublication", "EARoot/EA4/EA7/EA4/EA1539.htm", "4.png", "", "", "{EF916884-00D4-4601-876E-B9207CF0E227}", "Package");
+tocTab[tocTab.length] = new Array("0.4.7:1", "", "namespace dependencies", "EARoot/EA4/EA7/EA1426.htm", "176.png", "261", "0", "", "Package diagram0","{5C9E306C-AB57-42ae-A572-A0DC88E6FB53}");
+tocTab[tocTab.length] = new Array("0.4.7:2", "", "TrafficRegulation", "EARoot/EA4/EA7/EA1428.htm", "175.png", "260", "0", "", "Logical diagram0","{D64BB582-AB94-4774-9E1D-5F27B64C6952}");
+tocTab[tocTab.length] = new Array("0.4.7.1", "1", "«D2Package» Classes", "EARoot/EA4/EA7/EA1/EA1439.htm", "4.png", "", "", "{BB062706-2A94-4f75-BBBD-D0F169FC6967}", "Package");
+tocTab[tocTab.length] = new Array("0.4.7.2", "1", "«D2Package» DataTypes", "EARoot/EA4/EA7/EA2/EA1520.htm", "4.png", "", "", "{F001684D-3467-4f12-943B-1F5B39805E40}", "Package");
+tocTab[tocTab.length] = new Array("0.4.7.3", "1", "«D2Package» Enumerations", "EARoot/EA4/EA7/EA3/EA1526.htm", "4.png", "", "", "{751305A1-1731-4589-ABEA-66C9B288F226}", "Package");
+tocTab[tocTab.length] = new Array("0.4.7.4", "1", "«D2Package» PredefinedConditionPublication", "EARoot/EA4/EA7/EA4/EA1556.htm", "4.png", "", "", "{FFE8E4E1-2F81-42dc-A37E-C4157F8F7EDA}", "Package");
+tocTab[tocTab.length] = new Array("0.4.7.5", "1", "«D2Package» TrafficRegulationPublication", "EARoot/EA4/EA7/EA5/EA1561.htm", "4.png", "", "", "{EF916884-00D4-4601-876E-B9207CF0E227}", "Package");
+tocTab[tocTab.length] = new Array("0.4.7.6", "1", "«D2Package» WarningPublication", "EARoot/EA4/EA7/EA6/EA1576.htm", "4.png", "", "", "{AF3670D7-02A7-4d57-8218-5B51BEAFCC2E}", "Package");

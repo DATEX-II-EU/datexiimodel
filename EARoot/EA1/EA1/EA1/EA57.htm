@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> WeatherRelated::RoadSurfaceConditionMeasurements </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA10.htm">Common</a> / <a href="../EA16.htm">Classes</a> / <a href="EA52.htm">WeatherRelated</a> / <a href="EA57.htm">RoadSurfaceConditionMeasurements</a></p>
@@ -146,7 +172,7 @@
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA44.htm">RoadSurfaceConditionMeasurements</a>, <a href="../../../EA4/EA5/EA1/EA7/EA1212.htm">WeatherData</a>, <a href="../../../EA4/EA6/EA1/EA4/EA2/EA1330.htm">Conditions</a></td>
+			<td class="ObjectDetailsValue"><a href="EA44.htm">RoadSurfaceConditionMeasurements</a>, <a href="../../../EA4/EA5/EA1/EA7/EA1225.htm">WeatherData</a>, <a href="../../../EA4/EA6/EA1/EA4/EA2/EA1343.htm">Conditions</a></td>
 		</tr>
 	</table>
 	
@@ -167,7 +193,7 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA5/EA1/EA7/EA1219.htm">«D2Class» RoadSurfaceConditionInformation</a><br />
+						<a href="../../../EA4/EA5/EA1/EA7/EA1232.htm">«D2Class» RoadSurfaceConditionInformation</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -190,7 +216,7 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA6/EA1/EA4/EA2/EA1337.htm">«D2Class» WeatherRelatedRoadConditions</a><br />
+						<a href="../../../EA4/EA6/EA1/EA4/EA2/EA1350.htm">«D2Class» WeatherRelatedRoadConditions</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -223,11 +249,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../EA2/EA76.htm">«D2Class» FloatingPointMetreDistanceValue</a><br />
+						<a href="../EA2/EA72.htm">«D2Class» ApplicationRateValue</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> depthOfSnow<br />
+						<strong>Name:</strong> deIcingApplicationRate<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -250,7 +276,7 @@
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> roadSurfaceTemperature<br />
+						<strong>Name:</strong> protectionTemperature<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -269,11 +295,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../EA2/EA85.htm">«D2Class» TemperatureValue</a><br />
+						<a href="../EA2/EA76.htm">«D2Class» FloatingPointMetreDistanceValue</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> protectionTemperature<br />
+						<strong>Name:</strong> depthOfSnow<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -292,11 +318,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../EA2/EA76.htm">«D2Class» FloatingPointMetreDistanceValue</a><br />
+						<a href="../EA2/EA81.htm">«D2Class» PercentageValue</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> waterFilmThickness<br />
+						<strong>Name:</strong> icePercentage<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -338,11 +364,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../EA2/EA81.htm">«D2Class» PercentageValue</a><br />
+						<a href="EA59.htm">«D2Class» TemperatureBelowOrAboveRoadSurface</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> icePercentage<br />
+						<strong>Name:</strong> &nbsp;<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -354,52 +380,6 @@
 					<td class="TableRowBottomDashed"  colspan="3">
 						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink146" /></button>Details:
 							<div id="detailsDIVLink146" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="../EA2/EA72.htm">«D2Class» ApplicationRateValue</a><br />
-						Class «D2Relation» 
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> deIcingApplicationRate<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink147" /></button>Details:
-							<div id="detailsDIVLink147" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="../EA2/EA76.htm">«D2Class» FloatingPointMetreDistanceValue</a><br />
-						Class «D2Relation» 
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> iceLayerThickness<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink148" /></button>Details:
-							<div id="detailsDIVLink148" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -421,6 +401,52 @@
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink147" /></button>Details:
+							<div id="detailsDIVLink147" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="../EA2/EA85.htm">«D2Class» TemperatureValue</a><br />
+						Class «D2Relation» 
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> roadSurfaceTemperature<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink148" /></button>Details:
+							<div id="detailsDIVLink148" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="../EA2/EA76.htm">«D2Class» FloatingPointMetreDistanceValue</a><br />
+						Class «D2Relation» 
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> iceLayerThickness<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
 						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink149" /></button>Details:
 							<div id="detailsDIVLink149" class="DetailsDiv" >
 							&nbsp;
@@ -430,11 +456,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA59.htm">«D2Class» TemperatureBelowOrAboveRoadSurface</a><br />
+						<a href="../EA2/EA76.htm">«D2Class» FloatingPointMetreDistanceValue</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
+						<strong>Name:</strong> waterFilmThickness<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -494,21 +520,7 @@
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA5/EA1/EA7/EA1219.htm">«D2Class» RoadSurfaceConditionInformation</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA2/EA76.htm">«D2Class» FloatingPointMetreDistanceValue</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">From</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA2/EA85.htm">«D2Class» TemperatureValue</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA2/EA72.htm">«D2Class» ApplicationRateValue</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
@@ -523,13 +535,6 @@
 				</tr>
 				<tr>
 					<td width="30%" class="TableRow" valign="top"><a href="../EA2/EA76.htm">«D2Class» FloatingPointMetreDistanceValue</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">From</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA2/EA77.htm">«D2Class» FrictionValue</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
@@ -543,21 +548,21 @@
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA6/EA1/EA4/EA2/EA1337.htm">«D2Class» WeatherRelatedRoadConditions</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA2/EA72.htm">«D2Class» ApplicationRateValue</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA2/EA77.htm">«D2Class» FrictionValue</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA2/EA76.htm">«D2Class» FloatingPointMetreDistanceValue</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA5/EA1/EA7/EA1232.htm">«D2Class» RoadSurfaceConditionInformation</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">To</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA59.htm">«D2Class» TemperatureBelowOrAboveRoadSurface</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
@@ -571,10 +576,31 @@
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA59.htm">«D2Class» TemperatureBelowOrAboveRoadSurface</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA2/EA85.htm">«D2Class» TemperatureValue</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA2/EA76.htm">«D2Class» FloatingPointMetreDistanceValue</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA2/EA76.htm">«D2Class» FloatingPointMetreDistanceValue</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA6/EA1/EA4/EA2/EA1350.htm">«D2Class» WeatherRelatedRoadConditions</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">To</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 

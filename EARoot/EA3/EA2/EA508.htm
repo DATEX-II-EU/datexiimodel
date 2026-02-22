@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Enumerations::LinearDirectionEnum</title>
+<title>Enumerations::RelativePositionOnCarriagewayEnum</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Enumerations::LinearDirectionEnum </h1>
-			<!-- <img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Enumerations::RelativePositionOnCarriagewayEnum </h1>
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA463.htm">LocationReferencing</a> / <a href="EA477.htm">Enumerations</a> / <a href="EA508.htm">LinearDirectionEnum</a></p>
+			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA479.htm">LocationReferencing</a> / <a href="EA493.htm">Enumerations</a> / <a href="EA508.htm">RelativePositionOnCarriagewayEnum</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,20 +110,20 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA477.htm">Enumerations</a></ul>
+<a href="EA493.htm">Enumerations</a></ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">LinearDirectionEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
+	<span class="ObjectTitle">RelativePositionOnCarriagewayEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">14.10.2006 11:42:34</td>
+			<td width="85%" class="ObjectDetailsValue">12.12.2017 09:57:05</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">29.11.2022 17:26:00</td>
+			<td class="ObjectDetailsValue">29.11.2022 17:25:59</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -142,11 +168,11 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{3855110B-58FC-4abc-B24D-F8E0A01CE1DB}</td>
+			<td class="ObjectDetailsValue">{C5310840-C270-4f7e-B7E9-9924082BCA7D}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA475.htm">Enumerations</a></td>
+			<td class="ObjectDetailsValue"><a href="EA491.htm">Enumerations</a></td>
 		</tr>
 	</table>
 	
@@ -165,69 +191,52 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					both
+					<a name="{80890A5C-8B9F-4d84-B591-157E1203A3FF}"></a>inTheCentre
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Indicates that both directions of traffic flow are affected by the situation or relate to the traffic data.<br>order=0<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=In the centre of the roadway.<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					opposite
+					<a name="{DA9CCEF3-A2E4-4082-9447-DEE36B6E53A5}"></a>onTheLeft
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Indicates that the direction of traffic flow affected by the situation or related to the traffic data is in the opposite sense to the direction in which the linear element is defined.<br>order=1<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=On the left of the roadway.<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					aligned
+					<a name="{06C1250D-2603-4653-BE0A-BCAE41D9C789}"></a>onTheRight
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Indicates that the direction of traffic flow affected by the situation or related to the traffic data is in the same sense as the direction in which the linear element is defined.<br>order=2<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					unknown
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Indicates that the direction of traffic flow affected by the situation or related to the traffic data is unknown.<br>order=3<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=On the right of the roadway.<br>order=3<br>
 						&nbsp;
 						
 				</td>
@@ -242,7 +251,7 @@
 		</tr>
 					<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">Directions of traffic flow relative to the direction in which the linear element is defined.</td>
+				<td width="50%" class="TableRow" valign="top">Identifies a relative position across a carriageway</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">

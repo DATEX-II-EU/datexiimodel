@@ -1,4 +1,4 @@
-tocTab[tocTab.length] = new Array("0.4.5.2:1", "", "DataTypes", "EARoot/EA4/EA5/EA2/EA1224.htm", "175.png", "108", "0", "", "Logical diagram0","{595F7F05-C817-41d6-A213-7EEDEF147294}");
-tocTab[tocTab.length] = new Array("0.4.5.2:2", "", "«D2Datatype» DensityVehiclesPerKilometre", "EARoot/EA4/EA5/EA2/EA1227.htm", "230.png", "E656", "0", "", "DataType0","{7B423F0E-D12E-4122-8159-7B8BFD5C7E18}");
-tocTab[tocTab.length] = new Array("0.4.5.2:3", "", "«D2Datatype» PassengerCarUnitsPerHour", "EARoot/EA4/EA5/EA2/EA1228.htm", "230.png", "E657", "0", "", "DataType0","{7974C6D1-2723-4f4d-BD8F-9A1529C1F1E4}");
-tocTab[tocTab.length] = new Array("0.4.5.2:4", "", "«D2Datatype» VehiclesPerDay", "EARoot/EA4/EA5/EA2/EA1229.htm", "230.png", "E658", "0", "", "DataType0","{02041CCE-AC37-4890-A3B4-E8176D30AE97}");
+tocTab[tocTab.length] = new Array("0.4.5.2:1", "", "DataTypes", "EARoot/EA4/EA5/EA2/EA1237.htm", "175.png", "108", "0", "", "Logical diagram0","{595F7F05-C817-41d6-A213-7EEDEF147294}");
+tocTab[tocTab.length] = new Array("0.4.5.2:2", "", "«D2Datatype» DensityVehiclesPerKilometre", "EARoot/EA4/EA5/EA2/EA1240.htm", "230.png", "E656", "0", "", "DataType0","{7B423F0E-D12E-4122-8159-7B8BFD5C7E18}");
+tocTab[tocTab.length] = new Array("0.4.5.2:3", "", "«D2Datatype» PassengerCarUnitsPerHour", "EARoot/EA4/EA5/EA2/EA1241.htm", "230.png", "E657", "0", "", "DataType0","{7974C6D1-2723-4f4d-BD8F-9A1529C1F1E4}");
+tocTab[tocTab.length] = new Array("0.4.5.2:4", "", "«D2Datatype» VehiclesPerDay", "EARoot/EA4/EA5/EA2/EA1242.htm", "230.png", "E658", "0", "", "DataType0","{02041CCE-AC37-4890-A3B4-E8176D30AE97}");

@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> Enumerations::DangerousGoodsRegulationsEnum </h1>
-			<!-- <img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA10.htm">Common</a> / <a href="EA175.htm">Enumerations</a> / <a href="EA180.htm">DangerousGoodsRegulationsEnum</a></p>
@@ -165,7 +191,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					adr
+					<a name="{1EFE5F58-69ED-4eb2-A8B5-0AE56F39D1EF}"></a>adr
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -175,14 +201,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=European agreement on the international carriage of dangerous goods on road.<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					iataIcao
+					<a name="{6D2DBBDB-9BD5-42e9-A99F-A07DE3BBE44E}"></a>iataIcao
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -192,14 +218,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Regulations covering the international transportation of dangerous goods issued by the International Air Transport Association and the International Civil Aviation Organisation.<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					imoImdg
+					<a name="{007DC084-B3BB-4a9e-A1B7-80B1D93425CA}"></a>imoImdg
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -209,14 +235,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Regulations regarding the transportation of dangerous goods on ocean-going vessels issued by the International Maritime Organisation.<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					railroadDangerousGoodsBook
+					<a name="{4E7711FC-FA4A-491b-8417-0B6243AC6215}"></a>railroadDangerousGoodsBook
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -226,7 +252,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=International regulations concerning the international carriage of dangerous goods by rail.<br>order=3<br>
 						&nbsp;
 						

@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> Enumerations </h1>
-			<!-- <img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA10.htm">Common</a> / <a href="EA175.htm">Enumerations</a> / <a href="EA173.htm">Enumerations</a></p>
@@ -124,40 +150,40 @@
 					</td>
 					<td class="contentcell"><div class="PageBody">
 	<div class="diagram_image"> 
-<img src="EA174.png" usemap="#EA174" border="0" />
+<img src="EA174.png" usemap="#EA174" width="4468" height="1497" border="0" />
 
 <MAP NAME="EA174">
-<area shape="rect" coords="526,338,626,492" href="EA189.htm" target="_self">
-<area shape="rect" coords="846,457,966,559" href="EA208.htm" target="_self">
-<area shape="rect" coords="381,368,512,470" href="EA191.htm" target="_self">
-<area shape="rect" coords="10,346,179,552" href="EA183.htm" target="_self">
-<area shape="rect" coords="1874,425,2078,579" href="EA209.htm" target="_self">
-<area shape="rect" coords="1703,427,1847,594" href="EA176.htm" target="_self">
-<area shape="rect" coords="2763,253,2969,745" href="EA207.htm" target="_self">
-<area shape="rect" coords="2549,254,2728,486" href="EA206.htm" target="_self">
-<area shape="rect" coords="2277,256,2481,969" href="EA205.htm" target="_self">
-<area shape="rect" coords="2099,253,2249,511" href="EA204.htm" target="_self">
-<area shape="rect" coords="1882,253,2079,407" href="EA203.htm" target="_self">
-<area shape="rect" coords="1702,253,1862,381" href="EA202.htm" target="_self">
-<area shape="rect" coords="2351,11,2441,178" href="EA201.htm" target="_self">
-<area shape="rect" coords="2216,11,2331,139" href="EA200.htm" target="_self">
-<area shape="rect" coords="2090,11,2196,165" href="EA199.htm" target="_self">
-<area shape="rect" coords="1697,10,1854,204" href="EA198.htm" target="_self">
-<area shape="rect" coords="1367,14,1558,376" href="EA197.htm" target="_self">
-<area shape="rect" coords="990,14,1145,870" href="EA196.htm" target="_self">
-<area shape="rect" coords="848,14,968,441" href="EA195.htm" target="_self">
-<area shape="rect" coords="543,505,748,776" href="EA193.htm" target="_self">
-<area shape="rect" coords="421,505,521,737" href="EA192.htm" target="_self">
-<area shape="rect" coords="193,509,407,1001" href="EA190.htm" target="_self">
-<area shape="rect" coords="26,580,148,708" href="EA188.htm" target="_self">
-<area shape="rect" coords="637,191,755,501" href="EA186.htm" target="_self">
-<area shape="rect" coords="504,191,605,319" href="EA184.htm" target="_self">
-<area shape="rect" coords="382,191,472,358" href="EA181.htm" target="_self">
-<area shape="rect" coords="13,191,192,319" href="EA180.htm" target="_self">
-<area shape="rect" coords="528,17,800,145" href="EA179.htm" target="_self">
-<area shape="rect" coords="176,17,506,158" href="EA178.htm" target="_self">
-<area shape="rect" coords="16,17,154,158" href="EA177.htm" target="_self">
-<area shape="rect" coords="224,191,350,475" href="EA182.htm" target="_self">
+<area shape="rect" coords="789,507,939,719" href="EA189.htm" target="_self">
+<area shape="rect" coords="1269,686,1449,819" href="EA208.htm" target="_self">
+<area shape="rect" coords="572,552,768,686" href="EA191.htm" target="_self">
+<area shape="rect" coords="15,519,269,818" href="EA183.htm" target="_self">
+<area shape="rect" coords="2811,638,3117,849" href="EA209.htm" target="_self">
+<area shape="rect" coords="2555,641,2771,872" href="EA176.htm" target="_self">
+<area shape="rect" coords="4145,380,4454,1118" href="EA207.htm" target="_self">
+<area shape="rect" coords="3824,381,4092,710" href="EA206.htm" target="_self">
+<area shape="rect" coords="3416,384,3722,1434" href="EA205.htm" target="_self">
+<area shape="rect" coords="3149,380,3374,747" href="EA204.htm" target="_self">
+<area shape="rect" coords="2823,380,3119,591" href="EA203.htm" target="_self">
+<area shape="rect" coords="2553,380,2793,552" href="EA202.htm" target="_self">
+<area shape="rect" coords="3527,17,3662,248" href="EA201.htm" target="_self">
+<area shape="rect" coords="3324,17,3497,189" href="EA200.htm" target="_self">
+<area shape="rect" coords="3135,17,3294,228" href="EA199.htm" target="_self">
+<area shape="rect" coords="2546,15,2781,306" href="EA198.htm" target="_self">
+<area shape="rect" coords="2051,21,2337,545" href="EA197.htm" target="_self">
+<area shape="rect" coords="1485,21,1718,1286" href="EA196.htm" target="_self">
+<area shape="rect" coords="1272,21,1452,662" href="EA195.htm" target="_self">
+<area shape="rect" coords="815,758,1122,1145" href="EA193.htm" target="_self">
+<area shape="rect" coords="632,758,782,1086" href="EA192.htm" target="_self">
+<area shape="rect" coords="290,764,611,1482" href="EA190.htm" target="_self">
+<area shape="rect" coords="39,870,222,1043" href="EA188.htm" target="_self">
+<area shape="rect" coords="956,287,1133,732" href="EA186.htm" target="_self">
+<area shape="rect" coords="756,287,908,459" href="EA184.htm" target="_self">
+<area shape="rect" coords="573,287,708,518" href="EA181.htm" target="_self">
+<area shape="rect" coords="20,287,288,459" href="EA180.htm" target="_self">
+<area shape="rect" coords="792,26,1200,209" href="EA179.htm" target="_self">
+<area shape="rect" coords="264,26,759,218" href="EA178.htm" target="_self">
+<area shape="rect" coords="24,26,231,218" href="EA177.htm" target="_self">
+<area shape="rect" coords="336,287,525,693" href="EA182.htm" target="_self">
 </MAP>
  </div>
 	<div class="ObjectTitle">Enumerations : Class diagram</div>

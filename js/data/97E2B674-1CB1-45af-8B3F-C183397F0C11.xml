@@ -1,7 +1,7 @@
-tocTab[tocTab.length] = new Array("0.4.3.2:1", "", "DataTypes", "EARoot/EA4/EA3/EA2/EA914.htm", "175.png", "68", "0", "", "Logical diagram0","{A991572E-57D0-49ec-88B9-E5281E2B5522}");
-tocTab[tocTab.length] = new Array("0.4.3.2:2", "", "«D2Datatype» AmountOfMoney", "EARoot/EA4/EA3/EA2/EA917.htm", "230.png", "E418", "0", "", "DataType0","{94DA9A81-1920-4239-9B84-0B61B5ED4AA5}");
-tocTab[tocTab.length] = new Array("0.4.3.2:3", "", "«D2Datatype» CurrencyCode", "EARoot/EA4/EA3/EA2/EA918.htm", "230.png", "E419", "0", "", "DataType0","{AFF9F891-1272-449e-B18C-C12A7EB11F50}");
-tocTab[tocTab.length] = new Array("0.4.3.2:4", "", "«D2Datatype» Duration", "EARoot/EA4/EA3/EA2/EA919.htm", "230.png", "E420", "0", "", "DataType0","{5C398D35-14B1-448c-A771-433B5BB56FB8}");
-tocTab[tocTab.length] = new Array("0.4.3.2:5", "", "«D2Datatype» IndexReference", "EARoot/EA4/EA3/EA2/EA920.htm", "230.png", "E421", "0", "", "DataType0","{EC367E74-F104-4a1d-B3A2-43C3C10EF9CD}");
-tocTab[tocTab.length] = new Array("0.4.3.2:6", "", "«D2Datatype» SquareMetres", "EARoot/EA4/EA3/EA2/EA921.htm", "230.png", "E422", "0", "", "DataType0","{F4C3CF05-FC41-49cd-A670-AADB661B05D4}");
-tocTab[tocTab.length] = new Array("0.4.3.2:7", "", "«D2Datatype» TimeZone", "EARoot/EA4/EA3/EA2/EA922.htm", "230.png", "E423", "0", "", "DataType0","{38EFFEAC-F231-48a8-8FBA-A708290DB808}");
+tocTab[tocTab.length] = new Array("0.4.3.2:1", "", "DataTypes", "EARoot/EA4/EA3/EA2/EA927.htm", "175.png", "68", "0", "", "Logical diagram0","{A991572E-57D0-49ec-88B9-E5281E2B5522}");
+tocTab[tocTab.length] = new Array("0.4.3.2:2", "", "«D2Datatype» AmountOfMoney", "EARoot/EA4/EA3/EA2/EA930.htm", "230.png", "E418", "0", "", "DataType0","{94DA9A81-1920-4239-9B84-0B61B5ED4AA5}");
+tocTab[tocTab.length] = new Array("0.4.3.2:3", "", "«D2Datatype» CurrencyCode", "EARoot/EA4/EA3/EA2/EA931.htm", "230.png", "E419", "0", "", "DataType0","{AFF9F891-1272-449e-B18C-C12A7EB11F50}");
+tocTab[tocTab.length] = new Array("0.4.3.2:4", "", "«D2Datatype» Duration", "EARoot/EA4/EA3/EA2/EA932.htm", "230.png", "E420", "0", "", "DataType0","{5C398D35-14B1-448c-A771-433B5BB56FB8}");
+tocTab[tocTab.length] = new Array("0.4.3.2:5", "", "«D2Datatype» IndexReference", "EARoot/EA4/EA3/EA2/EA933.htm", "230.png", "E421", "0", "", "DataType0","{EC367E74-F104-4a1d-B3A2-43C3C10EF9CD}");
+tocTab[tocTab.length] = new Array("0.4.3.2:6", "", "«D2Datatype» SquareMetres", "EARoot/EA4/EA3/EA2/EA934.htm", "230.png", "E422", "0", "", "DataType0","{F4C3CF05-FC41-49cd-A670-AADB661B05D4}");
+tocTab[tocTab.length] = new Array("0.4.3.2:7", "", "«D2Datatype» TimeZone", "EARoot/EA4/EA3/EA2/EA935.htm", "230.png", "E423", "0", "", "DataType0","{38EFFEAC-F231-48a8-8FBA-A708290DB808}");

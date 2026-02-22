@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Enumerations::PricingPolicyEnum</title>
+<title>Enumerations::AuthenticationAndIdentificationEnum</title>
 <link href="../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Enumerations::PricingPolicyEnum </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Enumerations::AuthenticationAndIdentificationEnum </h1>
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA743.htm">PayloadPublication</a> / <a href="../EA807.htm">EnergyInfrastructure</a> / <a href="EA864.htm">Enumerations</a> / <a href="EA878.htm">PricingPolicyEnum</a></p>
+			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA759.htm">PayloadPublication</a> / <a href="../EA820.htm">EnergyInfrastructure</a> / <a href="EA877.htm">Enumerations</a> / <a href="EA878.htm">AuthenticationAndIdentificationEnum</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,16 +110,16 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA864.htm">Enumerations</a></ul>
+<a href="EA877.htm">Enumerations</a></ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">PricingPolicyEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
+	<span class="ObjectTitle">AuthenticationAndIdentificationEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">11.06.2019 10:03:12</td>
+			<td width="85%" class="ObjectDetailsValue">01.09.2017 10:32:44</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
@@ -142,11 +168,11 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{126EBFBF-9097-42e4-A9CD-5118B84A6600}</td>
+			<td class="ObjectDetailsValue">{596E4311-9B98-42e5-B0C4-B563DC04F846}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="../EA1/EA817.htm">ElectricChargingPoint</a>, <a href="../EA4/EA856.htm">EnergyInfrastructureTablePublication</a></td>
+			<td class="ObjectDetailsValue"><a href="../EA4/EA869.htm">EnergyInfrastructureTablePublication</a></td>
 		</tr>
 	</table>
 	
@@ -165,7 +191,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					pricePerChargingTime
+					<a name="{53E6A776-A600-488a-B227-1039B7998135}"></a>activeRFIDChip
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -175,14 +201,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The charging time defines the price.<br>order=0<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					changed=new<br>definition=Phone (active RFID chip)<br>order=0<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					pricePerDeliveryUnit
+					<a name="{AF605895-D04C-4e14-BE0A-87B4610584D1}"></a>apps
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -192,14 +218,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The amount of delivery units (see DeliveryUnitEnum) defines the price.<br>order=1<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					changed=new<br>definition=Apps<br>order=1<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					contract
+					<a name="{8847FD83-E848-499d-8205-739B2C7A5404}"></a>calypso
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -209,14 +235,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A contract defines the pricing.<br>order=2<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					changed=new<br>definition=RFID Calypso<br>order=2<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					flatRate
+					<a name="{D48BD374-B308-42d7-A826-D140D25A71A6}"></a>cashPayment
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -226,14 +252,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Customers can or must have (depends on other available options) a flatrate to use the RefillPoint.<br>order=3<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					changed=new<br>definition=No specific authentication by using cash<br>order=3<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					unknown
+					<a name="{2F669AC2-A57B-4a8f-B22D-F3EF61D67BBF}"></a>creditCard
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -243,14 +269,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The pricing details are unknown.<br>order=4<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					changed=new<br>definition=Credit card<br>order=4<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					free
+					<a name="{04972C1C-699C-4734-B580-E58A079599A7}"></a>debitCard
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -260,14 +286,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Charging is free.<br>order=5<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					changed=new<br>definition=Debit card<br>order=5<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					other
+					<a name="{9AD2394F-4A65-44c0-ADA0-D66456C9F422}"></a>mifareClassic
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -277,8 +303,212 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Other method of pricing.<br>order=6<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					changed=new<br>definition=RFID Card / Phone NFC - Mifare Classic<br>order=6<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{222B0978-3678-4f76-BEDA-F7F8D58CA1B9}"></a>mifareDesfire
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					changed=new<br>definition=RFID Card / Phone NFC - Mifare Desfire<br>order=7<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{CF16A133-07EC-4ab2-A69B-BC7D0D32493D}"></a>nfc
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					changed=new<br>definition=Nearfield communication<br>order=8<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{D5D95F45-9008-4ff4-8E58-4512145E0222}"></a>overTheAir
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					changed=new<br>definition=Over the air according to ISO 15118<br>order=9<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{0CFF3776-6DB7-4e18-90DA-83BD86D8CEED}"></a>phoneDialog
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					changed=new<br>definition=phone (dialog with platform)<br>order=10<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{D2F98BEA-6AA1-40b3-9ADA-E8F24C60E900}"></a>phoneSMS
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					changed=new<br>definition=Phone (SMS)<br>order=11<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{8A34AB4D-84F1-4a09-AF51-AE79DCC83B82}"></a>pinpad
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					changed=new<br>definition=PINPAD<br>order=12<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{599ED1D8-9E85-4a58-98C7-AD308964A993}"></a>plc
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					changed=new<br>definition=PLC according to ISO 15118<br>order=13<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{2485272A-6EC6-48a5-8F81-8427466626D6}"></a>prepaidCard
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					changed=new<br>definition=Pre-Paid card<br>order=14<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{5034C2E3-796E-44e2-BC8C-04C6240D513A}"></a>rfid
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					changed=new<br>definition=RFID<br>order=15<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{91CF0FC3-AF72-461b-9149-BFCE33804DAA}"></a>website
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					changed=new<br>definition=Using a website<br>order=16<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{32100144-61CC-4ff6-A539-7E0C422E350A}"></a>unlimitedAccess
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					changed=new<br>definition=No authentication/identification required.<br>order=17<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{E5F16B18-1328-4990-B485-2C166616281B}"></a>noAccess
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					changed=new<br>definition=No access granted<br>order=18<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
 						&nbsp;
 						
 				</td>
@@ -293,7 +523,7 @@
 		</tr>
 					<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">A list of possible pricing policies at refill points</td>
+				<td width="50%" class="TableRow" valign="top">A table of authentication and/or identification methods</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">

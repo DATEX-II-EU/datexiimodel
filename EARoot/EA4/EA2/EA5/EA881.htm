@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Enumerations::ServiceTypeEnum</title>
+<title>Enumerations::ChargingPointUsageTypeEnum</title>
 <link href="../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Enumerations::ServiceTypeEnum </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Enumerations::ChargingPointUsageTypeEnum </h1>
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA743.htm">PayloadPublication</a> / <a href="../EA807.htm">EnergyInfrastructure</a> / <a href="EA864.htm">Enumerations</a> / <a href="EA881.htm">ServiceTypeEnum</a></p>
+			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA759.htm">PayloadPublication</a> / <a href="../EA820.htm">EnergyInfrastructure</a> / <a href="EA877.htm">Enumerations</a> / <a href="EA881.htm">ChargingPointUsageTypeEnum</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,16 +110,16 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA864.htm">Enumerations</a></ul>
+<a href="EA877.htm">Enumerations</a></ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">ServiceTypeEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
+	<span class="ObjectTitle">ChargingPointUsageTypeEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">04.12.2017 16:33:48</td>
+			<td width="85%" class="ObjectDetailsValue">22.01.2019 16:45:49</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
@@ -106,7 +132,7 @@
 		</tr>
 		<tr id="proj00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue">Strohschein</td>
+			<td class="ObjectDetailsValue">Freudenstein</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
@@ -142,11 +168,11 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{B1249602-025A-4817-9133-FE026C628761}</td>
+			<td class="ObjectDetailsValue">{505A5680-27DA-4d18-B76A-359EFFF26321}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="../EA4/EA856.htm">EnergyInfrastructureTablePublication</a></td>
+			<td class="ObjectDetailsValue"><a href="../EA1/EA830.htm">ElectricChargingPoint</a>, <a href="../EA4/EA869.htm">EnergyInfrastructureTablePublication</a></td>
 		</tr>
 	</table>
 	
@@ -165,7 +191,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					fullService
+					<a name="{F8340814-0302-44a0-B118-6A459F0FB5FD}"></a>electricBoat
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -175,14 +201,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					changed=new<br>definition=Full fuelling service carried out by an employee.<br>order=0<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Charging of electric boats<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					selfService
+					<a name="{DAA7DA1C-9C86-477c-AAA6-DF11CDCF8616}"></a>electricBike
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -192,14 +218,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					changed=new<br>definition=Self Service for fuelling<br>order=1<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Charging of E-Bikes<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					unattended
+					<a name="{7EA08F23-0EC6-4998-99BB-8057920517DA}"></a>electricalDevices
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -209,8 +235,110 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					changed=new<br>definition=Unattended station, fuelling and payment to be done without assistance.<br>order=2<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Provides a plug for electrical devices (e.g. shaver, mobile phones, hair dryer, ...)<br>order=2<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{949F67A9-18FD-4332-B651-312F0AB71886}"></a>electricMotorcycle
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Charging of E-Motorcycles<br>order=3<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{E6B539AB-3191-46ed-BA9B-862471D76009}"></a>electricVehicle
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Charging of electric vehicles<br>order=4<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{1E589557-8F55-4b75-AE81-D52EE080A22D}"></a>lorryPowerConsumption
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Supply for lorries with power consumption, e.g. for refrigerated goods transports.<br>order=5<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{D6A299C4-B938-44c4-8AC9-30A8D3EE317C}"></a>motorhomeOrCaravanSupply
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Supply for motorhomes or caravans<br>order=6<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{49F0A15F-5F5C-43ab-8636-C2D6699A5CC5}"></a>overheadLineDrivenVehicles
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The charging point supplies a overhead line, usually connected via pantographs<br>order=7<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{0949822E-F335-4b69-986F-8C0C172EF877}"></a>other
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Other usage for the electric charging stations.<br>order=99<br>
 						&nbsp;
 						
 				</td>
@@ -225,7 +353,7 @@
 		</tr>
 					<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">A table of different service levels to be expected for fuelling/charging and payment.</td>
+				<td width="50%" class="TableRow" valign="top">Type of usage for an electric charging point..</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">

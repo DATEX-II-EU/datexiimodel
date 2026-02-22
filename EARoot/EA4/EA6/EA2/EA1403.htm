@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Enumerations::DisturbanceActivityTypeEnum</title>
+<title>Enumerations::ConstructionWorkTypeEnum</title>
 <link href="../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Enumerations::DisturbanceActivityTypeEnum </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Enumerations::ConstructionWorkTypeEnum </h1>
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA743.htm">PayloadPublication</a> / <a href="../EA1258.htm">Situation</a> / <a href="EA1353.htm">Enumerations</a> / <a href="EA1403.htm">DisturbanceActivityTypeEnum</a></p>
+			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA759.htm">PayloadPublication</a> / <a href="../EA1271.htm">Situation</a> / <a href="EA1366.htm">Enumerations</a> / <a href="EA1403.htm">ConstructionWorkTypeEnum</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,20 +110,20 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA1353.htm">Enumerations</a></ul>
+<a href="EA1366.htm">Enumerations</a></ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">DisturbanceActivityTypeEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
+	<span class="ObjectTitle">ConstructionWorkTypeEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">18.06.2004 11:05:55</td>
+			<td width="85%" class="ObjectDetailsValue">25.10.2006 17:11:26</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">29.11.2022 17:26:12</td>
+			<td class="ObjectDetailsValue">29.11.2022 17:26:11</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -142,11 +168,11 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{997A4339-FD4A-4e5a-8307-2E5F6BF17FE4}</td>
+			<td class="ObjectDetailsValue">{9D6F08AF-E84C-4ea2-B541-A2F0FA565FD4}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA1351.htm">Enumerations</a></td>
+			<td class="ObjectDetailsValue"><a href="EA1364.htm">Enumerations</a></td>
 		</tr>
 	</table>
 	
@@ -165,7 +191,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					airRaid
+					<a name="{961064D5-3172-4560-B46F-0D0F1AD62626}"></a>blastingWork
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -175,14 +201,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A situation relating to any threat from foreign air power.<br>order=0<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Blasting or quarrying work at the specified location.<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					altercationOfVehicleOccupants
+					<a name="{4B3929CC-40C0-4e85-8373-62AF136AFA4E}"></a>constructionWork
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -192,14 +218,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=An altercation (argument, dispute or fight) between two or more vehicle occupants.<br>order=1<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Construction work of a general nature at the specified location.<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					assault
+					<a name="{F5962D44-B1E2-4a07-B3D3-42638D5613F7}"></a>demolitionWork
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -209,14 +235,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A situation where an assault has taken place on one or more persons.<br>order=2<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Demolition work associated with the construction work.<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					assetDestruction
+					<a name="{B4AA8BA3-F49B-4936-8C5A-1F317BC94491}"></a>roadImprovementOrUpgrading
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -226,14 +252,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A situation where assets of one or more persons or authorities have been destroyed.<br>order=3<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Construction work associated with improvements to the road or its layout or with it upgrading.<br>order=3<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					attack
+					<a name="{B50183C5-C55C-4bca-B96D-EDCFA8B1B7CF}"></a>roadWideningWork
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -243,433 +269,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A situation where an attack on a group of people or properties has taken place.<br>order=4<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					attackOnVehicle
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A situation where an attack on a vehicle or its occupants has taken place.<br>order=5<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					blockadeOrBarrier
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A manned blockade or barrier across a road stopping vehicles passing.<br>order=6<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					bombAlert
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=An alert to a situation where suspected or actual explosive or incendiary devices may cause disruption to traffic.<br>order=7<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					crowd
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A major gathering of people that could disrupt traffic.<br>order=8<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					demonstration
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A public protest with the potential to disrupt traffic.<br>order=9<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					evacuation
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A situation where a definite area is being cleared due to dangerous conditions or for security reasons.<br>order=10<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					filterBlockade
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A manned blockade of a road where only certain vehicles are allowed through.<br>order=11<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					goSlowOperation
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=As a form of protest, several vehicles are driving in a convoy at a low speed which is affecting the normal traffic flow.<br>order=12<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					gunfireOnRoadway
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A situation involving gunfire, perceived or actual, on or near the roadway through an act of terrorism or crime, which could disrupt traffic.<br>order=13<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					illVehicleOccupants
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=One or more occupants of a vehicle are seriously ill, possibly requiring specialist services or assistance. This may disrupt normal traffic flow.<br>order=14<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					march
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A situation where people are walking together in large groups for a common purpose, with potential to disrupt traffic.<br>order=15<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					peopleThrowingObjectsOnTheRoad
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=People throwing objects on the road<br>order=16<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					publicDisturbance
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A situation of public disorder, with potential to disrupt traffic.<br>order=17<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					radioactiveLeakAlert
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=An alert to a radioactive leak which may endanger the public and hence may cause traffic disruption.<br>order=18<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					riot
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A situation of public disorder involving violent behaviour and/or destruction of property with the potential to disrupt traffic.<br>order=19<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					sabotage
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A situation resulting from any act of sabotage.<br>order=20<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					securityAlert
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=An official alert to a perceived or actual threat of crime or terrorism, which could disrupt traffic.<br>order=21<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					securityIncident
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A situation related to a perceived or actual threat of crime or terrorism, which could disrupt traffic.<br>order=22<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					sightseersObstructingAccess
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Attendees or sightseers to reported event(s) causing obstruction to access.<br>order=23<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					strike
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A situation resulting from industrial action that could disrupt traffic.<br>order=24<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					terroristIncident
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A situation related to a perceived or actual threat of terrorism, which could disrupt traffic.<br>order=25<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					theft
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A situation where assets of one or more persons or authorities have been stolen.<br>order=26<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					toxicCloudAlert
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=An alert to a toxic release of gases and/or particulates into the environment which may endanger the public and hence may cause traffic disruption.<br>order=27<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					unspecifiedAlert
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=An alert to a perceived or actual threat of an unspecified nature, which could disrupt traffic.<br>order=28<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					other
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Other than as defined in this enumeration.<br>order=29<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Road widening work at the specified location.<br>order=4<br>
 						&nbsp;
 						
 				</td>
@@ -684,7 +285,7 @@
 		</tr>
 					<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">Types of disturbance activities.</td>
+				<td width="50%" class="TableRow" valign="top">Types of works relating to construction.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">

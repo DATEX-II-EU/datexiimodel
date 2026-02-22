@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> Enumerations::LoadTypeEnum </h1>
-			<!-- <img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA10.htm">Common</a> / <a href="EA175.htm">Enumerations</a> / <a href="EA190.htm">LoadTypeEnum</a></p>
@@ -146,7 +172,7 @@
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA173.htm">Enumerations</a>, <a href="../../EA2/EA3/EA1/EA303.htm">DataTypes and Enumerations</a></td>
+			<td class="ObjectDetailsValue"><a href="EA173.htm">Enumerations</a>, <a href="../../EA2/EA4/EA2/EA319.htm">Enumerations</a></td>
 		</tr>
 	</table>
 	
@@ -166,7 +192,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					abnormalLoad
+					<a name="{A326131A-85CE-4652-ABCA-F1987C2A9C1E}"></a>abnormalLoad
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -176,14 +202,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A load that exceeds normal vehicle dimensions in terms of height, length, width, gross vehicle weight or axle weight or any combination of these. Generally termed an "abnormal load".<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					ammunition
+					<a name="{1EB2046B-0E54-4b7c-AD3E-267AA39252C3}"></a>ammunition
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -193,14 +219,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Ammunition.<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					chemicals
+					<a name="{F72EC389-DF8D-4fad-BD06-91261074AAB6}"></a>chemicals
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -210,14 +236,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Chemicals of unspecified type.<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					combustibleMaterials
+					<a name="{5B2F30D4-0144-4733-A39D-9DFF415B79D9}"></a>combustibleMaterials
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -227,14 +253,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Combustible materials of unspecified type.<br>order=3<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					corrosiveMaterials
+					<a name="{F7E71899-7335-4bd4-961D-CA97A09DC49D}"></a>corrosiveMaterials
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -244,14 +270,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Corrosive materials of unspecified type.<br>order=4<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					debris
+					<a name="{774EF418-75F2-4288-8357-882BE09D765C}"></a>debris
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -261,14 +287,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Debris of unspecified type.<br>order=5<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					empty
+					<a name="{915C840C-4F5D-46f6-B50C-E98C950CFCD1}"></a>empty
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -278,14 +304,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=No load.<br>order=6<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					explosiveMaterials
+					<a name="{5DA783B1-9645-417a-B887-81632F1014E0}"></a>explosiveMaterials
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -295,14 +321,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Explosive materials of unspecified type.<br>order=7<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					extraHighLoad
+					<a name="{9BDFE4D6-80AF-4ac2-9FFB-87C1855A6CF1}"></a>extraHighLoad
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -312,14 +338,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A load of exceptional height.<br>order=8<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					extraLongLoad
+					<a name="{9A0F5E93-5F65-4831-B34B-B719872C3EC3}"></a>extraLongLoad
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -329,14 +355,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A load of exceptional length.<br>order=9<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					extraWideLoad
+					<a name="{9D13C016-3E88-4a17-94B7-42E10EDEC230}"></a>extraWideLoad
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -346,14 +372,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A load of exceptional width.<br>order=10<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					fuel
+					<a name="{A0DA6FA8-F3E8-4bba-9818-416AF68A517A}"></a>fuel
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -363,14 +389,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Fuel of unspecified type.<br>order=11<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					glass
+					<a name="{2159DEF2-1525-4233-90DE-A5AE131CB4D5}"></a>glass
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -380,14 +406,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Glass.<br>order=12<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					goods
+					<a name="{D9F007A3-A44C-449e-9FDC-879B2C73B320}"></a>goods
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -397,14 +423,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Any goods of a commercial nature.<br>order=13<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					hazardousMaterials
+					<a name="{C30DDCB0-5D75-4bd9-A2AC-B5E148413E75}"></a>hazardousMaterials
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -414,14 +440,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Materials classed as being of a hazardous nature.<br>order=14<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					liquid
+					<a name="{AF093328-B6FD-453a-AC05-3E356E21468A}"></a>liquid
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -431,14 +457,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Liquid of an unspecified nature.<br>order=15<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					livestock
+					<a name="{D5EAF96E-7F33-4bd8-B415-1F03B1BCE72E}"></a>livestock
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -448,14 +474,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Livestock.<br>order=16<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					materials
+					<a name="{000251FB-0547-475c-88AB-4A9536EB6991}"></a>materials
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -465,14 +491,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=General materials of unspecified type.<br>order=17<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					materialsDangerousForPeople
+					<a name="{1A1BA78B-5D48-4c1e-90C3-4E83B2431CAB}"></a>materialsDangerousForPeople
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -482,14 +508,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Materials classed as being of a danger to people or animals.<br>order=18<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					materialsDangerousForTheEnvironment
+					<a name="{BF5F102E-1932-4f8f-B680-7266D9913648}"></a>materialsDangerousForTheEnvironment
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -499,14 +525,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Materials classed as being potentially dangerous to the environment.<br>order=19<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					materialsDangerousForWater
+					<a name="{8BFA2152-FA75-443d-B95D-1E30938A499A}"></a>materialsDangerousForWater
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -516,14 +542,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Materials classed as being dangerous when exposed to water (e.g. materials which may react exothermically with water).<br>order=20<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					oil
+					<a name="{7D66BD72-145F-4e55-B4EF-6C52DB8CADF3}"></a>oil
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -533,14 +559,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Oil.<br>order=21<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					ordinary
+					<a name="{8BBF9BE0-2330-46ae-9BD2-567C9F41267B}"></a>ordinary
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -550,14 +576,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Materials that present limited environmental or health risk. Non-combustible, non-toxic, non-corrosive.<br>order=22<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					perishableProducts
+					<a name="{1378DBFA-59B7-43ea-977B-3E90B20A54AF}"></a>perishableProducts
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -567,14 +593,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Products or produce that will significantly degrade in quality or freshness over a short period of time.<br>order=23<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					petrol
+					<a name="{FDA33689-00BC-40f9-B5DE-96632BC3DA72}"></a>petrol
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -584,14 +610,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Petrol or petroleum.<br>order=24<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					pharmaceuticalMaterials
+					<a name="{B017A5C8-1B47-42ba-B749-D3348EB87B0C}"></a>pharmaceuticalMaterials
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -601,14 +627,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Pharmaceutical materials.<br>order=25<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					radioactiveMaterials
+					<a name="{A47904C4-E3E6-418a-81FE-9AA256BCE143}"></a>radioactiveMaterials
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -618,14 +644,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Materials that emit significant quantities of electro-magnetic radiation that may present a risk to people, animals or the environment.<br>order=26<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					refrigeratedGoods
+					<a name="{A014447F-C821-4faa-8ED6-E8444DF8F61C}"></a>refrigeratedGoods
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -635,14 +661,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Refrigerated goods.<br>order=27<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					refuse
+					<a name="{464518DB-5AB2-4464-96BD-E9C5C3238F33}"></a>refuse
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -652,14 +678,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Refuse.<br>order=28<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					toxicMaterials
+					<a name="{4056DD7B-EF69-4d15-BD93-D00113C748C5}"></a>toxicMaterials
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -669,14 +695,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Materials of a toxic nature which may damage the environment or endanger public health.<br>order=29<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					vehicles
+					<a name="{76CF149A-7F63-4013-83EC-DAF8086AB1D9}"></a>vehicles
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -686,14 +712,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicles of any type which are being transported.<br>order=30<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					other
+					<a name="{64CDE770-2DCC-420d-B3A6-BFD4445D39C2}"></a>other
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -703,7 +729,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Other than as defined in this enumeration.<br>order=100<br>
 						&nbsp;
 						
@@ -751,7 +777,7 @@
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA3/EA1/EA328.htm">«D2Enumeration» LoadTypeEnumExtended</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA4/EA2/EA345.htm">«D2Enumeration» LoadTypeEnumExtended</a></td>
 					<td width="10%" class="TableRow" valign="top">Enumeration</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">From</td>

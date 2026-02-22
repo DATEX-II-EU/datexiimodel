@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> Enumerations::VehicleUsageEnum </h1>
-			<!-- <img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA10.htm">Common</a> / <a href="EA175.htm">Enumerations</a> / <a href="EA206.htm">VehicleUsageEnum</a></p>
@@ -146,7 +172,7 @@
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA173.htm">Enumerations</a>, <a href="../../EA2/EA3/EA1/EA303.htm">DataTypes and Enumerations</a></td>
+			<td class="ObjectDetailsValue"><a href="EA173.htm">Enumerations</a>, <a href="../../EA2/EA4/EA2/EA319.htm">Enumerations</a></td>
 		</tr>
 	</table>
 	
@@ -166,7 +192,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					agricultural
+					<a name="{38C1F70A-BFC9-400d-8586-1C11264899FB}"></a>agricultural
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -176,14 +202,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle used for agricultural purposes.<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					carSharing
+					<a name="{8096BE40-841A-4248-96F2-78DFA67AFCD4}"></a>carSharing
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -193,14 +219,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicles operated by a car-sharing company.<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					cityLogistics
+					<a name="{DF4DD7FA-75BD-48b7-95F5-FCF640A264D0}"></a>cityLogistics
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -210,14 +236,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicles that are used to deliver goods in a city area.<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					commercial
+					<a name="{0F7CDD91-C97B-4992-B264-DB945033B827}"></a>commercial
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -227,14 +253,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle which is limited to non-private usage or public transport usage.<br>order=3<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					emergencyServices
+					<a name="{42F12C21-7D0D-48bf-A9D4-865C5DA28080}"></a>emergencyServices
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -244,14 +270,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle used by the emergency services.<br>order=4<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					military
+					<a name="{FE951ADD-3AA2-4cc7-82AA-4807A59FB8B9}"></a>military
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -261,14 +287,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle used by the military.<br>order=5<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					nonCommercial
+					<a name="{1785002D-1D71-4836-B4A5-1ADB8EFCACA9}"></a>nonCommercial
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -278,14 +304,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle used for non-commercial or private purposes.<br>order=6<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					patrol
+					<a name="{DD2CD33F-FD64-483d-8CB1-E70289ED49DA}"></a>patrol
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -295,14 +321,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle used as part of a patrol service, e.g. road operator or automobile association patrol vehicle.<br>order=7<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					recoveryServices
+					<a name="{2FA01B65-1AC8-4c5d-B0A6-735157AE042F}"></a>recoveryServices
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -312,14 +338,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle used to provide a recovery service.<br>order=8<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					roadMaintenanceOrConstruction
+					<a name="{1C7588AE-FF40-4e28-A984-8AAA9783B912}"></a>roadMaintenanceOrConstruction
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -329,14 +355,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle used for road maintenance or construction work purposes.<br>order=9<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					roadOperator
+					<a name="{ABFC47C6-4442-4684-9EA8-45E4CC0DC073}"></a>roadOperator
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -346,14 +372,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle used by the road operator.<br>order=10<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					taxi
+					<a name="{D3641269-C67F-4d26-8A2B-3FB98F816D9E}"></a>taxi
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -363,7 +389,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle used to provide an authorised taxi service.<br>order=11<br>
 						&nbsp;
 						
@@ -411,7 +437,7 @@
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA3/EA1/EA341.htm">«D2Enumeration» VehicleUsageExtended</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA4/EA2/EA361.htm">«D2Enumeration» VehicleUsageExtended</a></td>
 					<td width="10%" class="TableRow" valign="top">Enumeration</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">From</td>

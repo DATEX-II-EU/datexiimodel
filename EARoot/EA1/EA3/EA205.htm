@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> Enumerations::VehicleTypeEnum </h1>
-			<!-- <img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA10.htm">Common</a> / <a href="EA175.htm">Enumerations</a> / <a href="EA205.htm">VehicleTypeEnum</a></p>
@@ -146,7 +172,7 @@
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA173.htm">Enumerations</a>, <a href="../../EA2/EA3/EA1/EA303.htm">DataTypes and Enumerations</a>, <a href="../../EA2/EA6/EA432.htm">UrbanExtensions III</a>, <a href="../../EA2/EA6/EA436.htm">VehicleType</a></td>
+			<td class="ObjectDetailsValue"><a href="EA173.htm">Enumerations</a>, <a href="../../EA2/EA4/EA2/EA319.htm">Enumerations</a>, <a href="../../EA2/EA7/EA448.htm">UrbanExtensions III</a>, <a href="../../EA2/EA7/EA452.htm">VehicleType</a></td>
 		</tr>
 	</table>
 	
@@ -166,7 +192,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					agriculturalVehicle
+					<a name="{93C98B7E-B473-45ac-8E20-0D8ED6A8F4D2}"></a>agriculturalVehicle
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -176,14 +202,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle normally used for agricultural purposes, e.g. tractor, combined harvester etc.<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					anyVehicle
+					<a name="{D8209F4D-8B30-495d-A58C-B637D23007CA}"></a>anyVehicle
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -193,14 +219,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle of any type.<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					articulatedBus
+					<a name="{E3651E09-20E1-439d-A137-6EC8086838C1}"></a>articulatedBus
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -210,14 +236,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Articulated bus<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					articulatedTrolleyBus
+					<a name="{8D416E72-781C-4467-9CFE-AA625716E782}"></a>articulatedTrolleyBus
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -227,14 +253,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Articulated trolley bus<br>order=3<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					articulatedVehicle
+					<a name="{61ACAC61-DEDE-4c9e-8C1B-E1C0CD9FB89D}"></a>articulatedVehicle
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -244,14 +270,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Articulated vehicle.<br>order=4<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					bicycle
+					<a name="{21DBB12B-3638-41e6-BE4A-919C1867A047}"></a>bicycle
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -261,14 +287,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Bicycle.<br>order=5<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					bus
+					<a name="{1162D797-4061-48b1-9701-EEBC4337960C}"></a>bus
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -278,14 +304,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Bus.<br>order=6<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					car
+					<a name="{92349491-7AAE-4089-9DE8-2A4E74F7DB8C}"></a>car
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -295,14 +321,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicles designed and constructed for the carriage of passengers and comprising no more than eight seats in addition to the driver’s seat, and having a maximum mass (“technically permissible maximum laden mass”) not exceeding 3.5 tons (M1).<br>order=7<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					caravan
+					<a name="{477A07B6-C822-4472-BAF4-49F7103BFE46}"></a>caravan
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -312,14 +338,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Caravan.<br>order=8<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					carOrLightVehicle
+					<a name="{0FD582CF-77FC-41f5-B34F-A9BEF5C40C4E}"></a>carOrLightVehicle
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -329,14 +355,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Car or light vehicle.<br>order=9<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					carWithCaravan
+					<a name="{FE9D9504-C6B6-4acd-A29B-A8DDD21A4544}"></a>carWithCaravan
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -346,14 +372,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Car towing a caravan.<br>order=10<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					carWithTrailer
+					<a name="{A38C3334-25B2-42b6-A159-2D08D3848256}"></a>carWithTrailer
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -363,14 +389,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Car towing a trailer.<br>order=11<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					constructionOrMaintenanceVehicle
+					<a name="{FF174F9D-0F75-43d2-A992-5345E864DF1E}"></a>constructionOrMaintenanceVehicle
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -380,14 +406,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle normally used for construction or maintenance purposes, e.g. digger, excavator, bulldozer, lorry mounted crane etc.<br>order=12<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					fourWheelDrive
+					<a name="{13616ECF-30F6-4315-8477-50BCD0D10A1F}"></a>fourWheelDrive
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -397,14 +423,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Four wheel drive vehicle.<br>order=13<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					heavyGoodsVehicle
+					<a name="{40818879-5219-49c0-A867-FA22E4B21D49}"></a>heavyGoodsVehicle
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -414,14 +440,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicles with a total weight above 3,500 kg (vehicle and load).<br>order=14<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					heavyGoodsVehicleWithTrailer
+					<a name="{FE2460AD-6F85-4580-A071-A8ECAAD7D5FD}"></a>heavyGoodsVehicleWithTrailer
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -431,14 +457,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Heavy goods vehicle with trailer<br>order=15<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					heavyDutyTransporter
+					<a name="{C047C5D8-6A7E-4d01-9A94-A16CAEB7689C}"></a>heavyDutyTransporter
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -448,14 +474,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A transporter for heavy duty (usually with abnormal dimensions).<br>order=16<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					heavyVehicle
+					<a name="{696F71A8-BFAC-4584-8356-6228CA9B1897}"></a>heavyVehicle
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -465,14 +491,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle whose weight means it should be classed as a heavy vehicle<br>order=17<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					highSidedVehicle
+					<a name="{F953E080-6203-42a8-A68C-E9D187856337}"></a>highSidedVehicle
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -482,14 +508,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=High sided vehicle.<br>order=18<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					lightCommercialVehicle
+					<a name="{B6FB1D01-A3E3-460e-ACCE-A957E4018EBB}"></a>lightCommercialVehicle
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -499,14 +525,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicles for the carriage of goods and having a maximum mass not exceeding 3.5 tonnes (class N1).<br>order=19<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					largeCar
+					<a name="{505A9113-ADF0-4c69-8EBB-040229798E43}"></a>largeCar
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -516,14 +542,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Large car<br>order=20<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					largeGoodsVehicle
+					<a name="{6FBBEBF9-D98D-433d-AAC3-B4BCE1A62164}"></a>largeGoodsVehicle
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -533,14 +559,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicles for the carriage of goods and having a maximum mass exceeding 3.5 tonnes (belonging to class N2 when not exceeding 12 tonnes, otherwise class N3).<br>order=21<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					lightCommercialVehicleWithTrailer
+					<a name="{E5D75FBE-EA03-43f3-955B-AF39CF2093AC}"></a>lightCommercialVehicleWithTrailer
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -550,14 +576,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Light goods vehicle with trailer<br>order=22<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					longHeavyLorry
+					<a name="{C5EE7BAA-6A36-40bb-B21D-DEBACA8D1576}"></a>longHeavyLorry
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -567,14 +593,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A heavy lorry that is longer than normal.<br>order=23<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					lorry
+					<a name="{FF621D50-740C-4db5-AC7D-55F1F1FE4586}"></a>lorry
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -584,14 +610,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Lorry of any type.<br>order=24<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					metro
+					<a name="{5AE9F130-C060-487b-9368-25B50FE139F6}"></a>metro
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -601,14 +627,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Metro<br>order=25<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					minibus
+					<a name="{36716019-F8F6-4297-8C10-0D2CD7942E45}"></a>minibus
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -618,14 +644,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicles designed and constructed for the carriage of passengers, comprising more than eight seats in addition to the driver’s seat, and having a maximum mass not exceeding 5 tonnes (class M2).<br>order=26<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					moped
+					<a name="{B8A7830A-6BE1-4a3d-B8B7-532D4EDD1837}"></a>moped
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -635,14 +661,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Moped (a two wheeled motor vehicle characterized by a small engine typically less than 50cc and by normally having pedals).<br>order=27<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					motorcycle
+					<a name="{9E41CE47-75CF-4e70-AF4D-27169E150CB6}"></a>motorcycle
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -652,14 +678,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Motorcycle.<br>order=28<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					motorcycleWithSideCar
+					<a name="{604699A2-31E5-405b-A57A-3E1FA1BB49EA}"></a>motorcycleWithSideCar
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -669,14 +695,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Three wheeled vehicle comprising a motorcycle with an attached side car.<br>order=29<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					motorhome
+					<a name="{8F24091B-DF0E-4042-9132-4BF62EF70ED3}"></a>motorhome
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -686,14 +712,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Motorhome<br>order=30<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					motorscooter
+					<a name="{B9E4BBDF-89DB-47c1-BA79-1ECC8A3FC8AF}"></a>motorscooter
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -703,14 +729,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Motorscooter (a two wheeled motor vehicle characterized by a step-through frame and small diameter wheels).<br>order=31<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					passengerCar
+					<a name="{0931F00E-2FF2-4a21-8058-BCFE242F8AE0}"></a>passengerCar
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -720,14 +746,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Passenger car<br>order=32<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					smallCar
+					<a name="{5DB96992-23A9-443d-96BB-73D33E6CDD74}"></a>smallCar
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -737,14 +763,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Small car<br>order=33<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					tanker
+					<a name="{55CEEE62-BEB6-467c-9553-2C6575D6F594}"></a>tanker
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -754,14 +780,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle with large tank for carrying bulk liquids.<br>order=34<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					threeWheeledVehicle
+					<a name="{F1AA2C26-3ED7-497d-B09A-3683ABCF81C0}"></a>threeWheeledVehicle
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -771,14 +797,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Three wheeled vehicle of unspecified type.<br>order=35<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					trailer
+					<a name="{7E1C3A67-CCAB-436c-9DD9-968C9D84ED0F}"></a>trailer
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -788,14 +814,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Trailer.<br>order=36<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					tram
+					<a name="{0F890CA0-24CE-427d-9289-8161B81D99C6}"></a>tram
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -805,14 +831,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Tram.<br>order=37<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					trolleyBus
+					<a name="{62E3D48F-3C0C-4755-9DC8-931A55BF3088}"></a>trolleyBus
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -822,14 +848,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Trolley bus<br>order=38<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					twoWheeledVehicle
+					<a name="{32A5B25D-6277-48e7-B60C-AA0E7A2B149C}"></a>twoWheeledVehicle
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -839,14 +865,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Two wheeled vehicle of unspecified type.<br>order=39<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					van
+					<a name="{F648CDFE-004B-4148-A98D-18C9A3E3EECE}"></a>van
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -856,14 +882,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Van.<br>order=40<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					vehicleWithCaravan
+					<a name="{BB5D6AE7-819E-4312-A2C8-54F682DCFF14}"></a>vehicleWithCaravan
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -873,14 +899,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle (of unspecified type) towing a caravan.<br>order=41<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					vehicleWithCatalyticConverter
+					<a name="{03FB80B3-E9E7-421c-B128-A821B269669C}"></a>vehicleWithCatalyticConverter
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -890,14 +916,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle with catalytic converter.<br>order=42<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					vehicleWithoutCatalyticConverter
+					<a name="{25FCE113-3D80-4df0-B31B-4BBFF1189037}"></a>vehicleWithoutCatalyticConverter
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -907,14 +933,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle without catalytic converter.<br>order=43<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					vehicleWithTrailer
+					<a name="{DA9E4CDE-955E-4276-A329-49D8DDE62A2E}"></a>vehicleWithTrailer
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -924,14 +950,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle (of unspecified type) towing a trailer.<br>order=44<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					withEvenNumberedRegistrationPlates
+					<a name="{7E449750-52E3-447d-9C0D-A06AAB2A78FA}"></a>withEvenNumberedRegistrationPlates
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -941,14 +967,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle with even numbered registration plate.<br>order=45<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					withOddNumberedRegistrationPlates
+					<a name="{624A9F43-74C4-4405-B116-00D9E40AC343}"></a>withOddNumberedRegistrationPlates
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -958,14 +984,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle with odd numbered registration plate.<br>order=46<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					unknown
+					<a name="{546BD71D-28A5-45c7-AE6D-2157F9ECDB98}"></a>unknown
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -975,14 +1001,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Unknown.<br>order=99<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					other
+					<a name="{9F5B881F-D6CB-42aa-8A0E-CCA5DE08798D}"></a>other
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -992,7 +1018,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Other than as defined in this enumeration.<br>order=100<br>
 						&nbsp;
 						
@@ -1040,14 +1066,14 @@
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA6/EA458.htm">«D2Enumeration» VehicleTypeExtendedUrban</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA4/EA2/EA360.htm">«D2Enumeration» VehicleTypeEnumExtended</a></td>
 					<td width="10%" class="TableRow" valign="top">Enumeration</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA3/EA1/EA340.htm">«D2Enumeration» VehicleTypeEnumExtended</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA7/EA474.htm">«D2Enumeration» VehicleTypeExtendedUrban</a></td>
 					<td width="10%" class="TableRow" valign="top">Enumeration</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">From</td>

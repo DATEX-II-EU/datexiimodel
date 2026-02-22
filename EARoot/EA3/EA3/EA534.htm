@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>PointCoordinates</title>
+<title>LocationReference</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> PointCoordinates </h1>
-			<!-- <img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> LocationReference </h1>
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA463.htm">LocationReferencing</a> / <a href="EA518.htm">LocationReference</a> / <a href="./EA5/EA667.htm">PointCoordinates</a></p>
+			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA479.htm">LocationReferencing</a> / <a href="EA534.htm">LocationReference</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,27 +110,51 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<li><img src="../../../images/175.png" alt="Diagram"/> <a href="./EA5/EA663.htm">PointCoordinates</a></li>
-<li><img src="../../../images/5.png" alt="Class"/> <a href="./EA5/EA669.htm">AltitudeConfidence</a></li>
-<li><img src="../../../images/5.png" alt="Class"/> <a href="./EA5/EA670.htm">HeightCoordinate</a></li>
-<li><img src="../../../images/5.png" alt="Class"/> <a href="./EA5/EA671.htm">PointByCoordinates</a></li>
-<li><img src="../../../images/5.png" alt="Class"/> <a href="./EA5/EA672.htm">PositionAccuracy</a></li>
-<li><img src="../../../images/5.png" alt="Class"/> <a href="./EA5/EA673.htm">PositionConfidenceEllipse</a></li>
-<li><img src="../../../images/5.png" alt="Class"/> <a href="./EA5/EA674.htm">PointCoordinates</a></li>
+<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA1/EA573.htm">AlertC</a></li>
+<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA2/EA614.htm">Gml</a></li>
+<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA3/EA619.htm">LinearReferencing</a></li>
+<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA4/EA644.htm">OpenLR</a></li>
+<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA5/EA683.htm">PointCoordinates</a></li>
+<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA6/EA693.htm">SupplementaryPositionalDescription</a></li>
+<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA7/EA700.htm">TpegLoc</a></li>
+<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA8/EA740.htm">NamedArea</a></li>
+<li><img src="../../../images/175.png" alt="Diagram"/> <a href="EA526.htm">AreaLocation</a></li>
+<li><img src="../../../images/175.png" alt="Diagram"/> <a href="EA528.htm">LinearLocation</a></li>
+<li><img src="../../../images/175.png" alt="Diagram"/> <a href="EA530.htm">LocationReference</a></li>
+<li><img src="../../../images/175.png" alt="Diagram"/> <a href="EA532.htm">PointLocation</a></li>
+<li><img src="../../../images/5.png" alt="Class"/> <a href="EA542.htm">AreaLocation</a></li>
+<li><img src="../../../images/5.png" alt="Class"/> <a href="EA544.htm">LinearLocation</a></li>
+<li><img src="../../../images/5.png" alt="Class"/> <a href="EA551.htm">PointLocation</a></li>
+<li><img src="../../../images/5.png" alt="Class"/> <a href="EA552.htm">SingleRoadLinearLocation</a></li>
+<li><img src="../../../images/5.png" alt="Class"/> <a href="EA556.htm">AreaDestination</a></li>
+<li><img src="../../../images/5.png" alt="Class"/> <a href="EA557.htm">Destination</a></li>
+<li><img src="../../../images/5.png" alt="Class"/> <a href="EA558.htm">ExternalReferencing</a></li>
+<li><img src="../../../images/5.png" alt="Class"/> <a href="EA559.htm">Itinerary</a></li>
+<li><img src="../../../images/5.png" alt="Class"/> <a href="EA560.htm">ItineraryByIndexedLocations</a></li>
+<li><img src="../../../images/5.png" alt="Class"/> <a href="EA561.htm">ItineraryByReference</a></li>
+<li><img src="../../../images/5.png" alt="Class"/> <a href="EA562.htm">LocationReference</a></li>
+<li><img src="../../../images/5.png" alt="Class"/> <a href="EA563.htm">LocationByReference</a></li>
+<li><img src="../../../images/5.png" alt="Class"/> <a href="EA564.htm">NetworkLocation</a></li>
+<li><img src="../../../images/5.png" alt="Class"/> <a href="EA565.htm">LocationGroup</a></li>
+<li><img src="../../../images/5.png" alt="Class"/> <a href="EA566.htm">LocationGroupByList</a></li>
+<li><img src="../../../images/5.png" alt="Class"/> <a href="EA567.htm">LocationGroupByReference</a></li>
+<li><img src="../../../images/5.png" alt="Class"/> <a href="EA568.htm">OffsetDistance</a></li>
+<li><img src="../../../images/5.png" alt="Class"/> <a href="EA569.htm">PointDestination</a></li>
+<li><img src="../../../images/5.png" alt="Class"/> <a href="EA570.htm">Location</a></li>
 </ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">PointCoordinates  : Public  &lt;&lt;D2Package&gt;&gt; Package</span>
+	<span class="ObjectTitle">LocationReference  : Public  &lt;&lt;D2Package&gt;&gt; Package</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">28.11.2016 18:28:24</td>
+			<td width="85%" class="ObjectDetailsValue">17.03.2004 18:26:59</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">20.05.2020 11:28:43</td>
+			<td class="ObjectDetailsValue">07.11.2015 14:24:03</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -149,11 +199,11 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{7B4682A8-4CD3-4c59-8168-D7DB474C9DAE}</td>
+			<td class="ObjectDetailsValue">{612CA98D-ED91-4514-BFD2-7AC2C233656D}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"></td>
+			<td class="ObjectDetailsValue"><a href="../EA475.htm">LocationReferencing</a></td>
 		</tr>
 	</table>
 	
@@ -169,7 +219,7 @@
 		</tr>
 					<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">Different classes needed for defining a point using coordiantes</td>
+				<td width="50%" class="TableRow" valign="top">A collection of information related to specifying locations within a transportation network.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">

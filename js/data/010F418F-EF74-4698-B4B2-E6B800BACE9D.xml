@@ -1,0 +1,3 @@
+tocTab[tocTab.length] = new Array("0.4.7.1.3:1", "", "TrafficRegulationOrder", "EARoot/EA4/EA7/EA1/EA3/EA1481.htm", "175.png", "265", "0", "", "Logical diagram0","{3885535C-0231-4310-99DC-A2474B71D31A}");
+tocTab[tocTab.length] = new Array("0.4.7.1.3:2", "", "«D2Class» TemporaryTrafficRegulationOrder", "EARoot/EA4/EA7/EA1/EA3/EA1485.htm", "5.png", "E1376", "0", "", "Class0","{3E5AF3CC-6BCE-4945-8C67-DDB4B2DBCE47}");
+tocTab[tocTab.length] = new Array("0.4.7.1.3:3", "", "«D2VersionedIdentifiable» TrafficRegulationOrder", "EARoot/EA4/EA7/EA1/EA3/EA1486.htm", "5.png", "E1377", "0", "", "Class0","{313A6BD8-71FA-472d-8C00-B9442C40063F}");

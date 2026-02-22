@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Enumerations::InvolvementRolesEnum</title>
+<title>Enumerations::EnvironmentalObstructionTypeEnum</title>
 <link href="../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Enumerations::InvolvementRolesEnum </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Enumerations::EnvironmentalObstructionTypeEnum </h1>
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA743.htm">PayloadPublication</a> / <a href="../EA1258.htm">Situation</a> / <a href="EA1353.htm">Enumerations</a> / <a href="EA1370.htm">InvolvementRolesEnum</a></p>
+			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA759.htm">PayloadPublication</a> / <a href="../EA1271.htm">Situation</a> / <a href="EA1366.htm">Enumerations</a> / <a href="EA1370.htm">EnvironmentalObstructionTypeEnum</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,16 +110,16 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA1353.htm">Enumerations</a></ul>
+<a href="EA1366.htm">Enumerations</a></ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">InvolvementRolesEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
+	<span class="ObjectTitle">EnvironmentalObstructionTypeEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">19.05.2004 11:34:56</td>
+			<td width="85%" class="ObjectDetailsValue">17.06.2004 16:34:05</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
@@ -142,11 +168,11 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{A5CA27A1-3C39-4d32-B517-224C6154A86B}</td>
+			<td class="ObjectDetailsValue">{1383A063-FBEE-4ba5-9408-C2E30134F4BE}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA1351.htm">Enumerations</a></td>
+			<td class="ObjectDetailsValue"><a href="EA1364.htm">Enumerations</a></td>
 		</tr>
 	</table>
 	
@@ -165,7 +191,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					cyclist
+					<a name="{1D46BB4D-44D4-41fc-8341-7DF582FED62E}"></a>avalanches
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -175,31 +201,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Cyclist.<br>order=0<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The road may be obstructed or partially obstructed due to snow slides.<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					motorcyclist
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Motorcyclist<br>order=1<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					pedestrian
+					<a name="{6CA13AC1-3DD5-4f27-865C-002748EE7AFE}"></a>earthquakeDamage
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -209,14 +218,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Pedestrian.<br>order=2<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The road may be obstructed or partially obstructed because of damage caused by an earthquake.<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					unknown
+					<a name="{0014CE7C-1335-4e29-9EED-EF133F70AB44}"></a>fallenTrees
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -226,14 +235,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Involvement role is unknown.<br>order=3<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The road is obstructed or partially obstructed by one or more fallen trees.<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					vehicleDriver
+					<a name="{0E1607D3-B900-4f04-AA33-96F41DA7C0DA}"></a>fallingIce
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -243,14 +252,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Vehicle driver.<br>order=4<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Falling ice off trees, power lines or structures which may cause traffic disruption.<br>order=3<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					vehicleOccupant
+					<a name="{608109B3-8D82-4516-B05C-42F7F4E84F8E}"></a>fallingLightIceOrSnow
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -260,14 +269,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Vehicle occupant (driver or passenger not specified).<br>order=5<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Falling light ice or snow off trees, power lines or structures which may cause traffic disruption.<br>order=4<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					vehiclePassenger
+					<a name="{42761734-3BF9-4d2a-A8F3-81594651B299}"></a>flashFloods
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -277,14 +286,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Vehicle passenger.<br>order=6<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The road may become quickly inundated by powerful floodwaters due to heavy rain nearby.<br>order=5<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					witness
+					<a name="{1D87CCC5-F248-450c-822A-73FBB3911BD4}"></a>flooding
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -294,8 +303,195 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Witness.<br>order=7<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The road is obstructed or partially obstructed by flood water.<br>order=6<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{04A1F266-7942-4d83-8E77-3AD1695831FF}"></a>forestFire
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Traffic may be disrupted due to a forest fire adjacent to the roadway.<br>order=7<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{0CA238D4-D086-46d7-B155-81A3CCCDB70D}"></a>grassFire
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Traffic may be disrupted due to a grass fire adjacent to the roadway.<br>order=8<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{8E376539-E13B-429a-84B5-68D7E06614F0}"></a>landslips
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The road may be obstructed or partially obstructed due to landslides.<br>order=9<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{2EB4B12E-C3D7-411d-AD91-A578184BE6F6}"></a>mudSlide
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The road may be obstructed or partially obstructed due to mudslides.<br>order=10<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{4D8D55FF-CC46-42ef-9C2B-F3217730AE3D}"></a>sewerOverflow
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The road is obstructed or partially obstructed by overflows from one or more sewers.<br>order=11<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{44AB7C3F-E074-4345-A4EF-90B16CD971C1}"></a>rockfalls
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The road may be obstructed or partially obstructed due to fallen rocks.<br>order=12<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{3942CC97-6A3E-4e34-935F-5A34D5B1066F}"></a>seriousFire
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Traffic may be disrupted due to a fire (other than a vehicle fire) adjacent to the roadway.<br>order=13<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{2B0D598B-6004-4b26-9317-8F8AB8EE7CD7}"></a>smokeOrFumes
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Smoke or fumes which may hinder driving conditions or distract drivers.<br>order=14<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{A5BD5524-250A-4406-A583-0ACAB9AF3B62}"></a>stormDamage
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The road may be obstructed or partially obstructed by debris caused by strong winds.<br>order=15<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{BE1180CB-8089-4538-95B6-CB6F94CD5B80}"></a>subsidence
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The road surface has sunken or collapsed in places.<br>order=16<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{E39B312D-6774-46db-B45A-6F396B01E037}"></a>other
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Other than as defined in this enumeration.<br>order=17<br>
 						&nbsp;
 						
 				</td>
@@ -310,7 +506,7 @@
 		</tr>
 					<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">Involvement role of a person in event.</td>
+				<td width="50%" class="TableRow" valign="top">Types of environmental obstructions.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">

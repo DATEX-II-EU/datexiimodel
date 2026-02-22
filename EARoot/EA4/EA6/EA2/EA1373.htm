@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Enumerations::PersonCategoryEnum</title>
+<title>Enumerations::AbnormalTrafficTypeEnum</title>
 <link href="../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Enumerations::PersonCategoryEnum </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Enumerations::AbnormalTrafficTypeEnum </h1>
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA743.htm">PayloadPublication</a> / <a href="../EA1258.htm">Situation</a> / <a href="EA1353.htm">Enumerations</a> / <a href="EA1373.htm">PersonCategoryEnum</a></p>
+			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA759.htm">PayloadPublication</a> / <a href="../EA1271.htm">Situation</a> / <a href="EA1366.htm">Enumerations</a> / <a href="EA1373.htm">AbnormalTrafficTypeEnum</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,16 +110,16 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA1353.htm">Enumerations</a></ul>
+<a href="EA1366.htm">Enumerations</a></ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">PersonCategoryEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
+	<span class="ObjectTitle">AbnormalTrafficTypeEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">17.05.2004 18:10:02</td>
+			<td width="85%" class="ObjectDetailsValue">18.06.2004 16:02:22</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
@@ -142,11 +168,11 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{F11DBC61-CA2D-4f0e-8582-BD95041DD101}</td>
+			<td class="ObjectDetailsValue">{5171B7C7-4F55-4526-B4C2-F173BF203431}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA1351.htm">Enumerations</a></td>
+			<td class="ObjectDetailsValue"><a href="EA1364.htm">Enumerations</a></td>
 		</tr>
 	</table>
 	
@@ -165,7 +191,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					adult
+					<a name="{5E7FBCAD-8E34-481a-90A2-24245B552ECB}"></a>stationaryTraffic
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -175,14 +201,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Adult.<br>order=0<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Traffic is stationary, or very near stationary, at the specified location (i.e. average speed is less than 10% of its free-flow level).<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					child
+					<a name="{CDD549AD-887D-4f00-AFA3-E4DE3DF86AE9}"></a>queuingTraffic
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -192,14 +218,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Child (age 4 to 17).<br>order=1<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Traffic is queuing at the specified location, although there is still some traffic movement (i.e. average speed is between 10% and 25% of its free-flow level).<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					emergencyServicesPerson
+					<a name="{AB6C2E01-63B2-4846-B1C3-82800D2C4B22}"></a>slowTraffic
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -209,14 +235,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A member of the emergency services, other than the police.<br>order=2<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Traffic is slow moving at the specified location, but not yet forming queues (i.e. average speed is between 25% and 75% of its free-flow level).<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					fireman
+					<a name="{83BE307B-5B98-4d0a-B2C1-316E272F7022}"></a>heavyTraffic
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -226,14 +252,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A member of the fire service.<br>order=3<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Traffic is heavy at the specified location (i.e. average speed is between 75% and 90% of its free-flow level).<br>order=3<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					infant
+					<a name="{95F72C72-3455-4912-BCFE-E50D5B255B80}"></a>unspecifiedAbnormalTraffic
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -243,14 +269,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Infant (age 0 to 3).<br>order=4<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=There are abnormal traffic conditions of an unspecified nature at the specified location.<br>order=4<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					medicalStaff
+					<a name="{1BE133BB-D44B-43ef-A271-5A89FCC892DD}"></a>other
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -260,144 +286,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A member of the medical service.<br>order=5<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					memberOfThePublic
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A member of the general public.<br>order=6<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					policeman
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A member of the police force.<br>order=7<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					politician
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A politician.<br>order=8<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					publicTransportPassenger
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A passenger on or from a public transport vehicle.<br>order=9<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					sickPerson
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A sick person.<br>order=10<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					trafficOfficer
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A traffic patrol officer of the road authority.<br>order=11<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					trafficWarden
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A member of the local traffic warden service.<br>order=12<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					veryImportantPerson
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A very important person.<br>order=13<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Other than as defined in this enumeration.<br>order=5<br>
 						&nbsp;
 						
 				</td>
@@ -412,7 +302,7 @@
 		</tr>
 					<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">Categories of person.</td>
+				<td width="50%" class="TableRow" valign="top">Descriptive terms for abnormal traffic conditions specifically relating to the nature of the traffic movement, implying levels of service.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">

@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Parking</title>
+<link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
+<script>
+
+  function switchProjectProperties() {
+			if (document.getElementById("proj00").style.display == "none") {
+				document.getElementById("proj00").style.display = "revert";
+				document.getElementById("proj01").style.display = "revert";
+				document.getElementById("proj02").style.display = "revert";
+				document.getElementById("proj03").style.display = "revert";
+				document.getElementById("proj04").style.display = "revert";
+				document.getElementById("proj05").style.display = "revert";
+			} else {
+				document.getElementById("proj00").style.display = "none";
+				document.getElementById("proj01").style.display = "none";
+				document.getElementById("proj02").style.display = "none";
+				document.getElementById("proj03").style.display = "none";
+				document.getElementById("proj04").style.display = "none";
+				document.getElementById("proj05").style.display = "none";
+			}
+}
+
+		function switchAdvancedProperties(){
+
+			if (document.getElementById("adv00").style.display == "none") {;
+				document.getElementById("adv00").style.display = "revert";
+				document.getElementById("adv01").style.display = "revert";
+			} else {
+				document.getElementById("adv00").style.display = "none";
+				document.getElementById("adv01").style.display = "none";
+			}
+		}
+		function initPage()
+        {			
+			var divs = document.getElementsByClassName("ObjectDetailsNotes");
+			for (var j = 0; j < divs.length; j++) {
+				var tmpStr = divs[j].innerHTML;
+				tmpStr = tmpStr.replace(/#gt;/g, "&gt;");
+				tmpStr = tmpStr.replace(/#lt;/g, "&lt;");
+
+				tmpStr = tmpStr.replace(/&gt;/g, ">");
+				tmpStr = tmpStr.replace(/&lt;/g, "<");
+
+				divs[j].innerHTML = tmpStr;
+			}
+
+            if (document.getElementById('TableGroup') != null)
+            {
+                toggleItem(document.getElementById('TableGroup').getElementsByTagName('li')[0].id.replace("Title", ""));
+            }
+
+        }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
+</script>
+<style>
+
+</style>
+</head>
+<body onload="initPage();">
+<div class="section group" >
+
+		<div class="col span_2_of_2 header_frame">
+			<h1> Parking </h1>
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
+		</div>
+		<div class="col span_2_of_2 breadcrumb_frame">
+			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA759.htm">PayloadPublication</a> / <a href="EA1693.htm">Parking</a> / <a href="EA1691.htm">Parking</a></p>
+		</div>
+			
+		<table class="contentmaintable">
+			<!-- <tfoot>
+				<tr>
+					<td>foot1</td>
+					<td>foot2</td>
+				</tr>
+			</tfoot> -->
+			<tbody>
+				<tr>
+					<td class="indexcell">
+						<div class="projectBrowserTitle">Project: </div>
+						<ul>
+<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA1/EA1700.htm">Classes</a></li>
+<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA2/EA1857.htm">Enumerations</a></li>
+<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA3/EA1903.htm">ParkingTablePublication</a></li>
+<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA4/EA1925.htm">ParkingStatusPublication</a></li>
+<li><img src="../../../images/176.png" alt="Diagram"/> <a href="EA1689.htm">namespace dependencies</a></li>
+<li><img src="../../../images/175.png" alt="Diagram"/> <a href="EA1691.htm">Parking</a></li>
+</ul>
+
+					</td>
+					<td class="contentcell"><div class="PageBody">
+	<div class="diagram_image"> 
+<img src="EA1692.png" usemap="#EA1692" width="1553" height="1208" border="0" />
+
+<MAP NAME="EA1692">
+<area shape="rect" coords="1118,566,1295,663" href="./EA1/EA1/EA1717.htm" target="_self">
+<area shape="rect" coords="1343,663,1520,761" href="./EA1/EA1/EA1719.htm" target="_self">
+<area shape="rect" coords="441,1010,618,1107" href="../EA3/EA7/EA1/EA987.htm" target="_self">
+<area shape="rect" coords="863,1095,1040,1193" href="./EA1/EA4/EA1751.htm" target="_self">
+<area shape="rect" coords="215,1095,392,1193" href="./EA1/EA3/EA1739.htm" target="_self">
+<area shape="rect" coords="704,290,887,324" href="EA1695.htm" target="_self">
+<area shape="rect" coords="966,827,1182,924" href="./EA1/EA4/EA1752.htm" target="_self">
+<area shape="rect" coords="1361,506,1538,603" href="./EA1/EA1/EA1729.htm" target="_self">
+<area shape="rect" coords="678,957,855,1055" href="./EA1/EA2/EA1733.htm" target="_self">
+<area shape="rect" coords="678,795,855,893" href="./EA1/EA3/EA1734.htm" target="_self">
+<area shape="rect" coords="215,795,392,893" href="./EA1/EA3/EA1734.htm" target="_self">
+<area shape="rect" coords="359,170,536,267" href="./EA3/EA1915.htm" target="_self">
+<area shape="rect" coords="359,15,536,113" href="./EA3/EA1916.htm" target="_self">
+<area shape="rect" coords="705,192,882,290" href="../EA3/EA1/EA921.htm" target="_self">
+<area shape="rect" coords="443,603,620,701" href="./EA1/EA13/EA1818.htm" target="_self">
+<area shape="rect" coords="678,585,855,683" href="./EA1/EA12/EA1814.htm" target="_self">
+<area shape="rect" coords="15,522,192,620" href="./EA1/EA10/EA1803.htm" target="_self">
+<area shape="rect" coords="894,480,1071,578" href="./EA1/EA4/EA1747.htm" target="_self">
+<area shape="rect" coords="356,336,533,434" href="./EA1/EA11/EA1809.htm" target="_self">
+<area shape="rect" coords="215,585,392,683" href="./EA1/EA10/EA1803.htm" target="_self">
+</MAP>
+ </div>
+	<div class="ObjectTitle">Parking : Class diagram</div>
+	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Created:</td>
+			<td width="85%" class="ObjectDetailsValue">21.11.2021 10:19:38</td>
+		</tr>
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Modified:</td>
+			<td width="85%" class="ObjectDetailsValue">22.11.2021 08:33:54</td>
+		</tr>
+		<tr style="padding-top: 10px;">
+			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="../../../images/plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
+		</tr>
+		<tr id="proj00" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
+			<td width="85%" class="ObjectDetailsValue">Jon</td>
+		</tr>
+		<tr id="proj01" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
+			<td width="85%" class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchAdvancedProperties()"><img src="../../../images/plus03.gif" align="absmiddle" id="adv" /></button>Advanced:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
+		</tr>
+		<tr id="adv00" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">ID:</td>
+			<td width="85%" class="ObjectDetailsValue">{AFF47411-870C-42f9-AFAE-2BD7B494982C}</td>
+		</tr>
+	</table>
+	
+</div>
+
+ </td>
+				</tr>
+			</tbody>
+		</table>
+		
+</div>
+</body>
+</html>
+

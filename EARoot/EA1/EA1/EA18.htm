@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> Classes::GenericPublication </h1>
-			<!-- <img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA10.htm">Common</a> / <a href="EA16.htm">Classes</a> / <a href="EA18.htm">GenericPublication</a></p>
@@ -146,7 +172,7 @@
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA14.htm">Classes</a>, <a href="../../EA4/EA741.htm">PayloadPublication classes</a>, <a href="../../EA4/EA10/EA1/EA4/EA1940.htm">TmplanOperation</a></td>
+			<td class="ObjectDetailsValue"><a href="EA14.htm">Classes</a>, <a href="../../EA4/EA757.htm">PayloadPublication classes</a>, <a href="../../EA4/EA10/EA1/EA4/EA1978.htm">TmplanOperation</a></td>
 		</tr>
 	</table>
 	
@@ -166,7 +192,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					genericPublicationName
+					<a name="{173C0B8A-4E3B-4882-82A2-9120F27A421A}"></a>genericPublicationName
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -176,7 +202,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=The name of the generic publication.<br>order=0<br>
 						&nbsp;
 						

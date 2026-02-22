@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>TrafficRegulation::RequiredPermitCondition</title>
+<title>Condition::AccessCondition</title>
 <link href="../../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> TrafficRegulation::RequiredPermitCondition </h1>
-			<!-- <img class="header_image" src="../../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Condition::AccessCondition </h1>
+			<!-- <img class="header_image" src="../../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../../EA3.htm">D2Payload</a> / <a href="../../../EA743.htm">PayloadPublication</a> / <a href="../../EA1417.htm">TrafficRegulation</a> / <a href="../EA1424.htm">Classes</a> / <a href="EA1433.htm">TrafficRegulation</a> / <a href="EA1451.htm">RequiredPermitCondition</a></p>
+			<p><a href="../../../../EA3.htm">D2Payload</a> / <a href="../../../EA759.htm">PayloadPublication</a> / <a href="../../EA1430.htm">TrafficRegulation</a> / <a href="../EA1439.htm">Classes</a> / <a href="EA1447.htm">Condition</a> / <a href="EA1451.htm">AccessCondition</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,20 +110,20 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA1433.htm">TrafficRegulation</a></ul>
+<a href="EA1447.htm">Condition</a></ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">RequiredPermitCondition  : Public  &lt;&lt;D2Class&gt;&gt; Class</span>
+	<span class="ObjectTitle">AccessCondition  : Public  &lt;&lt;D2Class&gt;&gt; Class</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">26.09.2019 15:30:27</td>
+			<td width="85%" class="ObjectDetailsValue">11.04.2019 11:30:12</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">29.11.2022 17:26:15</td>
+			<td class="ObjectDetailsValue">18.02.2025 12:11:12</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -106,7 +132,7 @@
 		</tr>
 		<tr id="proj00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue">Bard</td>
+			<td class="ObjectDetailsValue">Kaltwasser</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
@@ -142,17 +168,18 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{F95FF160-6004-4648-ACFF-1F7FC1C272D8}</td>
+			<td class="ObjectDetailsValue">{915873A6-B571-4230-81C8-5A4ED0C47690}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA1429.htm">Condition</a></td>
+			<td class="ObjectDetailsValue"><a href="EA1445.htm">Condition</a></td>
 		</tr>
 	</table>
 	
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent != null ? parent.toggleItem('Attributes') : toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
+			<li onClick="parent != null ? parent.toggleItem('AssociationsFrom') : toggleItem('AssociationsFrom');" id="AssociationsFromTitle">Associations From</li>
 			<li onClick="parent != null ? parent.toggleItem('TaggedVal') : toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
 			<li onClick="parent != null ? parent.toggleItem('CustomProperties') : toggleItem('CustomProperties');" id="CustomPropertiesTitle">Advanced</li>
 			<li onClick="parent != null ? parent.toggleItem('Links') : toggleItem('Links');" id="LinksTitle">Other Links</li>
@@ -166,24 +193,24 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					identifier
+					<a name="{B928EB6F-61A3-4c91-9835-65E86B20B202}"></a>accessConditionType
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					<a href="../../../../EA1/EA2/EA1/EA147.htm">String</a>
+					<a href="../../EA3/EA1528.htm">AccessConditionTypeEnum</a>
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A unique identifier for the permit.<br>order=2<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Type of access condition.<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					issuingAuthority
+					<a name="{A360800C-EA0B-4129-9C63-96CB6C0BF004}"></a>otherAccessRestriction
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -193,48 +220,47 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The competent authority that issued the permit.<br>order=3<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					permitCharacteristics
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					<a href="../../../../EA1/EA2/EA1/EA150.htm">VersionedReference</a>
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A reference to the characteristics of the permit.<br>order=4<br>targetClass=tro:PermitInformation<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					permitType
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					<a href="../../EA3/EA1525.htm">PermitTypeEnum</a>
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The type of the permit.<br>order=7<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Other access restriction not listed elsewhere.<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>
 	</table>
 </div>
+		<div class="ItemBody" id="AssociationsFromTable">
+			<table class="Table ea_table">
+				<tr>
+					<td width="40%" class="TableHeading">Element</td>
+					<td width="30%" class="TableHeading">Source Role</td>
+					<td width="30%" class="TableHeading">Target Role</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="../../../../EA3/EA3/EA562.htm">«D2Class» LocationReference</a><br />
+						Class «D2Relation» 
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> applicableLocation<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink5348" /></button>Details:
+							<div id="detailsDIVLink5348" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+
+			</table>
+		</div>
 <div class="ItemBody" id="TaggedValTable">
 	<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
 		<tr>
@@ -243,7 +269,7 @@
 		</tr>
 					<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">Characteristics of a required permit (the permit must be available).</td>
+				<td width="50%" class="TableRow" valign="top">Conditions for the access of a road or carriageway or lane.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -275,7 +301,14 @@
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA1441.htm">«D2VersionedIdentifiable» Condition</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../../EA3/EA3/EA562.htm">«D2Class» LocationReference</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA1452.htm">«D2Class» Condition</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">To</td>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Warning::RoadWarning</title>
+<title>TypeOfRegulation::MinimumDistanceRestriction</title>
 <link href="../../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Warning::RoadWarning </h1>
-			<!-- <img class="header_image" src="../../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> TypeOfRegulation::MinimumDistanceRestriction </h1>
+			<!-- <img class="header_image" src="../../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../../EA3.htm">D2Payload</a> / <a href="../../../EA743.htm">PayloadPublication</a> / <a href="../../EA1417.htm">TrafficRegulation</a> / <a href="../EA1424.htm">Classes</a> / <a href="EA1496.htm">Warning</a> / <a href="EA1499.htm">RoadWarning</a></p>
+			<p><a href="../../../../EA3.htm">D2Payload</a> / <a href="../../../EA759.htm">PayloadPublication</a> / <a href="../../EA1430.htm">TrafficRegulation</a> / <a href="../EA1439.htm">Classes</a> / <a href="EA1489.htm">TypeOfRegulation</a> / <a href="EA1499.htm">MinimumDistanceRestriction</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,20 +110,20 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA1496.htm">Warning</a></ul>
+<a href="EA1489.htm">TypeOfRegulation</a></ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">RoadWarning  : Public  &lt;&lt;D2Class&gt;&gt; Class</span>
+	<span class="ObjectTitle">MinimumDistanceRestriction  : Public  &lt;&lt;D2Class&gt;&gt; Class</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">08.10.2019 10:05:15</td>
+			<td width="85%" class="ObjectDetailsValue">03.05.2019 12:41:23</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">29.11.2022 17:26:16</td>
+			<td class="ObjectDetailsValue">18.02.2025 12:11:12</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -106,7 +132,7 @@
 		</tr>
 		<tr id="proj00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue">Jonathan Becker</td>
+			<td class="ObjectDetailsValue">Kaltwasser</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
@@ -142,11 +168,11 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{190F6CB0-A485-4828-9F3B-7C29AF1F9679}</td>
+			<td class="ObjectDetailsValue">{28E71316-92EE-4a4d-B551-64C492D8B95C}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA1494.htm">Warning</a></td>
+			<td class="ObjectDetailsValue"><a href="EA1487.htm">TypeOfRegulation</a></td>
 		</tr>
 	</table>
 	
@@ -166,18 +192,18 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					roadWarningType
+					<a name="{E7EDE35A-85F1-48b1-A0E7-16ED6EA14206}"></a>value
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					<a href="../../EA3/EA1530.htm">RoadWarningTypeEnum</a>
+					<a href="../../../../EA1/EA2/EA2/EA164.htm">MetresAsFloat</a>
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Type of the road condition warning.<br>order=0<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Value of minimum distance between vehicles.<br>order=0<br>
 						&nbsp;
 						
 				</td>
@@ -192,7 +218,7 @@
 		</tr>
 					<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">A warning concerning the road or the conditions of the road.</td>
+				<td width="50%" class="TableRow" valign="top">Driving of vehicles more than x metres apart prohibited.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -224,7 +250,7 @@
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA1502.htm">«D2Class» Warning</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA1507.htm">«D2Class» TypeOfRegulation</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">To</td>

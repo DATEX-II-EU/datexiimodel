@@ -1,3 +1,3 @@
-tocTab[tocTab.length] = new Array("0.4.10.1.2:1", "", "SignSetting", "EARoot/EA4/EA10/EA1/EA2/EA1925.htm", "175.png", "238", "0", "", "Logical diagram0","{E8027C9E-0FAC-4d81-B9D1-CAC394CE0B4C}");
-tocTab[tocTab.length] = new Array("0.4.10.1.2:2", "", "SignSetting extension mechanism explained", "EARoot/EA4/EA10/EA1/EA2/EA1927.htm", "175.png", "206", "0", "", "Logical diagram0","{414C2D7D-131E-4bb1-928D-FDD83E37D802}");
-tocTab[tocTab.length] = new Array("0.4.10.1.2:3", "", "«D2Class» SignSetting", "EARoot/EA4/EA10/EA1/EA2/EA1932.htm", "5.png", "E1189", "0", "", "Class0","{67E7B0C5-E424-43a2-9698-B8B66423CE91}");
+tocTab[tocTab.length] = new Array("0.4.10.1.2:1", "", "SignSetting", "EARoot/EA4/EA10/EA1/EA2/EA1963.htm", "175.png", "238", "0", "", "Logical diagram0","{E8027C9E-0FAC-4d81-B9D1-CAC394CE0B4C}");
+tocTab[tocTab.length] = new Array("0.4.10.1.2:2", "", "SignSetting extension mechanism explained", "EARoot/EA4/EA10/EA1/EA2/EA1965.htm", "175.png", "206", "0", "", "Logical diagram0","{414C2D7D-131E-4bb1-928D-FDD83E37D802}");
+tocTab[tocTab.length] = new Array("0.4.10.1.2:3", "", "«D2Class» SignSetting", "EARoot/EA4/EA10/EA1/EA2/EA1970.htm", "5.png", "E1189", "0", "", "Class0","{67E7B0C5-E424-43a2-9698-B8B66423CE91}");

@@ -1,4 +1,4 @@
-tocTab[tocTab.length] = new Array("0.4.3.7.4:1", "", "PaymentMethod", "EARoot/EA4/EA3/EA7/EA4/EA1005.htm", "175.png", "78", "0", "", "Logical diagram0","{DE22DBFA-F79E-487d-9476-E7C0FC71F780}");
-tocTab[tocTab.length] = new Array("0.4.3.7.4:2", "", "«D2Class» BrandsAcceptedCodeList", "EARoot/EA4/EA3/EA7/EA4/EA1008.htm", "5.png", "E484", "0", "", "Class0","{999EE1FB-DFE6-4651-AE08-128EAE6435BC}");
-tocTab[tocTab.length] = new Array("0.4.3.7.4:3", "", "«D2Class» BrandsAcceptedText", "EARoot/EA4/EA3/EA7/EA4/EA1009.htm", "5.png", "E485", "0", "", "Class0","{3FD99278-9DB1-4280-80F3-4EDA2009BC2C}");
-tocTab[tocTab.length] = new Array("0.4.3.7.4:4", "", "«D2Class» PaymentMethod", "EARoot/EA4/EA3/EA7/EA4/EA1010.htm", "5.png", "E486", "0", "", "Class0","{47653F36-E6BC-4356-B5F8-494C220D229B}");
+tocTab[tocTab.length] = new Array("0.4.3.7.4:1", "", "PaymentMethod", "EARoot/EA4/EA3/EA7/EA4/EA1018.htm", "175.png", "78", "0", "", "Logical diagram0","{DE22DBFA-F79E-487d-9476-E7C0FC71F780}");
+tocTab[tocTab.length] = new Array("0.4.3.7.4:2", "", "«D2Class» BrandsAcceptedCodeList", "EARoot/EA4/EA3/EA7/EA4/EA1021.htm", "5.png", "E484", "0", "", "Class0","{999EE1FB-DFE6-4651-AE08-128EAE6435BC}");
+tocTab[tocTab.length] = new Array("0.4.3.7.4:3", "", "«D2Class» BrandsAcceptedText", "EARoot/EA4/EA3/EA7/EA4/EA1022.htm", "5.png", "E485", "0", "", "Class0","{3FD99278-9DB1-4280-80F3-4EDA2009BC2C}");
+tocTab[tocTab.length] = new Array("0.4.3.7.4:4", "", "«D2Class» PaymentMethod", "EARoot/EA4/EA3/EA7/EA4/EA1023.htm", "5.png", "E486", "0", "", "Class0","{47653F36-E6BC-4356-B5F8-494C220D229B}");

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Enumerations::RoadOrCarriagewayOrLaneManagementTypeEnum</title>
+<title>Enumerations::PoorEnvironmentTypeEnum</title>
 <link href="../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Enumerations::RoadOrCarriagewayOrLaneManagementTypeEnum </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Enumerations::PoorEnvironmentTypeEnum </h1>
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA743.htm">PayloadPublication</a> / <a href="../EA1258.htm">Situation</a> / <a href="EA1353.htm">Enumerations</a> / <a href="EA1395.htm">RoadOrCarriagewayOrLaneManagementTypeEnum</a></p>
+			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA759.htm">PayloadPublication</a> / <a href="../EA1271.htm">Situation</a> / <a href="EA1366.htm">Enumerations</a> / <a href="EA1395.htm">PoorEnvironmentTypeEnum</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,20 +110,20 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA1353.htm">Enumerations</a></ul>
+<a href="EA1366.htm">Enumerations</a></ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">RoadOrCarriagewayOrLaneManagementTypeEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
+	<span class="ObjectTitle">PoorEnvironmentTypeEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">25.08.2004 07:31:27</td>
+			<td width="85%" class="ObjectDetailsValue">21.06.2004 11:29:27</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">29.11.2022 17:26:12</td>
+			<td class="ObjectDetailsValue">29.11.2022 17:26:11</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -142,11 +168,11 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{C76C4E19-C7D9-4938-8BA5-8B5CDD35137A}</td>
+			<td class="ObjectDetailsValue">{E1FE98BB-2680-422d-BD36-532AB800036C}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA1351.htm">Enumerations</a>, <a href="../../../EA2/EA6/EA428.htm">UrbanExtensions</a>, <a href="../../../EA2/EA6/EA422.htm">RoadOrCarriagewayOrLaneManagement</a></td>
+			<td class="ObjectDetailsValue"><a href="EA1364.htm">Enumerations</a></td>
 		</tr>
 	</table>
 	
@@ -155,7 +181,6 @@
 			<li onClick="parent != null ? parent.toggleItem('Attributes') : toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
 			<li onClick="parent != null ? parent.toggleItem('TaggedVal') : toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
 			<li onClick="parent != null ? parent.toggleItem('CustomProperties') : toggleItem('CustomProperties');" id="CustomPropertiesTitle">Advanced</li>
-			<li onClick="parent != null ? parent.toggleItem('Links') : toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
 <div class="ItemBody" id="AttributesTable">
 	<table border="0" cellspacing="0" cellpadding="0" class="Table">
@@ -166,7 +191,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					carPoolLaneInOperation
+					<a name="{E32C8B37-41C5-4ec4-902C-10455308896A}"></a>badWeather
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -176,14 +201,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Dedicated car pool lane(s) are in operation for vehicles carrying at least the specified number of occupants.<br>order=0<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Adverse weather conditions are affecting driving conditions.<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					carriagewayClosures
+					<a name="{7219B754-B35E-4cc8-B0CD-5E1128D7A823}"></a>blizzard
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -193,14 +218,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Carriageway closures are in operation at the specified location.<br>order=1<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Heavy snowfall in combination with strong winds, limiting visibility to 50m or less.<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					clearALaneForEmergencyVehicles
+					<a name="{29E20C79-6897-468c-8103-EE010C0085F2}"></a>blowingDust
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -210,14 +235,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Clear a lane for emergency vehicles.<br>order=2<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Dust blowing across the roadway causing significantly reduced visibility.<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					clearALaneForSnowploughsAndGrittingVehicles
+					<a name="{BDBAA41E-9F7E-4445-9396-8FA575618F05}"></a>blowingSnow
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -227,14 +252,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Clear a lane for snow ploughs and gritting vehicles.<br>order=3<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Fallen snow moving due to the forces of wind.<br>order=3<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					closedPermanentlyForTheWinter
+					<a name="{F3027500-AA44-43df-A9EA-3F17688CD918}"></a>crosswinds
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -244,14 +269,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The road is closed to vehicles with the specified characteristics or all, if none defined, for the duration of the winter.<br>order=4<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Strong cross winds across the direction of the roadway (e.g. on a ridge or bridge).<br>order=4<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					contraflow
+					<a name="{E5181DA2-95E7-47e8-B515-0B34047E93B2}"></a>damagingHail
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -261,14 +286,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Two-way traffic is temporarily sharing a single carriageway.<br>order=5<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Large falling ice pellets or frozen rain capable of causing injury or damage to property.<br>order=5<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					doNotUseSpecifiedLanesOrCarriageways
+					<a name="{EFE2A01B-61EF-47e5-B45B-377E6873AA99}"></a>denseFog
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -278,14 +303,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Do not use the specified lane(s) or carriageway(s).<br>order=6<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Dense fog, limiting visibility to 50m or less.<br>order=6<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					hardShoulderRunningInOperation
+					<a name="{779A2171-3E32-4caf-9C82-1E90601973CA}"></a>eclipse
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -295,31 +320,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The hard shoulder is open as an operational lane.<br>order=7<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Eclipse, either partial or full, of the sun causing low light levels during normal daylight period.<br>order=7<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					hardShoulderRunningNotInOperation
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					int
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=the hardshoulder used for dynamic hardshoulder management is closed to vehicles i.e. not running<br>order=8<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					heightRestrictionInOperation
+					<a name="{B6F68AA2-8DCD-40ee-8B78-1A11AF28A997}"></a>extremeCold
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -329,14 +337,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A height restriction is in operation.<br>order=9<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Abnormally low temperatures.<br>order=8<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					intermittentShortTermClosures
+					<a name="{ABE91EC3-FDE6-49c2-9665-A2E4B28174B7}"></a>extremeHeat
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -346,14 +354,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Road closures occur intermittently on the specified road in the specified direction for short durations.<br>order=10<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Abnormally high expected maximum temperature.<br>order=9<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					keepToTheLeft
+					<a name="{DBAFA788-1445-454c-BAB6-9E672D22099D}"></a>fog
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -363,14 +371,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Keep to the left.<br>order=11<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Fog, visibility more than 50m.<br>order=10<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					keepToTheRight
+					<a name="{945565CA-DD20-4878-BF6B-6C45267D6A29}"></a>freezingFog
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -380,14 +388,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Keep to the right.<br>order=12<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Fog, in conjunction with sub-zero air temperatures causing possible freezing of road surface.<br>order=11<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					laneClosures
+					<a name="{0F3034B9-E67A-4071-B682-64FF797DE32A}"></a>frost
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -397,14 +405,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Lane closures are in operation at the specified location for vehicles with the specified characteristics or all, if none defined, in the specified direction.<br>order=13<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Frost can be expected.<br>order=12<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					lanesDeviated
+					<a name="{78465E47-B6C6-48bb-9959-A458BC56C812}"></a>gales
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -414,14 +422,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Lane deviations are in operation at the specified location.<br>order=14<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Winds between 60 km/h and 90 km/h.<br>order=13<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					narrowLanes
+					<a name="{96ED4A25-006D-431b-A1C1-4E48867F13A1}"></a>gustyWinds
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -431,14 +439,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Normal lane widths are temporarily reduced.<br>order=15<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Constantly varying winds, significant at times.<br>order=14<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					newRoadworksLayout
+					<a name="{5833A599-B59C-4c5e-8573-CE5A95B95E93}"></a>hail
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -448,14 +456,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A new layout of lanes/carriageway has been implemented associated with roadworks.<br>order=16<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Falling ice pellets or frozen rain.<br>order=15<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					overnightClosures
+					<a name="{09EF5A53-8C77-4145-8E4D-25FDE032A053}"></a>heavyFrost
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -465,14 +473,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Every night the road is closed to vehicles with the specified characteristics or all, if none defined, in the specified direction by decision of the appropriate authorities.<br>order=17<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=A thick coating of frost can be expected.<br>order=16<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					roadCleared
+					<a name="{B5D4CA8E-1714-41d4-8479-EC2FAA2F82BD}"></a>heavyRain
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -482,14 +490,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The road has been cleared of earlier reported problems.<br>order=18<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Heavy rainfall, limiting visibility to 50m or less.<br>order=17<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					roadClosed
+					<a name="{11131E60-43E1-424d-9783-0DDA7915C699}"></a>heavySnowfall
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -499,14 +507,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The road is closed to vehicles with the specified characteristics or all, if none defined, in the specified direction.<br>order=19<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Dense falling snow, limiting visibility to 50m or less.<br>order=18<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					rollingRoadBlock
+					<a name="{39557E32-A20E-418e-A22F-B510697E956D}"></a>hurricaneForceWinds
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -516,14 +524,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Traffic officers or police are driving slowly in front of a queue of traffic to create a gap in the traffic to allow for clearance activities to take place in safety on the road ahead.<br>order=20<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Winds over 120 km/h.<br>order=19<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					rushHourLaneInOperation
+					<a name="{33863729-70BA-4553-AE96-CCA93EBCD0E7}"></a>lowSunGlare
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -533,14 +541,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Dedicated rush (peak) hour lane(s) are in operation.<br>order=21<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Difficult visibility conditions created by low elevation sunlight.<br>order=20<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					singleAlternateLineTraffic
+					<a name="{2A70DB64-2AA9-4f53-988F-BEB73C0CD212}"></a>moderateFog
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -550,14 +558,48 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Traffic is being controlled to move in alternate single lines. This control may be undertaken by traffic lights or flagman.<br>order=22<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Misty conditions impairing vision over 100m.<br>order=21<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					tidalFlowLaneInOperation
+					<a name="{9C5D5A5F-89B3-48a6-A890-14B3291E70F8}"></a>nearbyFire
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Fire near the road affecting driving conditions and/or significantly reduced visibility<br>order=22<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{903F4C81-AF8A-4c05-9465-03DD8FA74E53}"></a>nearbyFlooding
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Flooding near the road risking to affect driving conditions<br>order=23<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{33C80467-D3F6-436c-9F07-BB5DCB8435AF}"></a>ozonePollution
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -567,14 +609,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Dedicated tidal flow lane(s) are in operation in the specified direction.<br>order=23<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=High concentrations of ozone are present.<br>order=24<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					turnAroundInOperation
+					<a name="{5330408D-E2F6-40fe-8C30-272616EF875B}"></a>pollution
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -584,14 +626,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Traffic is being directed back down the opposite carriageway, possibly requiring the temporary removal of the central crash barrier.<br>order=24<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Pollution of an unspecified nature.<br>order=25<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					useOfSpecifiedLanesOrCarriagewaysAllowed
+					<a name="{A7D1E2B1-D306-4937-A58E-84FBA55ACDD8}"></a>patchyFog
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -601,14 +643,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The specified lane(s) or carriageway(s) may be used. The normal lane(s) or carriageway(s) restrictions are not currently in force.<br>order=25<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Fog, in which intermittent areas of dense fog may be encountered.<br>order=26<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					useSpecifiedLanesOrCarriageways
+					<a name="{B44D505C-0BED-4e00-94E1-7907EFED4AE0}"></a>precipitationInTheArea
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -618,14 +660,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Use the specified lane(s) or carriageway(s).<br>order=26<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Unspecified precipitation is falling on the area.<br>order=27<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					vehicleStorageInOperation
+					<a name="{BBF581DA-F45F-4569-B89C-7DA87760EE65}"></a>rain
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -635,14 +677,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Vehicles are being stored on the roadway and/or at a rest area or service area at the specified location.<br>order=27<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Rain, visibility more than 50m.<br>order=28<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					weightRestrictionInOperation
+					<a name="{415C3562-F41B-458d-B775-35EBE73457B2}"></a>rainChangingToSnow
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -652,14 +694,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A weight restriction is in operation.<br>order=28<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Falling rain is changing to snow.<br>order=29<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					other
+					<a name="{26C768EB-0DB6-42c4-A6F2-F516D20747B4}"></a>sandStorms
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -669,8 +711,348 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Other than as defined in this enumeration.<br>order=29<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Sand blowing across the roadway causing significantly reduced visibility.<br>order=30<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{AEC96A15-3D55-431c-A2A5-CB3DEE87026D}"></a>severeExhaustPollution
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Pollution from exhaust fumes has reached a level sufficient to cause concern.<br>order=31<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{F84DA204-78FA-4cb8-B912-9DA9C1969CDC}"></a>severeSmog
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Environmental warning of very poor air quality resulting from smog.<br>order=32<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{36C2D142-5F87-49ad-A4DE-0276E0651A14}"></a>showers
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Light rain or intermittent rain.<br>order=33<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{59C5EB6A-7368-41f7-B7D3-5C0F610E819A}"></a>sleet
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Rain mingled with snow or hail.<br>order=34<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{6A494EC4-702A-4b55-A467-ACCB7B80EF25}"></a>smogAlert
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Environmental warning of poor air quality resulting from smog.<br>order=35<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{407D721A-C4ED-4d10-8EA0-9C5C4716FFC0}"></a>smokeHazard
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Smoke drifting across the roadway causing significantly reduced visibility.<br>order=36<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{2DE09F2D-ABEC-4f0b-837F-332EED7A9DFD}"></a>snowChangingToRain
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Falling snow is changing to rain.<br>order=37<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{87826776-2B51-4b5e-AEA8-35CA7E9A83A4}"></a>snowfall
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Falling snow, visibility more than 50m.<br>order=38<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{5FD8938E-C42E-4c0f-AF61-A47161074B28}"></a>sprayHazard
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Reduced visibility resulting from spray created by moving vehicles on a wet roadway.<br>order=39<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{5C34706D-93A3-4984-81B6-E06255B69BB0}"></a>stormForceWinds
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Winds between 90 km/h and 120 km/h.<br>order=40<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{F6319974-A78C-4a36-B8B9-D01BCCEB5EFD}"></a>strongGustsOfWind
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Constantly varying winds, strong at times.<br>order=41<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{69775A08-6859-4614-96ED-21262EC71931}"></a>strongWinds
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Winds between 40 km/h and 60 km/h.<br>order=42<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{B558DEBF-C186-4edd-817A-86FAE2148DD2}"></a>swarmsOfInsects
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Large numbers of insects which create a hazard for road users through reduced visibility.<br>order=43<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{15627015-1E26-4ad0-86B1-799377328477}"></a>temperatureFalling
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The temperature is falling significantly.<br>order=44<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{64BBD39D-8EF4-4214-91ED-7F8331A56961}"></a>thunderstorms
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Electrical storms, generally with heavy rain.<br>order=45<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{909F15F9-5860-4a9a-BD33-9CC83E0CA8CF}"></a>tornadoes
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Very violent, whirling windstorms affecting narrow strips of country.<br>order=46<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{A8B97400-96C8-401b-9284-E78731445DF3}"></a>veryStrongGustsOfWind
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Constantly varying winds, very strong at times.<br>order=47<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{A18CB1BA-FA3E-423f-97EC-DB488EBD925D}"></a>visibilityReduced
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Environmental conditions causing reduced visibility.<br>order=48<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{44D4BC5A-3BFA-43fe-941A-D8BFB4D3E0BB}"></a>whiteOut
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Falling snow in blizzard conditions resulting in very reduced visibility.<br>order=49<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{552CB33E-00C5-4f44-89F2-FA5AD2C2F83F}"></a>winterStorm
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Heavy rain, sleet, hail and/or snow in combination with strong winds, limiting visibility to 50m or less.<br>order=50<br>
 						&nbsp;
 						
 				</td>
@@ -685,7 +1067,7 @@
 		</tr>
 					<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">Management actions relating to road, carriageway or lane usage.</td>
+				<td width="50%" class="TableRow" valign="top">Types of poor environmental conditions.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -707,26 +1089,7 @@
 
 
 			</table>
-		</div>		<div class="ItemBody" id="LinksTable">
-			<table class="Table ea_table">
-				<tr>
-					<td width="30%" class="TableHeading">Object</td>
-					<td width="10%" class="TableHeading">Type</td>
-					<td width="10%" class="TableHeading">Connection</td>
-					<td width="10%" class="TableHeading">Direction</td>
-					<td width="40%" class="TableHeading">Notes</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA2/EA6/EA455.htm">«D2Enumeration» RoadOrCarriageWayOrLaneManagementTypeEnumExtendedUrban</a></td>
-					<td width="10%" class="TableRow" valign="top">Enumeration</td>
-					<td width="10%" class="TableRow" valign="top">Generalization</td>
-					<td width="10%" class="TableRow" valign="top">From</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-
-			</table>
-		</div>
-	</div>
+		</div>	</div>
  </div>
  </td>
 				</tr>

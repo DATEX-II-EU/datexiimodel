@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Enumerations::GeneralInstructionToRoadUsersTypeEnum</title>
+<title>Enumerations::InfrastructureDamageTypeEnum</title>
 <link href="../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Enumerations::GeneralInstructionToRoadUsersTypeEnum </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Enumerations::InfrastructureDamageTypeEnum </h1>
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA743.htm">PayloadPublication</a> / <a href="../EA1258.htm">Situation</a> / <a href="EA1353.htm">Enumerations</a> / <a href="EA1375.htm">GeneralInstructionToRoadUsersTypeEnum</a></p>
+			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA759.htm">PayloadPublication</a> / <a href="../EA1271.htm">Situation</a> / <a href="EA1366.htm">Enumerations</a> / <a href="EA1375.htm">InfrastructureDamageTypeEnum</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,16 +110,16 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA1353.htm">Enumerations</a></ul>
+<a href="EA1366.htm">Enumerations</a></ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">GeneralInstructionToRoadUsersTypeEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
+	<span class="ObjectTitle">InfrastructureDamageTypeEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">25.08.2004 06:18:36</td>
+			<td width="85%" class="ObjectDetailsValue">17.06.2004 16:52:25</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
@@ -142,11 +168,11 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{190234CA-6BF4-4c6f-BF65-AB4550B5A884}</td>
+			<td class="ObjectDetailsValue">{CB4CE3F6-900F-4724-A212-3B072403A478}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA1351.htm">Enumerations</a>, <a href="../../../EA2/EA6/EA430.htm">UrbanExtensions II</a>, <a href="../../../EA2/EA6/EA402.htm">GeneralInstructionsToRoadUsers</a></td>
+			<td class="ObjectDetailsValue"><a href="EA1364.htm">Enumerations</a>, <a href="../../../EA2/EA7/EA422.htm">InfrastructureDamageType</a></td>
 		</tr>
 	</table>
 	
@@ -166,7 +192,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					allowEmergencyVehiclesToPass
+					<a name="{DDB8688E-8EDC-4679-B045-F8C362513096}"></a>burstPipe
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -176,14 +202,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Allow emergency vehicles to pass.<br>order=0<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The road surface has sunken or collapsed in places due to burst pipes.<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					approachWithCare
+					<a name="{61282ED8-A8F2-4cce-A90B-E1E62ABB4F37}"></a>burstWaterMain
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -193,14 +219,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Approach with care.<br>order=1<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Traffic may be disrupted due to local flooding and/or subsidence because of a broken water main.<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					avoidTheArea
+					<a name="{D2F60146-2D9E-48cf-B5A1-1DB097A1C22E}"></a>collapsedSewer
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -210,14 +236,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Drivers are to avoid the area.<br>order=2<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The road surface has sunken or collapsed in places due to sewer failure.<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					closeAllWindowsTurnOffHeaterAndVents
+					<a name="{37F698B9-736B-48f7-A40A-1F6BC8C6EE06}"></a>damagedBridge
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -227,14 +253,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Close all windows and turn off heater and vents.<br>order=3<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Damage to a bridge that may cause traffic disruption.<br>order=3<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					crossJunctionWithCare
+					<a name="{E677A560-032F-4902-9F4E-BC4B65040B11}"></a>damagedCrashBarrier
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -244,14 +270,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Cross junction with care.<br>order=4<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Damage to a crash barrier that may cause traffic disruption.<br>order=4<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					doNotAllowUnnecessaryGaps
+					<a name="{D08FB585-BCDF-4fd3-B531-FE6FC8138D2F}"></a>damagedFlyover
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -261,14 +287,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Do not allow unnecessary gaps.<br>order=5<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Damage to an elevated section of the carriageway over another carriageway that may cause traffic disruption.<br>order=5<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					doNotLeaveYourVehicle
+					<a name="{FDA9C6F6-E57F-425b-A273-CF4AEB37E6A9}"></a>damagedGallery
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -278,14 +304,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Do not leave your vehicle.<br>order=6<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Damage to a gallery that may cause traffic disruption.<br>order=6<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					doNotThrowOutAnyBurningObjects
+					<a name="{962B975E-DB6E-453b-B258-1DE841310F74}"></a>damagedGantry
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -295,14 +321,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Do not throw out any burning objects.<br>order=7<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Damage to a gantry above the roadway that may cause traffic disruption.<br>order=7<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					doNotUseNavigationSystems
+					<a name="{18C84D1E-40E9-46bd-85CE-02C5F1199819}"></a>damagedRoadSurface
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -312,14 +338,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Do not use navigation systems to determine routing.<br>order=8<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Damage to the road surface that may cause traffic disruption.<br>order=8<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					driveCarefully
+					<a name="{80319565-2C71-4855-846F-33AC5723EBC3}"></a>damagedTunnel
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -329,14 +355,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Drive carefully.<br>order=9<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Damage to a tunnel that may cause traffic disruption.<br>order=9<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					driveWithExtremeCaution
+					<a name="{D52CEE09-878E-4c72-B3BB-ED3F573C2F3D}"></a>damagedViaduct
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -346,14 +372,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Drive with extreme caution.<br>order=10<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Damage to a viaduct that may cause traffic disruption.<br>order=10<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					flashYourLights
+					<a name="{9A20F372-656F-4535-AB73-EFD77595437C}"></a>fallenPowerCables
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -363,14 +389,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Flash your lights to warn oncoming traffic of hazard ahead.<br>order=11<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The road is obstructed or partially obstructed by one or more fallen power cables.<br>order=11<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					followTheVehicleInFrontSmoothly
+					<a name="{137E17F6-41B9-4c17-9A14-BF0AB256BC79}"></a>gasLeak
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -380,14 +406,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Follow the vehicle in front, smoothly.<br>order=12<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Traffic may be disrupted due to an explosion hazard from gas escaping in or near the roadway.<br>order=12<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					increaseNormalFollowingDistance
+					<a name="{EDAD1C9E-F54C-48e4-9B87-B70BD4C0A0C4}"></a>weakBridge
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -397,14 +423,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Increase normal following distance.<br>order=13<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Weak bridge capable of carrying a reduced load, typically with a reduced weight limit restriction imposed.<br>order=13<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					inEmergencyWaitForPatrolService
+					<a name="{7EF8191B-BD2A-4219-9D47-FA974D8598FA}"></a>other
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -414,467 +440,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=In emergency, wait for patrol service (either road operator or police patrol service).<br>order=14<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					keepYourDistance
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Keep your distance.<br>order=15<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					leaveYourVehicleProceedToNextSafePlace
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Leave your vehicle and proceed to next safe place.<br>order=16<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					noNakedFlames
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=No naked flames.<br>order=17<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					noOvertaking
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=No overtaking on the specified section of road.<br>order=18<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					noSmoking
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=No smoking.<br>order=19<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					noStopping
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=No stopping.<br>order=20<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					noUturns
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=No U-turns.<br>order=21<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					observeAmberAlert
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Observe current amber alert (an emergency alert issued for a missing or abducted child).<br>order=22<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					observeSignals
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Observe signals.<br>order=23<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					observeSigns
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Observe signs.<br>order=24<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					onlyTravelIfAbsolutelyNecessary
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Only travel if absolutely necessary.<br>order=25<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					overtakeWithCare
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Overtake with care.<br>order=26<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					pullOverToTheEdgeOfTheRoadway
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Pull over to the edge of the roadway.<br>order=27<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					stopAtNextSafePlace
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Stop at next safe place.<br>order=28<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					stopAtNextServiceArea
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Stop at next rest service area or car park.<br>order=29<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					switchOffEngine
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Switch off engine.<br>order=30<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					switchOffMobilePhonesAndTwoWayRadios
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Switch off mobile phones and two-way radios.<br>order=31<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					testYourBrakes
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Test your brakes.<br>order=32<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					useBusService
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Use bus service.<br>order=33<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					useFogLights
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Use fog lights.<br>order=34<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					useHazardWarningLights
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Use hazard warning lights.<br>order=35<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					useHeadlights
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Use headlights.<br>order=36<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					useRailService
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Use rail service.<br>order=37<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					useTramService
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Use tram service.<br>order=38<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					useUndergroundService
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Use underground service.<br>order=39<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					waitForEscortVehicle
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Wait for escort vehicle.<br>order=40<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					other
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Other than as defined in this enumeration.<br>order=41<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Other than as defined in this enumeration.<br>order=14<br>
 						&nbsp;
 						
 				</td>
@@ -889,7 +456,7 @@
 		</tr>
 					<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">General instructions that may be issued to road users (specifically drivers and sometimes passengers) by an operator or operational system in support of network management activities or emergency situations.</td>
+				<td width="50%" class="TableRow" valign="top">Types of infrastructure damage which may have an effect on the road network.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -921,7 +488,7 @@
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA2/EA6/EA444.htm">«D2Enumeration» GeneralInstructionToRoadUsersTypeEnumExtendedUrban</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA2/EA7/EA464.htm">«D2Enumeration» InfrastructureDamageTypeEnumExtendedUrban</a></td>
 					<td width="10%" class="TableRow" valign="top">Enumeration</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">From</td>

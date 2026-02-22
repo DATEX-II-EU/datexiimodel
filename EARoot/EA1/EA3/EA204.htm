@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> Enumerations::VehicleStatusEnum </h1>
-			<!-- <img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA10.htm">Common</a> / <a href="EA175.htm">Enumerations</a> / <a href="EA204.htm">VehicleStatusEnum</a></p>
@@ -165,7 +191,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					abandoned
+					<a name="{ED213C0A-8A8E-4ede-8684-FB1B02B0E9A6}"></a>abandoned
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -175,14 +201,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Abandoned vehicle.<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					brokenDown
+					<a name="{601E93AE-8B08-453d-9B81-BDA1593F6FF2}"></a>brokenDown
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -192,14 +218,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Broken down vehicle (i.e. it is immobile due to mechanical breakdown).<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					burntOut
+					<a name="{046307C2-58BD-42dc-90EB-A5EB9434D7BA}"></a>burntOut
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -209,14 +235,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Burnt out vehicle, but fire is extinguished.<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					damaged
+					<a name="{AA3AB697-011C-4881-98F6-2CE1C36B4934}"></a>damaged
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -226,14 +252,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle is damaged following an incident or collision. It may be able or not to move by itself.<br>order=3<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					damagedAndImmobilized
+					<a name="{5A55FA19-A102-4885-9024-771D7D25C606}"></a>damagedAndImmobilized
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -243,14 +269,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle is damaged following an incident or collision. It is immobilized and therefore needs assistance to be moved.<br>order=4<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					inDitch
+					<a name="{5935C68A-43EA-42c5-94A5-FB2AA3E5B0EC}"></a>inDitch
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -260,14 +286,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle has left roadway and ended in a ditch next to the roadway<br>order=5<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					jacknifed
+					<a name="{E2C948DB-368C-42cb-A5A5-0D2E66796B82}"></a>jacknifed
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -277,14 +303,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=The pulling vehicle is in a jackknifed position with its trailer<br>order=6<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					offRoad
+					<a name="{0432BE59-5C06-41c6-A5C2-1ED44DA3C4F3}"></a>offRoad
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -294,14 +320,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle has left the carriageway<br>order=7<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					onFire
+					<a name="{B9BD3522-529E-4da2-BD96-2F2DF72F7A53}"></a>onFire
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -311,14 +337,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle is on fire.<br>order=8<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					onTopOfCrashBarrier
+					<a name="{429F2186-6C80-4374-BCD9-134CF772BF22}"></a>onTopOfCrashBarrier
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -328,14 +354,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle is on top of the crash barrier, and cannot leave that position autonomously<br>order=9<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					onWheels
+					<a name="{4BEE10B7-87E8-40e5-AB6E-879ECF55F093}"></a>onWheels
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -345,14 +371,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle is in its upright position after the accident. No special lifting equipment is needed to put it on its wheels<br>order=10<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					overturned
+					<a name="{3A6DA08E-4DDF-460f-8D06-C26D8A12DE89}"></a>overturned
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -362,14 +388,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle is on its side or upside down<br>order=11<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					rollable
+					<a name="{49DB7D57-489F-4623-980B-3C653C03D1C7}"></a>rollable
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -379,14 +405,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=The vehicle can be rolled on its own wheels. There is no special equipment needed to lift the vehicle, because of blocked wheels or other mechanical problems.<br>order=12<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					spunAround
+					<a name="{8AAB77B1-5C2F-4033-8C4A-313C4A2CB1D8}"></a>spunAround
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -396,7 +422,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle has come to rest not facing its intended line of travel.<br>order=13<br>
 						&nbsp;
 						

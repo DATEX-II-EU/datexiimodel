@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> Validity::OverallPeriod </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA10.htm">Common</a> / <a href="../EA16.htm">Classes</a> / <a href="EA94.htm">Validity</a> / <a href="EA101.htm">OverallPeriod</a></p>
@@ -146,7 +172,7 @@
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA92.htm">Validity</a>, <a href="../../../EA4/EA3/EA6/EA945.htm">Organisation</a>, <a href="../../../EA4/EA3/EA7/EA960.htm">Rates</a>, <a href="../../../EA4/EA3/EA9/EA1035.htm">OperatingHours</a>, <a href="../../../EA4/EA3/EA9/EA1037.htm">OperatingHoursPublication</a>, <a href="../../../EA4/EA9/EA1/EA2/EA1692.htm">Assignment</a>, <a href="../../../EA4/EA9/EA1/EA6/EA1728.htm">OperatingPattern</a>, <a href="../../../EA4/EA9/EA1/EA9/EA1750.htm">ParkingStatus</a>, <a href="../../../EA4/EA9/EA4/EA1883.htm">ParkingStatus</a>, <a href="../../../EA4/EA9/EA4/EA1879.htm">ParkingStatusPublicationBig</a>, <a href="../../../EA4/EA10/EA1/EA5/EA3/EA1987.htm">Scenario</a></td>
+			<td class="ObjectDetailsValue"><a href="EA92.htm">Validity</a>, <a href="../../../EA4/EA3/EA6/EA958.htm">Organisation</a>, <a href="../../../EA4/EA3/EA7/EA973.htm">Rates</a>, <a href="../../../EA4/EA3/EA9/EA1048.htm">OperatingHours</a>, <a href="../../../EA4/EA3/EA9/EA1050.htm">OperatingHoursPublication</a>, <a href="../../../EA4/EA9/EA1/EA2/EA1730.htm">Assignment</a>, <a href="../../../EA4/EA9/EA1/EA6/EA1766.htm">OperatingPattern</a>, <a href="../../../EA4/EA9/EA1/EA9/EA1788.htm">ParkingStatus</a>, <a href="../../../EA4/EA9/EA4/EA1921.htm">ParkingStatus</a>, <a href="../../../EA4/EA9/EA4/EA1917.htm">ParkingStatusPublicationBig</a>, <a href="../../../EA4/EA10/EA1/EA5/EA3/EA2025.htm">Scenario</a></td>
 		</tr>
 	</table>
 	
@@ -168,7 +194,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					overallEndTime
+					<a name="{F507334D-B31D-468c-AB2E-1DF698A2FB8B}"></a>overallEndTime
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -178,14 +204,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=End of bounding period of validity defined by date and time.<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					overallStartTime
+					<a name="{35A09825-CB5B-49a8-8CDF-9EE2D2256888}"></a>overallStartTime
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -195,7 +221,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Start of bounding period of validity defined by date and time.<br>order=0<br>
 						&nbsp;
 						
@@ -212,7 +238,7 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA9/EA1/EA9/EA1763.htm">«D2Class» ValidityByPeriod</a><br />
+						<a href="../../../EA4/EA9/EA1/EA9/EA1801.htm">«D2Class» ValidityByPeriod</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -235,7 +261,7 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA3/EA7/EA2/EA990.htm">«D2Class» Rates</a><br />
+						<a href="../../../EA4/EA3/EA9/EA1058.htm">«D2VersionedIdentifiable» OperatingHoursSpecification</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -258,11 +284,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA105.htm">«D2Class» Validity</a><br />
+						<a href="../../../EA4/EA3/EA6/EA968.htm">«D2Class» Organisation</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> validityTimeSpecification<br />
+						<strong>Name:</strong> generalTimeValidity<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -281,11 +307,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA3/EA9/EA1045.htm">«D2VersionedIdentifiable» OperatingHoursSpecification</a><br />
+						<a href="EA105.htm">«D2Class» Validity</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
+						<strong>Name:</strong> validityTimeSpecification<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -304,11 +330,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA9/EA1/EA6/EA1731.htm">«D2Class» OperatingPattern</a><br />
+						<a href="../../../EA4/EA10/EA1/EA5/EA3/EA2031.htm">«D2VersionedIdentifiable» Scenario</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> validity<br />
+						<strong>Name:</strong> scheduledScenarioValidity<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -327,11 +353,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA3/EA6/EA955.htm">«D2Class» Organisation</a><br />
+						<a href="../../../EA4/EA9/EA1/EA2/EA1733.htm">«D2Class» Assignment</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> generalTimeValidity<br />
+						<strong>Name:</strong> assignmentValidity<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -350,11 +376,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA9/EA1/EA2/EA1695.htm">«D2Class» Assignment</a><br />
+						<a href="../../../EA4/EA3/EA7/EA2/EA1003.htm">«D2Class» Rates</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> assignmentValidity<br />
+						<strong>Name:</strong> &nbsp;<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -373,11 +399,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA10/EA1/EA5/EA3/EA1993.htm">«D2VersionedIdentifiable» Scenario</a><br />
+						<a href="../../../EA4/EA9/EA1/EA6/EA1769.htm">«D2Class» OperatingPattern</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> scheduledScenarioValidity<br />
+						<strong>Name:</strong> validity<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -410,7 +436,7 @@
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> validPeriod<br />
+						<strong>Name:</strong> exceptionPeriod<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -433,7 +459,7 @@
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> exceptionPeriod<br />
+						<strong>Name:</strong> validPeriod<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -493,17 +519,31 @@
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA9/EA1/EA9/EA1763.htm">«D2Class» ValidityByPeriod</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA9/EA1/EA9/EA1801.htm">«D2Class» ValidityByPeriod</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">To</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA3/EA7/EA2/EA990.htm">«D2Class» Rates</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA3/EA9/EA1058.htm">«D2VersionedIdentifiable» OperatingHoursSpecification</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">To</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA3/EA6/EA968.htm">«D2Class» Organisation</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">To</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA102.htm">«D2Class» Period</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
@@ -514,20 +554,6 @@
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA3/EA9/EA1045.htm">«D2VersionedIdentifiable» OperatingHoursSpecification</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA9/EA1/EA6/EA1731.htm">«D2Class» OperatingPattern</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
 					<td width="30%" class="TableRow" valign="top"><a href="EA102.htm">«D2Class» Period</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
@@ -535,28 +561,28 @@
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA102.htm">«D2Class» Period</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">From</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA3/EA6/EA955.htm">«D2Class» Organisation</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA10/EA1/EA5/EA3/EA2031.htm">«D2VersionedIdentifiable» Scenario</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">To</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA9/EA1/EA2/EA1695.htm">«D2Class» Assignment</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA9/EA1/EA2/EA1733.htm">«D2Class» Assignment</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">To</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA10/EA1/EA5/EA3/EA1993.htm">«D2VersionedIdentifiable» Scenario</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA3/EA7/EA2/EA1003.htm">«D2Class» Rates</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">To</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA9/EA1/EA6/EA1769.htm">«D2Class» OperatingPattern</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">To</td>

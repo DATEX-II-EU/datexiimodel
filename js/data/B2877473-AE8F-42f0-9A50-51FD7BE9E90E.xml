@@ -1,7 +1,7 @@
-tocTab[tocTab.length] = new Array("0.3.3.7.2:1", "", "TpegDescriptor", "EARoot/EA3/EA3/EA7/EA2/EA697.htm", "175.png", "45", "0", "", "Logical diagram0","{692D1483-7CD4-437b-B0E6-9AA515BFCA41}");
-tocTab[tocTab.length] = new Array("0.3.3.7.2:2", "", "«D2Class» TpegAreaDescriptor", "EARoot/EA3/EA3/EA7/EA2/EA700.htm", "5.png", "E312", "0", "", "Class0","{FF4CE13A-BDF7-4d4f-AB11-EB44967A067F}");
-tocTab[tocTab.length] = new Array("0.3.3.7.2:3", "", "«D2Class» TpegDescriptor", "EARoot/EA3/EA3/EA7/EA2/EA701.htm", "5.png", "E313", "0", "", "Class0","{7C743B11-27C2-4454-89F5-2E6903A2D28A}");
-tocTab[tocTab.length] = new Array("0.3.3.7.2:4", "", "«D2Class» TpegIlcPointDescriptor", "EARoot/EA3/EA3/EA7/EA2/EA702.htm", "5.png", "E314", "0", "", "Class0","{43C49531-137B-45d5-B1E8-8921FB620E5F}");
-tocTab[tocTab.length] = new Array("0.3.3.7.2:5", "", "«D2Class» TpegJunctionPointDescriptor", "EARoot/EA3/EA3/EA7/EA2/EA703.htm", "5.png", "E315", "0", "", "Class0","{819A3BDE-6FA1-4d7e-ABF3-F3F3B28C325D}");
-tocTab[tocTab.length] = new Array("0.3.3.7.2:6", "", "«D2Class» TpegOtherPointDescriptor", "EARoot/EA3/EA3/EA7/EA2/EA704.htm", "5.png", "E316", "0", "", "Class0","{3510F23B-3DA6-433d-9CFB-E2E901BE8BDF}");
-tocTab[tocTab.length] = new Array("0.3.3.7.2:7", "", "«D2Class» TpegPointDescriptor", "EARoot/EA3/EA3/EA7/EA2/EA705.htm", "5.png", "E317", "0", "", "Class0","{FD39F25E-5B5C-4d5b-B99C-6BA6A07A7CD6}");
+tocTab[tocTab.length] = new Array("0.3.3.7.2:1", "", "TpegDescriptor", "EARoot/EA3/EA3/EA7/EA2/EA713.htm", "175.png", "45", "0", "", "Logical diagram0","{692D1483-7CD4-437b-B0E6-9AA515BFCA41}");
+tocTab[tocTab.length] = new Array("0.3.3.7.2:2", "", "«D2Class» TpegAreaDescriptor", "EARoot/EA3/EA3/EA7/EA2/EA716.htm", "5.png", "E312", "0", "", "Class0","{FF4CE13A-BDF7-4d4f-AB11-EB44967A067F}");
+tocTab[tocTab.length] = new Array("0.3.3.7.2:3", "", "«D2Class» TpegDescriptor", "EARoot/EA3/EA3/EA7/EA2/EA717.htm", "5.png", "E313", "0", "", "Class0","{7C743B11-27C2-4454-89F5-2E6903A2D28A}");
+tocTab[tocTab.length] = new Array("0.3.3.7.2:4", "", "«D2Class» TpegIlcPointDescriptor", "EARoot/EA3/EA3/EA7/EA2/EA718.htm", "5.png", "E314", "0", "", "Class0","{43C49531-137B-45d5-B1E8-8921FB620E5F}");
+tocTab[tocTab.length] = new Array("0.3.3.7.2:5", "", "«D2Class» TpegJunctionPointDescriptor", "EARoot/EA3/EA3/EA7/EA2/EA719.htm", "5.png", "E315", "0", "", "Class0","{819A3BDE-6FA1-4d7e-ABF3-F3F3B28C325D}");
+tocTab[tocTab.length] = new Array("0.3.3.7.2:6", "", "«D2Class» TpegOtherPointDescriptor", "EARoot/EA3/EA3/EA7/EA2/EA720.htm", "5.png", "E316", "0", "", "Class0","{3510F23B-3DA6-433d-9CFB-E2E901BE8BDF}");
+tocTab[tocTab.length] = new Array("0.3.3.7.2:7", "", "«D2Class» TpegPointDescriptor", "EARoot/EA3/EA3/EA7/EA2/EA721.htm", "5.png", "E317", "0", "", "Class0","{FD39F25E-5B5C-4d5b-B99C-6BA6A07A7CD6}");

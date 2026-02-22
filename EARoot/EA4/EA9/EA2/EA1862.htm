@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Enumerations::TruckParkingDynamicManagementEnum</title>
+<title>Enumerations::AccessLaneTypeEnum</title>
 <link href="../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Enumerations::TruckParkingDynamicManagementEnum </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Enumerations::AccessLaneTypeEnum </h1>
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA743.htm">PayloadPublication</a> / <a href="../EA1655.htm">Parking</a> / <a href="EA1819.htm">Enumerations</a> / <a href="EA1862.htm">TruckParkingDynamicManagementEnum</a></p>
+			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA759.htm">PayloadPublication</a> / <a href="../EA1693.htm">Parking</a> / <a href="EA1857.htm">Enumerations</a> / <a href="EA1862.htm">AccessLaneTypeEnum</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,20 +110,20 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA1819.htm">Enumerations</a></ul>
+<a href="EA1857.htm">Enumerations</a></ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">TruckParkingDynamicManagementEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
+	<span class="ObjectTitle">AccessLaneTypeEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">14.06.2013 12:31:41</td>
+			<td width="85%" class="ObjectDetailsValue">01.06.2018 07:54:43</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">29.11.2022 17:26:20</td>
+			<td class="ObjectDetailsValue">29.11.2022 17:26:19</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -106,7 +132,7 @@
 		</tr>
 		<tr id="proj00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue">Freudenstein</td>
+			<td class="ObjectDetailsValue">jon</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
@@ -142,11 +168,11 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{07F939B7-DC80-4fb1-A308-529BA2BB05A3}</td>
+			<td class="ObjectDetailsValue">{3C1FBEEA-3335-45cd-B990-560E97738212}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="../EA1/EA6/EA1728.htm">OperatingPattern</a></td>
+			<td class="ObjectDetailsValue"><a href="../EA1/EA1/EA1717.htm">VehicularAccess</a></td>
 		</tr>
 	</table>
 	
@@ -165,69 +191,69 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					compactParking
+					<a name="{279AB51C-C515-4e34-8FA7-EB5AEDAA6C59}"></a>entryOnly
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					Enumeration
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Lorries are parking one after the other in different lanes; each lane has a dedicated time of departure (which might be displayed on a sign gantry).<br>order=0<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Lane used for entry to facility only.<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					queueParking
+					<a name="{AAA5D1E8-7E3F-464c-903B-06CBEBA621E0}"></a>exitOnly
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					Enumeration
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Lorries are parking in queues, one after the other. Each lorry must have an earlier time of departure than all the lorries behind it.<br>order=1<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Lane used for exit from facility only.<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					noDynamicParkingManagement
+					<a name="{AC348AE4-B43A-4cdc-B252-97AB84E73086}"></a>reversibleLane
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					Enumeration
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=No dynamic parking management.<br>order=2<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Lane used for both entry and exit to/from facility, depending on operational conditions.<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					other
+					<a name="{EE3D600D-5102-4275-AD7F-2F92EB682EBF}"></a>serviceVehicleLane
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					Enumeration
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Some other type of dynamic parking management.<br>order=3<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Lane used by parking operator service vehicle, not for public use.<br>order=3<br>
 						&nbsp;
 						
 				</td>
@@ -242,7 +268,7 @@
 		</tr>
 					<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">Dynamic parking mode enum.</td>
+				<td width="50%" class="TableRow" valign="top">A list of the supported access lane characteristic types.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Enumerations::TpegLoc03OtherPointDescriptorSubtypeEnum</title>
+<title>Enumerations::NamedAreaTypeEnum</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Enumerations::TpegLoc03OtherPointDescriptorSubtypeEnum </h1>
-			<!-- <img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Enumerations::NamedAreaTypeEnum </h1>
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA463.htm">LocationReferencing</a> / <a href="EA477.htm">Enumerations</a> / <a href="EA501.htm">TpegLoc03OtherPointDescriptorSubtypeEnum</a></p>
+			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA479.htm">LocationReferencing</a> / <a href="EA493.htm">Enumerations</a> / <a href="EA501.htm">NamedAreaTypeEnum</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,20 +110,20 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA477.htm">Enumerations</a></ul>
+<a href="EA493.htm">Enumerations</a></ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">TpegLoc03OtherPointDescriptorSubtypeEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
+	<span class="ObjectTitle">NamedAreaTypeEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">25.11.2004 07:55:36</td>
+			<td width="85%" class="ObjectDetailsValue">28.11.2016 13:41:44</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">29.11.2022 17:26:00</td>
+			<td class="ObjectDetailsValue">29.11.2022 17:25:59</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -142,11 +168,11 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{8E849879-612C-44c7-A3AC-F00A0BE84F03}</td>
+			<td class="ObjectDetailsValue">{D5824266-AE5D-4182-9471-1BD04D6AE5A3}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA475.htm">Enumerations</a></td>
+			<td class="ObjectDetailsValue"><a href="EA491.htm">Enumerations</a></td>
 		</tr>
 	</table>
 	
@@ -165,477 +191,443 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					administrativeAreaName
+					<a name="{02FBCD39-135D-4e90-9686-C6B7585DB3C2}"></a>applicationRegion
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					int
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Name of an administrative area.<br>order=0<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Application region<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					administrativeReferenceName
+					<a name="{B0BA11D8-E7AA-4ca2-BD77-7225AAEAFE0D}"></a>continent
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					int
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Reference name by which an administrative area is known.<br>order=1<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Continent<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					airportName
+					<a name="{3346EE7F-1653-4c3c-BE97-276570A6D9EE}"></a>country
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					int
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Name of an airport.<br>order=2<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Country<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					areaName
+					<a name="{8CCF6DF4-6DB5-45be-9363-BEA0352ED779}"></a>countryGroup
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					int
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Name of an area.<br>order=3<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Group of countries.<br>order=3<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					buildingName
+					<a name="{8D8C0878-D297-4bf9-9204-F01B85DA0D30}"></a>carParkArea
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					int
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Name of a building.<br>order=4<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Car park area<br>order=4<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					busStopIdentifier
+					<a name="{AB04AF04-5957-4fc7-AD5E-EB7DC04A2CFC}"></a>carpoolArea
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					int
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Identifier of a bus stop on the road network.<br>order=5<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Carpool area<br>order=5<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					busStopName
+					<a name="{2153CB82-DDA3-4736-BA68-CB37E86A61E8}"></a>fuzzyArea
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					int
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Name of a bus stop on the road network.<br>order=6<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Fuzzy area<br>order=6<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					canalName
+					<a name="{8AFECE15-C53E-437d-8638-F7BC54447971}"></a>industrialArea
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					int
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Name of a canal.<br>order=7<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Industrial area<br>order=7<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					countyName
+					<a name="{C066CD28-FD08-499f-BFF3-F9616021F258}"></a>lake
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					int
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Name of a county (administrative sub-division).<br>order=8<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Lake<br>order=8<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					ferryPortName
+					<a name="{15BA7941-2A74-4eaa-BF6F-3C3452746629}"></a>meteorologicalArea
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					int
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Name of a ferry port.<br>order=9<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Meteorological area<br>order=9<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					intersectionName
+					<a name="{33E52192-DCF6-442e-B908-CDAE5AE62C2A}"></a>metropolitanArea
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					int
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Name of a road network intersection.<br>order=10<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Metropolitan area<br>order=10<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					lakeName
+					<a name="{0DB31D12-E432-4bd3-9783-202FDFC7F70D}"></a>municipality
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Name of a lake.<br>order=11<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Municipality<br>order=11<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					linkName
+					<a name="{43E6F913-A776-4ac4-A7A7-A853447A23F0}"></a>parkAndRideSite
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					int
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Name of a road link.<br>order=12<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=A park and ride site<br>order=12<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					localLinkName
+					<a name="{549E241E-44F8-486a-92B6-36E7DF544A9D}"></a>ruralCounty
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					int
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Local name of a road link.<br>order=13<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Rural county<br>order=13<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					metroStationName
+					<a name="{78D5EBA3-EBD5-4030-A941-EE979876D617}"></a>sea
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					int
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Name of a metro/underground station.<br>order=14<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Sea<br>order=14<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					nationName
+					<a name="{FD253AC6-483F-4208-8389-BED8EA7B9B42}"></a>touristArea
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					int
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Name of a nation (e.g. Wales) which is a sub-division of a ISO recognised country.<br>order=15<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Tourist area<br>order=15<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					nonLinkedPointName
+					<a name="{FC9575CC-09B8-411a-B9E4-620107657BE8}"></a>trafficArea
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					int
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Name of a point on the road network which is not at a junction or intersection. <br>order=16<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Traffic area<br>order=16<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					parkingFacilityName
+					<a name="{FE5595CF-2D3F-4098-92E5-ACDD614B281D}"></a>urbanCounty
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					int
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Name of a parking facility.<br>order=17<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Urban county<br>order=17<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					pointName
+					<a name="{8E15A1FD-AD25-4e7b-B92E-D7F74D6D3CE6}"></a>order1AdministrativeArea
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					int
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Name of a specific point.<br>order=18<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Order 1 administrative area<br>order=18<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					pointOfInterestName
+					<a name="{41437F7B-00ED-4f95-A9CD-CD006AD11245}"></a>order2AdministrativeArea
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					int
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Name of a general point of interest.<br>order=19<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Order 2 administrative area<br>order=19<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					railwayStation
+					<a name="{43C6A75C-74F6-4923-B3D8-DA87F0574FF1}"></a>order3AdministrativeArea
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					int
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Name of a railway station.<br>order=20<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Order 3 administrative area<br>order=20<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					regionName
+					<a name="{ACD9F7E3-7393-48cc-96D1-50D7E09DF5EA}"></a>order4AdministrativeArea
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					int
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Name of a geographic region.<br>order=21<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Order 4 administrative area<br>order=21<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					riverName
+					<a name="{AB866941-752C-4e4a-8F77-61E76BF1B0B4}"></a>order5AdministrativeArea
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					int
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Name of a river.<br>order=22<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Order 5 administrative area<br>order=22<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					seaName
+					<a name="{18618EB9-2C7D-4df7-B5B1-A68DCDFA32AB}"></a>policeForceControlArea
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					int
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Name of a sea.<br>order=23<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Police force control area<br>order=23<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					serviceAreaName
+					<a name="{36C24EA3-C6A9-473f-A07A-9984CAD52915}"></a>roadOperatorControlArea
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					int
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Name of a service area on a road network.<br>order=24<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Road operator control area<br>order=24<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					tidalRiverName
+					<a name="{61D4C0A9-626B-4a76-B8DE-296DD13E2B7B}"></a>waterArea
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					enumerationLiteral
+					int
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Name of a river which is of a tidal nature.<br>order=25<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					townName
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Name of a town.<br>order=26<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					other
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Other than as defined in this enumeration.<br>order=27<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Water area<br>order=25<br>
 						&nbsp;
 						
 				</td>
@@ -650,7 +642,7 @@
 		</tr>
 					<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">Descriptors other than junction names and road descriptors which can help to identify the location of points on the road network.</td>
+				<td width="50%" class="TableRow" valign="top">Types of areas.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">

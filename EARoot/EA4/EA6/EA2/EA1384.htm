@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Enumerations::TrafficTypeEnum</title>
+<title>Enumerations::OperatorActionStatusEnum</title>
 <link href="../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Enumerations::TrafficTypeEnum </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Enumerations::OperatorActionStatusEnum </h1>
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA743.htm">PayloadPublication</a> / <a href="../EA1258.htm">Situation</a> / <a href="EA1353.htm">Enumerations</a> / <a href="EA1384.htm">TrafficTypeEnum</a></p>
+			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA759.htm">PayloadPublication</a> / <a href="../EA1271.htm">Situation</a> / <a href="EA1366.htm">Enumerations</a> / <a href="EA1384.htm">OperatorActionStatusEnum</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,20 +110,20 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA1353.htm">Enumerations</a></ul>
+<a href="EA1366.htm">Enumerations</a></ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">TrafficTypeEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
+	<span class="ObjectTitle">OperatorActionStatusEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">19.10.2006 17:05:25</td>
+			<td width="85%" class="ObjectDetailsValue">21.06.2004 16:58:09</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">29.11.2022 17:26:11</td>
+			<td class="ObjectDetailsValue">29.11.2022 17:26:10</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -142,11 +168,11 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{27EF8926-626E-4109-99D7-A0BFB39A2AB9}</td>
+			<td class="ObjectDetailsValue">{65A0CBB4-8981-44cb-900E-BC6FA314719E}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA1351.htm">Enumerations</a>, <a href="../../../EA2/EA2/EA237.htm">Allocation</a>, <a href="../../../EA2/EA2/EA4/EA291.htm">ReroutingManagement Complete wide</a></td>
+			<td class="ObjectDetailsValue"><a href="EA1364.htm">Enumerations</a></td>
 		</tr>
 	</table>
 	
@@ -155,7 +181,6 @@
 			<li onClick="parent != null ? parent.toggleItem('Attributes') : toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
 			<li onClick="parent != null ? parent.toggleItem('TaggedVal') : toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
 			<li onClick="parent != null ? parent.toggleItem('CustomProperties') : toggleItem('CustomProperties');" id="CustomPropertiesTitle">Advanced</li>
-			<li onClick="parent != null ? parent.toggleItem('Links') : toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
 <div class="ItemBody" id="AttributesTable">
 	<table border="0" cellspacing="0" cellpadding="0" class="Table">
@@ -166,7 +191,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					accessOnlyTraffic
+					<a name="{F164FFCF-962E-4cc0-BCE7-AFF783C6ECF6}"></a>requested
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -176,14 +201,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Traffic destined for local access only.<br>order=0<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=A request, either internal or external, has been received to implement an action. It has neither been approved nor has any activity yet been undertaken to implement the action.<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					destinedForAirport
+					<a name="{A3C62A5A-B2B2-40ae-9D2B-3732829AD4DA}"></a>approved
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -193,14 +218,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Traffic destined for the airport.<br>order=1<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The action has been approved by the recipient of the request but activity to implement the action has not yet commenced.<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					destinedForAirportArrivals
+					<a name="{F6F65FDD-3E10-4848-AE09-3DD22FCF8655}"></a>beingImplemented
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -210,14 +235,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Traffic destined for airport arrivals.<br>order=2<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The action is in the process of being implemented.<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					destinedForAirportDepartures
+					<a name="{1BCB8F2D-F6D5-4c7e-9F11-EE41026123D7}"></a>implemented
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -227,14 +252,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Traffic destined for airport departures.<br>order=3<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The action is fully implemented.<br>order=3<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					destinedForFerryService
+					<a name="{FC26BFF1-17EB-4ac0-81CD-87CD96091CF9}"></a>rejected
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -244,14 +269,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Traffic destined for the ferry service.<br>order=4<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The action has been rejected by the recipient of the request and hence is not implemented.<br>order=4<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					destinedForRailService
+					<a name="{2B82C2E5-C299-40e6-82F9-3D317377E091}"></a>terminationRequested
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -261,14 +286,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Traffic destined for the rail service.<br>order=5<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=A request, either internal or external, has been received to terminate the action, but activity to terminate the action has not yet commenced.<br>order=5<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					holidayTraffic
+					<a name="{44EF4EE4-B561-48f1-A280-B22AA6CBB420}"></a>beingTerminated
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -278,110 +303,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Traffic heading towards holiday destinations.<br>order=6<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					localTraffic
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Traffic heading towards local destinations.<br>order=7<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					longDistanceTraffic
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Traffic heading towards destinations which are a long distance away.<br>order=8<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					regionalTraffic
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Traffic heading towards local regional destinations.<br>order=9<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					residentsOnlyTraffic
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Local residents only traffic.<br>order=10<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					throughTraffic
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Traffic which is not for local access, i.e. traffic not destined for local town, city or built up area but for transit though the area.<br>order=11<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					visitorTraffic
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Traffic heading towards local visitor attraction.<br>order=12<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The action is in the process of being terminated either because the action has reached the end of its validity period or because new circumstances have arisen and its termination has been requested, e.g. because of a traffic jam on the alternative route.<br>order=6<br>
 						&nbsp;
 						
 				</td>
@@ -396,7 +319,7 @@
 		</tr>
 					<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">Types of traffic, mostly classified by its destination type.</td>
+				<td width="50%" class="TableRow" valign="top">List of statuses associated with operator actions.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -418,26 +341,7 @@
 
 
 			</table>
-		</div>		<div class="ItemBody" id="LinksTable">
-			<table class="Table ea_table">
-				<tr>
-					<td width="30%" class="TableHeading">Object</td>
-					<td width="10%" class="TableHeading">Type</td>
-					<td width="10%" class="TableHeading">Connection</td>
-					<td width="10%" class="TableHeading">Direction</td>
-					<td width="40%" class="TableHeading">Notes</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA2/EA2/EA3/EA288.htm">«D2Enumeration» TrafficTypeEnumExtended</a></td>
-					<td width="10%" class="TableRow" valign="top">Enumeration</td>
-					<td width="10%" class="TableRow" valign="top">Generalization</td>
-					<td width="10%" class="TableRow" valign="top">From</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-
-			</table>
-		</div>
-	</div>
+		</div>	</div>
  </div>
  </td>
 				</tr>

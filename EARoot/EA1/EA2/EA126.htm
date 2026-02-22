@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> DataTypes </h1>
-			<!-- <img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA10.htm">Common</a> / <a href="EA128.htm">DataTypes</a> / <a href="EA126.htm">DataTypes</a></p>
@@ -92,11 +118,11 @@
 					</td>
 					<td class="contentcell"><div class="PageBody">
 	<div class="diagram_image"> 
-<img src="EA127.png" usemap="#EA127" border="0" />
+<img src="EA127.png" usemap="#EA127" width="625" height="563" border="0" />
 
 <MAP NAME="EA127">
-<area shape="rect" coords="168,11,407,365" href="./EA2/EA151.htm" target="_self">
-<area shape="rect" coords="10,10,153,328" href="./EA1/EA131.htm" target="_self">
+<area shape="rect" coords="252,17,611,548" href="./EA2/EA151.htm" target="_self">
+<area shape="rect" coords="15,15,230,492" href="./EA1/EA131.htm" target="_self">
 </MAP>
  </div>
 	<div class="ObjectTitle">DataTypes : Class diagram</div>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Enumerations::VehicleObstructionTypeEnum</title>
+<title>Enumerations::TrafficTypeEnum</title>
 <link href="../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Enumerations::VehicleObstructionTypeEnum </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Enumerations::TrafficTypeEnum </h1>
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA743.htm">PayloadPublication</a> / <a href="../EA1258.htm">Situation</a> / <a href="EA1353.htm">Enumerations</a> / <a href="EA1397.htm">VehicleObstructionTypeEnum</a></p>
+			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA759.htm">PayloadPublication</a> / <a href="../EA1271.htm">Situation</a> / <a href="EA1366.htm">Enumerations</a> / <a href="EA1397.htm">TrafficTypeEnum</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,20 +110,20 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA1353.htm">Enumerations</a></ul>
+<a href="EA1366.htm">Enumerations</a></ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">VehicleObstructionTypeEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
+	<span class="ObjectTitle">TrafficTypeEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">25.10.2006 15:04:18</td>
+			<td width="85%" class="ObjectDetailsValue">19.10.2006 17:05:25</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">29.11.2022 17:26:12</td>
+			<td class="ObjectDetailsValue">29.11.2022 17:26:11</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -142,11 +168,11 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{64FC5DF5-9DA2-48c8-B6FF-A1299DD6EAE5}</td>
+			<td class="ObjectDetailsValue">{27EF8926-626E-4109-99D7-A0BFB39A2AB9}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA1351.htm">Enumerations</a></td>
+			<td class="ObjectDetailsValue"><a href="EA1364.htm">Enumerations</a>, <a href="../../../EA2/EA3/EA243.htm">Allocation</a>, <a href="../../../EA2/EA3/EA4/EA297.htm">ReroutingManagement Complete wide</a></td>
 		</tr>
 	</table>
 	
@@ -155,6 +181,7 @@
 			<li onClick="parent != null ? parent.toggleItem('Attributes') : toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
 			<li onClick="parent != null ? parent.toggleItem('TaggedVal') : toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
 			<li onClick="parent != null ? parent.toggleItem('CustomProperties') : toggleItem('CustomProperties');" id="CustomPropertiesTitle">Advanced</li>
+			<li onClick="parent != null ? parent.toggleItem('Links') : toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
 <div class="ItemBody" id="AttributesTable">
 	<table border="0" cellspacing="0" cellpadding="0" class="Table">
@@ -165,7 +192,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					abandonedVehicle
+					<a name="{88677F9B-3213-4840-886B-187232AFD418}"></a>accessOnlyTraffic
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -175,14 +202,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Abandoned vehicle(s) on the roadway which may cause traffic disruption.<br>order=0<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Traffic destined for local access only.<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					abnormalLoad
+					<a name="{60184BC7-5CF0-4bae-AB27-9502B05BF43C}"></a>destinedForAirport
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -192,14 +219,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Vehicle(s) carrying exceptional load(s) which may cause traffic disruption.<br>order=1<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Traffic destined for the airport.<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					brokenDownVehicle
+					<a name="{75638EE8-A12F-4e9a-910E-7CB19944F73B}"></a>destinedForAirportArrivals
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -209,14 +236,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Broken down vehicle(s) on the carriageway which may cause traffic disruption.<br>order=2<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Traffic destined for airport arrivals.<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					convoy
+					<a name="{C2803DED-F4CC-400a-B392-BA8AE0529524}"></a>destinedForAirportDepartures
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -226,14 +253,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A group of vehicles moving together in formation which may cause traffic disruption.<br>order=3<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Traffic destined for airport departures.<br>order=3<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					damagedVehicle
+					<a name="{12DD0659-FF8D-47f0-B7DA-5AE7AB98DF45}"></a>destinedForFerryService
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -243,14 +270,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Damaged vehicle(s) on the carriageway which may cause traffic disruption.<br>order=4<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Traffic destined for the ferry service.<br>order=4<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					dangerousSlowMovingVehicle
+					<a name="{D2D3F2D7-D8CC-4c64-BC83-AA143A6CF9B4}"></a>destinedForRailService
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -260,14 +287,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Dangerous slow moving vehicles which may cause traffic disruption.<br>order=5<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Traffic destined for the rail service.<br>order=5<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					emergencyVehicle
+					<a name="{FFBC8E17-3BA4-4004-9865-427BF48D224B}"></a>holidayTraffic
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -277,14 +304,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Emergency service vehicles on the roadway in response to an emergency situation.<br>order=6<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Traffic heading towards holiday destinations.<br>order=6<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					highSpeedEmergencyVehicle
+					<a name="{4B08D9DB-DCD9-4aad-8589-327015616B3B}"></a>localTraffic
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -294,14 +321,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Emergency service vehicles progressing at high speed along the roadway in response to or en route from an emergency situation.<br>order=7<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Traffic heading towards local destinations.<br>order=7<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					longLoad
+					<a name="{83050600-A1C8-4f81-98FF-21E1ECC2D6EC}"></a>longDistanceTraffic
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -311,48 +338,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A vehicle of length greater than that normally allowed which may cause traffic disruption.<br>order=8<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Traffic heading towards destinations which are a long distance away.<br>order=8<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					highSpeedChase
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Authorised and unauthorised vehicles are travelling at high speeds along the roadway.  This may present a hazard to other vehicles.<br>order=9<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					medicalEmergency
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Vehicle has stopped due a medical issue of a driver or passenger<br>order=10<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					militaryConvoy
+					<a name="{099D096B-21CC-409a-8013-F21CE672BA48}"></a>regionalTraffic
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -362,14 +355,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A group of military vehicles moving together in formation which may cause traffic disruption.<br>order=11<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Traffic heading towards local regional destinations.<br>order=9<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					overheightVehicle
+					<a name="{5C90440F-1D52-478f-8543-0D978ED33A88}"></a>residentsOnlyTraffic
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -379,14 +372,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Vehicles of height greater than normally allowed which may cause traffic disruption.<br>order=12<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Local residents only traffic.<br>order=10<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					prohibitedVehicleOnTheRoad
+					<a name="{1B5563B7-4A1F-4a84-83A3-BB9FA7F183B9}"></a>throughTraffic
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -396,31 +389,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Vehicles not normally permitted on the motorway are present which may cause traffic disruption.<br>order=13<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Traffic which is not for local access, i.e. traffic not destined for local town, city or built up area but for transit though the area.<br>order=11<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					recklessDriver
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A vehicle being driven without due care and attention is causing a hazard to other vehicles.<br>order=14<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					slowVehicle
+					<a name="{4A0F8032-DDDD-4b82-852A-EEA108072250}"></a>visitorTraffic
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -430,212 +406,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A vehicle travelling at well below normal highway speeds which may cause traffic disruption.<br>order=15<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					specialPermitTransport
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Special type of load or vehicle size, or even speed, that is allowed on the road only with special permission. The presence of this transport may cause traffic disruption.<br>order=16<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					trackedVehicle
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Carterpillar tracked vehicles are in use which may cause traffic disruption.<br>order=17<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					unlitVehicleOnTheRoad
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Vehicles without lights are in use which may present a hazard to road users.<br>order=19<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					vehicleOnFire
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A vehicle is or has been on fire and may cause traffic disruption.<br>order=20<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					vehicleCarryingHazardousMaterials
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Vehicles carrying materials of a hazardous nature are present and these could expose road users to additional hazards.<br>order=21<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					vehicleInDifficulty
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A vehicle is experiencing difficulties (e.g. manoeuvring or propulsion difficulties) which may cause traffic disruption.<br>order=22<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					vehicleOnWrongCarriageway
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A vehicle is travelling the wrong way along a divided highway (i.e. on the wrong side).<br>order=23<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					vehicleStuck
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=One or more vehicles are stuck (i.e. unable to move) due to environmental conditions such as a snow drift or severe icy road.<br>order=24<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					vehicleWithOverheightLoad
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=An over-height vehicle which may present a hazard to road users.<br>order=26<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					vehicleWithOverwideLoad
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A vehicle of width greater than that normally allowed which may cause traffic disruption.<br>order=27<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					winterMaintetanceVehicleInTransfer
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Winter maintenance vehicle is on the road, not doing its specific work. Its presence may cause traffic disruption.<br>order=28<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					other
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Other than as defined in this enumeration.<br>order=29<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Traffic heading towards local visitor attraction.<br>order=12<br>
 						&nbsp;
 						
 				</td>
@@ -650,7 +422,7 @@
 		</tr>
 					<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">Types of obstructions involving vehicles.</td>
+				<td width="50%" class="TableRow" valign="top">Types of traffic, mostly classified by its destination type.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -672,7 +444,26 @@
 
 
 			</table>
-		</div>	</div>
+		</div>		<div class="ItemBody" id="LinksTable">
+			<table class="Table ea_table">
+				<tr>
+					<td width="30%" class="TableHeading">Object</td>
+					<td width="10%" class="TableHeading">Type</td>
+					<td width="10%" class="TableHeading">Connection</td>
+					<td width="10%" class="TableHeading">Direction</td>
+					<td width="40%" class="TableHeading">Notes</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA2/EA3/EA3/EA294.htm">«D2Enumeration» TrafficTypeEnumExtended</a></td>
+					<td width="10%" class="TableRow" valign="top">Enumeration</td>
+					<td width="10%" class="TableRow" valign="top">Generalization</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+
+			</table>
+		</div>
+	</div>
  </div>
  </td>
 				</tr>

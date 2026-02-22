@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>LocationExtension</title>
+<title>GnssExtension</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> LocationExtension </h1>
-			<!-- <img class="header_image" src="../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> GnssExtension </h1>
+			<!-- <img class="header_image" src="../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../EA3.htm">D2Payload</a> / <a href="EA212.htm">Extension</a> / <a href="./EA5/EA378.htm">LocationExtension</a></p>
+			<p><a href="../EA3.htm">D2Payload</a> / <a href="EA212.htm">Extension</a> / <a href="./EA5/EA367.htm">GnssExtension</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,23 +110,31 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<li><img src="../../images/4.png" alt="Package"/> <a href="./EA5/EA1/EA384.htm">Draft</a></li>
-<li><img src="../../images/4.png" alt="Package"/> <a href="./EA5/EA2/EA389.htm">Final</a></li>
-<li><img src="../../images/176.png" alt="Diagram"/> <a href="./EA5/EA376.htm">LocationExtension</a></li>
+<li><img src="../../images/4.png" alt="Package"/> <a href="./EA5/EA1/EA382.htm">DataTypes</a></li>
+<li><img src="../../images/4.png" alt="Package"/> <a href="./EA5/EA2/EA387.htm">Enumerations</a></li>
+<li><img src="../../images/175.png" alt="Diagram"/> <a href="./EA5/EA365.htm">GnssExtension</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="./EA5/EA371.htm">HeightCoordinateExtended</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="./EA5/EA372.htm">PointByCoordinatesExtended</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="./EA5/EA373.htm">SatelliteConstellation</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="./EA5/EA374.htm">SbasCorrectionAndAuthenticationPerConstellation</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="./EA5/EA375.htm">PointCoordinatesExtended</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="./EA5/EA377.htm">RawDataMessage</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="./EA5/EA378.htm">TrackedSatellite</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="./EA5/EA379.htm">TrackedSignal</a></li>
 </ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">LocationExtension D2Namespace : Public  &lt;&lt;D2Namespace&gt;&gt; Package</span>
+	<span class="ObjectTitle">GnssExtension D2Namespace : Public  &lt;&lt;D2Namespace&gt;&gt; Package</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">14.05.2021 16:24:27</td>
+			<td width="85%" class="ObjectDetailsValue">20.05.2021 08:39:12</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">18.11.2022 13:31:42</td>
+			<td class="ObjectDetailsValue">08.06.2021 08:28:47</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -109,11 +143,11 @@
 		</tr>
 		<tr id="proj00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue"></td>
+			<td class="ObjectDetailsValue">ITSMobiliteConseils</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
-			<td class="ObjectDetailsValue">3.4</td>
+			<td class="ObjectDetailsValue">3.2</td>
 		</tr>
 		<tr id="proj02" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Phase:</td>
@@ -145,7 +179,7 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{F9CA635C-C074-438f-A6E7-D159D5A69EFD}</td>
+			<td class="ObjectDetailsValue">{2A4A2132-8C75-469b-8347-EF1CEF43FABC}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
@@ -165,7 +199,7 @@
 		</tr>
 					<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">Extension of LocationReferencing namespace.</td>
+				<td width="50%" class="TableRow" valign="top">Extension dealing with the raw parameters of GNSS-based positioning.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -174,7 +208,16 @@
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow" valign="top">prefix</td>
-				<td width="50%" class="TableRow" valign="top">locx</td>
+				<td width="50%" class="TableRow" valign="top">gns</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow" valign="top">version</td>
+				<td width="50%" class="TableRow" valign="top">3.2</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">

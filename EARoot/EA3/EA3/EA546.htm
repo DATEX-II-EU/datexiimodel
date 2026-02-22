@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>LocationReference::LocationReference</title>
+<title>Note</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> LocationReference::LocationReference </h1>
-			<!-- <img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Note </h1>
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA463.htm">LocationReferencing</a> / <a href="EA518.htm">LocationReference</a> / <a href="EA546.htm">LocationReference</a></p>
+			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA479.htm">LocationReferencing</a> / <a href="EA534.htm">LocationReference</a> / <a href="../../../index.htm">{ }</a> / <a href="EA546.htm">Note</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,16 +110,16 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA518.htm">LocationReference</a></ul>
+<a href="../../../index.htm">{ }</a></ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">LocationReference  : Public abstract &lt;&lt;D2Class&gt;&gt; Class</span>
+	<span class="ObjectTitle">Note  : Public   Note</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">21.06.2004 08:01:15</td>
+			<td width="85%" class="ObjectDetailsValue">20.06.2008 11:33:54</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
@@ -142,642 +168,15 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{A2A4DD9E-C635-48e4-8143-F444A0A0C335}</td>
+			<td class="ObjectDetailsValue">{8B5BFD38-58E1-4789-AF5B-EE308B897DDD}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA514.htm">LocationReference</a>, <a href="../../EA4/EA3/EA1/EA897.htm">Facility</a>, <a href="../../EA4/EA3/EA6/EA945.htm">Organisation</a>, <a href="../../EA4/EA3/EA6/EA947.htm">OrganisationPublication</a>, <a href="../../EA4/EA5/EA1/EA3/EA1159.htm">PhysicalQuantity</a>, <a href="../../EA4/EA5/EA6/EA1248.htm">MeasurementSiteTablePublication</a>, <a href="../../EA4/EA6/EA3/EA1407.htm">SituationRecord</a>, <a href="../../EA4/EA1/EA1/EA763.htm">ControlledZone</a>, <a href="../../EA4/EA7/EA1/EA1/EA1431.htm">TrafficRegulation</a>, <a href="../../EA4/EA7/EA1/EA1/EA1429.htm">Condition</a>, <a href="../../EA4/EA7/EA1/EA2/EA1462.htm">TrafficRegulationsFromCompetentAuthorities</a>, <a href="../../EA4/EA9/EA1/EA6/EA1728.htm">OperatingPattern</a>, <a href="../../EA4/EA9/EA1/EA8/EA1743.htm">ParkingRoute</a>, <a href="../../EA2/EA3/EA1/EA309.htm">VehicleCharacteristicsExtended</a>, <a href="../../EA2/EA5/EA2/EA387.htm">LocationExtension (stable elements)</a>, <a href="../../EA4/EA10/EA4/EA2009.htm">TmplanOperationPublication</a>, <a href="../../EA4/EA10/EA1/EA1/EA1909.htm">OperatorActionDefinition</a>, <a href="../../EA4/EA10/EA1/EA5/EA3/EA1987.htm">Scenario</a>, <a href="../../EA2/EA2/EA233.htm">ReroutingManagement</a>, <a href="../../EA2/EA2/EA235.htm">ReroutingManagementStructure</a>, <a href="../../EA2/EA2/EA4/EA291.htm">ReroutingManagement Complete wide</a>, <a href="../../EA2/EA2/EA4/EA293.htm">ReroutingManagement Structure</a></td>
+			<td class="ObjectDetailsValue"><a href="EA530.htm">LocationReference</a></td>
 		</tr>
 	</table>
-	
-	<div class="TableGroup" id="TableGroup">
-		<ul class="ItemTitle">
-			<li onClick="parent != null ? parent.toggleItem('AssociationsTo') : toggleItem('AssociationsTo');" id="AssociationsToTitle">Associations To</li>
-			<li onClick="parent != null ? parent.toggleItem('TaggedVal') : toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
-			<li onClick="parent != null ? parent.toggleItem('CustomProperties') : toggleItem('CustomProperties');" id="CustomPropertiesTitle">Advanced</li>
-			<li onClick="parent != null ? parent.toggleItem('Links') : toggleItem('Links');" id="LinksTitle">Other Links</li>
-		</ul>
-		<div class="ItemBody" id="AssociationsToTable">
-			<table class="Table ea_table">
-				<tr>
-					<td width="40%" class="TableHeading">Element</td>
-					<td width="30%" class="TableHeading">Source Role</td>
-					<td width="30%" class="TableHeading">Target Role</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="../../EA4/EA7/EA1/EA2/EA1473.htm">«D2VersionedIdentifiable» TrafficRegulationOrder</a><br />
-						Class «D2Relation» 
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> locationByOrder<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2018" /></button>Details:
-							<div id="detailsDIVLink2018" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="../../EA4/EA7/EA1/EA1/EA1445.htm">«D2Class» LocationCondition</a><br />
-						Class «D2Relation» 
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> implementedLocation<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2019" /></button>Details:
-							<div id="detailsDIVLink2019" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="../../EA2/EA3/EA1/EA331.htm">«D2Class» OwnerCharacteristic</a><br />
-						Class «D2Relation» 
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> locationOfResidency<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2020" /></button>Details:
-							<div id="detailsDIVLink2020" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="../../EA4/EA10/EA1/EA1/EA1917.htm">«D2Class» OperatorActionDefinition</a><br />
-						Class «D2Relation» 
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> targetLocation<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2021" /></button>Details:
-							<div id="detailsDIVLink2021" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="../../EA4/EA3/EA6/EA951.htm">«D2Class» OrganisationUnit</a><br />
-						Class «D2Relation» 
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2022" /></button>Details:
-							<div id="detailsDIVLink2022" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="../../EA4/EA6/EA1/EA1274.htm">«D2VersionedIdentifiable» SituationRecord</a><br />
-						Class «D2Relation» 
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2023" /></button>Details:
-							<div id="detailsDIVLink2023" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="../../EA4/EA5/EA1/EA1128.htm">«D2VersionedIdentifiable» MeasurementSite</a><br />
-						Class «D2Relation» 
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> measurementSiteLocation<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2024" /></button>Details:
-							<div id="detailsDIVLink2024" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="../../EA4/EA7/EA1/EA1/EA1445.htm">«D2Class» LocationCondition</a><br />
-						Class «D2Relation» 
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> trafficImpactLocation<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2025" /></button>Details:
-							<div id="detailsDIVLink2025" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="../../EA4/EA5/EA1/EA3/EA1163.htm">«D2Class» PhysicalQuantity</a><br />
-						Class «D2Relation» 
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> pertinentLocation<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2026" /></button>Details:
-							<div id="detailsDIVLink2026" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="../../EA4/EA9/EA1/EA8/EA1748.htm">«D2VersionedIdentifiable» ParkingRouteDetails</a><br />
-						Class «D2Relation» 
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2027" /></button>Details:
-							<div id="detailsDIVLink2027" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="../../EA2/EA2/EA1/EA251.htm">«D2Class» CapacityManagementMeasure</a><br />
-						Class «D2Relation» 
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> affectedLocation<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2028" /></button>Details:
-							<div id="detailsDIVLink2028" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="../../EA4/EA7/EA1/EA1/EA1439.htm">«D2Class» AccessCondition</a><br />
-						Class «D2Relation» 
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> applicableLocation<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2029" /></button>Details:
-							<div id="detailsDIVLink2029" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="../../EA4/EA7/EA1/EA1/EA1445.htm">«D2Class» LocationCondition</a><br />
-						Class «D2Relation» 
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> locationByOrder<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2030" /></button>Details:
-							<div id="detailsDIVLink2030" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="../../EA4/EA7/EA1/EA2/EA1473.htm">«D2VersionedIdentifiable» TrafficRegulationOrder</a><br />
-						Class «D2Relation» 
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> implementedLocation<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2031" /></button>Details:
-							<div id="detailsDIVLink2031" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="../../EA4/EA9/EA1/EA6/EA1735.htm">«D2Class» RelatedLocation</a><br />
-						Class «D2Relation» 
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2032" /></button>Details:
-							<div id="detailsDIVLink2032" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="../../EA4/EA3/EA1/EA909.htm">«D2VersionedIdentifiable» FacilityObject</a><br />
-						Class «D2Relation» 
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2033" /></button>Details:
-							<div id="detailsDIVLink2033" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="../../EA4/EA10/EA1/EA4/EA1947.htm">«D2Class» PredefinedTmplanOperation</a><br />
-						Class «D2Relation» 
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> problemLocationOverride<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2034" /></button>Details:
-							<div id="detailsDIVLink2034" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="../../EA4/EA10/EA1/EA5/EA3/EA1993.htm">«D2VersionedIdentifiable» Scenario</a><br />
-						Class «D2Relation» 
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> problemLocation<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2035" /></button>Details:
-							<div id="detailsDIVLink2035" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
+	<div class="ObjectDetailsNotes">The order of the locations in the itinerary are specified by the &#39;index&#39; qualifier.&lt;br/&gt;There must be at least two locations.&lt;br/&gt;</div>
 
-			</table>
-		</div>
-<div class="ItemBody" id="TaggedValTable">
-	<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
-		<tr>
-			<td width="50%" class="TableHeading">Tag</td>
-			<td width="50%" class="TableHeading">Value</td>
-		</tr>
-					<tr>
-				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">Represents one or more physically separate locations. Multiple locations may be related, as in an itinerary or route, or may be unrelated. One LocationReference should not use multiple Location objects to represent the same physical location.</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>
-	</table>
-</div>		<div class="ItemBody" id="CustomPropertiesTable">
-			<table class="Table ea_table">
-				<tr>
-					<td width="30%" class="TableHeading">Property</td>
-					<td width="70%" class="TableHeading">Value</td>
-				</tr>
-			<tr>
-				<td width="30%" class="TableRow">isFinalSpecialization:</td>
-				<td width="70%" class="TableRow">0</td>
-			</tr>
-
-
-			</table>
-		</div>		<div class="ItemBody" id="LinksTable">
-			<table class="Table ea_table">
-				<tr>
-					<td width="30%" class="TableHeading">Object</td>
-					<td width="10%" class="TableHeading">Type</td>
-					<td width="10%" class="TableHeading">Connection</td>
-					<td width="10%" class="TableHeading">Direction</td>
-					<td width="40%" class="TableHeading">Notes</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA5/EA2/EA392.htm">«D2Class» FacilityLocation</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Generalization</td>
-					<td width="10%" class="TableRow" valign="top">From</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA7/EA1/EA2/EA1473.htm">«D2VersionedIdentifiable» TrafficRegulationOrder</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA7/EA1/EA1/EA1445.htm">«D2Class» LocationCondition</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA3/EA1/EA331.htm">«D2Class» OwnerCharacteristic</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA10/EA1/EA1/EA1917.htm">«D2Class» OperatorActionDefinition</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA3/EA6/EA951.htm">«D2Class» OrganisationUnit</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA549.htm">«D2Class» LocationGroup</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Generalization</td>
-					<td width="10%" class="TableRow" valign="top">From</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA6/EA1/EA1274.htm">«D2VersionedIdentifiable» SituationRecord</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA554.htm">«D2Class» Location</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Generalization</td>
-					<td width="10%" class="TableRow" valign="top">From</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA5/EA1/EA1128.htm">«D2VersionedIdentifiable» MeasurementSite</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA7/EA1/EA1/EA1445.htm">«D2Class» LocationCondition</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA5/EA1/EA3/EA1163.htm">«D2Class» PhysicalQuantity</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA9/EA1/EA8/EA1748.htm">«D2VersionedIdentifiable» ParkingRouteDetails</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA2/EA1/EA251.htm">«D2Class» CapacityManagementMeasure</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA543.htm">«D2Class» Itinerary</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Generalization</td>
-					<td width="10%" class="TableRow" valign="top">From</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA7/EA1/EA1/EA1439.htm">«D2Class» AccessCondition</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA7/EA1/EA1/EA1445.htm">«D2Class» LocationCondition</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA7/EA1/EA2/EA1473.htm">«D2VersionedIdentifiable» TrafficRegulationOrder</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA9/EA1/EA6/EA1735.htm">«D2Class» RelatedLocation</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA3/EA1/EA909.htm">«D2VersionedIdentifiable» FacilityObject</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA10/EA1/EA4/EA1947.htm">«D2Class» PredefinedTmplanOperation</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA10/EA1/EA5/EA3/EA1993.htm">«D2VersionedIdentifiable» Scenario</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-
-			</table>
-		</div>
-	</div>
  </div>
  </td>
 				</tr>

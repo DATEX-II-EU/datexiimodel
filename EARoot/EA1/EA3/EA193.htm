@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> Enumerations::PollutantTypeEnum </h1>
-			<!-- <img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA10.htm">Common</a> / <a href="EA175.htm">Enumerations</a> / <a href="EA193.htm">PollutantTypeEnum</a></p>
@@ -165,7 +191,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					benzeneTolueneXylene
+					<a name="{04CA3A11-C841-4976-A514-45298C6C0418}"></a>benzeneTolueneXylene
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -175,14 +201,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Benzene, toluene or xylene.<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					carbonMonoxide
+					<a name="{A67C9B72-639D-4990-915D-FC728A9EFE72}"></a>carbonMonoxide
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -192,14 +218,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Carbon monoxide.<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					lead
+					<a name="{1AC9A887-B266-44cf-90CF-36650B2CFDD6}"></a>lead
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -209,14 +235,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Lead.<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					methane
+					<a name="{EF6567FF-C209-4295-9880-31415F87DCD3}"></a>methane
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -226,14 +252,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Methane.<br>order=3<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					nitricOxide
+					<a name="{1DDC76CA-4989-481e-A9FA-A02CC9260AE2}"></a>nitricOxide
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -243,14 +269,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Nitric oxide.<br>order=4<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					nitrogenDioxide
+					<a name="{409CFDB9-6951-4585-8024-A89A2030DC54}"></a>nitrogenDioxide
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -260,14 +286,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Nitrogen dioxide.<br>order=5<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					nitrogenMonoxide
+					<a name="{4D723EB9-6049-4715-BCB1-4E6077F4B0F4}"></a>nitrogenMonoxide
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -277,14 +303,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Nitrogen monoxide.<br>order=6<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					nitrogenOxides
+					<a name="{2C8CE5FC-BA8B-4bfb-8422-CCD3870B5C0B}"></a>nitrogenOxides
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -294,14 +320,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Nitrogen oxides.<br>order=7<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					nonMethaneHydrocarbons
+					<a name="{96325E04-3FD6-4fd9-8F15-7FB0521CF2FD}"></a>nonMethaneHydrocarbons
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -311,14 +337,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Non-methane hydrocarbons.<br>order=8<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					ozone
+					<a name="{18A635B4-6BB9-426f-BB04-90D7EEFBC0A2}"></a>ozone
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -328,14 +354,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Ozone.<br>order=9<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					particulates10
+					<a name="{88AEF250-7C6B-467b-B69E-B8E48DD6ED28}"></a>particulates10
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -345,14 +371,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Particulate matter which passes through a size-selective inlet with a 50% cut-off efficiency at an aerodynamic diameter of 10 µm (micrometres).<br>order=10<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					polycyclicAromaticHydrocarbons
+					<a name="{246B0639-2824-4862-96CC-ACDBFF10685B}"></a>polycyclicAromaticHydrocarbons
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -362,14 +388,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Polycyclic aromatic hydrocarbons.<br>order=11<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					primaryParticulate
+					<a name="{98D0D4F8-08E9-4e16-B752-BCB08D5CCAFA}"></a>primaryParticulate
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -379,14 +405,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Primary particulate particles.<br>order=12<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					sulphurDioxide
+					<a name="{20F893A0-11E1-4214-82D1-E5255F32D8FE}"></a>sulphurDioxide
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -396,14 +422,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Sulphur dioxide.<br>order=13<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					totalHydrocarbons
+					<a name="{8C179693-C41F-42a3-B893-140C73D9132B}"></a>totalHydrocarbons
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -413,7 +439,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Total hydrocarbons, i.e. including methane and non-methane.<br>order=14<br>
 						&nbsp;
 						

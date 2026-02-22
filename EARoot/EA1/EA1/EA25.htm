@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> Classes::HazardousMaterials </h1>
-			<!-- <img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA10.htm">Common</a> / <a href="EA16.htm">Classes</a> / <a href="EA25.htm">HazardousMaterials</a></p>
@@ -146,7 +172,7 @@
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA14.htm">Classes</a>, <a href="./EA5/EA108.htm">Vehicle</a>, <a href="../../EA2/EA3/EA1/EA307.htm">VehicleCharacteristicsExtended</a>, <a href="../../EA2/EA3/EA1/EA309.htm">VehicleCharacteristicsExtended</a></td>
+			<td class="ObjectDetailsValue"><a href="EA14.htm">Classes</a>, <a href="./EA5/EA108.htm">Vehicle</a>, <a href="../../EA2/EA4/EA2/EA323.htm">VehicleCharacteristicsExtended</a>, <a href="../../EA2/EA4/EA2/EA315.htm">VehicleCharacteristicsExtended</a></td>
 		</tr>
 	</table>
 	
@@ -167,7 +193,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					chemicalName
+					<a name="{41E7F6F2-9A4F-4c22-8EE6-7701319B4028}"></a>chemicalName
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -177,14 +203,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=The chemical name of the hazardous substance carried by the vehicle.<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					dangerousGoodsFlashPoint
+					<a name="{6B3D657B-9238-496e-BD1E-593FB32BCC03}"></a>dangerousGoodsFlashPoint
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -194,14 +220,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=The temperature at which the vapour from a hazardous substance will ignite in air.<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					dangerousGoodsRegulations
+					<a name="{6C602C57-6987-45f5-B556-C0D9F81A3844}"></a>dangerousGoodsRegulations
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -211,14 +237,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=The code defining the regulations, international or national, applicable for a means of transport.<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					hazardCodeIdentification
+					<a name="{EDB3D111-507E-4af4-94F3-09BB68CF64BC}"></a>hazardCodeIdentification
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -228,14 +254,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=The dangerous goods description code.<br>order=3<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					hazardCodeVersionNumber
+					<a name="{39C54FCB-ED01-4cf1-AB29-F4CA9F57DD76}"></a>hazardCodeVersionNumber
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -245,14 +271,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=The version/revision number of date of issuance of the hazardous material code used.<br>order=4<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					hazardSubstanceItemPageNumber
+					<a name="{5B404BDB-FEC2-4ad6-A79D-43B6D4706A28}"></a>hazardSubstanceItemPageNumber
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -262,14 +288,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A number giving additional hazard code classification of a goods item within the applicable dangerous goods regulation.<br>order=5<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					tremCardNumber
+					<a name="{120BD146-C1DE-4c66-BC87-F501F49224AD}"></a>tremCardNumber
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -279,14 +305,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=The identification of a transport emergency card giving advice for emergency actions.<br>order=6<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					undgNumber
+					<a name="{6E2C80C1-DF93-46e5-994A-23C11A8907E5}"></a>undgNumber
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -296,14 +322,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A unique serial number assigned within the United Nations to substances and articles contained in a list of the dangerous goods most commonly carried.<br>order=7<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					volumeOfDangerousGoods
+					<a name="{D40F381A-30D0-4e98-8059-F01E50C3251A}"></a>volumeOfDangerousGoods
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -313,14 +339,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=The volume of dangerous goods on the vehicle(s) reported in a traffic/travel situation.<br>order=8<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					weightOfDangerousGoods
+					<a name="{5950B386-0FD5-4322-A4A3-42968F21606B}"></a>weightOfDangerousGoods
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -330,7 +356,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=The weight of dangerous goods on the vehicle(s) reported in a traffic/travel situation.<br>order=9<br>
 						&nbsp;
 						
@@ -370,7 +396,7 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../EA2/EA3/EA1/EA337.htm">«D2Class» VehicleCharacteristicsExtended</a><br />
+						<a href="../../EA2/EA4/EA2/EA357.htm">«D2Class» VehicleCharacteristicsExtended</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -434,13 +460,6 @@
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA3/EA1/EA318.htm">«D2Class» DangerousGoodsExtended</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Generalization</td>
-					<td width="10%" class="TableRow" valign="top">From</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
 					<td width="30%" class="TableRow" valign="top"><a href="./EA5/EA113.htm">«D2Class» Vehicle</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
@@ -448,7 +467,14 @@
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA3/EA1/EA337.htm">«D2Class» VehicleCharacteristicsExtended</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA4/EA2/EA329.htm">«D2Class» DangerousGoodsExtended</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Generalization</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA4/EA2/EA357.htm">«D2Class» VehicleCharacteristicsExtended</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">To</td>

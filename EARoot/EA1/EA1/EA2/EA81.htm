@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> DataValue::PercentageValue </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA10.htm">Common</a> / <a href="../EA16.htm">Classes</a> / <a href="EA71.htm">DataValue</a> / <a href="EA81.htm">PercentageValue</a></p>
@@ -146,7 +172,7 @@
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="../EA1/EA38.htm">Humidity</a>, <a href="../EA1/EA44.htm">RoadSurfaceConditionMeasurements</a>, <a href="EA69.htm">DataValue</a>, <a href="../../../EA4/EA2/EA1/EA817.htm">ElectricChargingPoint</a>, <a href="../../../EA4/EA2/EA3/EA850.htm">EnergyInfrastructureStatusPublication</a>, <a href="../../../EA4/EA2/EA4/EA856.htm">EnergyInfrastructureTablePublication</a>, <a href="../../../EA4/EA5/EA1/EA4/EA2/EA1182.htm">TrafficConcentration</a>, <a href="../../../EA4/EA5/EA1/EA4/EA3/EA1186.htm">TrafficFlow</a>, <a href="../../../EA4/EA5/EA1/EA4/EA6/EA1199.htm">TrafficSpeed</a>, <a href="../../../EA4/EA9/EA1/EA9/EA1750.htm">ParkingStatus</a>, <a href="../../../EA4/EA9/EA4/EA1879.htm">ParkingStatusPublicationBig</a>, <a href="../../../EA4/EA9/EA4/EA1885.htm">Occupancy</a></td>
+			<td class="ObjectDetailsValue"><a href="../EA1/EA38.htm">Humidity</a>, <a href="../EA1/EA44.htm">RoadSurfaceConditionMeasurements</a>, <a href="EA69.htm">DataValue</a>, <a href="../../../EA4/EA2/EA1/EA830.htm">ElectricChargingPoint</a>, <a href="../../../EA4/EA2/EA3/EA863.htm">EnergyInfrastructureStatusPublication</a>, <a href="../../../EA4/EA2/EA4/EA869.htm">EnergyInfrastructureTablePublication</a>, <a href="../../../EA4/EA5/EA1/EA4/EA2/EA1195.htm">TrafficConcentration</a>, <a href="../../../EA4/EA5/EA1/EA4/EA3/EA1199.htm">TrafficFlow</a>, <a href="../../../EA4/EA5/EA1/EA4/EA6/EA1212.htm">TrafficSpeed</a>, <a href="../../../EA4/EA9/EA1/EA9/EA1788.htm">ParkingStatus</a>, <a href="../../../EA4/EA9/EA4/EA1917.htm">ParkingStatusPublicationBig</a>, <a href="../../../EA4/EA9/EA4/EA1923.htm">Occupancy</a></td>
 		</tr>
 	</table>
 	
@@ -167,7 +193,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					percentage
+					<a name="{E118AF8D-8ECC-40a2-B4E4-B40CB1802344}"></a>percentage
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -177,7 +203,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A value expressed as a percentage (amount per hundred).<br>order=0<br>
 						&nbsp;
 						
@@ -194,11 +220,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA2/EA1/EA829.htm">«D2Class» ElectricEnergySourceRatio</a><br />
+						<a href="../../../EA4/EA5/EA1/EA4/EA3/EA1203.htm">«D2Class» TrafficFlow</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> sourceRatioValue<br />
+						<strong>Name:</strong> percentageLongVehicles<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -217,7 +243,7 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA5/EA1/EA4/EA2/EA1185.htm">«D2Class» TrafficConcentration</a><br />
+						<a href="../../../EA4/EA5/EA1/EA4/EA2/EA1198.htm">«D2Class» TrafficConcentration</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -240,11 +266,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../EA1/EA57.htm">«D2Class» RoadSurfaceConditionMeasurements</a><br />
+						<a href="../../../EA4/EA9/EA1/EA9/EA1793.htm">«D2Class» Occupancy</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> icePercentage<br />
+						<strong>Name:</strong> probability<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -256,29 +282,6 @@
 					<td class="TableRowBottomDashed"  colspan="3">
 						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink223" /></button>Details:
 							<div id="detailsDIVLink223" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA5/EA1/EA4/EA6/EA1202.htm">«D2Class» SpeedPercentile</a><br />
-						Class «D2Relation» 
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> vehiclePercentage<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink224" /></button>Details:
-							<div id="detailsDIVLink224" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -300,6 +303,29 @@
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink224" /></button>Details:
+							<div id="detailsDIVLink224" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="../EA1/EA57.htm">«D2Class» RoadSurfaceConditionMeasurements</a><br />
+						Class «D2Relation» 
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> icePercentage<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
 						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink225" /></button>Details:
 							<div id="detailsDIVLink225" class="DetailsDiv" >
 							&nbsp;
@@ -309,11 +335,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA5/EA1/EA4/EA3/EA1190.htm">«D2Class» TrafficFlow</a><br />
+						<a href="../../../EA4/EA2/EA1/EA842.htm">«D2Class» ElectricEnergySourceRatio</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> percentageLongVehicles<br />
+						<strong>Name:</strong> sourceRatioValue<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -332,11 +358,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA9/EA1/EA9/EA1755.htm">«D2Class» Occupancy</a><br />
+						<a href="../../../EA4/EA5/EA1/EA4/EA6/EA1215.htm">«D2Class» SpeedPercentile</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> probability<br />
+						<strong>Name:</strong> vehiclePercentage<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -396,7 +422,14 @@
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA2/EA1/EA829.htm">«D2Class» ElectricEnergySourceRatio</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA5/EA1/EA4/EA3/EA1203.htm">«D2Class» TrafficFlow</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">To</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA5/EA1/EA4/EA2/EA1198.htm">«D2Class» TrafficConcentration</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">To</td>
@@ -410,21 +443,7 @@
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA5/EA1/EA4/EA2/EA1185.htm">«D2Class» TrafficConcentration</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA1/EA57.htm">«D2Class» RoadSurfaceConditionMeasurements</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA5/EA1/EA4/EA6/EA1202.htm">«D2Class» SpeedPercentile</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA9/EA1/EA9/EA1793.htm">«D2Class» Occupancy</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">To</td>
@@ -438,14 +457,21 @@
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA5/EA1/EA4/EA3/EA1190.htm">«D2Class» TrafficFlow</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA1/EA57.htm">«D2Class» RoadSurfaceConditionMeasurements</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">To</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA9/EA1/EA9/EA1755.htm">«D2Class» Occupancy</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA2/EA1/EA842.htm">«D2Class» ElectricEnergySourceRatio</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">To</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA5/EA1/EA4/EA6/EA1215.htm">«D2Class» SpeedPercentile</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">To</td>

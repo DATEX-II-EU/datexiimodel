@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> Humidity </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA10.htm">Common</a> / <a href="../EA16.htm">Classes</a> / <a href="EA52.htm">WeatherRelated</a> / <a href="EA38.htm">Humidity</a></p>
@@ -107,11 +133,11 @@
 					</td>
 					<td class="contentcell"><div class="PageBody">
 	<div class="diagram_image"> 
-<img src="EA39.png" usemap="#EA39" border="0" />
+<img src="EA39.png" usemap="#EA39" width="353" height="420" border="0" />
 
 <MAP NAME="EA39">
-<area shape="rect" coords="22,159,225,251" href="../EA2/EA81.htm" target="_self">
-<area shape="rect" coords="41,10,206,59" href="EA38.htm" target="_self">
+<area shape="rect" coords="33,239,338,377" href="../EA2/EA81.htm" target="_self">
+<area shape="rect" coords="62,15,309,89" href="EA38.htm" target="_self">
 </MAP>
  </div>
 	<div class="ObjectTitle">Humidity : Class diagram</div>

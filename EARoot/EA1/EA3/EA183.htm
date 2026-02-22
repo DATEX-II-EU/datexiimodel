@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> Enumerations::EmissionClassificationEuroEnum </h1>
-			<!-- <img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA10.htm">Common</a> / <a href="EA175.htm">Enumerations</a> / <a href="EA183.htm">EmissionClassificationEuroEnum</a></p>
@@ -146,7 +172,7 @@
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA173.htm">Enumerations</a>, <a href="../../EA2/EA3/EA1/EA303.htm">DataTypes and Enumerations</a>, <a href="../../EA2/EA3/EA2/EA343.htm">CommonExtension (stable elements)</a></td>
+			<td class="ObjectDetailsValue"><a href="EA173.htm">Enumerations</a>, <a href="../../EA2/EA4/EA2/EA319.htm">Enumerations</a></td>
 		</tr>
 	</table>
 	
@@ -166,7 +192,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					euro5
+					<a name="{C7F37528-A6E5-4f20-870C-2FE479AC1B79}"></a>euro5
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -176,14 +202,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Euro 5.<br>order=5<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					euro5a
+					<a name="{96E99E71-A92E-419a-BEAB-9464E1F5F400}"></a>euro5a
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -193,14 +219,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Euro 5a.<br>order=6<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					euro5b
+					<a name="{4723F8F6-7C77-478f-95C9-F0B64C76825B}"></a>euro5b
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -210,14 +236,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Euro 5b.<br>order=7<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					euro6
+					<a name="{6F1812E9-CDD8-48dd-9C62-6FA7B6BC8D65}"></a>euro6
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -227,14 +253,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Euro 6.<br>order=8<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					euro6a
+					<a name="{7CFEDC12-11C6-48e6-86CF-F35D3C7D6EF8}"></a>euro6a
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -244,14 +270,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Euro 6a.<br>order=9<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					euro6b
+					<a name="{5DC9269F-DA49-4571-8548-26B39BBC913B}"></a>euro6b
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -261,14 +287,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Euro 6b.<br>order=10<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					euro6c
+					<a name="{5D00B44A-5283-4541-9E47-5F79F18F3983}"></a>euro6c
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -278,14 +304,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Euro 6c.<br>order=11<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					euroV
+					<a name="{1BBE6755-4ADB-403d-9188-CD82B2036AA2}"></a>euroV
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -295,14 +321,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Euro V.<br>order=15<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					euroVI
+					<a name="{D9E1EE86-4AC8-41a6-92EF-0035537C15DB}"></a>euroVI
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -312,14 +338,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Euro VI.<br>order=16<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					other
+					<a name="{E8585C85-5CE0-486d-9A5B-A825175BB568}"></a>other
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -329,7 +355,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Any other level.<br>order=99<br>
 						&nbsp;
 						
@@ -377,7 +403,7 @@
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA3/EA2/EA346.htm">«D2Enumeration» EmissionClassificationEuroEnumExtended</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA4/EA2/EA331.htm">«D2Enumeration» EmissionClassificationEuroEnumExtended</a></td>
 					<td width="10%" class="TableRow" valign="top">Enumeration</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">From</td>

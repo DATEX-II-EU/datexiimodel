@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Enumerations::PriorityRuleTypeEnum</title>
+<title>Enumerations</title>
 <link href="../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Enumerations::PriorityRuleTypeEnum </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Enumerations </h1>
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA743.htm">PayloadPublication</a> / <a href="../EA1417.htm">TrafficRegulation</a> / <a href="EA1511.htm">Enumerations</a> / <a href="EA1526.htm">PriorityRuleTypeEnum</a></p>
+			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA759.htm">PayloadPublication</a> / <a href="../EA1430.htm">TrafficRegulation</a> / <a href="EA1526.htm">Enumerations</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,20 +110,47 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA1511.htm">Enumerations</a></ul>
+<li><img src="../../../../images/175.png" alt="Diagram"/> <a href="EA1524.htm">Enumerations</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1528.htm">AccessConditionTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1529.htm">AccessRestrictionTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1530.htm">ActivationStatusEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1531.htm">ADRTunnelCategoryTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1532.htm">AmbientWarningTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1533.htm">ConditionOperator</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1534.htm">DirectionRestrictionTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1535.htm">DriverCharacteristicsTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1536.htm">GddServiceCategoryEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1537.htm">LicenceCharacteristicsEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1538.htm">NonVehicularRoadUserTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1539.htm">PermitOwnerTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1540.htm">PermitTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1541.htm">PriorityRuleTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1542.htm">ReasonForRegulationEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1543.htm">RoadOrCarriagewayOrLaneLayoutType</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1544.htm">RoadOrCarriagewayOrLaneStatus</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1545.htm">RoadTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1546.htm">RoadWarningTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1547.htm">StandingOrParkingConditionTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1548.htm">StandingOrParkingControlTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1549.htm">SteepHillDirectionTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1550.htm">TrafficAheadTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1551.htm">TrafficRegulationInstallerTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1552.htm">TrafficRegulationOrderStatusEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1553.htm">UnitOfSpeedEnum</a></li>
+</ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">PriorityRuleTypeEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
+	<span class="ObjectTitle">Enumerations D2Package : Public  &lt;&lt;D2Package&gt;&gt; Package</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">26.04.2019 11:17:50</td>
+			<td width="85%" class="ObjectDetailsValue">27.03.2018 16:48:28</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">29.11.2022 17:26:16</td>
+			<td class="ObjectDetailsValue">27.03.2018 16:48:28</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -142,217 +195,18 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{40B84DEC-68F3-447d-9573-41EF6FD85F0A}</td>
+			<td class="ObjectDetailsValue">{751305A1-1731-4589-ABEA-66C9B288F226}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA1509.htm">Enumerations</a></td>
+			<td class="ObjectDetailsValue"><a href="../EA1428.htm">TrafficRegulation</a></td>
 		</tr>
 	</table>
 	
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
-			<li onClick="parent != null ? parent.toggleItem('Attributes') : toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
 			<li onClick="parent != null ? parent.toggleItem('TaggedVal') : toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
-			<li onClick="parent != null ? parent.toggleItem('CustomProperties') : toggleItem('CustomProperties');" id="CustomPropertiesTitle">Advanced</li>
 		</ul>
-<div class="ItemBody" id="AttributesTable">
-	<table border="0" cellspacing="0" cellpadding="0" class="Table">
-		<tr>
-			<td width="50%" class="TableHeading">Attribute</td>
-			<td width="25%" class="TableHeading">Scope</td>
-			<td width="25%" class="TableHeading">Type</td>
-		</tr>
-						<tr>
-				<td width="50%" class="TableRow">
-					bendOfPriorityRoadFromLeft
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Bend of priority road coming from left.<br>order=7<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					bendOfPriorityRoadFromRight
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Bend of priority road coming from right.<br>order=8<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					giveWay
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Give way to traffic on major road.<br>order=0<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					giveWayToOncomingVehicles
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Give priority to vehicles from opposite direction.<br>order=2<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					giveWayToRail
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Give way to rail.<br>order=4<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					giveWayToSchoolCrossingPatrol
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Give way to school crossing patrol.<br>order=5<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					giveWayToTram
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Give way to tram.<br>order=1<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					priorityAtNextJunction
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Priority at next junction.<br>order=9<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					priorityOverOncomingVehicles
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Vehicles from opposite direction must give priority.<br>order=11<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					priorityRoad
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Traffic on this lane or carriageway or road has priority.<br>order=10<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					stop
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Stop and give way.<br>order=3<br>
-						&nbsp;
-						
-				</td>
-			</tr>
-	</table>
-</div>
 <div class="ItemBody" id="TaggedValTable">
 	<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
 		<tr>
@@ -361,7 +215,7 @@
 		</tr>
 					<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">Possible values for priority rules.</td>
+				<td width="50%" class="TableRow" valign="top">A collection of enumerations that are used only in the TrafficRegulation package of the DATEX II model.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -370,20 +224,7 @@
 				</td>
 			</tr>
 	</table>
-</div>		<div class="ItemBody" id="CustomPropertiesTable">
-			<table class="Table ea_table">
-				<tr>
-					<td width="30%" class="TableHeading">Property</td>
-					<td width="70%" class="TableHeading">Value</td>
-				</tr>
-			<tr>
-				<td width="30%" class="TableRow">isFinalSpecialization:</td>
-				<td width="70%" class="TableRow">0</td>
-			</tr>
-
-
-			</table>
-		</div>	</div>
+</div>	</div>
  </div>
  </td>
 				</tr>

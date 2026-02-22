@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Enumerations::StaffEnum</title>
+<title>Enumerations::PedestrianAccessStyleEnum</title>
 <link href="../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Enumerations::StaffEnum </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Enumerations::PedestrianAccessStyleEnum </h1>
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA743.htm">PayloadPublication</a> / <a href="../EA1655.htm">Parking</a> / <a href="EA1819.htm">Enumerations</a> / <a href="EA1858.htm">StaffEnum</a></p>
+			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA759.htm">PayloadPublication</a> / <a href="../EA1693.htm">Parking</a> / <a href="EA1857.htm">Enumerations</a> / <a href="EA1858.htm">PedestrianAccessStyleEnum</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,20 +110,20 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA1819.htm">Enumerations</a></ul>
+<a href="EA1857.htm">Enumerations</a></ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">StaffEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
+	<span class="ObjectTitle">PedestrianAccessStyleEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">10.01.2020 12:07:05</td>
+			<td width="85%" class="ObjectDetailsValue">14.10.2021 14:48:30</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">29.11.2022 17:26:20</td>
+			<td class="ObjectDetailsValue">29.11.2022 17:26:19</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -142,11 +168,11 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{3FEEE811-11BD-456f-A646-272B13D21FC7}</td>
+			<td class="ObjectDetailsValue">{2BBE64C1-9A63-4f72-9CC3-3A678F661927}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="../EA1/EA3/EA1696.htm">CommonComponents</a></td>
+			<td class="ObjectDetailsValue"><a href="../EA1/EA1/EA1719.htm">PedestrianAccess</a>, <a href="../EA1/EA4/EA1747.htm">IdentifiedArea</a></td>
 		</tr>
 	</table>
 	
@@ -165,52 +191,86 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					staffed
+					<a name="{75BF15BE-F971-4cdb-A079-0102D145DF80}"></a>cargoShippingDoor
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					Enumeration
+					
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Normally staffed during operating hours<br>order=1<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Door/portal primarily intended for the handing and transfer of goods and cargo<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					unstaffed
+					<a name="{2DFE997B-0419-4446-B846-4B1524AB8A4A}"></a>door
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					Enumeration
+					
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Not normally staffed during operating hours<br>order=2<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Door/portal without special characteristics - general pedestrian access<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					temporary
+					<a name="{236BC140-DF06-4f2e-B930-8584C825B7BA}"></a>doorWithAccessCredential
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					Enumeration
+					
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Staffed on a temporary or part-time basis.<br>order=3<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Door/portal with controlled access by use of defined credentials<br>order=3<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{20790196-0795-4fcb-95B4-21D53B7B0F12}"></a>doorWithSecurityReview
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Door/portal with controlled access by security staff inspection<br>order=4<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{59F33726-3446-4f4c-BBB1-514E80552D00}"></a>emergencyExitDoor
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Door/portal primarily intended for use in emergency evacuations circumstances - may be internal within sub-areas of a place<br>order=5<br>
 						&nbsp;
 						
 				</td>
@@ -225,7 +285,7 @@
 		</tr>
 					<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">A list of supported values for staffing characteristics.</td>
+				<td width="50%" class="TableRow" valign="top">A list of the supported pedestrian access characteristic types.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">

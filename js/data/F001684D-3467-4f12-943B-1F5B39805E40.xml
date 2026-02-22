@@ -1,4 +1,4 @@
-tocTab[tocTab.length] = new Array("0.4.7.2:1", "", "DataTypes", "EARoot/EA4/EA7/EA2/EA1503.htm", "175.png", "156", "0", "", "Logical diagram0","{CC7ACAE1-61FC-42e5-ADEC-E416D6FBCA54}");
-tocTab[tocTab.length] = new Array("0.4.7.2:2", "", "«D2Datatype» AmountOfMoney", "EARoot/EA4/EA7/EA2/EA1506.htm", "230.png", "E955", "0", "", "DataType0","{E3352D0B-6724-43c2-B460-643C103FF5C5}");
-tocTab[tocTab.length] = new Array("0.4.7.2:3", "", "«D2Datatype» Duration", "EARoot/EA4/EA7/EA2/EA1507.htm", "230.png", "E956", "0", "", "DataType0","{14DB87FB-0ACE-4c0e-A868-D84589D821CB}");
-tocTab[tocTab.length] = new Array("0.4.7.2:4", "", "«D2Datatype» GddPictogramCategoryCode", "EARoot/EA4/EA7/EA2/EA1508.htm", "230.png", "E957", "0", "", "DataType0","{E8DBC4B8-8A8D-48d8-A024-442B5A04CD8E}");
+tocTab[tocTab.length] = new Array("0.4.7.2:1", "", "DataTypes", "EARoot/EA4/EA7/EA2/EA1518.htm", "175.png", "268", "0", "", "Logical diagram0","{CC7ACAE1-61FC-42e5-ADEC-E416D6FBCA54}");
+tocTab[tocTab.length] = new Array("0.4.7.2:2", "", "«D2Datatype» AmountOfMoney", "EARoot/EA4/EA7/EA2/EA1521.htm", "230.png", "E1406", "0", "", "DataType0","{E3352D0B-6724-43c2-B460-643C103FF5C5}");
+tocTab[tocTab.length] = new Array("0.4.7.2:3", "", "«D2Datatype» Duration", "EARoot/EA4/EA7/EA2/EA1522.htm", "230.png", "E1407", "0", "", "DataType0","{14DB87FB-0ACE-4c0e-A868-D84589D821CB}");
+tocTab[tocTab.length] = new Array("0.4.7.2:4", "", "«D2Datatype» GddPictogramCategoryCode", "EARoot/EA4/EA7/EA2/EA1523.htm", "230.png", "E1408", "0", "", "DataType0","{E8DBC4B8-8A8D-48d8-A024-442B5A04CD8E}");

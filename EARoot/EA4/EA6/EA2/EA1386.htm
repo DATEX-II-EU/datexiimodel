@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Enumerations::TransitServiceInformationEnum</title>
+<title>Enumerations::PersonCategoryEnum</title>
 <link href="../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Enumerations::TransitServiceInformationEnum </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Enumerations::PersonCategoryEnum </h1>
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA743.htm">PayloadPublication</a> / <a href="../EA1258.htm">Situation</a> / <a href="EA1353.htm">Enumerations</a> / <a href="EA1386.htm">TransitServiceInformationEnum</a></p>
+			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA759.htm">PayloadPublication</a> / <a href="../EA1271.htm">Situation</a> / <a href="EA1366.htm">Enumerations</a> / <a href="EA1386.htm">PersonCategoryEnum</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,20 +110,20 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA1353.htm">Enumerations</a></ul>
+<a href="EA1366.htm">Enumerations</a></ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">TransitServiceInformationEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
+	<span class="ObjectTitle">PersonCategoryEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">23.07.2004 08:07:22</td>
+			<td width="85%" class="ObjectDetailsValue">17.05.2004 18:10:02</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">29.11.2022 17:26:11</td>
+			<td class="ObjectDetailsValue">29.11.2022 17:26:10</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -142,11 +168,11 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{4E0A980A-61AD-4dea-812C-F7D464E0854D}</td>
+			<td class="ObjectDetailsValue">{F11DBC61-CA2D-4f0e-8582-BD95041DD101}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA1351.htm">Enumerations</a></td>
+			<td class="ObjectDetailsValue"><a href="EA1364.htm">Enumerations</a></td>
 		</tr>
 	</table>
 	
@@ -165,7 +191,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					cancellations
+					<a name="{B9459614-DBA9-49ab-921B-7A736EA1262B}"></a>adult
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -175,14 +201,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Public transport, park-and-ride, rail or bus services are cancelled.<br>order=0<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Adult.<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					delayDueToBadWeather
+					<a name="{08896640-59AC-490f-AFDC-7E3E81FB3FB5}"></a>child
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -192,14 +218,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The specified service is delayed due to bad weather.<br>order=1<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Child (age 4 to 17).<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					delayDueToRepairs
+					<a name="{362100EA-3122-4c60-967B-C3DC462280D9}"></a>emergencyServicesPerson
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -209,14 +235,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The specified service is delayed due to the need for repairs.<br>order=2<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=A member of the emergency services, other than the police.<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					delayedUntilFurtherNotice
+					<a name="{6F0E90C0-5045-4928-87A5-F0A651DDFC54}"></a>fireman
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -226,14 +252,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The specified public transport service will be delayed until further notice.<br>order=3<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=A member of the fire service.<br>order=3<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					delaysDueToFlotsam
+					<a name="{420EFB96-A112-41d0-AD6D-DFEE65DB8018}"></a>infant
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -243,14 +269,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The departure of the specified ferry service is delayed due to flotsam.<br>order=4<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Infant (age 0 to 3).<br>order=4<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					departureOnSchedule
+					<a name="{11D6FA42-C1A0-46c8-9443-52F190ACC37C}"></a>medicalStaff
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -260,14 +286,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The departure of the specified service is on schedule.<br>order=5<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=A member of the medical service.<br>order=5<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					ferryReplacedByIceRoad
+					<a name="{7692221A-C172-4d7e-893A-861538300710}"></a>memberOfThePublic
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -277,14 +303,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The ferry service has been replaced by an ice road.<br>order=6<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=A member of the general public.<br>order=6<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					freeShuttleServiceOperating
+					<a name="{602B62A9-8B37-44a6-9FA2-2A0943A4787A}"></a>policeman
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -294,14 +320,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A shuttle service is operating at no charge between specified locations.<br>order=7<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=A member of the police force.<br>order=7<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					informationServiceNotAvailable
+					<a name="{3019DE12-BDCA-48a0-AD6F-E130038DF4E1}"></a>politician
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -311,14 +337,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The information service relating to the specified transport system is not currently available.<br>order=8<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=A politician.<br>order=8<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					irregularServiceDelays
+					<a name="{2DEC9080-2E0C-4c8f-9243-AC31A6AA3C2A}"></a>publicTransportPassenger
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -328,14 +354,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The specified service is subject to irregular delays.<br>order=9<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=A passenger on or from a public transport vehicle.<br>order=9<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					loadCapacityChanged
+					<a name="{5D8938D7-17A2-40be-87E5-E546D85815FC}"></a>sickPerson
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -345,14 +371,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The load capacity for the specified service has been changed.<br>order=10<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=A sick person.<br>order=10<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					restrictionsForLongerVehicles
+					<a name="{95F9A012-8C8F-41fb-A640-13410B4B6080}"></a>trafficOfficer
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -362,14 +388,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Long vehicles are subject to restrictions on the specified service.<br>order=11<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=A traffic patrol officer of the road authority.<br>order=11<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					serviceDelays
+					<a name="{81C20DB2-CFAC-4f56-941F-C20BA6C968DB}"></a>trafficWarden
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -379,14 +405,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The specified service is subject to delays.<br>order=12<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=A member of the local traffic warden service.<br>order=12<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					serviceDelaysOfUncertainDuration
+					<a name="{DF953ED2-19BC-4851-9C0D-6A8316C625E7}"></a>veryImportantPerson
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -396,144 +422,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The specified service is subject to delays whose predicted duration cannot be estimated accurately.<br>order=13<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					serviceFullyBooked
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The departure of the specified service is fully booked.<br>order=14<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					serviceNotOperating
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The specified service is not operating.<br>order=15<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					serviceNotOperatingSubstituteServiceAvailable
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The specified service is not operating but an alternative service is available.<br>order=16<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					serviceSuspended
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The specified service has been suspended.<br>order=17<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					serviceWithdrawn
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The specified service has been cancelled.<br>order=18<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					shuttleServiceOperating
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A shuttle service is operating between the specified locations.<br>order=19<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					temporaryChangesToTimetables
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The timetable for the specified service is subject to temporary changes.<br>order=20<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					other
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Other than as defined in this enumeration.<br>order=21<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=A very important person.<br>order=13<br>
 						&nbsp;
 						
 				</td>
@@ -548,7 +438,7 @@
 		</tr>
 					<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">Types of public transport information.</td>
+				<td width="50%" class="TableRow" valign="top">Categories of person.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">

@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>VehicleCharacteristicsExtended</title>
+<link href="../../../../css/ea.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="../../../../js/displayToc.js" type="text/javascript"></script>
+<script>
+
+  function switchProjectProperties() {
+			if (document.getElementById("proj00").style.display == "none") {
+				document.getElementById("proj00").style.display = "revert";
+				document.getElementById("proj01").style.display = "revert";
+				document.getElementById("proj02").style.display = "revert";
+				document.getElementById("proj03").style.display = "revert";
+				document.getElementById("proj04").style.display = "revert";
+				document.getElementById("proj05").style.display = "revert";
+			} else {
+				document.getElementById("proj00").style.display = "none";
+				document.getElementById("proj01").style.display = "none";
+				document.getElementById("proj02").style.display = "none";
+				document.getElementById("proj03").style.display = "none";
+				document.getElementById("proj04").style.display = "none";
+				document.getElementById("proj05").style.display = "none";
+			}
+}
+
+		function switchAdvancedProperties(){
+
+			if (document.getElementById("adv00").style.display == "none") {;
+				document.getElementById("adv00").style.display = "revert";
+				document.getElementById("adv01").style.display = "revert";
+			} else {
+				document.getElementById("adv00").style.display = "none";
+				document.getElementById("adv01").style.display = "none";
+			}
+		}
+		function initPage()
+        {			
+			var divs = document.getElementsByClassName("ObjectDetailsNotes");
+			for (var j = 0; j < divs.length; j++) {
+				var tmpStr = divs[j].innerHTML;
+				tmpStr = tmpStr.replace(/#gt;/g, "&gt;");
+				tmpStr = tmpStr.replace(/#lt;/g, "&lt;");
+
+				tmpStr = tmpStr.replace(/&gt;/g, ">");
+				tmpStr = tmpStr.replace(/&lt;/g, "<");
+
+				divs[j].innerHTML = tmpStr;
+			}
+
+            if (document.getElementById('TableGroup') != null)
+            {
+                toggleItem(document.getElementById('TableGroup').getElementsByTagName('li')[0].id.replace("Title", ""));
+            }
+
+        }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
+</script>
+<style>
+
+</style>
+</head>
+<body onload="initPage();">
+<div class="section group" >
+
+		<div class="col span_2_of_2 header_frame">
+			<h1> VehicleCharacteristicsExtended </h1>
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
+		</div>
+		<div class="col span_2_of_2 breadcrumb_frame">
+			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA212.htm">Extension</a> / <a href="../EA305.htm">CommonExtension</a> / <a href="EA325.htm">Final</a> / <a href="EA323.htm">VehicleCharacteristicsExtended</a></p>
+		</div>
+			
+		<table class="contentmaintable">
+			<!-- <tfoot>
+				<tr>
+					<td>foot1</td>
+					<td>foot2</td>
+				</tr>
+			</tfoot> -->
+			<tbody>
+				<tr>
+					<td class="indexcell">
+						<div class="projectBrowserTitle">Project: </div>
+						<ul>
+<li><img src="../../../../images/175.png" alt="Diagram"/> <a href="EA317.htm">Datatypes</a></li>
+<li><img src="../../../../images/175.png" alt="Diagram"/> <a href="EA319.htm">Enumerations</a></li>
+<li><img src="../../../../images/175.png" alt="Diagram"/> <a href="EA321.htm">ValidityExtended</a></li>
+<li><img src="../../../../images/175.png" alt="Diagram"/> <a href="EA323.htm">VehicleCharacteristicsExtended</a></li>
+<li><img src="../../../../images/5.png" alt="Class"/> <a href="EA327.htm">AgeCharacteristic</a></li>
+<li><img src="../../../../images/5.png" alt="Class"/> <a href="EA329.htm">DangerousGoodsExtended</a></li>
+<li><img src="../../../../images/5.png" alt="Class"/> <a href="EA330.htm">DayWeekMonthExtended</a></li>
+<li><img src="../../../../images/5.png" alt="Class"/> <a href="EA332.htm">EmissionsExtension</a></li>
+<li><img src="../../../../images/5.png" alt="Class"/> <a href="EA334.htm">EnginePowerCharacteristics</a></li>
+<li><img src="../../../../images/5.png" alt="Class"/> <a href="EA341.htm">FuzzyPeriod</a></li>
+<li><img src="../../../../images/5.png" alt="Class"/> <a href="EA343.htm">GrossTrailerWeightCharacteristics</a></li>
+<li><img src="../../../../images/5.png" alt="Class"/> <a href="EA346.htm">NonNegativeIntegerComparison</a></li>
+<li><img src="../../../../images/5.png" alt="Class"/> <a href="EA347.htm">NumberPlateCharacteristics</a></li>
+<li><img src="../../../../images/5.png" alt="Class"/> <a href="EA348.htm">NumericalEmissionValues</a></li>
+<li><img src="../../../../images/5.png" alt="Class"/> <a href="EA349.htm">OwnerCharacteristic</a></li>
+<li><img src="../../../../images/5.png" alt="Class"/> <a href="EA351.htm">PeriodExtended</a></li>
+<li><img src="../../../../images/5.png" alt="Class"/> <a href="EA354.htm">RegulatedCharacteristics</a></li>
+<li><img src="../../../../images/5.png" alt="Class"/> <a href="EA355.htm">Speed</a></li>
+<li><img src="../../../../images/5.png" alt="Class"/> <a href="EA356.htm">TrailerCharacteristics</a></li>
+<li><img src="../../../../images/5.png" alt="Class"/> <a href="EA357.htm">VehicleCharacteristicsExtended</a></li>
+<li><img src="../../../../images/5.png" alt="Class"/> <a href="EA359.htm">VehicleRegistrationCharacteristics</a></li>
+<li><img src="../../../../images/230.png" alt="DataType"/> <a href="EA326.htm">ADRClass</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA328.htm">ApplicableDaysWithinMonthEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA331.htm">EmissionClassificationEuroEnumExtended</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA333.htm">EmissionTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA335.htm">EngineTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA336.htm">EuBodyworkCodeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA337.htm">EuBodyworkSupplementaryDigit</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA338.htm">EuSpecialPurposeVehicleEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA339.htm">EuVehicleCategoryEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA340.htm">FuelTypeEnumExtended</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA342.htm">FuzzyTimeEnum</a></li>
+<li><img src="../../../../images/230.png" alt="DataType"/> <a href="EA344.htm">IpAddress</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA345.htm">LoadTypeEnumExtended</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA350.htm">OwnerTypeEnum</a></li>
+<li><img src="../../../../images/230.png" alt="DataType"/> <a href="EA352.htm">PortNumber</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA353.htm">PowerUnitOfMeasureEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA358.htm">VehicleEquipmentEnumExtended</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA360.htm">VehicleTypeEnumExtended</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA361.htm">VehicleUsageExtended</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA362.htm">WeightTypeEnumExtended</a></li>
+</ul>
+
+					</td>
+					<td class="contentcell"><div class="PageBody">
+	<div class="diagram_image"> 
+<img src="EA324.png" usemap="#EA324" width="1416" height="1724" border="0" />
+
+<MAP NAME="EA324">
+<area shape="rect" coords="140,1400,470,1533" href="EA346.htm" target="_self">
+<area shape="rect" coords="41,15,471,168" href="../../../EA1/EA1/EA6/EA118.htm" target="_self">
+<area shape="rect" coords="93,258,423,371" href="EA332.htm" target="_self">
+<area shape="rect" coords="135,443,386,576" href="EA355.htm" target="_self">
+<area shape="rect" coords="513,1575,708,1680" href="../../../EA3/EA3/EA530.htm" target="_self">
+<area shape="rect" coords="134,723,500,876" href="EA348.htm" target="_self">
+<area shape="rect" coords="135,593,414,707" href="EA359.htm" target="_self">
+<area shape="rect" coords="786,1226,1116,1379" href="EA334.htm" target="_self">
+<area shape="rect" coords="1017,132,1401,297" href="EA363.htm" target="_self">
+<area shape="rect" coords="1136,1304,1367,1418" href="EA329.htm" target="_self">
+<area shape="rect" coords="870,846,1329,1136" href="../../../EA1/EA1/EA25.htm" target="_self">
+<area shape="rect" coords="734,1443,1109,1577" href="EA347.htm" target="_self">
+<area shape="rect" coords="483,1299,728,1413" href="EA349.htm" target="_self">
+<area shape="rect" coords="584,17,966,228" href="../../../EA1/EA1/EA6/EA114.htm" target="_self">
+<area shape="rect" coords="495,338,1065,452" href="EA357.htm" target="_self">
+<area shape="rect" coords="1170,351,1329,456" href="EA356.htm" target="_self">
+<area shape="rect" coords="135,888,645,1119" href="EA354.htm" target="_self">
+<area shape="rect" coords="945,608,1331,780" href="EA343.htm" target="_self">
+<area shape="rect" coords="149,1137,504,1290" href="EA327.htm" target="_self">
+</MAP>
+ </div>
+	<div class="ObjectTitle">VehicleCharacteristicsExtended : Class diagram</div>
+	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Created:</td>
+			<td width="85%" class="ObjectDetailsValue">25.01.2022 09:29:21</td>
+		</tr>
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Modified:</td>
+			<td width="85%" class="ObjectDetailsValue">05.02.2025 11:40:23</td>
+		</tr>
+		<tr style="padding-top: 10px;">
+			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="../../../../images/plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
+		</tr>
+		<tr id="proj00" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
+			<td width="85%" class="ObjectDetailsValue">KaltwasserV</td>
+		</tr>
+		<tr id="proj01" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
+			<td width="85%" class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchAdvancedProperties()"><img src="../../../../images/plus03.gif" align="absmiddle" id="adv" /></button>Advanced:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
+		</tr>
+		<tr id="adv00" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">ID:</td>
+			<td width="85%" class="ObjectDetailsValue">{75F0BF01-DD12-471b-A59C-716401866F2B}</td>
+		</tr>
+	</table>
+	
+</div>
+
+ </td>
+				</tr>
+			</tbody>
+		</table>
+		
+</div>
+</body>
+</html>
+

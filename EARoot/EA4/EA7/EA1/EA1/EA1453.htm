@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>TrafficRegulation::RoadSign</title>
+<title>Condition::ConditionReference</title>
 <link href="../../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> TrafficRegulation::RoadSign </h1>
-			<!-- <img class="header_image" src="../../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Condition::ConditionReference </h1>
+			<!-- <img class="header_image" src="../../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../../EA3.htm">D2Payload</a> / <a href="../../../EA743.htm">PayloadPublication</a> / <a href="../../EA1417.htm">TrafficRegulation</a> / <a href="../EA1424.htm">Classes</a> / <a href="EA1433.htm">TrafficRegulation</a> / <a href="EA1453.htm">RoadSign</a></p>
+			<p><a href="../../../../EA3.htm">D2Payload</a> / <a href="../../../EA759.htm">PayloadPublication</a> / <a href="../../EA1430.htm">TrafficRegulation</a> / <a href="../EA1439.htm">Classes</a> / <a href="EA1447.htm">Condition</a> / <a href="EA1453.htm">ConditionReference</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,20 +110,20 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA1433.htm">TrafficRegulation</a></ul>
+<a href="EA1447.htm">Condition</a></ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">RoadSign  : Public  &lt;&lt;D2Class&gt;&gt; Class</span>
+	<span class="ObjectTitle">ConditionReference  : Public  &lt;&lt;D2Class&gt;&gt; Class</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">29.03.2021 14:26:03</td>
+			<td width="85%" class="ObjectDetailsValue">12.01.2023 15:33:27</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">29.11.2022 17:26:15</td>
+			<td class="ObjectDetailsValue">18.02.2025 12:11:12</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -106,7 +132,7 @@
 		</tr>
 		<tr id="proj00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue">Jonas</td>
+			<td class="ObjectDetailsValue">TB</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
@@ -142,18 +168,17 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{0F5A97D7-51AB-4177-BF62-3D7FC985EA7B}</td>
+			<td class="ObjectDetailsValue">{EA58CE8B-FD7C-4d59-9BD7-DB9491B0F9AC}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA1431.htm">TrafficRegulation</a></td>
+			<td class="ObjectDetailsValue"><a href="EA1445.htm">Condition</a></td>
 		</tr>
 	</table>
 	
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent != null ? parent.toggleItem('Attributes') : toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
-			<li onClick="parent != null ? parent.toggleItem('AssociationsTo') : toggleItem('AssociationsTo');" id="AssociationsToTitle">Associations To</li>
 			<li onClick="parent != null ? parent.toggleItem('TaggedVal') : toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
 			<li onClick="parent != null ? parent.toggleItem('CustomProperties') : toggleItem('CustomProperties');" id="CustomPropertiesTitle">Advanced</li>
 			<li onClick="parent != null ? parent.toggleItem('Links') : toggleItem('Links');" id="LinksTitle">Other Links</li>
@@ -167,142 +192,24 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					description
+					<a name="{EC00ADE0-28B0-45b8-ACF8-7A40C04D82A5}"></a>reference
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					<a href="../../../../EA1/EA2/EA1/EA144.htm">MultilingualString</a>
+					<a href="../../../../EA1/EA2/EA1/EA150.htm">VersionedReference</a>
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Description of road sign.<br>order=3<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					gddPictogramCategoryCode
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					<a href="../../EA2/EA1508.htm">GddPictogramCategoryCode</a>
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Code that identifies a pictogram for a given country and service category, according to the ISO 14823 Graphic Data Dictionary.<br>order=5<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					gddServiceCategory
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					<a href="../../EA3/EA1521.htm">GddServiceCategoryEnum</a>
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Category used to group pictograms for a given usage, according to the ISO 14823 Graphic Data Dictionary.<br>order=4<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					pictureOfRoadSign
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					<a href="../../../../EA1/EA2/EA1/EA134.htm">Base64Binary</a>
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Picture of road sign.<br>order=0<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					signNumber
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					<a href="../../../../EA1/EA2/EA1/EA140.htm">Float</a>
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The number of the sign from the street code of the country in which the sign is placed.<br>order=2<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					urlToRoadSign
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					<a href="../../../../EA1/EA2/EA1/EA149.htm">Url</a>
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=URL pointing to a resource on the internet with picture of the road sign.<br>order=1<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Reference to a predefined condition.<br>order=0<br>targetClass=tro:PredefinedCondition<br>
 						&nbsp;
 						
 				</td>
 			</tr>
 	</table>
 </div>
-		<div class="ItemBody" id="AssociationsToTable">
-			<table class="Table ea_table">
-				<tr>
-					<td width="40%" class="TableHeading">Element</td>
-					<td width="30%" class="TableHeading">Source Role</td>
-					<td width="30%" class="TableHeading">Target Role</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="EA1455.htm">«D2VersionedIdentifiable» TrafficRegulation</a><br />
-						Class «D2Relation» 
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink5323" /></button>Details:
-							<div id="detailsDIVLink5323" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-
-			</table>
-		</div>
 <div class="ItemBody" id="TaggedValTable">
 	<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
 		<tr>
@@ -311,7 +218,7 @@
 		</tr>
 					<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">Visual information about the road sign(s) used with this traffic regulation.</td>
+				<td width="50%" class="TableRow" valign="top">Reference to a predefined condition instance.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -343,9 +250,9 @@
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA1455.htm">«D2VersionedIdentifiable» TrafficRegulation</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA1452.htm">«D2Class» Condition</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">To</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>

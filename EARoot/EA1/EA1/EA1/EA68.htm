@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> WeatherRelated::Wind </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA10.htm">Common</a> / <a href="../EA16.htm">Classes</a> / <a href="EA52.htm">WeatherRelated</a> / <a href="EA68.htm">Wind</a></p>
@@ -146,7 +172,7 @@
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA50.htm">Wind</a>, <a href="../../../EA4/EA5/EA1/EA7/EA1212.htm">WeatherData</a>, <a href="../../../EA4/EA6/EA1/EA4/EA2/EA1330.htm">Conditions</a></td>
+			<td class="ObjectDetailsValue"><a href="EA50.htm">Wind</a>, <a href="../../../EA4/EA5/EA1/EA7/EA1225.htm">WeatherData</a>, <a href="../../../EA4/EA6/EA1/EA4/EA2/EA1343.htm">Conditions</a></td>
 		</tr>
 	</table>
 	
@@ -168,7 +194,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					windMeasurementHeight
+					<a name="{A57192ED-CB9D-4cb2-B8F9-AB12885CEBE3}"></a>windMeasurementHeight
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -178,7 +204,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=The height in metres above the road surface at which the wind is measured.<br>order=0<br>
 						&nbsp;
 						
@@ -195,7 +221,7 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA6/EA1/EA4/EA2/EA1336.htm">«D2Class» PoorEnvironmentConditions</a><br />
+						<a href="../../../EA4/EA5/EA1/EA7/EA1236.htm">«D2Class» WindInformation</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -218,7 +244,7 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA5/EA1/EA7/EA1223.htm">«D2Class» WindInformation</a><br />
+						<a href="../../../EA4/EA6/EA1/EA4/EA2/EA1349.htm">«D2Class» PoorEnvironmentConditions</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -251,29 +277,6 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../EA2/EA75.htm">«D2Class» DirectionCompassValue</a><br />
-						Class «D2Relation» 
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> maximumWindDirectionCompass<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink170" /></button>Details:
-							<div id="detailsDIVLink170" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
 						<a href="../EA2/EA74.htm">«D2Class» DirectionBearingValue</a><br />
 						Class «D2Relation» 
 					</td>
@@ -288,31 +291,8 @@
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink171" /></button>Details:
-							<div id="detailsDIVLink171" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="../EA2/EA74.htm">«D2Class» DirectionBearingValue</a><br />
-						Class «D2Relation» 
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> windDirectionBearing<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink172" /></button>Details:
-							<div id="detailsDIVLink172" class="DetailsDiv" >
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink170" /></button>Details:
+							<div id="detailsDIVLink170" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -334,8 +314,31 @@
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink173" /></button>Details:
-							<div id="detailsDIVLink173" class="DetailsDiv" >
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink171" /></button>Details:
+							<div id="detailsDIVLink171" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="../EA2/EA87.htm">«D2Class» WindSpeedValue</a><br />
+						Class «D2Relation» 
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> windSpeed<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink172" /></button>Details:
+							<div id="detailsDIVLink172" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -357,6 +360,29 @@
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink173" /></button>Details:
+							<div id="detailsDIVLink173" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="../EA2/EA75.htm">«D2Class» DirectionCompassValue</a><br />
+						Class «D2Relation» 
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> maximumWindDirectionCompass<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
 						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink174" /></button>Details:
 							<div id="detailsDIVLink174" class="DetailsDiv" >
 							&nbsp;
@@ -366,11 +392,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../EA2/EA87.htm">«D2Class» WindSpeedValue</a><br />
+						<a href="../EA2/EA74.htm">«D2Class» DirectionBearingValue</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> windSpeed<br />
+						<strong>Name:</strong> windDirectionBearing<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -430,28 +456,7 @@
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA6/EA1/EA4/EA2/EA1336.htm">«D2Class» PoorEnvironmentConditions</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA2/EA75.htm">«D2Class» DirectionCompassValue</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">From</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA2/EA74.htm">«D2Class» DirectionBearingValue</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">From</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA5/EA1/EA7/EA1223.htm">«D2Class» WindInformation</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA5/EA1/EA7/EA1236.htm">«D2Class» WindInformation</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">To</td>
@@ -472,6 +477,13 @@
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA6/EA1/EA4/EA2/EA1349.htm">«D2Class» PoorEnvironmentConditions</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">To</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
 					<td width="30%" class="TableRow" valign="top"><a href="../EA2/EA87.htm">«D2Class» WindSpeedValue</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
@@ -480,6 +492,20 @@
 				</tr>
 				<tr>
 					<td width="30%" class="TableRow" valign="top"><a href="../EA2/EA87.htm">«D2Class» WindSpeedValue</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA2/EA75.htm">«D2Class» DirectionCompassValue</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA2/EA74.htm">«D2Class» DirectionBearingValue</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">From</td>

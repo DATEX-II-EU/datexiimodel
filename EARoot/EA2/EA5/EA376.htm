@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>LocationExtension</title>
+<title>Enumerations</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> LocationExtension </h1>
-			<!-- <img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Enumerations </h1>
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA212.htm">Extension</a> / <a href="EA378.htm">LocationExtension</a> / <a href="EA376.htm">LocationExtension</a></p>
+			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA212.htm">Extension</a> / <a href="EA367.htm">GnssExtension</a> / <a href="./EA2/EA387.htm">Enumerations</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,56 +110,99 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA1/EA384.htm">Draft</a></li>
-<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA2/EA389.htm">Final</a></li>
-<li><img src="../../../images/176.png" alt="Diagram"/> <a href="EA376.htm">LocationExtension</a></li>
+<li><img src="../../../images/175.png" alt="Diagram"/> <a href="./EA2/EA385.htm">Enumerations</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="./EA2/EA388.htm">NmaStatusEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="./EA2/EA389.htm">SbasCorrectionEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="./EA2/EA390.htm">PseudoRangeUnitEnum</a></li>
 </ul>
 
 					</td>
-					<td class="contentcell"><div class="PageBody">
-	<div class="diagram_image"> 
-<img src="EA377.png" usemap="#EA377" border="0" />
-
-<MAP NAME="EA377">
-<area shape="rect" coords="273,274,486,348" href="./EA1/EA382.htm" target="_self">
-<area shape="rect" coords="26,273,150,411" href="./EA2/EA387.htm" target="_self">
-<area shape="rect" coords="10,10,602,221" href="EA379.htm" target="_self">
-</MAP>
- </div>
-	<div class="ObjectTitle">LocationExtension : Package diagram</div>
-	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
+					<td class="contentcell"><div class="pageHeader"></div>
+<div class="PageBody">
+	<span class="ObjectTitle">Enumerations  : Public  &lt;&lt;D2Package&gt;&gt; Package</span>
+	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">15.11.2022 13:58:05</td>
+			<td width="85%" class="ObjectDetailsValue">29.11.2010 00:00:00</td>
 		</tr>
 		<tr>
-			<td width="15%" class="ObjectDetailsTopic">Modified:</td>
-			<td width="85%" class="ObjectDetailsValue">15.11.2022 14:01:44</td>
+			<td class="ObjectDetailsTopic">Modified:</td>
+			<td class="ObjectDetailsValue">20.05.2021 08:39:38</td>
 		</tr>
-		<tr style="padding-top: 10px;">
-			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="../../../images/plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>
-			<td width="85%" class="ObjectDetailsValue"></td>			
+		<tr style="height: 10px"><td colspan="2"></td></tr>
+		<tr>
+			<td class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="../../../images/plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>
+			<td class="ObjectDetailsValue"></td>
 		</tr>
 		<tr id="proj00" style="display: none;">
-			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td width="85%" class="ObjectDetailsValue">TB</td>
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
+			<td class="ObjectDetailsValue">Kaltwasser</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
-			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
-			<td width="85%" class="ObjectDetailsValue">1.0</td>
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
+			<td class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr id="proj02" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Phase:</td>
+			<td class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr id="proj03" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Status:</td>
+			<td class="ObjectDetailsValue">Proposed</td>
+		</tr>
+		<tr id="proj04" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Complexity:</td>
+			<td class="ObjectDetailsValue">Easy</td>
+		</tr>
+		<tr id="proj05" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Difficulty:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="proj06" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Priority:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="proj05" style="display: none;">
+			<td class="ObjectDetailsTopic" >Multiplicity:</td>
+			<td class="ObjectDetailsValue"></td>
 		</tr>
 		<tr>
-			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchAdvancedProperties()"><img src="../../../images/plus03.gif" align="absmiddle" id="adv" /></button>Advanced:</td>
-			<td width="85%" class="ObjectDetailsValue"></td>			
+			<td class="ObjectDetailsTopic"><button onclick="switchAdvancedProperties()"><img src="../../../images/plus03.gif" align="absmiddle" id="adv" /></button>Advanced:</td>
+			<td class="ObjectDetailsValue"></td>
 		</tr>
 		<tr id="adv00" style="display: none;">
-			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">ID:</td>
-			<td width="85%" class="ObjectDetailsValue">{54B229E1-302E-4370-86E9-53E7324EDFB8}</td>
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
+			<td class="ObjectDetailsValue">{980A4892-1C90-4578-B23D-D35533EC1DD2}</td>
+		</tr>
+		<tr id="adv01" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
+			<td class="ObjectDetailsValue"></td>
 		</tr>
 	</table>
 	
-</div>
-
+	<div class="TableGroup" id="TableGroup">
+		<ul class="ItemTitle">
+			<li onClick="parent != null ? parent.toggleItem('TaggedVal') : toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
+		</ul>
+<div class="ItemBody" id="TaggedValTable">
+	<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
+		<tr>
+			<td width="50%" class="TableHeading">Tag</td>
+			<td width="50%" class="TableHeading">Value</td>
+		</tr>
+					<tr>
+				<td width="50%" class="TableRow" valign="top">definition</td>
+				<td width="50%" class="TableRow" valign="top">Collection of enumerations used in the GNSS extension.</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>
+	</table>
+</div>	</div>
+ </div>
  </td>
 				</tr>
 			</tbody>

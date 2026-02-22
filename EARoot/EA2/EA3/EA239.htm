@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>ReroutingManagement</title>
+<link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
+<script>
+
+  function switchProjectProperties() {
+			if (document.getElementById("proj00").style.display == "none") {
+				document.getElementById("proj00").style.display = "revert";
+				document.getElementById("proj01").style.display = "revert";
+				document.getElementById("proj02").style.display = "revert";
+				document.getElementById("proj03").style.display = "revert";
+				document.getElementById("proj04").style.display = "revert";
+				document.getElementById("proj05").style.display = "revert";
+			} else {
+				document.getElementById("proj00").style.display = "none";
+				document.getElementById("proj01").style.display = "none";
+				document.getElementById("proj02").style.display = "none";
+				document.getElementById("proj03").style.display = "none";
+				document.getElementById("proj04").style.display = "none";
+				document.getElementById("proj05").style.display = "none";
+			}
+}
+
+		function switchAdvancedProperties(){
+
+			if (document.getElementById("adv00").style.display == "none") {;
+				document.getElementById("adv00").style.display = "revert";
+				document.getElementById("adv01").style.display = "revert";
+			} else {
+				document.getElementById("adv00").style.display = "none";
+				document.getElementById("adv01").style.display = "none";
+			}
+		}
+		function initPage()
+        {			
+			var divs = document.getElementsByClassName("ObjectDetailsNotes");
+			for (var j = 0; j < divs.length; j++) {
+				var tmpStr = divs[j].innerHTML;
+				tmpStr = tmpStr.replace(/#gt;/g, "&gt;");
+				tmpStr = tmpStr.replace(/#lt;/g, "&lt;");
+
+				tmpStr = tmpStr.replace(/&gt;/g, ">");
+				tmpStr = tmpStr.replace(/&lt;/g, "<");
+
+				divs[j].innerHTML = tmpStr;
+			}
+
+            if (document.getElementById('TableGroup') != null)
+            {
+                toggleItem(document.getElementById('TableGroup').getElementsByTagName('li')[0].id.replace("Title", ""));
+            }
+
+        }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
+</script>
+<style>
+
+</style>
+</head>
+<body onload="initPage();">
+<div class="section group" >
+
+		<div class="col span_2_of_2 header_frame">
+			<h1> ReroutingManagement </h1>
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
+		</div>
+		<div class="col span_2_of_2 breadcrumb_frame">
+			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA212.htm">Extension</a> / <a href="EA245.htm">ReroutingManagementEnhanced</a> / <a href="EA239.htm">ReroutingManagement</a></p>
+		</div>
+			
+		<table class="contentmaintable">
+			<!-- <tfoot>
+				<tr>
+					<td>foot1</td>
+					<td>foot2</td>
+				</tr>
+			</tfoot> -->
+			<tbody>
+				<tr>
+					<td class="indexcell">
+						<div class="projectBrowserTitle">Project: </div>
+						<ul>
+<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA1/EA255.htm">Classes</a></li>
+<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA2/EA279.htm">DataTypes</a></li>
+<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA3/EA281.htm">Enumerations</a></li>
+<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA4/EA301.htm">Figures</a></li>
+<li><img src="../../../images/176.png" alt="Diagram"/> <a href="EA235.htm">Namespace dependencies</a></li>
+<li><img src="../../../images/175.png" alt="Diagram"/> <a href="EA237.htm">ReroutingManagement Content</a></li>
+<li><img src="../../../images/175.png" alt="Diagram"/> <a href="EA239.htm">ReroutingManagement</a></li>
+<li><img src="../../../images/175.png" alt="Diagram"/> <a href="EA241.htm">ReroutingManagementStructure</a></li>
+<li><img src="../../../images/175.png" alt="Diagram"/> <a href="EA243.htm">Allocation</a></li>
+</ul>
+
+					</td>
+					<td class="contentcell"><div class="PageBody">
+	<div class="diagram_image"> 
+<img src="EA240.png" usemap="#EA240" width="2089" height="2919" border="0" />
+
+<MAP NAME="EA240">
+<area shape="rect" coords="1565,2150,1763,2387" href="./EA3/EA287.htm" target="_self">
+<area shape="rect" coords="1565,2432,1791,2624" href="./EA3/EA286.htm" target="_self">
+<area shape="rect" coords="1136,2376,1470,2666" href="./EA1/EA261.htm" target="_self">
+<area shape="rect" coords="1280,1362,1604,1515" href="../../EA4/EA6/EA1/EA2/EA1317.htm" target="_self">
+<area shape="rect" coords="1595,1775,1796,1880" href="./EA2/EA280.htm" target="_self">
+<area shape="rect" coords="1595,1565,1796,1670" href="../../EA1/EA2/EA1/EA145.htm" target="_self">
+<area shape="rect" coords="384,981,627,1095" href="./EA1/EA262.htm" target="_self">
+<area shape="rect" coords="21,768,281,875" href="EA253.htm" target="_self">
+<area shape="rect" coords="15,611,281,735" href="./EA3/EA285.htm" target="_self">
+<area shape="rect" coords="15,284,281,524" href="../../EA4/EA6/EA2/EA1396.htm" target="_self">
+<area shape="rect" coords="851,560,1352,693" href="../../EA4/EA6/EA1/EA1/EA2/EA1308.htm" target="_self">
+<area shape="rect" coords="851,720,1344,867" href="EA248.htm" target="_self">
+<area shape="rect" coords="915,1172,1145,1400" href="./EA3/EA289.htm" target="_self">
+<area shape="rect" coords="1130,288,1389,422" href="./EA3/EA283.htm" target="_self">
+<area shape="rect" coords="15,1598,287,1731" href="./EA3/EA292.htm" target="_self">
+<area shape="rect" coords="15,1761,183,1934" href="./EA3/EA284.htm" target="_self">
+<area shape="rect" coords="230,2037,491,2310" href="./EA3/EA291.htm" target="_self">
+<area shape="rect" coords="230,2333,491,2700" href="./EA3/EA290.htm" target="_self">
+<area shape="rect" coords="269,1892,554,1977" href="../../EA3/EA3/EA6/EA691.htm" target="_self">
+<area shape="rect" coords="1280,1229,1455,1331" href="../../EA4/EA6/EA1/EA4/EA1329.htm" target="_self">
+<area shape="rect" coords="1308,984,1506,1092" href="../../EA3/EA3/EA570.htm" target="_self">
+<area shape="rect" coords="357,1637,585,1848" href="../../EA4/EA6/EA2/EA1389.htm" target="_self">
+<area shape="rect" coords="1133,2771,1472,2904" href="../../EA1/EA1/EA4/EA92.htm" target="_self">
+<area shape="rect" coords="1836,2150,2075,2585" href="./EA3/EA293.htm" target="_self">
+<area shape="rect" coords="1202,2094,1482,2291" href="./EA1/EA263.htm" target="_self">
+<area shape="rect" coords="957,2207,1118,2312" href="../../EA3/EA3/EA530.htm" target="_self">
+<area shape="rect" coords="600,15,1026,192" href="../../EA4/EA6/EA1/EA1/EA1288.htm" target="_self">
+<area shape="rect" coords="1280,1547,1455,1649" href="../../EA4/EA5/EA1/EA2/EA1171.htm" target="_self">
+<area shape="rect" coords="902,2664,1074,2771" href="EA246.htm" target="_self">
+<area shape="rect" coords="540,2748,842,2853" href="../../EA3/EA3/EA532.htm" target="_self">
+<area shape="rect" coords="504,2450,878,2649" href="./EA1/EA260.htm" target="_self">
+<area shape="rect" coords="605,249,1020,458" href="../../EA4/EA6/EA1/EA1/EA2/EA1303.htm" target="_self">
+<area shape="rect" coords="1154,47,1368,194" href="../../EA4/EA6/EA2/EA1400.htm" target="_self">
+<area shape="rect" coords="1280,1680,1455,1782" href="../../EA4/EA5/EA1/EA6/EA1221.htm" target="_self">
+<area shape="rect" coords="1214,1833,1538,1890" href="EA243.htm" target="_self">
+<area shape="rect" coords="501,2153,884,2364" href="./EA1/EA257.htm" target="_self">
+<area shape="rect" coords="615,1578,1058,1952" href="./EA1/EA259.htm" target="_self">
+<area shape="rect" coords="663,939,1058,1137" href="EA239.htm" target="_self">
+<area shape="rect" coords="794,2030,998,2120" href="../../EA3/EA3/EA559.htm" target="_self">
+</MAP>
+ </div>
+	<div class="ObjectTitle">ReroutingManagement : Class diagram</div>
+	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Created:</td>
+			<td width="85%" class="ObjectDetailsValue">24.01.2019 00:00:00</td>
+		</tr>
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Modified:</td>
+			<td width="85%" class="ObjectDetailsValue">29.02.2024 16:09:31</td>
+		</tr>
+		<tr style="padding-top: 10px;">
+			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="../../../images/plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
+		</tr>
+		<tr id="proj00" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
+			<td width="85%" class="ObjectDetailsValue">Freudenstein</td>
+		</tr>
+		<tr id="proj01" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
+			<td width="85%" class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchAdvancedProperties()"><img src="../../../images/plus03.gif" align="absmiddle" id="adv" /></button>Advanced:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
+		</tr>
+		<tr id="adv00" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">ID:</td>
+			<td width="85%" class="ObjectDetailsValue">{36588C41-68FA-4361-BCF9-2BBDD89F7523}</td>
+		</tr>
+	</table>
+	
+</div>
+
+ </td>
+				</tr>
+			</tbody>
+		</table>
+		
+</div>
+</body>
+</html>
+

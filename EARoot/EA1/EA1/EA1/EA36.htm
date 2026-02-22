@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> WeatherRelated </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA10.htm">Common</a> / <a href="../EA16.htm">Classes</a> / <a href="EA52.htm">WeatherRelated</a> / <a href="EA36.htm">WeatherRelated</a></p>
@@ -107,16 +133,16 @@
 					</td>
 					<td class="contentcell"><div class="PageBody">
 	<div class="diagram_image"> 
-<img src="EA37.png" usemap="#EA37" border="0" />
+<img src="EA37.png" usemap="#EA37" width="386" height="344" border="0" />
 
 <MAP NAME="EA37">
-<area shape="rect" coords="147,18,247,54" href="EA48.htm" target="_self">
-<area shape="rect" coords="10,183,110,219" href="EA50.htm" target="_self">
-<area shape="rect" coords="12,67,112,103" href="EA46.htm" target="_self">
-<area shape="rect" coords="144,72,244,108" href="EA42.htm" target="_self">
-<area shape="rect" coords="13,130,113,166" href="EA40.htm" target="_self">
-<area shape="rect" coords="147,127,247,176" href="EA44.htm" target="_self">
-<area shape="rect" coords="12,10,112,46" href="EA38.htm" target="_self">
+<area shape="rect" coords="221,27,371,81" href="EA48.htm" target="_self">
+<area shape="rect" coords="15,275,165,329" href="EA50.htm" target="_self">
+<area shape="rect" coords="18,101,168,155" href="EA46.htm" target="_self">
+<area shape="rect" coords="216,108,366,201" href="EA42.htm" target="_self">
+<area shape="rect" coords="20,195,170,249" href="EA40.htm" target="_self">
+<area shape="rect" coords="221,191,371,303" href="EA44.htm" target="_self">
+<area shape="rect" coords="18,15,168,69" href="EA38.htm" target="_self">
 </MAP>
  </div>
 	<div class="ObjectTitle">WeatherRelated : Class diagram</div>

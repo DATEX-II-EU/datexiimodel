@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Enumerations::RateUsageDurationStartTypeEnum</title>
+<title>Enumerations</title>
 <link href="../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Enumerations::RateUsageDurationStartTypeEnum </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Enumerations </h1>
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA743.htm">PayloadPublication</a> / <a href="../EA1655.htm">Parking</a> / <a href="EA1819.htm">Enumerations</a> / <a href="EA1855.htm">RateUsageDurationStartTypeEnum</a></p>
+			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA759.htm">PayloadPublication</a> / <a href="../EA1693.htm">Parking</a> / <a href="EA1857.htm">Enumerations</a> / <a href="EA1855.htm">Enumerations</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,136 +110,98 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA1819.htm">Enumerations</a></ul>
+<li><img src="../../../../images/175.png" alt="Diagram"/> <a href="EA1855.htm">Enumerations</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1858.htm">PedestrianAccessStyleEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1859.htm">ActivityEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1860.htm">AccessEquipmentEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1861.htm">PublicTransportTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1862.htm">AccessLaneTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1863.htm">PublicTransportVehicleType</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1864.htm">AccessTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1865.htm">CalculationTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1866.htm">CampusStatusEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1867.htm">ContactTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1868.htm">CoveredEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1869.htm">ElementDescriptorEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1870.htm">EsporgStandardLevelEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1871.htm">HierarchyElementTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1872.htm">JunctionClassificationEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1873.htm">ParkingConditionsEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1874.htm">ParkingFaultEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1875.htm">LayoutEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1876.htm">ParkingModeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1877.htm">OperatingRestrictionsEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1878.htm">ParkingOccupancyEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1879.htm">ParkingOccupancyTrendEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1880.htm">ParkingPlaceStatusEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1881.htm">ParkingRouteOrientationEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1882.htm">ParkingRouteTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1883.htm">ParkingSafetyEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1884.htm">ParkingSecurityEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1885.htm">ParkingSpaceConvenienceEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1886.htm">ParkingSpaceOccupancyDetectionEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1887.htm">SessionActivationModeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1888.htm">SpecialLocationEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1889.htm">ParkingStructuralCharacteristicsEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1890.htm">ParkingSupervisionEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1891.htm">ParkingUsageScenarioEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1892.htm">ParkingVacantSpacesEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1893.htm">RateUsageDurationStartTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1894.htm">RegulationEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1895.htm">RoadTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1896.htm">StaffEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1897.htm">StructureGradeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1898.htm">StructureTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1899.htm">SupplyViewTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1900.htm">TruckParkingDynamicManagementEnum</a></li>
+</ul>
 
 					</td>
-					<td class="contentcell"><div class="pageHeader"></div>
-<div class="PageBody">
-	<span class="ObjectTitle">RateUsageDurationStartTypeEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
-	<table border="0" class="ObjectDetails">
+					<td class="contentcell"><div class="PageBody">
+	<div class="diagram_image"> 
+<img src="EA1856.png" usemap="#EA1856" width="938" height="893" border="0" />
+
+<MAP NAME="EA1856">
+<area shape="rect" coords="684,530,923,878" href="EA1884.htm" target="_self">
+<area shape="rect" coords="479,530,654,702" href="EA1870.htm" target="_self">
+<area shape="rect" coords="498,15,711,236" href="EA1887.htm" target="_self">
+<area shape="rect" coords="15,15,303,381" href="EA1886.htm" target="_self">
+</MAP>
+ </div>
+	<div class="ObjectTitle">Enumerations : Class diagram</div>
+	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">29.04.2018 03:43:57</td>
+			<td width="85%" class="ObjectDetailsValue">22.04.2018 06:25:46</td>
 		</tr>
 		<tr>
-			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">29.11.2022 17:26:20</td>
+			<td width="15%" class="ObjectDetailsTopic">Modified:</td>
+			<td width="85%" class="ObjectDetailsValue">21.11.2021 18:48:29</td>
 		</tr>
-		<tr style="height: 10px"><td colspan="2"></td></tr>
-		<tr>
-			<td class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="../../../../images/plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>
-			<td class="ObjectDetailsValue"></td>
+		<tr style="padding-top: 10px;">
+			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="../../../../images/plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
 		</tr>
 		<tr id="proj00" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue">jon</td>
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
+			<td width="85%" class="ObjectDetailsValue">Jon</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
-			<td class="ObjectDetailsValue">1.0</td>
-		</tr>
-		<tr id="proj02" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Phase:</td>
-			<td class="ObjectDetailsValue">1.0</td>
-		</tr>
-		<tr id="proj03" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Status:</td>
-			<td class="ObjectDetailsValue">Proposed</td>
-		</tr>
-		<tr id="proj04" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Complexity:</td>
-			<td class="ObjectDetailsValue">Easy</td>
-		</tr>
-		<tr id="proj05" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Difficulty:</td>
-			<td class="ObjectDetailsValue"></td>
-		</tr>
-		<tr id="proj06" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Priority:</td>
-			<td class="ObjectDetailsValue"></td>
-		</tr>
-		<tr id="proj05" style="display: none;">
-			<td class="ObjectDetailsTopic" >Multiplicity:</td>
-			<td class="ObjectDetailsValue"></td>
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
+			<td width="85%" class="ObjectDetailsValue">1.0</td>
 		</tr>
 		<tr>
-			<td class="ObjectDetailsTopic"><button onclick="switchAdvancedProperties()"><img src="../../../../images/plus03.gif" align="absmiddle" id="adv" /></button>Advanced:</td>
-			<td class="ObjectDetailsValue"></td>
+			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchAdvancedProperties()"><img src="../../../../images/plus03.gif" align="absmiddle" id="adv" /></button>Advanced:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
 		</tr>
 		<tr id="adv00" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{D96B2441-A7A7-48b5-B1ED-D07F7E5C66AB}</td>
-		</tr>
-		<tr id="adv01" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"></td>
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">ID:</td>
+			<td width="85%" class="ObjectDetailsValue">{150B0C34-1537-42a6-B506-D60C1464AE77}</td>
 		</tr>
 	</table>
 	
-	<div class="TableGroup" id="TableGroup">
-		<ul class="ItemTitle">
-			<li onClick="parent != null ? parent.toggleItem('Attributes') : toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
-			<li onClick="parent != null ? parent.toggleItem('CustomProperties') : toggleItem('CustomProperties');" id="CustomPropertiesTitle">Advanced</li>
-		</ul>
-<div class="ItemBody" id="AttributesTable">
-	<table border="0" cellspacing="0" cellpadding="0" class="Table">
-		<tr>
-			<td width="50%" class="TableHeading">Attribute</td>
-			<td width="25%" class="TableHeading">Scope</td>
-			<td width="25%" class="TableHeading">Type</td>
-		</tr>
-						<tr>
-				<td width="50%" class="TableRow">
-					atPurchase
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					Enumeration
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Rate usage applies from the time of purchase<br>order=0<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					firstUse
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					Enumeration
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Rate usage applies from the time of first use<br>order=1<br>
-						&nbsp;
-						
-				</td>
-			</tr>
-	</table>
 </div>
-		<div class="ItemBody" id="CustomPropertiesTable">
-			<table class="Table ea_table">
-				<tr>
-					<td width="30%" class="TableHeading">Property</td>
-					<td width="70%" class="TableHeading">Value</td>
-				</tr>
-			<tr>
-				<td width="30%" class="TableRow">isFinalSpecialization:</td>
-				<td width="70%" class="TableRow">0</td>
-			</tr>
 
-
-			</table>
-		</div>	</div>
- </div>
  </td>
 				</tr>
 			</tbody>

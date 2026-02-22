@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>ReroutingManagement Content</title>
+<title></title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> ReroutingManagement Content </h1>
-			<!-- <img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1>  </h1>
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA212.htm">Extension</a> / <a href="EA239.htm">ReroutingManagementEnhanced</a> / <a href="EA231.htm">ReroutingManagement Content</a></p>
+			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA212.htm">Extension</a> / <a href="EA229.htm">OpenlrBinary</a> / <a href="../../../index.htm">{ }</a> / <a href="EA231.htm"></a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,60 +110,74 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA1/EA249.htm">Classes</a></li>
-<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA2/EA273.htm">DataTypes</a></li>
-<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA3/EA275.htm">Enumerations</a></li>
-<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA4/EA295.htm">Figures</a></li>
-<li><img src="../../../images/176.png" alt="Diagram"/> <a href="EA229.htm">Namespace dependencies</a></li>
-<li><img src="../../../images/175.png" alt="Diagram"/> <a href="EA231.htm">ReroutingManagement Content</a></li>
-<li><img src="../../../images/175.png" alt="Diagram"/> <a href="EA233.htm">ReroutingManagement</a></li>
-<li><img src="../../../images/175.png" alt="Diagram"/> <a href="EA235.htm">ReroutingManagementStructure</a></li>
-<li><img src="../../../images/175.png" alt="Diagram"/> <a href="EA237.htm">Allocation</a></li>
-</ul>
+<a href="../../../index.htm">{ }</a></ul>
 
 					</td>
-					<td class="contentcell"><div class="PageBody">
-	<div class="diagram_image"> 
-<img src="EA232.png" usemap="#EA232" border="0" />
-
-<MAP NAME="EA232">
-<area shape="rect" coords="10,10,240,228" href="EA229.htm" target="_self">
-</MAP>
- </div>
-	<div class="ObjectTitle">ReroutingManagement Content : Class diagram</div>
-	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
+					<td class="contentcell"><div class="pageHeader"></div>
+<div class="PageBody">
+	<span class="ObjectTitle">  : Public   Note</span>
+	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">24.01.2019 17:18:25</td>
+			<td width="85%" class="ObjectDetailsValue">07.02.2024 11:01:53</td>
 		</tr>
 		<tr>
-			<td width="15%" class="ObjectDetailsTopic">Modified:</td>
-			<td width="85%" class="ObjectDetailsValue">16.02.2024 19:06:10</td>
+			<td class="ObjectDetailsTopic">Modified:</td>
+			<td class="ObjectDetailsValue">27.02.2024 14:34:55</td>
 		</tr>
-		<tr style="padding-top: 10px;">
-			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="../../../images/plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>
-			<td width="85%" class="ObjectDetailsValue"></td>			
+		<tr style="height: 10px"><td colspan="2"></td></tr>
+		<tr>
+			<td class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="../../../images/plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>
+			<td class="ObjectDetailsValue"></td>
 		</tr>
 		<tr id="proj00" style="display: none;">
-			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td width="85%" class="ObjectDetailsValue">TMG</td>
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
+			<td class="ObjectDetailsValue">TB</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
-			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
-			<td width="85%" class="ObjectDetailsValue">3.0</td>
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
+			<td class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr id="proj02" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Phase:</td>
+			<td class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr id="proj03" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Status:</td>
+			<td class="ObjectDetailsValue">Proposed</td>
+		</tr>
+		<tr id="proj04" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Complexity:</td>
+			<td class="ObjectDetailsValue">Easy</td>
+		</tr>
+		<tr id="proj05" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Difficulty:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="proj06" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Priority:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="proj05" style="display: none;">
+			<td class="ObjectDetailsTopic" >Multiplicity:</td>
+			<td class="ObjectDetailsValue"></td>
 		</tr>
 		<tr>
-			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchAdvancedProperties()"><img src="../../../images/plus03.gif" align="absmiddle" id="adv" /></button>Advanced:</td>
-			<td width="85%" class="ObjectDetailsValue"></td>			
+			<td class="ObjectDetailsTopic"><button onclick="switchAdvancedProperties()"><img src="../../../images/plus03.gif" align="absmiddle" id="adv" /></button>Advanced:</td>
+			<td class="ObjectDetailsValue"></td>
 		</tr>
 		<tr id="adv00" style="display: none;">
-			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">ID:</td>
-			<td width="85%" class="ObjectDetailsValue">{D5CE92A1-96C8-44a1-932B-BF39E77643C0}</td>
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
+			<td class="ObjectDetailsValue">{4DE3F5AA-119F-4311-9DD4-E97E0413037C}</td>
+		</tr>
+		<tr id="adv01" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
+			<td class="ObjectDetailsValue"><a href="EA227.htm">OpenlrBinary</a></td>
 		</tr>
 	</table>
-	
-</div>
+	<div class="ObjectDetailsNotes">All instances of PointLocation are required (by a constraint noted in text) to contain at least one instance of one of five optional classes that each express an encoding of the location. A PointLocationExtended modifies that constraint such that an instance shall contain at least one instance of one of six optional classes, where OpenlrBinaryLocation is the additional one not included in the original constraint. In other words, if a PointLocation is a PointLocationExtended, it is allowed to have an OpenlrBinaryLocation as the only expression of the location.&lt;br/&gt;</div>
 
+ </div>
  </td>
 				</tr>
 			</tbody>

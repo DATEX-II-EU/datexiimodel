@@ -1,0 +1,3 @@
+tocTab[tocTab.length] = new Array("0.4.7.4:1", "", "PredefinedConditionPublication", "EARoot/EA4/EA7/EA4/EA1554.htm", "175.png", "270", "0", "", "Logical diagram0","{D802847F-2E8C-4547-8912-040A45D39E15}");
+tocTab[tocTab.length] = new Array("0.4.7.4:2", "", "«D2VersionedIdentifiable» PredefinedCondition", "EARoot/EA4/EA7/EA4/EA1557.htm", "5.png", "E1438", "0", "", "Class0","{FAFE74B6-529A-45ed-928E-B552120EE372}");
+tocTab[tocTab.length] = new Array("0.4.7.4:3", "", "«D2Identifiable» PredefinedConditionPublication", "EARoot/EA4/EA7/EA4/EA1558.htm", "5.png", "E1439", "0", "", "Class0","{268B6832-92EE-479e-B52D-8895E1548B81}");

@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> Enumerations::PublicEventTypeEnum </h1>
-			<!-- <img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA10.htm">Common</a> / <a href="EA175.htm">Enumerations</a> / <a href="EA196.htm">PublicEventTypeEnum</a></p>
@@ -146,7 +172,7 @@
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA173.htm">Enumerations</a>, <a href="../../EA4/EA3/EA9/EA1035.htm">OperatingHours</a>, <a href="../../EA4/EA3/EA9/EA1037.htm">OperatingHoursPublication</a></td>
+			<td class="ObjectDetailsValue"><a href="EA173.htm">Enumerations</a>, <a href="../../EA4/EA3/EA9/EA1048.htm">OperatingHours</a>, <a href="../../EA4/EA3/EA9/EA1050.htm">OperatingHoursPublication</a></td>
 		</tr>
 	</table>
 	
@@ -165,7 +191,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					agriculturalShow
+					<a name="{96929AA0-7D90-4c32-8111-44748F10A0BE}"></a>agriculturalShow
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -175,14 +201,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Agricultural show or event which could disrupt traffic.<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					airShow
+					<a name="{7FBF8D47-E4F1-4422-BDC9-8FFA1F65391F}"></a>airShow
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -192,14 +218,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Air show or other aeronautical event which could disrupt traffic.<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					artEvent
+					<a name="{E4A66578-4619-4f85-873B-0C16D27C2693}"></a>artEvent
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -209,14 +235,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Art event<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					athleticsMeeting
+					<a name="{507C4AE5-4C7B-40d6-9997-2C89DE19E8D9}"></a>athleticsMeeting
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -226,14 +252,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Athletics event that could disrupt traffic.<br>order=3<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					commercialEvent
+					<a name="{E0344DB0-33B9-4652-826F-35D1D31FCD07}"></a>commercialEvent
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -243,14 +269,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Commercial event which could disrupt traffic.<br>order=4<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					culturalEvent
+					<a name="{8B0C352C-FFA8-49da-A554-F285A247103E}"></a>culturalEvent
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -260,14 +286,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Cultural event which could disrupt traffic.<br>order=5<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					ballGame
+					<a name="{C32C5604-CF2F-4f26-B8DA-5F6658F5EC86}"></a>ballGame
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -277,14 +303,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Ball game event that could disrupt traffic.<br>order=6<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					baseballGame
+					<a name="{5DAC79F3-249A-42e0-9DE1-3E1A83E23D0C}"></a>baseballGame
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -294,14 +320,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Baseball game event that could disrupt traffic.<br>order=7<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					basketballGame
+					<a name="{391A0C94-7A0A-4a8b-9AC1-638785D129EB}"></a>basketballGame
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -311,14 +337,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Basketball game event that could disrupt traffic.<br>order=8<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					beerFestival
+					<a name="{5057A677-B1AB-4082-A03E-E7AF05406EDC}"></a>beerFestival
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -328,14 +354,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Beer festival<br>order=9<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					bicycleRace
+					<a name="{DBA2CDAF-AC57-4eaf-92B7-FE2ABE46EDFB}"></a>bicycleRace
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -345,14 +371,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Bicycle race that could disrupt traffic.<br>order=10<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					boatRace
+					<a name="{5D443F56-F7CF-42ec-8C8E-97FAF5FDE9D6}"></a>boatRace
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -362,14 +388,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Regatta (boat race event of sailing, powerboat or rowing) that could disrupt traffic.<br>order=20<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					boatShow
+					<a name="{6C0AD19E-1CAE-4828-BE7E-0D3E7CBD92B3}"></a>boatShow
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -379,14 +405,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Boat show which could disrupt traffic.<br>order=21<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					boxingTournament
+					<a name="{F614E3B1-880E-4f35-8107-F2EF7EEE4A0C}"></a>boxingTournament
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -396,14 +422,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Boxing event that could disrupt traffic.<br>order=22<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					bullFight
+					<a name="{5755030F-DE64-4cc0-92C5-5FC416A23ADD}"></a>bullFight
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -413,14 +439,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Bull fighting event that could disrupt traffic.<br>order=23<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					ceremonialEvent
+					<a name="{0D186678-43D4-4a0c-92EC-FEDF995B8DBF}"></a>ceremonialEvent
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -430,14 +456,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Formal or religious act, rite or ceremony that could disrupt traffic.<br>order=24<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					concert
+					<a name="{3F8902C9-414D-400f-B65B-33C556F09739}"></a>concert
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -447,14 +473,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Concert event that could disrupt traffic.<br>order=25<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					cricketMatch
+					<a name="{2C3F1EB4-0DEE-4e4e-B32F-13C73FCB4B44}"></a>cricketMatch
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -464,14 +490,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Cricket match that could disrupt traffic.<br>order=26<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					exhibition
+					<a name="{D6A19AF7-3926-4182-8E05-B1C78DD5C0C4}"></a>exhibition
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -481,14 +507,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Major display or trade show which could disrupt traffic.<br>order=27<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					fair
+					<a name="{8A674CAB-625C-4253-B685-A619E5DAB5BE}"></a>fair
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -498,14 +524,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Periodic (e.g. annual), often traditional, gathering for entertainment or trade promotion, which could disrupt traffic.<br>order=28<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					festival
+					<a name="{947EE8C3-7925-4e46-B346-47B4860CCCEB}"></a>festival
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -515,14 +541,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Celebratory event or series of events which could disrupt traffic.<br>order=29<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					filmFestival
+					<a name="{1DEA2527-BDBA-4d38-A32B-C28F6CFC0829}"></a>filmFestival
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -532,14 +558,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Film festival<br>order=30<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					filmTVMaking
+					<a name="{A46DF1AD-4204-4a79-AC4E-3A9EFF9731FC}"></a>filmTVMaking
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -549,14 +575,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Film or TV making event which could disrupt traffic.<br>order=40<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					fireworkDisplay
+					<a name="{7EF6561E-6566-41b5-81A8-7B9DA0596864}"></a>fireworkDisplay
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -566,14 +592,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Firework display<br>order=41<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					flowerEvent
+					<a name="{FA3C08AE-DBF8-4c56-A79A-753CF692F7E5}"></a>flowerEvent
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -583,14 +609,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Flower event<br>order=42<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					foodFestival
+					<a name="{3D545C88-BB76-4c08-B2D0-557ECADF24A8}"></a>foodFestival
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -600,14 +626,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Food festival<br>order=43<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					footballMatch
+					<a name="{F34B5E1B-464A-4624-8737-8BF7E9E5E959}"></a>footballMatch
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -617,14 +643,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Football match that could disrupt traffic.<br>order=44<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					funfair
+					<a name="{4811EB18-5796-4fd3-B0D1-18A02D35334F}"></a>funfair
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -634,14 +660,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Periodic (e.g. annual), often traditional, gathering for entertainment, which could disrupt traffic.<br>order=45<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					gardeningOrFlowerShow
+					<a name="{BCAC5601-110D-4922-9F70-4366ECED8B8B}"></a>gardeningOrFlowerShow
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -651,14 +677,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Gardening and/or flower show or event which could disrupt traffic.<br>order=46<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					golfTournament
+					<a name="{B1635586-4669-4cc4-8333-3F9C8BBBE145}"></a>golfTournament
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -668,14 +694,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Golf tournament event that could disrupt traffic.<br>order=47<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					hockeyGame
+					<a name="{E7A3D491-FEED-419a-AC9D-77E1365E4BC0}"></a>hockeyGame
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -685,14 +711,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Hockey game event that could disrupt traffic.<br>order=48<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					horseRaceMeeting
+					<a name="{1C55ECF0-6456-41e4-82FC-939CC391C6DB}"></a>horseRaceMeeting
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -702,14 +728,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Horse race meeting that could disrupt traffic.<br>order=49<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					internationalSportsMeeting
+					<a name="{09D79E72-0B8D-4e94-8128-69B2A7B35A22}"></a>internationalSportsMeeting
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -719,14 +745,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Large sporting event of an international nature that could disrupt traffic.<br>order=50<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					majorEvent
+					<a name="{C9ABE9F7-BC6C-4fc9-A3B6-3098E786FF95}"></a>majorEvent
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -736,14 +762,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Significant organised event either on or near the roadway which could disrupt traffic.<br>order=60<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					marathon
+					<a name="{51FE1A56-B94A-49e6-AEE6-ADBCF13825CE}"></a>marathon
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -753,14 +779,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Marathon, cross-country or road running event that could disrupt traffic.<br>order=61<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					market
+					<a name="{2BEE42D4-C69E-46b5-8E39-F37B6363E6F0}"></a>market
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -770,14 +796,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Periodic (e.g. weekly) gathering for buying and selling, which could disrupt traffic.<br>order=62<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					match
+					<a name="{82805448-D7CE-4e82-8405-042ED8522F5C}"></a>match
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -787,14 +813,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Sports match of unspecified type that could disrupt traffic.<br>order=63<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					motorShow
+					<a name="{ECE97930-773B-4fb0-B1B3-3CF8FF3D15CC}"></a>motorShow
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -804,14 +830,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Motor show which could disrupt traffic.<br>order=64<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					motorSportRaceMeeting
+					<a name="{4E5A051E-1ED2-4801-B31D-9BDC9BB8BF08}"></a>motorSportRaceMeeting
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -821,14 +847,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Motor sport race meeting that could disrupt traffic.<br>order=65<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					openAirConcert
+					<a name="{1254784E-BB1B-4781-9B1D-AEC324941B3F}"></a>openAirConcert
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -838,14 +864,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Open air concert<br>order=66<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					parade
+					<a name="{75A06CA8-1CD9-447f-A233-EDD6B39FC766}"></a>parade
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -855,14 +881,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Formal display or organised procession which could disrupt traffic.<br>order=67<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					procession
+					<a name="{632B96F6-D46C-4da3-A3E9-2D2D6F0C8B25}"></a>procession
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -872,14 +898,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=An organised procession which could disrupt traffic.<br>order=68<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					raceMeeting
+					<a name="{D50F327F-31C8-4d8f-9ADC-BCD3AC5C4B17}"></a>raceMeeting
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -889,14 +915,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Race meeting (other than horse or motor sport) that could disrupt traffic.<br>order=69<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					rugbyMatch
+					<a name="{B290300C-73CD-44dc-9372-3C916A20F0E3}"></a>rugbyMatch
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -906,14 +932,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Rugby match that could disrupt traffic.<br>order=70<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					severalMajorEvents
+					<a name="{F51A496A-292B-48f6-9D32-FB81929198F6}"></a>severalMajorEvents
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -923,14 +949,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A series of significant organised events either on or near the roadway which could disrupt traffic.<br>order=80<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					show
+					<a name="{DE3BAC85-9440-4cdb-B744-A7AD6B726862}"></a>show
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -940,14 +966,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Entertainment event that could disrupt traffic.<br>order=81<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					showJumping
+					<a name="{5C56A433-3703-47a4-B183-D72E9A93DB7E}"></a>showJumping
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -957,14 +983,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Horse showing jumping and tournament event that could disrupt traffic.<br>order=82<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					soundAndLightShow
+					<a name="{58C924BB-0BF5-4fde-AF91-EE97D2113990}"></a>soundAndLightShow
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -974,14 +1000,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Sound and light show.<br>order=83<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					sportsMeeting
+					<a name="{8A3159E3-6866-499a-8C82-C8F036C95A71}"></a>sportsMeeting
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -991,14 +1017,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Sports event of unspecified type that could disrupt traffic.<br>order=84<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					stateOccasion
+					<a name="{DD31FCE7-6291-4a35-8B75-31C91BA658C1}"></a>stateOccasion
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -1008,14 +1034,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Public ceremony or visit of national or international significance which could disrupt traffic.<br>order=85<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					streetFestival
+					<a name="{585E04DC-B141-4e72-A148-DA3C9E39D595}"></a>streetFestival
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -1025,14 +1051,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Street festival<br>order=86<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					tennisTournament
+					<a name="{A053FEB8-D5FC-41e8-8754-66F62D581CBF}"></a>tennisTournament
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -1042,14 +1068,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Tennis tournament that could disrupt traffic.<br>order=87<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					theatricalEvent
+					<a name="{617829D4-03FB-4f55-ACB0-EF3B4E889F3C}"></a>theatricalEvent
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -1059,14 +1085,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Theatrical event<br>order=88<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					tournament
+					<a name="{574C7628-6DF5-46ed-BDE1-9A0648F6C791}"></a>tournament
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -1076,14 +1102,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Sporting event or series of events of unspecified type lasting more than one day which could disrupt traffic.<br>order=89<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					tradeFair
+					<a name="{78C9F6B9-ADB2-400c-BB91-7885ABD07859}"></a>tradeFair
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -1093,14 +1119,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A periodic (e.g. annual), often traditional, gathering for trade promotion, which could disrupt traffic.<br>order=90<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					waterSportsMeeting
+					<a name="{01BFFACC-767A-441d-8A7E-4D22757C6053}"></a>waterSportsMeeting
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -1110,14 +1136,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Water sports meeting that could disrupt traffic.<br>order=91<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					wineFestival
+					<a name="{578571BA-B05E-4b5b-9983-3DC538B591A9}"></a>wineFestival
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -1127,14 +1153,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Wine festival<br>order=92<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					winterSportsMeeting
+					<a name="{7305F438-CF45-40fb-88B6-2489B72230CF}"></a>winterSportsMeeting
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -1144,14 +1170,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Winter sports meeting or event (e.g. skiing, ski jumping, skating) that could disrupt traffic.<br>order=93<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					unknown
+					<a name="{8FCFCA6B-7787-4fad-9BC0-EF154D579E37}"></a>unknown
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -1161,14 +1187,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Service provider does not know at time of message generation.<br>order=99<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					other
+					<a name="{DA0F86EF-86DD-4450-9020-ED098707FE0B}"></a>other
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -1178,7 +1204,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Other than as defined in this enumeration.<br>order=100<br>
 						&nbsp;
 						

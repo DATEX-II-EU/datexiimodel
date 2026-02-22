@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> Extension </h1>
-			<!-- <img class="header_image" src="../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../EA3.htm">D2Payload</a> / <a href="EA212.htm">Extension</a> / <a href="EA210.htm">Extension</a></p>
@@ -84,29 +110,31 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<li><img src="../../images/4.png" alt="Package"/> <a href="./EA1/EA223.htm">OpenlrBinary</a></li>
-<li><img src="../../images/4.png" alt="Package"/> <a href="./EA2/EA239.htm">ReroutingManagementEnhanced</a></li>
-<li><img src="../../images/4.png" alt="Package"/> <a href="./EA3/EA299.htm">CommonExtension</a></li>
-<li><img src="../../images/4.png" alt="Package"/> <a href="./EA4/EA352.htm">GnssExtension</a></li>
-<li><img src="../../images/4.png" alt="Package"/> <a href="./EA5/EA378.htm">LocationExtension</a></li>
-<li><img src="../../images/4.png" alt="Package"/> <a href="./EA6/EA438.htm">UrbanExtensions</a></li>
+<li><img src="../../images/4.png" alt="Package"/> <a href="./EA2/EA229.htm">OpenlrBinary</a></li>
+<li><img src="../../images/4.png" alt="Package"/> <a href="./EA3/EA245.htm">ReroutingManagementEnhanced</a></li>
+<li><img src="../../images/4.png" alt="Package"/> <a href="./EA1/EA224.htm">SituationExtension</a></li>
+<li><img src="../../images/4.png" alt="Package"/> <a href="./EA4/EA305.htm">CommonExtension</a></li>
+<li><img src="../../images/4.png" alt="Package"/> <a href="./EA5/EA367.htm">GnssExtension</a></li>
+<li><img src="../../images/4.png" alt="Package"/> <a href="./EA6/EA393.htm">LocationExtension</a></li>
+<li><img src="../../images/4.png" alt="Package"/> <a href="./EA7/EA454.htm">UrbanExtensions</a></li>
 <li><img src="../../images/175.png" alt="Diagram"/> <a href="EA210.htm">Extension</a></li>
 </ul>
 
 					</td>
 					<td class="contentcell"><div class="PageBody">
 	<div class="diagram_image"> 
-<img src="EA211.png" usemap="#EA211" border="0" />
+<img src="EA211.png" usemap="#EA211" width="1754" height="738" border="0" />
 
 <MAP NAME="EA211">
-<area shape="rect" coords="20,352,147,442" href="./EA1/EA221.htm" target="_self">
-<area shape="rect" coords="196,352,360,458" href="./EA2/EA229.htm" target="_self">
-<area shape="rect" coords="524,150,754,352" href="./EA4/EA350.htm" target="_self">
-<area shape="rect" coords="510,10,672,91" href="./EA3/EA297.htm" target="_self">
-<area shape="rect" coords="726,12,915,91" href="./EA5/EA376.htm" target="_self">
-<area shape="rect" coords="808,150,1159,484" href="./EA6/EA396.htm" target="_self">
-<area shape="rect" coords="11,87,438,302" href="EA214.htm" target="_self">
-<area shape="rect" coords="10,12,125,67" href="EA213.htm" target="_self">
+<area shape="rect" coords="731,171,1112,276" href="./EA1/EA222.htm" target="_self">
+<area shape="rect" coords="30,525,221,660" href="./EA2/EA227.htm" target="_self">
+<area shape="rect" coords="294,525,540,684" href="./EA3/EA235.htm" target="_self">
+<area shape="rect" coords="738,342,1083,645" href="./EA5/EA365.htm" target="_self">
+<area shape="rect" coords="723,15,918,134" href="./EA4/EA303.htm" target="_self">
+<area shape="rect" coords="983,15,1187,134" href="./EA6/EA391.htm" target="_self">
+<area shape="rect" coords="1212,222,1739,723" href="./EA7/EA412.htm" target="_self">
+<area shape="rect" coords="17,128,657,450" href="EA215.htm" target="_self">
+<area shape="rect" coords="15,15,188,98" href="EA214.htm" target="_self">
 </MAP>
  </div>
 	<div class="ObjectTitle">Extension : Class diagram</div>
@@ -117,7 +145,7 @@
 		</tr>
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Modified:</td>
-			<td width="85%" class="ObjectDetailsValue">07.02.2024 11:03:35</td>
+			<td width="85%" class="ObjectDetailsValue">17.02.2025 15:38:15</td>
 		</tr>
 		<tr style="padding-top: 10px;">
 			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="../../images/plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>

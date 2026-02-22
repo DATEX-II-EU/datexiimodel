@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Classes::HydrogenRefillPoint</title>
+<title>Classes::Connector</title>
 <link href="../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Classes::HydrogenRefillPoint </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Classes::Connector </h1>
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA743.htm">PayloadPublication</a> / <a href="../EA807.htm">EnergyInfrastructure</a> / <a href="EA819.htm">Classes</a> / <a href="EA836.htm">HydrogenRefillPoint</a></p>
+			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA759.htm">PayloadPublication</a> / <a href="../EA820.htm">EnergyInfrastructure</a> / <a href="EA832.htm">Classes</a> / <a href="EA836.htm">Connector</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,20 +110,20 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA819.htm">Classes</a></ul>
+<a href="EA832.htm">Classes</a></ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">HydrogenRefillPoint  : Public  &lt;&lt;D2Class&gt;&gt; Class</span>
+	<span class="ObjectTitle">Connector  : Public  &lt;&lt;D2Class&gt;&gt; Class</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">02.08.2017 15:27:59</td>
+			<td width="85%" class="ObjectDetailsValue">03.08.2017 11:01:15</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">29.11.2022 17:26:03</td>
+			<td class="ObjectDetailsValue">29.11.2022 17:26:02</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -142,17 +168,18 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{2A024A40-A742-4e5a-8159-9AA6E417E0AC}</td>
+			<td class="ObjectDetailsValue">{E5D9EB2F-7F9D-4a3b-9A7C-9CB63A2DF208}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="../EA4/EA856.htm">EnergyInfrastructureTablePublication</a></td>
+			<td class="ObjectDetailsValue"><a href="EA830.htm">ElectricChargingPoint</a>, <a href="../EA4/EA869.htm">EnergyInfrastructureTablePublication</a></td>
 		</tr>
 	</table>
 	
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent != null ? parent.toggleItem('Attributes') : toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
+			<li onClick="parent != null ? parent.toggleItem('AssociationsTo') : toggleItem('AssociationsTo');" id="AssociationsToTitle">Associations To</li>
 			<li onClick="parent != null ? parent.toggleItem('TaggedVal') : toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
 			<li onClick="parent != null ? parent.toggleItem('CustomProperties') : toggleItem('CustomProperties');" id="CustomPropertiesTitle">Advanced</li>
 			<li onClick="parent != null ? parent.toggleItem('Links') : toggleItem('Links');" id="LinksTitle">Other Links</li>
@@ -166,58 +193,176 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					processProtocol
+					<a name="{BFFCA5E0-1462-4143-A47F-84007D2E5597}"></a>chargingMode
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					<a href="../EA5/EA875.htm">HydrogenFuellingProcessProtocolEnum</a>
+					<a href="../EA5/EA880.htm">ChargingModeEnum</a>
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Information on which protocol is used for the fuelling process.<br>order=1<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Available charging modes<br>order=3<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					refillSolution
+					<a name="{CB62039F-4F36-43c7-ADF6-A8A4915958BB}"></a>connectorFormat
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					<a href="../EA5/EA880.htm">RefillSolutionHydrogenEnum</a>
+					<a href="../EA5/EA882.htm">ConnectorFormatTypeEnum</a>
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					changed=new<br>definition=Definition of the refill solution for hydrogen<br>order=0<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Information on the cable type used.<br>order=4<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					renewableSourcesRatio
+					<a name="{36BEF778-35C8-4d0e-88BD-51FB7105FFD8}"></a>connectorType
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					<a href="../../../EA1/EA2/EA2/EA167.htm">Percentage</a>
+					<a href="../EA5/EA883.htm">ConnectorTypeEnum</a>
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Percentage of hydrogen from renewable energy sources, to be indicated in %.<br>order=2<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					changed=new<br>definition=Specification of the connector, i.e. the charging interface type<br>order=0<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{FEDB9FA0-BCBB-45ef-B25A-856B7E17E0E7}"></a>countryOfDomesticSocket
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					<a href="../../../EA1/EA2/EA2/EA158.htm">CountryCode</a>
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Countries for which the domestic socket is applicable. Only needed if explicit type of a domestic socket is not specified.<br>order=2<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{862A55EE-F8EF-4dd6-93B4-6ACC04008B32}"></a>maximumCurrent
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					<a href="../EA2/EA859.htm">Ampere</a>
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Maximum current in Ampere<br>order=7<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{9277DF4C-851A-4593-B214-1A6360C32274}"></a>maxPowerAtSocket
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					<a href="../EA2/EA862.htm">Watt</a>
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					changed=new<br>definition=Maximum power at the socket in Watts<br>order=5<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{E434248F-9832-48c1-BB4B-54A92DC8EFD6}"></a>otherConnector
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					<a href="../../../EA1/EA2/EA1/EA147.htm">String</a>
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Some other connector / charging interface<br>order=1<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{9B9F5AB3-7DA9-48c0-8492-FD930BDAF672}"></a>voltage
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					<a href="../EA2/EA861.htm">Volt</a>
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Possible degrees of voltage.<br>order=6<br>
 						&nbsp;
 						
 				</td>
 			</tr>
 	</table>
 </div>
+		<div class="ItemBody" id="AssociationsToTable">
+			<table class="Table ea_table">
+				<tr>
+					<td width="40%" class="TableHeading">Element</td>
+					<td width="30%" class="TableHeading">Source Role</td>
+					<td width="30%" class="TableHeading">Target Role</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA839.htm">«D2Class» ElectricChargingPoint</a><br />
+						Class «D2Relation» 
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2766" /></button>Details:
+							<div id="detailsDIVLink2766" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+
+			</table>
+		</div>
 <div class="ItemBody" id="TaggedValTable">
 	<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
 		<tr>
@@ -236,7 +381,7 @@
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">A refill point for hydrogen</td>
+				<td width="50%" class="TableRow" valign="top">Parameters and description of an interface that is available at the given electric charging point to connect vehicles</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -268,9 +413,9 @@
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA839.htm">«D2Class» RefillPoint</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA839.htm">«D2Class» ElectricChargingPoint</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Generalization</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">To</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Warning::SteepHill</title>
+<title>TypeOfRegulation::NumercialSpeedValue</title>
 <link href="../../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Warning::SteepHill </h1>
-			<!-- <img class="header_image" src="../../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> TypeOfRegulation::NumercialSpeedValue </h1>
+			<!-- <img class="header_image" src="../../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../../EA3.htm">D2Payload</a> / <a href="../../../EA743.htm">PayloadPublication</a> / <a href="../../EA1417.htm">TrafficRegulation</a> / <a href="../EA1424.htm">Classes</a> / <a href="EA1496.htm">Warning</a> / <a href="EA1500.htm">SteepHill</a></p>
+			<p><a href="../../../../EA3.htm">D2Payload</a> / <a href="../../../EA759.htm">PayloadPublication</a> / <a href="../../EA1430.htm">TrafficRegulation</a> / <a href="../EA1439.htm">Classes</a> / <a href="EA1489.htm">TypeOfRegulation</a> / <a href="EA1500.htm">NumercialSpeedValue</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,20 +110,20 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA1496.htm">Warning</a></ul>
+<a href="EA1489.htm">TypeOfRegulation</a></ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">SteepHill  : Public  &lt;&lt;D2Class&gt;&gt; Class</span>
+	<span class="ObjectTitle">NumercialSpeedValue  : Public abstract &lt;&lt;D2Class&gt;&gt; Class</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">08.10.2019 09:55:30</td>
+			<td width="85%" class="ObjectDetailsValue">06.01.2025 10:02:54</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">29.11.2022 17:26:16</td>
+			<td class="ObjectDetailsValue">18.02.2025 12:11:12</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -106,7 +132,7 @@
 		</tr>
 		<tr id="proj00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue">Jonathan Becker</td>
+			<td class="ObjectDetailsValue">TB</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
@@ -142,11 +168,11 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{50E3E046-98E7-4a4b-903D-A0127208C06C}</td>
+			<td class="ObjectDetailsValue">{D0F1ABB4-B33C-4685-A3A6-39EC2E37F808}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA1494.htm">Warning</a></td>
+			<td class="ObjectDetailsValue"><a href="EA1487.htm">TypeOfRegulation</a></td>
 		</tr>
 	</table>
 	
@@ -166,35 +192,35 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					roadGradientValue
+					<a name="{3BAE6580-4C8C-4151-B144-2F06F135C016}"></a>numericalValue
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					<a href="../../../../EA1/EA2/EA2/EA167.htm">Percentage</a>
+					<a href="../../../../EA1/EA2/EA1/EA145.htm">NonNegativeInteger</a>
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Value of the road gradient in percent.<br>order=0<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The speed value as non negative integer.<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					steepHillDirectionType
+					<a name="{3B16B2C0-78EE-4787-B4A9-457930E720DF}"></a>unitOfMeasure
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
 				</td>
 				<td width="25%" class="TableRow">
-					<a href="../../EA3/EA1532.htm">SteepHillDirectionTypeEnum</a>
+					<a href="../../EA3/EA1553.htm">UnitOfSpeedEnum</a>
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Direction of steep hill.<br>order=1<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Numeric value of the speed.<br>order=1<br>
 						&nbsp;
 						
 				</td>
@@ -209,7 +235,7 @@
 		</tr>
 					<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">A steep hill ahead.</td>
+				<td width="50%" class="TableRow" valign="top">Numeric value of the speed.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -241,10 +267,31 @@
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA1502.htm">«D2Class» Warning</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA1494.htm">«D2Class» CompulsoryMinSpeed</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Generalization</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA1492.htm">«D2Class» AdvisorySpeed</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Generalization</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA1505.htm">«D2Class» SpeedLimit</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">To</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA1498.htm">«D2Class» MaxSpeedLimit</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Generalization</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 

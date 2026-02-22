@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> DataValue </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA10.htm">Common</a> / <a href="../EA16.htm">Classes</a> / <a href="EA71.htm">DataValue</a> / <a href="EA69.htm">DataValue</a></p>
@@ -106,25 +132,25 @@
 					</td>
 					<td class="contentcell"><div class="PageBody">
 	<div class="diagram_image"> 
-<img src="EA70.png" usemap="#EA70" border="0" />
+<img src="EA70.png" usemap="#EA70" width="1927" height="1383" border="0" />
 
 <MAP NAME="EA70">
-<area shape="rect" coords="522,782,655,858" href="EA83.htm" target="_self">
-<area shape="rect" coords="650,836,815,912" href="EA87.htm" target="_self">
-<area shape="rect" coords="165,611,317,687" href="EA77.htm" target="_self">
-<area shape="rect" coords="928,769,1143,845" href="EA86.htm" target="_self">
-<area shape="rect" coords="921,669,1127,745" href="EA85.htm" target="_self">
-<area shape="rect" coords="921,570,1100,646" href="EA84.htm" target="_self">
-<area shape="rect" coords="921,480,1234,556" href="EA82.htm" target="_self">
-<area shape="rect" coords="921,394,1098,470" href="EA81.htm" target="_self">
-<area shape="rect" coords="921,301,1275,377" href="EA80.htm" target="_self">
-<area shape="rect" coords="921,218,1260,294" href="EA79.htm" target="_self">
-<area shape="rect" coords="10,714,317,790" href="EA78.htm" target="_self">
-<area shape="rect" coords="69,508,317,584" href="EA76.htm" target="_self">
-<area shape="rect" coords="68,405,317,481" href="EA75.htm" target="_self">
-<area shape="rect" coords="123,309,317,385" href="EA74.htm" target="_self">
-<area shape="rect" coords="43,218,317,294" href="EA72.htm" target="_self">
-<area shape="rect" coords="329,10,909,190" href="EA73.htm" target="_self">
+<area shape="rect" coords="783,1173,983,1287" href="EA83.htm" target="_self">
+<area shape="rect" coords="975,1254,1223,1368" href="EA87.htm" target="_self">
+<area shape="rect" coords="248,917,476,1031" href="EA77.htm" target="_self">
+<area shape="rect" coords="1392,1154,1715,1268" href="EA86.htm" target="_self">
+<area shape="rect" coords="1382,1004,1691,1118" href="EA85.htm" target="_self">
+<area shape="rect" coords="1382,855,1650,969" href="EA84.htm" target="_self">
+<area shape="rect" coords="1382,720,1851,834" href="EA82.htm" target="_self">
+<area shape="rect" coords="1382,591,1647,705" href="EA81.htm" target="_self">
+<area shape="rect" coords="1382,452,1913,566" href="EA80.htm" target="_self">
+<area shape="rect" coords="1382,327,1890,441" href="EA79.htm" target="_self">
+<area shape="rect" coords="15,1071,476,1185" href="EA78.htm" target="_self">
+<area shape="rect" coords="104,762,476,876" href="EA76.htm" target="_self">
+<area shape="rect" coords="102,608,476,722" href="EA75.htm" target="_self">
+<area shape="rect" coords="185,464,476,578" href="EA74.htm" target="_self">
+<area shape="rect" coords="65,327,476,441" href="EA72.htm" target="_self">
+<area shape="rect" coords="494,15,1364,285" href="EA73.htm" target="_self">
 </MAP>
  </div>
 	<div class="ObjectTitle">DataValue : Class diagram</div>

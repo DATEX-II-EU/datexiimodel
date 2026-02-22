@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> DataValue::SpeedValue </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA10.htm">Common</a> / <a href="../EA16.htm">Classes</a> / <a href="EA71.htm">DataValue</a> / <a href="EA84.htm">SpeedValue</a></p>
@@ -146,7 +172,7 @@
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA69.htm">DataValue</a>, <a href="../../../EA4/EA5/EA1/EA4/EA6/EA1199.htm">TrafficSpeed</a>, <a href="../../../EA4/EA5/EA1/EA6/EA1208.htm">TravelTimeData</a>, <a href="../../../EA2/EA4/EA350.htm">GnssExtension</a></td>
+			<td class="ObjectDetailsValue"><a href="EA69.htm">DataValue</a>, <a href="../../../EA4/EA5/EA1/EA4/EA6/EA1212.htm">TrafficSpeed</a>, <a href="../../../EA4/EA5/EA1/EA6/EA1221.htm">TravelTimeData</a>, <a href="../../../EA2/EA5/EA365.htm">GnssExtension</a></td>
 		</tr>
 	</table>
 	
@@ -167,7 +193,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					speed
+					<a name="{D5B612CB-5480-4824-B27B-83AB6F39D2AE}"></a>speed
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -177,7 +203,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A value of speed expressed in kilometres per hour.<br>order=0<br>
 						&nbsp;
 						
@@ -194,7 +220,7 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA5/EA1/EA4/EA6/EA1203.htm">«D2Class» TrafficSpeed</a><br />
+						<a href="../../../EA4/EA5/EA1/EA4/EA6/EA1216.htm">«D2Class» TrafficSpeed</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -217,11 +243,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA2/EA4/EA357.htm">«D2Class» PointByCoordinatesExtended</a><br />
+						<a href="../../../EA4/EA5/EA1/EA6/EA1224.htm">«D2Class» TravelTimeData</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> speedGivenByGnss<br />
+						<strong>Name:</strong> freeFlowSpeed<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -240,11 +266,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA5/EA1/EA4/EA6/EA1202.htm">«D2Class» SpeedPercentile</a><br />
+						<a href="../../../EA4/EA5/EA1/EA4/EA6/EA1216.htm">«D2Class» TrafficSpeed</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> speedPercentile<br />
+						<strong>Name:</strong> normallyExpectedSpeed<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -263,11 +289,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA5/EA1/EA6/EA1211.htm">«D2Class» TravelTimeData</a><br />
+						<a href="../../../EA4/EA5/EA1/EA4/EA6/EA1215.htm">«D2Class» SpeedPercentile</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> freeFlowSpeed<br />
+						<strong>Name:</strong> speedPercentile<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -286,11 +312,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA5/EA1/EA4/EA6/EA1203.htm">«D2Class» TrafficSpeed</a><br />
+						<a href="../../../EA2/EA5/EA372.htm">«D2Class» PointByCoordinatesExtended</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> normallyExpectedSpeed<br />
+						<strong>Name:</strong> speedGivenByGnss<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -309,11 +335,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA5/EA1/EA4/EA6/EA1203.htm">«D2Class» TrafficSpeed</a><br />
+						<a href="../../../EA4/EA5/EA1/EA4/EA6/EA1216.htm">«D2Class» TrafficSpeed</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> averageVehicleSpeed<br />
+						<strong>Name:</strong> minimumSpeed<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -332,11 +358,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA5/EA1/EA4/EA6/EA1203.htm">«D2Class» TrafficSpeed</a><br />
+						<a href="../../../EA4/EA5/EA1/EA4/EA6/EA1216.htm">«D2Class» TrafficSpeed</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> minimumSpeed<br />
+						<strong>Name:</strong> averageVehicleSpeed<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -396,28 +422,42 @@
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA5/EA1/EA4/EA6/EA1203.htm">«D2Class» TrafficSpeed</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA5/EA1/EA4/EA6/EA1216.htm">«D2Class» TrafficSpeed</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">To</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA2/EA4/EA357.htm">«D2Class» PointByCoordinatesExtended</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA5/EA1/EA6/EA1224.htm">«D2Class» TravelTimeData</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">To</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA5/EA1/EA4/EA6/EA1202.htm">«D2Class» SpeedPercentile</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA5/EA1/EA4/EA6/EA1216.htm">«D2Class» TrafficSpeed</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">To</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA5/EA1/EA6/EA1211.htm">«D2Class» TravelTimeData</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA5/EA1/EA4/EA6/EA1215.htm">«D2Class» SpeedPercentile</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">To</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA2/EA5/EA372.htm">«D2Class» PointByCoordinatesExtended</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">To</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA5/EA1/EA4/EA6/EA1216.htm">«D2Class» TrafficSpeed</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">To</td>
@@ -431,21 +471,7 @@
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA5/EA1/EA4/EA6/EA1203.htm">«D2Class» TrafficSpeed</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA5/EA1/EA4/EA6/EA1203.htm">«D2Class» TrafficSpeed</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA5/EA1/EA4/EA6/EA1203.htm">«D2Class» TrafficSpeed</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA5/EA1/EA4/EA6/EA1216.htm">«D2Class» TrafficSpeed</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">To</td>

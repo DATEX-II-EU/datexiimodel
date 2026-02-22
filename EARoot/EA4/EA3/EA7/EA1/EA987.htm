@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Eligibility</title>
+<link href="../../../../../css/ea.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="../../../../../js/displayToc.js" type="text/javascript"></script>
+<script>
+
+  function switchProjectProperties() {
+			if (document.getElementById("proj00").style.display == "none") {
+				document.getElementById("proj00").style.display = "revert";
+				document.getElementById("proj01").style.display = "revert";
+				document.getElementById("proj02").style.display = "revert";
+				document.getElementById("proj03").style.display = "revert";
+				document.getElementById("proj04").style.display = "revert";
+				document.getElementById("proj05").style.display = "revert";
+			} else {
+				document.getElementById("proj00").style.display = "none";
+				document.getElementById("proj01").style.display = "none";
+				document.getElementById("proj02").style.display = "none";
+				document.getElementById("proj03").style.display = "none";
+				document.getElementById("proj04").style.display = "none";
+				document.getElementById("proj05").style.display = "none";
+			}
+}
+
+		function switchAdvancedProperties(){
+
+			if (document.getElementById("adv00").style.display == "none") {;
+				document.getElementById("adv00").style.display = "revert";
+				document.getElementById("adv01").style.display = "revert";
+			} else {
+				document.getElementById("adv00").style.display = "none";
+				document.getElementById("adv01").style.display = "none";
+			}
+		}
+		function initPage()
+        {			
+			var divs = document.getElementsByClassName("ObjectDetailsNotes");
+			for (var j = 0; j < divs.length; j++) {
+				var tmpStr = divs[j].innerHTML;
+				tmpStr = tmpStr.replace(/#gt;/g, "&gt;");
+				tmpStr = tmpStr.replace(/#lt;/g, "&lt;");
+
+				tmpStr = tmpStr.replace(/&gt;/g, ">");
+				tmpStr = tmpStr.replace(/&lt;/g, "<");
+
+				divs[j].innerHTML = tmpStr;
+			}
+
+            if (document.getElementById('TableGroup') != null)
+            {
+                toggleItem(document.getElementById('TableGroup').getElementsByTagName('li')[0].id.replace("Title", ""));
+            }
+
+        }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
+</script>
+<style>
+
+</style>
+</head>
+<body onload="initPage();">
+<div class="section group" >
+
+		<div class="col span_2_of_2 header_frame">
+			<h1> Eligibility </h1>
+			<!-- <img class="header_image" src="../../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../../images/datex2.jpg" align="right" alt="Header Image" />
+		</div>
+		<div class="col span_2_of_2 breadcrumb_frame">
+			<p><a href="../../../../EA3.htm">D2Payload</a> / <a href="../../../EA759.htm">PayloadPublication</a> / <a href="../../EA900.htm">Facilities</a> / <a href="../EA977.htm">RatesPublication</a> / <a href="EA989.htm">Eligibility</a> / <a href="EA987.htm">Eligibility</a></p>
+		</div>
+			
+		<table class="contentmaintable">
+			<!-- <tfoot>
+				<tr>
+					<td>foot1</td>
+					<td>foot2</td>
+				</tr>
+			</tfoot> -->
+			<tbody>
+				<tr>
+					<td class="indexcell">
+						<div class="projectBrowserTitle">Project: </div>
+						<ul>
+<li><img src="../../../../../images/175.png" alt="Diagram"/> <a href="EA987.htm">Eligibility</a></li>
+<li><img src="../../../../../images/5.png" alt="Class"/> <a href="EA991.htm">Eligibility</a></li>
+<li><img src="../../../../../images/5.png" alt="Class"/> <a href="EA992.htm">UserQualification</a></li>
+<li><img src="../../../../../images/5.png" alt="Class"/> <a href="EA993.htm">Qualification</a></li>
+</ul>
+
+					</td>
+					<td class="contentcell"><div class="PageBody">
+	<div class="diagram_image"> 
+<img src="EA988.png" usemap="#EA988" width="1548" height="2258" border="0" />
+
+<MAP NAME="EA988">
+<area shape="rect" coords="876,75,912,110" href="../EA973.htm" target="_self">
+<area shape="rect" coords="890,1934,1097,2243" href="../EA5/EA1030.htm" target="_self">
+<area shape="rect" coords="651,1934,848,2178" href="../EA5/EA1031.htm" target="_self">
+<area shape="rect" coords="401,1934,621,2243" href="../EA5/EA1029.htm" target="_self">
+<area shape="rect" coords="789,1761,1118,1881" href="../EA4/EA1021.htm" target="_self">
+<area shape="rect" coords="429,1761,717,1881" href="../EA4/EA1022.htm" target="_self">
+<area shape="rect" coords="15,951,252,1083" href="../EA3/EA1015.htm" target="_self">
+<area shape="rect" coords="594,15,924,111" href="../EA2/EA1004.htm" target="_self">
+<area shape="rect" coords="231,63,458,314" href="../EA5/EA1037.htm" target="_self">
+<area shape="rect" coords="276,942,497,1232" href="../EA5/EA1027.htm" target="_self">
+<area shape="rect" coords="168,765,404,917" href="../EA3/EA1014.htm" target="_self">
+<area shape="rect" coords="431,776,626,833" href="../../../../EA1/EA1/EA4/EA92.htm" target="_self">
+<area shape="rect" coords="186,410,479,641" href="../EA3/EA1017.htm" target="_self">
+<area shape="rect" coords="1260,549,1533,683" href="../EA2/EA996.htm" target="_self">
+<area shape="rect" coords="842,549,1094,683" href="../EA3/EA1016.htm" target="_self">
+<area shape="rect" coords="570,231,935,449" href="../EA2/EA998.htm" target="_self">
+<area shape="rect" coords="578,1514,903,1647" href="../EA4/EA1018.htm" target="_self">
+<area shape="rect" coords="1068,1157,1433,1385" href="../../../../EA1/EA1/EA6/EA114.htm" target="_self">
+<area shape="rect" coords="24,1583,326,1697" href="EA992.htm" target="_self">
+<area shape="rect" coords="552,1136,927,1406" href="EA993.htm" target="_self">
+<area shape="rect" coords="579,852,900,986" href="EA987.htm" target="_self">
+</MAP>
+ </div>
+	<div class="ObjectTitle">Eligibility : Class diagram</div>
+	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Created:</td>
+			<td width="85%" class="ObjectDetailsValue">30.07.2018 16:51:05</td>
+		</tr>
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Modified:</td>
+			<td width="85%" class="ObjectDetailsValue">20.05.2021 11:37:14</td>
+		</tr>
+		<tr style="padding-top: 10px;">
+			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="../../../../../images/plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
+		</tr>
+		<tr id="proj00" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
+			<td width="85%" class="ObjectDetailsValue">jon</td>
+		</tr>
+		<tr id="proj01" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
+			<td width="85%" class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchAdvancedProperties()"><img src="../../../../../images/plus03.gif" align="absmiddle" id="adv" /></button>Advanced:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
+		</tr>
+		<tr id="adv00" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">ID:</td>
+			<td width="85%" class="ObjectDetailsValue">{AFAF9FE5-E510-46d8-817F-D5DA16131FB4}</td>
+		</tr>
+	</table>
+	
+</div>
+
+ </td>
+				</tr>
+			</tbody>
+		</table>
+		
+</div>
+</body>
+</html>
+

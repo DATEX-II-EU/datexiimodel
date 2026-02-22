@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> Integer </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA10.htm">Common</a> / <a href="../EA128.htm">DataTypes</a> / <a href="EA133.htm">Generic</a> / <a href="EA141.htm">Integer</a></p>
@@ -146,7 +172,7 @@
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA131.htm">Generic</a>, <a href="../../../EA4/EA3/EA2/EA914.htm">DataTypes</a>, <a href="../../../EA2/EA4/EA1/EA365.htm">DataTypes</a></td>
+			<td class="ObjectDetailsValue"><a href="EA131.htm">Generic</a>, <a href="../../../EA4/EA3/EA2/EA927.htm">DataTypes</a>, <a href="../../../EA2/EA5/EA1/EA380.htm">DataTypes</a></td>
 		</tr>
 	</table>
 	
@@ -205,14 +231,14 @@
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA3/EA2/EA920.htm">«D2Datatype» IndexReference</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA2/EA5/EA1/EA383.htm">«D2Datatype» DecibelHertz</a></td>
 					<td width="10%" class="TableRow" valign="top">DataType</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA2/EA4/EA1/EA368.htm">«D2Datatype» DecibelHertz</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA3/EA2/EA933.htm">«D2Datatype» IndexReference</a></td>
 					<td width="10%" class="TableRow" valign="top">DataType</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">From</td>

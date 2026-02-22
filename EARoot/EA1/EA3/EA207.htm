@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> Enumerations::WeatherRelatedRoadConditionTypeEnum </h1>
-			<!-- <img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA10.htm">Common</a> / <a href="EA175.htm">Enumerations</a> / <a href="EA207.htm">WeatherRelatedRoadConditionTypeEnum</a></p>
@@ -165,7 +191,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					blackIce
+					<a name="{F79C3B39-4BB0-434f-8CCB-778F54C64231}"></a>blackIce
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -175,14 +201,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Severe skid risk due to black ice (i.e. clear ice, which is impossible or very difficult to see).<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					deepSnow
+					<a name="{36CDB13C-94DA-48e9-A825-8494DD375540}"></a>deepSnow
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -192,14 +218,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Deep snow on the roadway.<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					dry
+					<a name="{A074A7FD-3B09-4a58-9FDF-05DB369FDDA1}"></a>dry
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -209,14 +235,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=There is no humidity over the sensor.<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					freezingOfWetRoads
+					<a name="{0FE2CFF5-1D03-4166-9085-6C6CCAFB45CC}"></a>freezingOfWetRoads
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -226,14 +252,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=The wet road surface is subject to freezing.<br>order=3<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					freezingPavements
+					<a name="{46313F67-C562-4612-9073-6C62DE972577}"></a>freezingPavements
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -243,14 +269,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=The pavements for pedestrians are subject to freezing.<br>order=4<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					freezingRain
+					<a name="{C9041660-B0E9-4f58-BF6F-1B835D8BDE16}"></a>freezingRain
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -260,14 +286,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Severe skid risk due to rain falling on sub-zero temperature road surface and freezing.<br>order=5<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					freshSnow
+					<a name="{2B3DDA86-5AF6-4461-8EAA-7078AD5E5BA5}"></a>freshSnow
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -277,14 +303,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Fresh snow (with little or no traffic yet) on the roadway.<br>order=6<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					glaze
+					<a name="{BA104496-F763-43fd-B134-A60DB2ABF112}"></a>glaze
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -294,14 +320,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Glaze of the road surface.<br>order=7<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					ice
+					<a name="{6AE3713B-21A0-4e0c-BC3A-05710BB1EDF4}"></a>ice
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -311,14 +337,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Increased skid risk due to ice (of any kind).<br>order=8<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					iceBuildUp
+					<a name="{6028EFA4-A7D3-482d-8FDB-8C38326DD11A}"></a>iceBuildUp
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -328,14 +354,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Ice is building up on the roadway causing a serious skid hazard.<br>order=9<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					iceWithWheelBarTracks
+					<a name="{34AB6A19-BB7E-452d-9C55-50440EBBF6DA}"></a>iceWithWheelBarTracks
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -345,14 +371,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Ice on the road frozen in the form of wheel tracks.<br>order=11<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					icyPatches
+					<a name="{44ADC4AB-6704-4374-B09B-43CA64D671E6}"></a>icyPatches
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -362,14 +388,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Severe skid risk due to icy patches (i.e. intermittent ice on roadway).<br>order=12<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					looseSnow
+					<a name="{7B664319-5D9A-45cc-9611-425E658B92E7}"></a>looseSnow
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -379,14 +405,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Powdery snow on the road which is subject to being blown by the wind.<br>order=13<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					moist
+					<a name="{A7368D0B-D0A7-43d5-BAD8-F9CA37760909}"></a>moist
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -396,14 +422,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=From (0,01 mm) water film thickness over the sensor<br>order=14<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					normalWinterConditionsForPedestrians
+					<a name="{2EEA26AD-EC93-498d-84D2-54F1422C8B56}"></a>normalWinterConditionsForPedestrians
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -413,14 +439,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Conditions for pedestrians are consistent with those normally expected in winter.<br>order=15<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					notDry
+					<a name="{D5741FF3-650F-4f1d-904F-7EDCA5271524}"></a>notDry
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -430,14 +456,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=The road surface is not dry.<br>order=16<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					packedSnow
+					<a name="{1131F7FF-2F52-47fa-9725-33AB421C5644}"></a>packedSnow
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -447,14 +473,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Packed snow (heavily trafficked) on the roadway.<br>order=17<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					rime
+					<a name="{1BC974FF-72A5-4443-B5C8-344558277A60}"></a>rime
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -464,14 +490,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Fresh snow (with little or no traffic yet) on the roadway.<br>order=18<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					roadSurfaceMelting
+					<a name="{E08DA35D-99D7-4747-A88A-FB2EE5C9ECCA}"></a>roadSurfaceMelting
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -481,14 +507,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=The road surface is melting, or has melted due to abnormally high temperatures.<br>order=19<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					slippery
+					<a name="{8AB18118-C2D7-4f5d-B511-0D639A8F1B52}"></a>slippery
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -498,14 +524,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Detection at least of the presence of partly or wholly solidified aqueous solution over the sensor.<br>order=20<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					slushOnRoad
+					<a name="{17BFE1AD-B572-4c4f-868A-CBC8328B87B9}"></a>slushOnRoad
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -515,14 +541,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Increased skid risk due to melting snow (slush) on road.<br>order=21<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					slushStrings
+					<a name="{201A43AB-0644-432c-A813-23B0D2ACED19}"></a>slushStrings
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -532,14 +558,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Melting snow (slush) on the roadway is formed into wheel tracks.<br>order=22<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					snow
+					<a name="{E792A128-5E59-4d7e-8130-A1E16D0B82E4}"></a>snow
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -549,14 +575,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Fresh snow (with little or no traffic yet) on the roadway.<br>order=23<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					snowDrifts
+					<a name="{70199667-9341-4617-959A-41D72D1BEE97}"></a>snowDrifts
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -566,14 +592,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Snow drifting is in progress or patches of deep snow are present due to earlier drifting.<br>order=24<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					snowOnPavement
+					<a name="{116AB510-F0C1-4bae-8CB4-140BE11DECF4}"></a>snowOnPavement
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -583,14 +609,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Snow is on the pedestrian pavement.<br>order=25<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					wetAndIcyRoad
+					<a name="{2B251DCE-625E-4e25-BE21-197DF4C63AA4}"></a>wetAndIcyRoad
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -600,14 +626,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Increased skid risk due to partly thawed, wet road with packed snow and ice, or rain falling on packed snow and ice.<br>order=26<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					snowOnTheRoad
+					<a name="{1E6DD722-5A6F-445f-8641-C1995B194390}"></a>snowOnTheRoad
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -617,14 +643,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Snow is lying on the road surface.<br>order=27<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					wetIcyPavement
+					<a name="{99F050F7-D008-4adc-98D7-805E88A4D7FE}"></a>wetIcyPavement
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -634,14 +660,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Partly thawed, wet pedestrian pavement with packed snow and ice, or rain falling on packed snow and ice.<br>order=28<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					streamingWater
+					<a name="{84F0BCB1-A0D5-4b2d-800A-C510D9B80006}"></a>streamingWater
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -651,14 +677,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=From (2 mm) water film thickness over the sensor.<br>order=29<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					surfaceWater
+					<a name="{4B9417B3-94D0-4a57-A698-75D2742D4004}"></a>surfaceWater
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -668,14 +694,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Water is resting on the roadway which provides an increased hazard to vehicles.<br>order=30<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					wet
+					<a name="{EF651C99-8567-437b-BDF5-3973FA238852}"></a>wet
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -685,14 +711,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=From (0,2 mm) water film thickness over the sensor<br>order=31<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					other
+					<a name="{83832109-EF68-4be4-AF9F-708EE54C4DAE}"></a>other
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -702,7 +728,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Other than as defined in this enumeration.<br>order=99<br>
 						&nbsp;
 						

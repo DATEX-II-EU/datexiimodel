@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> Vehicle </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA10.htm">Common</a> / <a href="../EA16.htm">Classes</a> / <a href="EA110.htm">Vehicle</a> / <a href="EA108.htm">Vehicle</a></p>
@@ -93,14 +119,14 @@
 					</td>
 					<td class="contentcell"><div class="PageBody">
 	<div class="diagram_image"> 
-<img src="EA109.png" usemap="#EA109" border="0" />
+<img src="EA109.png" usemap="#EA109" width="1190" height="977" border="0" />
 
 <MAP NAME="EA109">
-<area shape="rect" coords="518,193,783,347" href="../EA6/EA114.htm" target="_self">
-<area shape="rect" coords="142,193,419,360" href="EA108.htm" target="_self">
-<area shape="rect" coords="94,448,467,641" href="../EA25.htm" target="_self">
-<area shape="rect" coords="331,10,587,112" href="EA112.htm" target="_self">
-<area shape="rect" coords="10,10,299,99" href="EA111.htm" target="_self">
+<area shape="rect" coords="777,290,1175,521" href="../EA6/EA114.htm" target="_self">
+<area shape="rect" coords="213,290,629,540" href="EA108.htm" target="_self">
+<area shape="rect" coords="141,672,701,962" href="../EA25.htm" target="_self">
+<area shape="rect" coords="497,15,881,168" href="EA112.htm" target="_self">
+<area shape="rect" coords="15,15,449,149" href="EA111.htm" target="_self">
 </MAP>
  </div>
 	<div class="ObjectTitle">Vehicle : Class diagram</div>

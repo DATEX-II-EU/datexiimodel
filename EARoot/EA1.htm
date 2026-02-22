@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> D2Payload </h1>
-			<!-- <img class="header_image" src="../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="EA3.htm">D2Payload</a> / <a href="EA1.htm">D2Payload</a></p>
@@ -86,22 +112,22 @@
 						<ul>
 <li><img src="../images/4.png" alt="Package"/> <a href="./EA1/EA10.htm">Common</a></li>
 <li><img src="../images/4.png" alt="Package"/> <a href="./EA2/EA212.htm">Extension</a></li>
-<li><img src="../images/4.png" alt="Package"/> <a href="./EA3/EA463.htm">LocationReferencing</a></li>
-<li><img src="../images/4.png" alt="Package"/> <a href="./EA4/EA743.htm">PayloadPublication</a></li>
+<li><img src="../images/4.png" alt="Package"/> <a href="./EA3/EA479.htm">LocationReferencing</a></li>
+<li><img src="../images/4.png" alt="Package"/> <a href="./EA4/EA759.htm">PayloadPublication</a></li>
 <li><img src="../images/175.png" alt="Diagram"/> <a href="EA1.htm">D2Payload</a></li>
 </ul>
 
 					</td>
 					<td class="contentcell"><div class="PageBody">
 	<div class="diagram_image"> 
-<img src="EA2.png" usemap="#EA2" border="0" />
+<img src="EA2.png" usemap="#EA2" width="1312" height="815" border="0" />
 
 <MAP NAME="EA2">
-<area shape="rect" coords="384,210,574,320" href="./EA3/EA459.htm" target="_self">
-<area shape="rect" coords="10,10,228,124" href="./EA4/EA741.htm" target="_self">
-<area shape="rect" coords="673,379,865,533" href="./EA2/EA210.htm" target="_self">
-<area shape="rect" coords="429,46,569,141" href="./EA1/EA8.htm" target="_self">
-<area shape="rect" coords="13,153,216,355" href="./EA4/EA739.htm" target="_self">
+<area shape="rect" coords="576,315,861,480" href="./EA3/EA475.htm" target="_self">
+<area shape="rect" coords="15,15,342,186" href="./EA4/EA757.htm" target="_self">
+<area shape="rect" coords="1010,569,1298,800" href="./EA2/EA210.htm" target="_self">
+<area shape="rect" coords="644,69,854,212" href="./EA1/EA8.htm" target="_self">
+<area shape="rect" coords="20,230,324,533" href="./EA4/EA755.htm" target="_self">
 </MAP>
  </div>
 	<div class="ObjectTitle">D2Payload : Class diagram</div>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Enumerations::VehicleToGridCommunicationTypeEnum</title>
+<title>Enumerations::ConnectorFormatTypeEnum</title>
 <link href="../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Enumerations::VehicleToGridCommunicationTypeEnum </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Enumerations::ConnectorFormatTypeEnum </h1>
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA743.htm">PayloadPublication</a> / <a href="../EA807.htm">EnergyInfrastructure</a> / <a href="EA864.htm">Enumerations</a> / <a href="EA882.htm">VehicleToGridCommunicationTypeEnum</a></p>
+			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA759.htm">PayloadPublication</a> / <a href="../EA820.htm">EnergyInfrastructure</a> / <a href="EA877.htm">Enumerations</a> / <a href="EA882.htm">ConnectorFormatTypeEnum</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,16 +110,16 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA864.htm">Enumerations</a></ul>
+<a href="EA877.htm">Enumerations</a></ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">VehicleToGridCommunicationTypeEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
+	<span class="ObjectTitle">ConnectorFormatTypeEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">02.01.2019 15:10:27</td>
+			<td width="85%" class="ObjectDetailsValue">13.06.2019 09:52:16</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
@@ -142,11 +168,11 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{20172662-550E-414f-ADA9-22AEEBD81756}</td>
+			<td class="ObjectDetailsValue">{2E791AC9-F3B9-459f-9CE5-A35898E7694B}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="../EA1/EA817.htm">ElectricChargingPoint</a>, <a href="../EA4/EA856.htm">EnergyInfrastructureTablePublication</a></td>
+			<td class="ObjectDetailsValue"><a href="../EA1/EA830.htm">ElectricChargingPoint</a>, <a href="../EA4/EA869.htm">EnergyInfrastructureTablePublication</a></td>
 		</tr>
 	</table>
 	
@@ -165,7 +191,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					none
+					<a name="{FF242074-E2D6-48bd-ABFA-97D46951B1E2}"></a>cableMode2
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -175,14 +201,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=No communication between vehicle and the grid.<br>order=0<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The connector is an attached cable; the EV users car needs to have a fitting inlet for a mode 2 cable, common for most domestic sockets<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					iso15118
+					<a name="{C034EFBF-5945-4c4f-B382-C8E04255E049}"></a>cableMode3
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -192,14 +218,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Communication according to ISO15118.<br>order=1<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The connector is an attached cable; the EV users car needs to have a fitting inlet for a mode 3 cable, can be used for Type 1 and Type 2 sockets.<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					iec619802
+					<a name="{EF93D0B1-D970-42bd-8E16-B3AF8A9349EB}"></a>otherCable
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -209,14 +235,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Communication according to IEC/TS 61980-2.<br>order=2<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The connector is an attached cable; the EV users car needs to have a fitting inlet.<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					other
+					<a name="{DB58F73D-3282-4ed4-8F3A-C6DEB84E36BF}"></a>socket
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -226,25 +252,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Communication according to other guidelines/specifications.<br>order=3<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					unknown
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The type of communication is unknown.<br>order=4<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The connector is a socket; the EV user needs to bring a fitting plug<br>order=3<br>
 						&nbsp;
 						
 				</td>
@@ -259,7 +268,7 @@
 		</tr>
 					<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">A list of communication types for communication between vehicles and the grid.</td>
+				<td width="50%" class="TableRow" valign="top">A list of cable types used during the charging process.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">

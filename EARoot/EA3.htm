@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> D2Payload </h1>
-			<!-- <img class="header_image" src="../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../EARoot/EA3.htm">«D2Namespace» D2Payload</a></p>
@@ -86,8 +112,8 @@
 						<ul>
 <li><img src="../images/4.png" alt="Package"/> <a href="./EA1/EA10.htm">Common</a></li>
 <li><img src="../images/4.png" alt="Package"/> <a href="./EA2/EA212.htm">Extension</a></li>
-<li><img src="../images/4.png" alt="Package"/> <a href="./EA3/EA463.htm">LocationReferencing</a></li>
-<li><img src="../images/4.png" alt="Package"/> <a href="./EA4/EA743.htm">PayloadPublication</a></li>
+<li><img src="../images/4.png" alt="Package"/> <a href="./EA3/EA479.htm">LocationReferencing</a></li>
+<li><img src="../images/4.png" alt="Package"/> <a href="./EA4/EA759.htm">PayloadPublication</a></li>
 <li><img src="../images/175.png" alt="Diagram"/> <a href="EA1.htm">D2Payload</a></li>
 </ul>
 
@@ -102,7 +128,7 @@
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">23.02.2024 10:25:28</td>
+			<td class="ObjectDetailsValue">18.02.2025 14:34:33</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -115,7 +141,7 @@
 		</tr>
 		<tr id="proj01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
-			<td class="ObjectDetailsValue">3.5</td>
+			<td class="ObjectDetailsValue">3.6</td>
 		</tr>
 		<tr id="proj02" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Phase:</td>

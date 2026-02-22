@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Enumerations::RelativeTrafficFlowEnum</title>
+<title>Enumerations::GeneralNetworkManagementTypeEnum</title>
 <link href="../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Enumerations::RelativeTrafficFlowEnum </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Enumerations::GeneralNetworkManagementTypeEnum </h1>
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA743.htm">PayloadPublication</a> / <a href="../EA1258.htm">Situation</a> / <a href="EA1353.htm">Enumerations</a> / <a href="EA1391.htm">RelativeTrafficFlowEnum</a></p>
+			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA759.htm">PayloadPublication</a> / <a href="../EA1271.htm">Situation</a> / <a href="EA1366.htm">Enumerations</a> / <a href="EA1391.htm">GeneralNetworkManagementTypeEnum</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,16 +110,16 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA1353.htm">Enumerations</a></ul>
+<a href="EA1366.htm">Enumerations</a></ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">RelativeTrafficFlowEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
+	<span class="ObjectTitle">GeneralNetworkManagementTypeEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">21.11.2006 11:42:24</td>
+			<td width="85%" class="ObjectDetailsValue">08.10.2008 09:45:06</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
@@ -142,11 +168,11 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{AD279047-414C-45a6-B184-68D3B1FC275D}</td>
+			<td class="ObjectDetailsValue">{C077F57A-C187-4550-AA1C-1E44BEA12828}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA1351.htm">Enumerations</a></td>
+			<td class="ObjectDetailsValue"><a href="EA1364.htm">Enumerations</a>, <a href="../../../EA2/EA7/EA446.htm">UrbanExtensions II</a>, <a href="../../../EA2/EA7/EA420.htm">GeneralNetworkManagementType</a></td>
 		</tr>
 	</table>
 	
@@ -155,6 +181,7 @@
 			<li onClick="parent != null ? parent.toggleItem('Attributes') : toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
 			<li onClick="parent != null ? parent.toggleItem('TaggedVal') : toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
 			<li onClick="parent != null ? parent.toggleItem('CustomProperties') : toggleItem('CustomProperties');" id="CustomPropertiesTitle">Advanced</li>
+			<li onClick="parent != null ? parent.toggleItem('Links') : toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
 <div class="ItemBody" id="AttributesTable">
 	<table border="0" cellspacing="0" cellpadding="0" class="Table">
@@ -165,7 +192,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					trafficVeryMuchHeavierThanNormal
+					<a name="{0E48255C-8572-4b9e-932D-12F742DA577B}"></a>bridgeSwingInOperation
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -175,14 +202,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Traffic is very much heavier than normally expected at the specified location at this date/time.<br>order=0<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The bridge at the specified location has swung or lifted and is therefore temporarily closed to traffic.<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					trafficHeavierThanNormal
+					<a name="{708F673C-BEDE-4187-8C85-D00121B28CE3}"></a>convoyService
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -192,14 +219,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Traffic is heavier than normally expected at the specified location at this date/time.<br>order=1<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=A vehicle convoy service is in operation, for example with a snowplough running ahead due to bad weather conditions.<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					trafficFlowNormal
+					<a name="{B51183DF-C9D4-4bbe-ACFA-3BACA23C6D36}"></a>obstacleSignalling
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -209,14 +236,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Traffic flow is normal at the specified location at this date/time.<br>order=2<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Signs are being put out before or around an obstacle to protect drivers.<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					trafficLighterThanNormal
+					<a name="{EBBC062F-4A92-4e51-A45C-A5CA1C854D47}"></a>rampMeteringInOperation
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -226,14 +253,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Traffic is lighter than normally expected at the specified location at this date/time.<br>order=3<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Ramp metering is now active at the specified location.<br>order=3<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					trafficVeryMuchLighterThanNormal
+					<a name="{06631D33-5FEA-4114-879A-FE12291930D2}"></a>temporaryTrafficLights
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -243,8 +270,76 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Traffic is very much lighter than normally expected at the specified location at this date/time.<br>order=4<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Traffic is being controlled by temporary traffic lights (red-yellow-green or red-green).<br>order=4<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{6127B782-757F-4449-B807-CF104B688DA5}"></a>tollGatesOpen
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Toll gates are open with no fee collection at the specified location.<br>order=5<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{41AB49A0-F0C0-4ba1-B178-B903BEC2D0CB}"></a>trafficBeingManuallyDirected
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Traffic is being manually directed.<br>order=6<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{84E35AC7-7C3E-417a-BC04-0293172BE1BA}"></a>trafficHeld
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Traffic in the specified direction is temporarily held up due to an unplanned event (e.g. for clearance of wreckage following an accident).<br>order=7<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{68F226D9-C60F-4beb-9F32-7636EE7820A1}"></a>other
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Other than as defined in this enumeration.<br>order=8<br>
 						&nbsp;
 						
 				</td>
@@ -259,7 +354,7 @@
 		</tr>
 					<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">Levels of assessment of the traffic flow conditions relative to normally expected conditions at this date/time.</td>
+				<td width="50%" class="TableRow" valign="top">Types of network management actions.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -281,7 +376,26 @@
 
 
 			</table>
-		</div>	</div>
+		</div>		<div class="ItemBody" id="LinksTable">
+			<table class="Table ea_table">
+				<tr>
+					<td width="30%" class="TableHeading">Object</td>
+					<td width="10%" class="TableHeading">Type</td>
+					<td width="10%" class="TableHeading">Connection</td>
+					<td width="10%" class="TableHeading">Direction</td>
+					<td width="40%" class="TableHeading">Notes</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA2/EA7/EA461.htm">«D2Enumeration» GeneralNetworkManagementTypeEnumExtendedUrban</a></td>
+					<td width="10%" class="TableRow" valign="top">Enumeration</td>
+					<td width="10%" class="TableRow" valign="top">Generalization</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+
+			</table>
+		</div>
+	</div>
  </div>
  </td>
 				</tr>

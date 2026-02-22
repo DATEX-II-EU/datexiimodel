@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> VehicleCharacteristics::VehicleCharacteristics </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA10.htm">Common</a> / <a href="../EA16.htm">Classes</a> / <a href="EA116.htm">VehicleCharacteristics</a> / <a href="EA124.htm">VehicleCharacteristics</a></p>
@@ -146,7 +172,7 @@
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="../EA14.htm">Classes</a>, <a href="../EA5/EA108.htm">Vehicle</a>, <a href="EA114.htm">VehicleCharacteristics</a>, <a href="../../../EA4/EA3/EA1/EA897.htm">Facility</a>, <a href="../../../EA4/EA3/EA7/EA1/EA974.htm">Eligibility</a>, <a href="../../../EA4/EA5/EA1/EA4/EA1167.htm">TrafficData</a>, <a href="../../../EA4/EA5/EA6/EA1248.htm">MeasurementSiteTablePublication</a>, <a href="../../../EA4/EA6/EA1/EA1/EA2/EA1290.htm">NetworkManagement</a>, <a href="../../../EA4/EA6/EA1/EA4/EA3/EA1338.htm">Accident</a>, <a href="../../../EA4/EA7/EA1/EA1/EA1429.htm">Condition</a>, <a href="../../../EA4/EA9/EA1/EA2/EA1692.htm">Assignment</a>, <a href="../../../EA4/EA9/EA1/EA9/EA1750.htm">ParkingStatus</a>, <a href="../../../EA4/EA9/EA1/EA16/EA1808.htm">VehicleCountAndRate</a>, <a href="../../../EA4/EA9/EA4/EA1879.htm">ParkingStatusPublicationBig</a>, <a href="../../../EA4/EA9/EA4/EA1885.htm">Occupancy</a>, <a href="../../../EA2/EA3/EA1/EA307.htm">VehicleCharacteristicsExtended</a>, <a href="../../../EA2/EA3/EA1/EA309.htm">VehicleCharacteristicsExtended</a>, <a href="../../../EA2/EA6/EA396.htm">Delay</a>, <a href="../../../EA4/EA10/EA1/EA1/EA1909.htm">OperatorActionDefinition</a>, <a href="../../../EA2/EA2/EA237.htm">Allocation</a></td>
+			<td class="ObjectDetailsValue"><a href="../EA14.htm">Classes</a>, <a href="../EA5/EA108.htm">Vehicle</a>, <a href="EA114.htm">VehicleCharacteristics</a>, <a href="../../../EA4/EA3/EA1/EA910.htm">Facility</a>, <a href="../../../EA4/EA3/EA7/EA1/EA987.htm">Eligibility</a>, <a href="../../../EA4/EA5/EA1/EA4/EA1180.htm">TrafficData</a>, <a href="../../../EA4/EA5/EA6/EA1261.htm">MeasurementSiteTablePublication</a>, <a href="../../../EA4/EA6/EA1/EA1/EA2/EA1303.htm">NetworkManagement</a>, <a href="../../../EA4/EA6/EA1/EA4/EA3/EA1351.htm">Accident</a>, <a href="../../../EA4/EA9/EA1/EA2/EA1730.htm">Assignment</a>, <a href="../../../EA4/EA9/EA1/EA9/EA1788.htm">ParkingStatus</a>, <a href="../../../EA4/EA9/EA1/EA16/EA1846.htm">VehicleCountAndRate</a>, <a href="../../../EA4/EA9/EA4/EA1917.htm">ParkingStatusPublicationBig</a>, <a href="../../../EA4/EA9/EA4/EA1923.htm">Occupancy</a>, <a href="../../../EA2/EA4/EA2/EA323.htm">VehicleCharacteristicsExtended</a>, <a href="../../../EA2/EA7/EA412.htm">Delay</a>, <a href="../../../EA4/EA10/EA1/EA1/EA1947.htm">OperatorActionDefinition</a>, <a href="../../../EA2/EA3/EA243.htm">Allocation</a>, <a href="../../../EA2/EA4/EA2/EA315.htm">VehicleCharacteristicsExtended</a>, <a href="../../../EA4/EA7/EA1/EA1/EA1445.htm">Condition</a>, <a href="../../../EA4/EA7/EA1/EA4/EA1487.htm">TypeOfRegulation</a></td>
 		</tr>
 	</table>
 	
@@ -168,7 +194,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					fuelType
+					<a name="{82706022-539E-45de-8FEF-6DE2F0668C29}"></a>fuelType
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -178,14 +204,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=The type of fuel used by the vehicle.<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					loadType
+					<a name="{219E2A02-DC3C-4f33-9639-B3D9AB3C405E}"></a>loadType
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -195,14 +221,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=The type of load carried by the vehicle, especially in respect of hazardous loads.<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					vehicleEquipment
+					<a name="{A4C0D1F4-6B97-441b-A473-1F241C4CE1CA}"></a>vehicleEquipment
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -212,14 +238,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=The type of equipment in use or on board the vehicle.<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					vehicleType
+					<a name="{21FAD51E-6AAF-48f5-A356-D80124CD9699}"></a>vehicleType
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -229,14 +255,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Vehicle type.<br>order=3<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					vehicleUsage
+					<a name="{F75DEE20-A875-4fc5-907B-96218813DDD2}"></a>vehicleUsage
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -246,14 +272,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=The type of usage of the vehicle (i.e. for what purpose is the vehicle being used).<br>order=4<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					yearOfFirstRegistration
+					<a name="{74917F2D-FB61-492a-AFEE-62387E8F882A}"></a>yearOfFirstRegistration
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -263,7 +289,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Year of first registration of the vehicle<br>order=5<br>
 						&nbsp;
 						
@@ -280,11 +306,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA3/EA1/EA909.htm">«D2VersionedIdentifiable» FacilityObject</a><br />
+						<a href="../../../EA4/EA9/EA1/EA16/EA1854.htm">«D2Class» VehicleRate</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> applicableForVehicles<br />
+						<strong>Name:</strong> measuredVehicles<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -303,11 +329,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA10/EA1/EA1/EA1916.htm">«D2Class» NetworkManagementDefinition</a><br />
+						<a href="../../../EA2/EA3/EA1/EA1/EA278.htm">«D2Class» VehicleCondition</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> forVehiclesWithCharacteristicsOf<br />
+						<strong>Name:</strong> &nbsp;<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -326,11 +352,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA9/EA1/EA16/EA1816.htm">«D2Class» VehicleRate</a><br />
+						<a href="../../../EA4/EA7/EA1/EA4/EA1502.htm">«D2Class» ProhibitionOfOvertaking</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> measuredVehicles<br />
+						<strong>Name:</strong> permissionToOvertake<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -349,7 +375,7 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../EA24.htm">«D2Class» GroupOfVehiclesInvolved</a><br />
+						<a href="../EA5/EA113.htm">«D2Class» Vehicle</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -372,7 +398,7 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA2/EA6/EA442.htm">«D2Class» ClassifiedDelay</a><br />
+						<a href="../EA24.htm">«D2Class» GroupOfVehiclesInvolved</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -395,11 +421,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA7/EA1/EA1/EA1457.htm">«D2Class» VehicleCondition</a><br />
+						<a href="../../../EA4/EA7/EA1/EA4/EA1501.htm">«D2Class» PriorityRule</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
+						<strong>Name:</strong> giveWayTo<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -418,11 +444,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA5/EA1/EA4/EA1173.htm">«D2Class» TrafficData</a><br />
+						<a href="../../../EA4/EA7/EA1/EA4/EA1502.htm">«D2Class» ProhibitionOfOvertaking</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> forVehiclesWithCharacteristicsOf<br />
+						<strong>Name:</strong> doNotOvertake<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -441,11 +467,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../EA5/EA113.htm">«D2Class» Vehicle</a><br />
+						<a href="../../../EA4/EA3/EA1/EA922.htm">«D2VersionedIdentifiable» FacilityObject</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
+						<strong>Name:</strong> applicableForVehicles<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -464,11 +490,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA3/EA7/EA1/EA980.htm">«D2Class» Qualification</a><br />
+						<a href="../../../EA4/EA5/EA1/EA4/EA1186.htm">«D2Class» TrafficData</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
+						<strong>Name:</strong> forVehiclesWithCharacteristicsOf<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -487,11 +513,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA9/EA1/EA16/EA1815.htm">«D2Class» VehicleCountWithinInterval</a><br />
+						<a href="../../../EA2/EA7/EA458.htm">«D2Class» ClassifiedDelay</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> countedVehicles<br />
+						<strong>Name:</strong> &nbsp;<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -510,11 +536,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA5/EA1/EA1130.htm">«D2Class» MeasurementSpecificCharacteristics</a><br />
+						<a href="../../../EA4/EA9/EA1/EA16/EA1853.htm">«D2Class» VehicleCountWithinInterval</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> specificVehicleCharacteristics<br />
+						<strong>Name:</strong> countedVehicles<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -533,11 +559,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA4/EA6/EA1/EA1/EA2/EA1296.htm">«D2Class» NetworkManagement</a><br />
+						<a href="../../../EA4/EA3/EA7/EA1/EA993.htm">«D2Class» Qualification</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> forVehiclesWithCharacteristicsOf<br />
+						<strong>Name:</strong> &nbsp;<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -556,11 +582,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../../../EA2/EA2/EA1/EA1/EA272.htm">«D2Class» VehicleCondition</a><br />
+						<a href="../../../EA4/EA10/EA1/EA1/EA1954.htm">«D2Class» NetworkManagementDefinition</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
+						<strong>Name:</strong> forVehiclesWithCharacteristicsOf<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -577,19 +603,9 @@
 						</div>
 					</td>
 				</tr>
-
-			</table>
-		</div>
-		<div class="ItemBody" id="AssociationsFromTable">
-			<table class="Table ea_table">
-				<tr>
-					<td width="40%" class="TableHeading">Element</td>
-					<td width="30%" class="TableHeading">Source Role</td>
-					<td width="30%" class="TableHeading">Target Role</td>
-				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA119.htm">«D2Class» GrossWeightCharacteristic</a><br />
+						<a href="../../../EA4/EA7/EA1/EA1/EA1465.htm">«D2Class» VehicleCondition</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -612,11 +628,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA120.htm">«D2Class» HeaviestAxleWeightCharacteristic</a><br />
+						<a href="../../../EA4/EA6/EA1/EA1/EA2/EA1309.htm">«D2Class» NetworkManagement</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
+						<strong>Name:</strong> forVehiclesWithCharacteristicsOf<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -635,11 +651,11 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA125.htm">«D2Class» WidthCharacteristic</a><br />
+						<a href="../../../EA4/EA5/EA1/EA1143.htm">«D2Class» MeasurementSpecificCharacteristics</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
+						<strong>Name:</strong> specificVehicleCharacteristics<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -655,6 +671,16 @@
 							</div>
 						</div>
 					</td>
+				</tr>
+
+			</table>
+		</div>
+		<div class="ItemBody" id="AssociationsFromTable">
+			<table class="Table ea_table">
+				<tr>
+					<td width="40%" class="TableHeading">Element</td>
+					<td width="30%" class="TableHeading">Source Role</td>
+					<td width="30%" class="TableHeading">Target Role</td>
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
@@ -681,7 +707,7 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA121.htm">«D2Class» HeightCharacteristic</a><br />
+						<a href="EA123.htm">«D2Class» NumberOfAxlesCharacteristic</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -704,7 +730,7 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA118.htm">«D2Class» Emissions</a><br />
+						<a href="EA120.htm">«D2Class» HeaviestAxleWeightCharacteristic</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -727,7 +753,7 @@
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA123.htm">«D2Class» NumberOfAxlesCharacteristic</a><br />
+						<a href="EA119.htm">«D2Class» GrossWeightCharacteristic</a><br />
 						Class «D2Relation» 
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -743,6 +769,75 @@
 					<td class="TableRowBottomDashed"  colspan="3">
 						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink411" /></button>Details:
 							<div id="detailsDIVLink411" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA121.htm">«D2Class» HeightCharacteristic</a><br />
+						Class «D2Relation» 
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink412" /></button>Details:
+							<div id="detailsDIVLink412" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA118.htm">«D2Class» Emissions</a><br />
+						Class «D2Relation» 
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink413" /></button>Details:
+							<div id="detailsDIVLink413" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA125.htm">«D2Class» WidthCharacteristic</a><br />
+						Class «D2Relation» 
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink414" /></button>Details:
+							<div id="detailsDIVLink414" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -791,70 +886,7 @@
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA119.htm">«D2Class» GrossWeightCharacteristic</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">From</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA3/EA1/EA909.htm">«D2VersionedIdentifiable» FacilityObject</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA10/EA1/EA1/EA1916.htm">«D2Class» NetworkManagementDefinition</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA9/EA1/EA16/EA1816.htm">«D2Class» VehicleRate</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA24.htm">«D2Class» GroupOfVehiclesInvolved</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA120.htm">«D2Class» HeaviestAxleWeightCharacteristic</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">From</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA2/EA6/EA442.htm">«D2Class» ClassifiedDelay</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA7/EA1/EA1/EA1457.htm">«D2Class» VehicleCondition</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA125.htm">«D2Class» WidthCharacteristic</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">From</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA5/EA1/EA4/EA1173.htm">«D2Class» TrafficData</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA9/EA1/EA16/EA1854.htm">«D2Class» VehicleRate</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">To</td>
@@ -868,6 +900,20 @@
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA2/EA3/EA1/EA1/EA278.htm">«D2Class» VehicleCondition</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">To</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA7/EA1/EA4/EA1502.htm">«D2Class» ProhibitionOfOvertaking</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">To</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
 					<td width="30%" class="TableRow" valign="top"><a href="../EA5/EA113.htm">«D2Class» Vehicle</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
@@ -875,21 +921,56 @@
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA3/EA7/EA1/EA980.htm">«D2Class» Qualification</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA123.htm">«D2Class» NumberOfAxlesCharacteristic</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA120.htm">«D2Class» HeaviestAxleWeightCharacteristic</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA24.htm">«D2Class» GroupOfVehiclesInvolved</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">To</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA2/EA3/EA1/EA337.htm">«D2Class» VehicleCharacteristicsExtended</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA7/EA1/EA4/EA1501.htm">«D2Class» PriorityRule</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Generalization</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">To</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA7/EA1/EA4/EA1502.htm">«D2Class» ProhibitionOfOvertaking</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">To</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA3/EA1/EA922.htm">«D2VersionedIdentifiable» FacilityObject</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">To</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA119.htm">«D2Class» GrossWeightCharacteristic</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA9/EA1/EA16/EA1815.htm">«D2Class» VehicleCountWithinInterval</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA5/EA1/EA4/EA1186.htm">«D2Class» TrafficData</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">To</td>
@@ -903,7 +984,28 @@
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA5/EA1/EA1130.htm">«D2Class» MeasurementSpecificCharacteristics</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA2/EA7/EA458.htm">«D2Class» ClassifiedDelay</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">To</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA9/EA1/EA16/EA1853.htm">«D2Class» VehicleCountWithinInterval</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">To</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA3/EA7/EA1/EA993.htm">«D2Class» Qualification</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">To</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA10/EA1/EA1/EA1954.htm">«D2Class» NetworkManagementDefinition</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">To</td>
@@ -917,24 +1019,38 @@
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA6/EA1/EA1/EA2/EA1296.htm">«D2Class» NetworkManagement</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA7/EA1/EA1/EA1465.htm">«D2Class» VehicleCondition</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">To</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../../EA2/EA2/EA1/EA1/EA272.htm">«D2Class» VehicleCondition</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Strong</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA123.htm">«D2Class» NumberOfAxlesCharacteristic</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA125.htm">«D2Class» WidthCharacteristic</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA6/EA1/EA1/EA2/EA1309.htm">«D2Class» NetworkManagement</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">To</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA2/EA4/EA2/EA357.htm">«D2Class» VehicleCharacteristicsExtended</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Generalization</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../../../EA4/EA5/EA1/EA1143.htm">«D2Class» MeasurementSpecificCharacteristics</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Strong</td>
+					<td width="10%" class="TableRow" valign="top">To</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 

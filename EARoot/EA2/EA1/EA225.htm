@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,11 +91,11 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1>  </h1>
-			<!-- <img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA212.htm">Extension</a> / <a href="EA223.htm">OpenlrBinary</a> / <a href="../../../index.htm">{ }</a> / <a href="EA225.htm"></a></p>
+			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA212.htm">Extension</a> / <a href="EA224.htm">SituationExtension</a> / <a href="../../../index.htm">{ }</a> / <a href="EA225.htm"></a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -93,11 +119,11 @@
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">07.02.2024 11:01:53</td>
+			<td width="85%" class="ObjectDetailsValue">17.02.2025 15:29:01</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">27.02.2024 14:34:55</td>
+			<td class="ObjectDetailsValue">17.02.2025 15:32:23</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -106,7 +132,7 @@
 		</tr>
 		<tr id="proj00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue">TB</td>
+			<td class="ObjectDetailsValue">COR19759</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
@@ -142,14 +168,14 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{4DE3F5AA-119F-4311-9DD4-E97E0413037C}</td>
+			<td class="ObjectDetailsValue">{D2926821-663B-477a-9912-1074450E3716}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA221.htm">OpenlrBinary</a></td>
+			<td class="ObjectDetailsValue"><a href="EA222.htm">SituationExtension</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">All instances of PointLocation are required (by a constraint noted in text) to contain at least one instance of one of five optional classes that each express an encoding of the location. A PointLocationExtended modifies that constraint such that an instance shall contain at least one instance of one of six optional classes, where OpenlrBinaryLocation is the additional one not included in the original constraint. In other words, if a PointLocation is a PointLocationExtended, it is allowed to have an OpenlrBinaryLocation as the only expression of the location.&lt;br/&gt;</div>
+	<div class="ObjectDetailsNotes">The SituationExtension namespace remains open for addition during the lifecycle of one major revision of DATEX II.&lt;br/&gt;The DATEX II backwards compatibility guarantee applies - elements here will not change in ways that break XML validation - but the namespace itself may gain additional elements in subsequent minor revisions.&lt;br/&gt;&lt;br/&gt;</div>
 
  </div>
  </td>

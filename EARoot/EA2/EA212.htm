@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> Extension </h1>
-			<!-- <img class="header_image" src="../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../EA3.htm">D2Payload</a> / <a href="EA212.htm">Extension</a></p>
@@ -84,12 +110,13 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<li><img src="../../images/4.png" alt="Package"/> <a href="./EA1/EA223.htm">OpenlrBinary</a></li>
-<li><img src="../../images/4.png" alt="Package"/> <a href="./EA2/EA239.htm">ReroutingManagementEnhanced</a></li>
-<li><img src="../../images/4.png" alt="Package"/> <a href="./EA3/EA299.htm">CommonExtension</a></li>
-<li><img src="../../images/4.png" alt="Package"/> <a href="./EA4/EA352.htm">GnssExtension</a></li>
-<li><img src="../../images/4.png" alt="Package"/> <a href="./EA5/EA378.htm">LocationExtension</a></li>
-<li><img src="../../images/4.png" alt="Package"/> <a href="./EA6/EA438.htm">UrbanExtensions</a></li>
+<li><img src="../../images/4.png" alt="Package"/> <a href="./EA2/EA229.htm">OpenlrBinary</a></li>
+<li><img src="../../images/4.png" alt="Package"/> <a href="./EA3/EA245.htm">ReroutingManagementEnhanced</a></li>
+<li><img src="../../images/4.png" alt="Package"/> <a href="./EA1/EA224.htm">SituationExtension</a></li>
+<li><img src="../../images/4.png" alt="Package"/> <a href="./EA4/EA305.htm">CommonExtension</a></li>
+<li><img src="../../images/4.png" alt="Package"/> <a href="./EA5/EA367.htm">GnssExtension</a></li>
+<li><img src="../../images/4.png" alt="Package"/> <a href="./EA6/EA393.htm">LocationExtension</a></li>
+<li><img src="../../images/4.png" alt="Package"/> <a href="./EA7/EA454.htm">UrbanExtensions</a></li>
 <li><img src="../../images/175.png" alt="Diagram"/> <a href="EA210.htm">Extension</a></li>
 </ul>
 
@@ -104,7 +131,7 @@
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">23.02.2024 10:28:29</td>
+			<td class="ObjectDetailsValue">18.02.2025 14:35:35</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -117,7 +144,7 @@
 		</tr>
 		<tr id="proj01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
-			<td class="ObjectDetailsValue">3.5</td>
+			<td class="ObjectDetailsValue">3.6</td>
 		</tr>
 		<tr id="proj02" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Phase:</td>
@@ -198,7 +225,14 @@
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA4/EA743.htm">«D2Package» PayloadPublication</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA4/EA759.htm">«D2Package» PayloadPublication</a></td>
+					<td width="10%" class="TableRow" valign="top">Package</td>
+					<td width="10%" class="TableRow" valign="top">Dependency</td>
+					<td width="10%" class="TableRow" valign="top">To</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA3/EA479.htm">«D2Namespace» LocationReferencing</a></td>
 					<td width="10%" class="TableRow" valign="top">Package</td>
 					<td width="10%" class="TableRow" valign="top">Dependency</td>
 					<td width="10%" class="TableRow" valign="top">To</td>
@@ -206,13 +240,6 @@
 				</tr>
 				<tr>
 					<td width="30%" class="TableRow" valign="top"><a href="../EA1/EA10.htm">«D2Namespace» Common</a></td>
-					<td width="10%" class="TableRow" valign="top">Package</td>
-					<td width="10%" class="TableRow" valign="top">Dependency</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA3/EA463.htm">«D2Namespace» LocationReferencing</a></td>
 					<td width="10%" class="TableRow" valign="top">Package</td>
 					<td width="10%" class="TableRow" valign="top">Dependency</td>
 					<td width="10%" class="TableRow" valign="top">To</td>

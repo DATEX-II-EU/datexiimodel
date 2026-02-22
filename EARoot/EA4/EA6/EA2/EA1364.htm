@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Enumerations::AccidentTypeEnum</title>
+<title>Enumerations</title>
 <link href="../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Enumerations::AccidentTypeEnum </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Enumerations </h1>
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA743.htm">PayloadPublication</a> / <a href="../EA1258.htm">Situation</a> / <a href="EA1353.htm">Enumerations</a> / <a href="EA1364.htm">AccidentTypeEnum</a></p>
+			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA759.htm">PayloadPublication</a> / <a href="../EA1271.htm">Situation</a> / <a href="EA1366.htm">Enumerations</a> / <a href="EA1364.htm">Enumerations</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,341 +110,153 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA1353.htm">Enumerations</a></ul>
+<li><img src="../../../../images/175.png" alt="Diagram"/> <a href="EA1364.htm">Enumerations</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1367.htm">CollisionTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1368.htm">VehicleProblemCauseEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1369.htm">AccidentCauseEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1370.htm">EnvironmentalObstructionTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1371.htm">NonWeatherRelatedRoadConditionTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1372.htm">SeverityEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1373.htm">AbnormalTrafficTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1374.htm">EquipmentOrSystemFaultTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1375.htm">InfrastructureDamageTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1376.htm">ObstructionTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1377.htm">AccidentTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1378.htm">EquipmentOrSystemTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1379.htm">InjuryStatusTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1380.htm">OperatorActionOriginEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1381.htm">SpeedManagementTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1382.htm">AnimalPresenceTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1383.htm">InvolvementRolesEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1384.htm">OperatorActionStatusEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1385.htm">SubjectTypeOfWorksEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1386.htm">PersonCategoryEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1387.htm">AuthorityOperationTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1388.htm">GeneralInstructionToRoadUsersTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1389.htm">TrafficConstrictionTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1390.htm">CauseTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1391.htm">GeneralNetworkManagementTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1392.htm">MaintenanceVehicleActionsEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1393.htm">PlacesEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1394.htm">TrafficFlowCharacteristicsEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1395.htm">PoorEnvironmentTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1396.htm">CommentTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1397.htm">TrafficTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1398.htm">MobilityTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1399.htm">TransitServiceInformationEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1400.htm">ComplianceOptionEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1401.htm">TransitServiceTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1402.htm">ProbabilityOfOccurrenceEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1403.htm">ConstructionWorkTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1404.htm">RelativeTrafficFlowEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1405.htm">ReroutingManagementTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1406.htm">RoadMaintenanceTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1407.htm">RoadOperatorServiceDisruptionTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1408.htm">RoadOrCarriagewayOrLaneManagementTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1409.htm">RoadsideAssistanceTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1410.htm">VehicleObstructionTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1411.htm">DelayBandEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1412.htm">ServiceDisruptionTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1413.htm">DelaysTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1414.htm">RoadworksDurationEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1415.htm">RoadworksScaleEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1416.htm">DisturbanceActivityTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA1417.htm">DrivingConditionTypeEnum</a></li>
+</ul>
 
 					</td>
-					<td class="contentcell"><div class="pageHeader"></div>
-<div class="PageBody">
-	<span class="ObjectTitle">AccidentTypeEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
-	<table border="0" class="ObjectDetails">
+					<td class="contentcell"><div class="PageBody">
+	<div class="diagram_image"> 
+<img src="EA1365.png" usemap="#EA1365" width="4996" height="1974" border="0" />
+
+<MAP NAME="EA1365">
+<area shape="rect" coords="681,1067,1034,1317" href="EA1367.htm" target="_self">
+<area shape="rect" coords="335,1062,644,1413" href="EA1377.htm" target="_self">
+<area shape="rect" coords="15,1058,291,1542" href="EA1369.htm" target="_self">
+<area shape="rect" coords="1035,35,1259,461" href="EA1368.htm" target="_self">
+<area shape="rect" coords="3915,1179,4125,1430" href="EA1417.htm" target="_self">
+<area shape="rect" coords="4686,953,4982,1632" href="EA1416.htm" target="_self">
+<area shape="rect" coords="3900,978,4080,1131" href="EA1415.htm" target="_self">
+<area shape="rect" coords="2283,35,2483,188" href="EA1414.htm" target="_self">
+<area shape="rect" coords="4685,761,4914,933" href="EA1413.htm" target="_self">
+<area shape="rect" coords="4233,773,4643,1296" href="EA1412.htm" target="_self">
+<area shape="rect" coords="3900,696,4209,927" href="EA1411.htm" target="_self">
+<area shape="rect" coords="1938,39,2244,680" href="EA1410.htm" target="_self">
+<area shape="rect" coords="2282,272,2520,542" href="EA1409.htm" target="_self">
+<area shape="rect" coords="3879,512,4281,665" href="EA1407.htm" target="_self">
+<area shape="rect" coords="4596,233,4872,737" href="EA1406.htm" target="_self">
+<area shape="rect" coords="4299,278,4565,567" href="EA1405.htm" target="_self">
+<area shape="rect" coords="3938,291,4230,483" href="EA1404.htm" target="_self">
+<area shape="rect" coords="4610,15,4865,207" href="EA1403.htm" target="_self">
+<area shape="rect" coords="4350,15,4586,168" href="EA1402.htm" target="_self">
+<area shape="rect" coords="4133,15,4328,246" href="EA1401.htm" target="_self">
+<area shape="rect" coords="3921,27,4110,161" href="EA1400.htm" target="_self">
+<area shape="rect" coords="3288,1436,3662,1959" href="EA1399.htm" target="_self">
+<area shape="rect" coords="3123,1436,3258,1589" href="EA1398.htm" target="_self">
+<area shape="rect" coords="2849,1436,3093,1784" href="EA1397.htm" target="_self">
+<area shape="rect" coords="2567,1434,2819,1685" href="EA1396.htm" target="_self">
+<area shape="rect" coords="3609,326,3825,1415" href="EA1395.htm" target="_self">
+<area shape="rect" coords="3242,900,3489,1073" href="EA1394.htm" target="_self">
+<area shape="rect" coords="2954,315,3203,1112" href="EA1393.htm" target="_self">
+<area shape="rect" coords="2570,969,2927,1143" href="EA1392.htm" target="_self">
+<area shape="rect" coords="3591,23,3893,293" href="EA1391.htm" target="_self">
+<area shape="rect" coords="3234,20,3557,855" href="EA1390.htm" target="_self">
+<area shape="rect" coords="2946,15,3204,227" href="EA1389.htm" target="_self">
+<area shape="rect" coords="2567,15,2916,929" href="EA1388.htm" target="_self">
+<area shape="rect" coords="2066,1098,2444,1524" href="EA1387.htm" target="_self">
+<area shape="rect" coords="1811,1098,2036,1466" href="EA1386.htm" target="_self">
+<area shape="rect" coords="1535,1098,1802,1875" href="EA1385.htm" target="_self">
+<area shape="rect" coords="1293,1098,1505,1329" href="EA1384.htm" target="_self">
+<area shape="rect" coords="2294,822,2483,1073" href="EA1383.htm" target="_self">
+<area shape="rect" coords="2033,822,2265,1014" href="EA1382.htm" target="_self">
+<area shape="rect" coords="1737,822,2001,1053" href="EA1381.htm" target="_self">
+<area shape="rect" coords="1497,822,1707,956" href="EA1380.htm" target="_self">
+<area shape="rect" coords="1292,822,1467,1034" href="EA1379.htm" target="_self">
+<area shape="rect" coords="1629,36,1898,657" href="EA1378.htm" target="_self">
+<area shape="rect" coords="1286,30,1590,599" href="EA1376.htm" target="_self">
+<area shape="rect" coords="759,33,1005,420" href="EA1375.htm" target="_self">
+<area shape="rect" coords="815,714,1088,887" href="EA1374.htm" target="_self">
+<area shape="rect" coords="549,714,785,926" href="EA1373.htm" target="_self">
+<area shape="rect" coords="384,714,519,945" href="EA1372.htm" target="_self">
+<area shape="rect" coords="17,714,354,1023" href="EA1371.htm" target="_self">
+<area shape="rect" coords="443,26,723,471" href="EA1370.htm" target="_self">
+<area shape="rect" coords="17,15,401,695" href="EA1408.htm" target="_self">
+</MAP>
+ </div>
+	<div class="ObjectTitle">Enumerations : Class diagram</div>
+	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">17.05.2004 15:12:43</td>
+			<td width="85%" class="ObjectDetailsValue">19.10.2015 00:00:00</td>
 		</tr>
 		<tr>
-			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">29.11.2022 17:26:10</td>
+			<td width="15%" class="ObjectDetailsTopic">Modified:</td>
+			<td width="85%" class="ObjectDetailsValue">16.02.2023 17:05:56</td>
 		</tr>
-		<tr style="height: 10px"><td colspan="2"></td></tr>
-		<tr>
-			<td class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="../../../../images/plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>
-			<td class="ObjectDetailsValue"></td>
+		<tr style="padding-top: 10px;">
+			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="../../../../images/plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
 		</tr>
 		<tr id="proj00" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue"></td>
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
+			<td width="85%" class="ObjectDetailsValue">TMG</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
-			<td class="ObjectDetailsValue">1.0</td>
-		</tr>
-		<tr id="proj02" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Phase:</td>
-			<td class="ObjectDetailsValue">1.0</td>
-		</tr>
-		<tr id="proj03" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Status:</td>
-			<td class="ObjectDetailsValue">Proposed</td>
-		</tr>
-		<tr id="proj04" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Complexity:</td>
-			<td class="ObjectDetailsValue">Easy</td>
-		</tr>
-		<tr id="proj05" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Difficulty:</td>
-			<td class="ObjectDetailsValue"></td>
-		</tr>
-		<tr id="proj06" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Priority:</td>
-			<td class="ObjectDetailsValue"></td>
-		</tr>
-		<tr id="proj05" style="display: none;">
-			<td class="ObjectDetailsTopic" >Multiplicity:</td>
-			<td class="ObjectDetailsValue"></td>
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
+			<td width="85%" class="ObjectDetailsValue">3.0</td>
 		</tr>
 		<tr>
-			<td class="ObjectDetailsTopic"><button onclick="switchAdvancedProperties()"><img src="../../../../images/plus03.gif" align="absmiddle" id="adv" /></button>Advanced:</td>
-			<td class="ObjectDetailsValue"></td>
+			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchAdvancedProperties()"><img src="../../../../images/plus03.gif" align="absmiddle" id="adv" /></button>Advanced:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
 		</tr>
 		<tr id="adv00" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{D13BE3BE-AF8F-4965-9124-6A2EAA72E49C}</td>
-		</tr>
-		<tr id="adv01" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA1351.htm">Enumerations</a></td>
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">ID:</td>
+			<td width="85%" class="ObjectDetailsValue">{79FDC85D-74B2-4eb3-A242-3E4792F11E01}</td>
 		</tr>
 	</table>
 	
-	<div class="TableGroup" id="TableGroup">
-		<ul class="ItemTitle">
-			<li onClick="parent != null ? parent.toggleItem('Attributes') : toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
-			<li onClick="parent != null ? parent.toggleItem('TaggedVal') : toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
-			<li onClick="parent != null ? parent.toggleItem('CustomProperties') : toggleItem('CustomProperties');" id="CustomPropertiesTitle">Advanced</li>
-		</ul>
-<div class="ItemBody" id="AttributesTable">
-	<table border="0" cellspacing="0" cellpadding="0" class="Table">
-		<tr>
-			<td width="50%" class="TableHeading">Attribute</td>
-			<td width="25%" class="TableHeading">Scope</td>
-			<td width="25%" class="TableHeading">Type</td>
-		</tr>
-						<tr>
-				<td width="50%" class="TableRow">
-					accident
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Accidents are situations in which one or more vehicles lose control and do not recover.  They include collisions between vehicle(s) or other road user(s), between vehicle(s) and fixed obstacle(s), or they result from a vehicle running off the road.<br>order=0<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					accidentInvolvingHazardousMaterials
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Includes all accidents involving at least one vehicle believed to be carrying materials, which could present an additional hazard to road users.<br>order=3<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					accidentInvolvingHeavyLorries
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Includes all accidents involving at least one heavy goods vehicle.<br>order=4<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					accidentInvolvingMassTransitVehicle
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Includes all accidents involving at least one mass transit vehicle.<br>order=5<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					accidentInvolvingPublicTransport
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Includes all accidents involving public transport<br>order=8<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					accidentInvolvingRadioactiveMaterial
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Accident involving radioactive material.<br>order=9<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					accidentInvolvingTrain
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Includes all accidents involving collision with a train.<br>order=10<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					collision
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Collision of vehicle with another object of unspecified type.<br>order=11<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					multipleVehicleAccident
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Includes all accidents involving three or more vehicles.<br>order=23<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					secondaryAccident
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Includes all situations resulting from vehicles avoiding or being distracted by earlier accidents.<br>order=29<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					seriousInjuryOrFatalAccident
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Includes all accidents believed to involve fatality or injury expected to require overnight hospitalisation.<br>order=30<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					vehicleStuckUnderBridge
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=A vehicle is stuck under a bridge.<br>order=31<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					other
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					enumerationLiteral
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Other than as defined in this enumeration.<br>order=34<br>
-						&nbsp;
-						
-				</td>
-			</tr>
-	</table>
 </div>
-<div class="ItemBody" id="TaggedValTable">
-	<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
-		<tr>
-			<td width="50%" class="TableHeading">Tag</td>
-			<td width="50%" class="TableHeading">Value</td>
-		</tr>
-					<tr>
-				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">Collection of descriptive terms for types of accidents.</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>
-	</table>
-</div>		<div class="ItemBody" id="CustomPropertiesTable">
-			<table class="Table ea_table">
-				<tr>
-					<td width="30%" class="TableHeading">Property</td>
-					<td width="70%" class="TableHeading">Value</td>
-				</tr>
-			<tr>
-				<td width="30%" class="TableRow">isFinalSpecialization:</td>
-				<td width="70%" class="TableRow">0</td>
-			</tr>
 
-
-			</table>
-		</div>	</div>
- </div>
  </td>
 				</tr>
 			</tbody>

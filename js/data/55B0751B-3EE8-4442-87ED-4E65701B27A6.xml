@@ -1,5 +1,5 @@
-tocTab[tocTab.length] = new Array("0.4.2.2:1", "", "DataTypes", "EARoot/EA4/EA2/EA2/EA843.htm", "175.png", "61", "0", "", "Logical diagram0","{CD4A84C8-1979-48ef-8718-48D93E4088EF}");
-tocTab[tocTab.length] = new Array("0.4.2.2:2", "", "«D2Datatype» Ampere", "EARoot/EA4/EA2/EA2/EA846.htm", "230.png", "E370", "0", "", "DataType0","{9CC6CF2F-E428-45f7-AE42-86A6857358A6}");
-tocTab[tocTab.length] = new Array("0.4.2.2:3", "", "«D2Datatype» Units", "EARoot/EA4/EA2/EA2/EA847.htm", "230.png", "E371", "0", "", "DataType0","{8A18EED3-A8A9-4650-99A1-4781B7F5067A}");
-tocTab[tocTab.length] = new Array("0.4.2.2:4", "", "«D2Datatype» Volt", "EARoot/EA4/EA2/EA2/EA848.htm", "230.png", "E372", "0", "", "DataType0","{4F4270B2-132D-4fd4-B0F6-88A611CD8880}");
-tocTab[tocTab.length] = new Array("0.4.2.2:5", "", "«D2Datatype» Watt", "EARoot/EA4/EA2/EA2/EA849.htm", "230.png", "E373", "0", "", "DataType0","{AE35E0EC-324B-4bf7-B96B-102F5C136E79}");
+tocTab[tocTab.length] = new Array("0.4.2.2:1", "", "DataTypes", "EARoot/EA4/EA2/EA2/EA856.htm", "175.png", "61", "0", "", "Logical diagram0","{CD4A84C8-1979-48ef-8718-48D93E4088EF}");
+tocTab[tocTab.length] = new Array("0.4.2.2:2", "", "«D2Datatype» Ampere", "EARoot/EA4/EA2/EA2/EA859.htm", "230.png", "E370", "0", "", "DataType0","{9CC6CF2F-E428-45f7-AE42-86A6857358A6}");
+tocTab[tocTab.length] = new Array("0.4.2.2:3", "", "«D2Datatype» Units", "EARoot/EA4/EA2/EA2/EA860.htm", "230.png", "E371", "0", "", "DataType0","{8A18EED3-A8A9-4650-99A1-4781B7F5067A}");
+tocTab[tocTab.length] = new Array("0.4.2.2:4", "", "«D2Datatype» Volt", "EARoot/EA4/EA2/EA2/EA861.htm", "230.png", "E372", "0", "", "DataType0","{4F4270B2-132D-4fd4-B0F6-88A611CD8880}");
+tocTab[tocTab.length] = new Array("0.4.2.2:5", "", "«D2Datatype» Watt", "EARoot/EA4/EA2/EA2/EA862.htm", "230.png", "E373", "0", "", "DataType0","{AE35E0EC-324B-4bf7-B96B-102F5C136E79}");

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Enumerations::PetrolTypeEnum</title>
+<title>Enumerations</title>
 <link href="../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Enumerations::PetrolTypeEnum </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Enumerations </h1>
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA743.htm">PayloadPublication</a> / <a href="../EA807.htm">EnergyInfrastructure</a> / <a href="EA864.htm">Enumerations</a> / <a href="EA877.htm">PetrolTypeEnum</a></p>
+			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA759.htm">PayloadPublication</a> / <a href="../EA820.htm">EnergyInfrastructure</a> / <a href="EA877.htm">Enumerations</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,20 +110,38 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA864.htm">Enumerations</a></ul>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA878.htm">AuthenticationAndIdentificationEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA879.htm">BioethanolTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA880.htm">ChargingModeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA881.htm">ChargingPointUsageTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA882.htm">ConnectorFormatTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA883.htm">ConnectorTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA884.htm">DeliveryUnitEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA885.htm">DieselTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA886.htm">ElectricEnergySourceTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA887.htm">EnergyInfrastructureSiteTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA888.htm">HydrogenFuellingProcessProtocolEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA889.htm">OrganicGasTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA890.htm">PetrolTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA891.htm">PricingPolicyEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA892.htm">RefillPointStatusEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA893.htm">RefillSolutionHydrogenEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA894.htm">ServiceTypeEnum</a></li>
+<li><img src="../../../../images/247.png" alt="Enumeration"/> <a href="EA895.htm">VehicleToGridCommunicationTypeEnum</a></li>
+</ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">PetrolTypeEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
+	<span class="ObjectTitle">Enumerations D2Package : Public  &lt;&lt;D2Package&gt;&gt; Package</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">02.08.2017 16:16:20</td>
+			<td width="85%" class="ObjectDetailsValue">22.01.2019 14:36:35</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">29.11.2022 17:26:03</td>
+			<td class="ObjectDetailsValue">05.06.2020 11:05:49</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -106,7 +150,7 @@
 		</tr>
 		<tr id="proj00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue">Strohschein</td>
+			<td class="ObjectDetailsValue">Freudenstein</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
@@ -142,183 +186,18 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{6F95CAD7-DCCA-4c0e-99E7-FCB563D1DEBB}</td>
+			<td class="ObjectDetailsValue">{1F67B647-4BE1-460c-BEA1-EA69E22D83CF}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="../EA4/EA856.htm">EnergyInfrastructureTablePublication</a></td>
+			<td class="ObjectDetailsValue"><a href="../EA816.htm">EnergyInfrastructure</a></td>
 		</tr>
 	</table>
 	
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
-			<li onClick="parent != null ? parent.toggleItem('Attributes') : toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
 			<li onClick="parent != null ? parent.toggleItem('TaggedVal') : toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
-			<li onClick="parent != null ? parent.toggleItem('CustomProperties') : toggleItem('CustomProperties');" id="CustomPropertiesTitle">Advanced</li>
 		</ul>
-<div class="ItemBody" id="AttributesTable">
-	<table border="0" cellspacing="0" cellpadding="0" class="Table">
-		<tr>
-			<td width="50%" class="TableHeading">Attribute</td>
-			<td width="25%" class="TableHeading">Scope</td>
-			<td width="25%" class="TableHeading">Type</td>
-		</tr>
-						<tr>
-				<td width="50%" class="TableRow">
-					all
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					changed=new<br>definition=All petrol types are available.<br>order=0<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					octane95
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					changed=new<br>definition=petrol with 95 octanes<br>order=1<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					octane98
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					changed=new<br>definition=petrol with 98 octanes<br>order=2<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					leaded
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					changed=new<br>definition=leaded petrol<br>order=3<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					unleaded
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					changed=new<br>definition=Unleaded petrol<br>order=4<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					superE5
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Super E5 petrol<br>order=5<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					superE10
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					changed=new<br>definition=Super E10 petrol<br>order=6<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					other
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					changed=new<br>definition=other types of petrol<br>order=7<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					unknown
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					changed=new<br>definition=The type of petrol is unknown.<br>order=8<br>origin=- null -<br>originalCode=- null -<br>originalName=- null -<br>
-						&nbsp;
-						
-				</td>
-			</tr>
-	</table>
-</div>
 <div class="ItemBody" id="TaggedValTable">
 	<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
 		<tr>
@@ -326,70 +205,17 @@
 			<td width="50%" class="TableHeading">Value</td>
 		</tr>
 					<tr>
-				<td width="50%" class="TableRow" valign="top">changed</td>
-				<td width="50%" class="TableRow" valign="top">new</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						<div class="ObjectDetailsNotes">Default: new<br /></div>
-
-				</td>
-			</tr>			<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">A table of different petrol types</td>
+				<td width="50%" class="TableRow" valign="top">Enumerations for EnergyPublication</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
 					Details:
 						&nbsp;
 				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow" valign="top">origin</td>
-				<td width="50%" class="TableRow" valign="top">- null -</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						<div class="ObjectDetailsNotes">Default: - null -<br /></div>
-
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow" valign="top">originalCode</td>
-				<td width="50%" class="TableRow" valign="top">- null -</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						<div class="ObjectDetailsNotes">Default: - null -<br /></div>
-
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow" valign="top">originalName</td>
-				<td width="50%" class="TableRow" valign="top">- null -</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						<div class="ObjectDetailsNotes">Default: - null -<br /></div>
-
-				</td>
 			</tr>
 	</table>
-</div>		<div class="ItemBody" id="CustomPropertiesTable">
-			<table class="Table ea_table">
-				<tr>
-					<td width="30%" class="TableHeading">Property</td>
-					<td width="70%" class="TableHeading">Value</td>
-				</tr>
-			<tr>
-				<td width="30%" class="TableRow">isFinalSpecialization:</td>
-				<td width="70%" class="TableRow">0</td>
-			</tr>
-
-
-			</table>
-		</div>	</div>
+</div>	</div>
  </div>
  </td>
 				</tr>

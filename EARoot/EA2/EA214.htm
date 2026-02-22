@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1>  </h1>
-			<!-- <img class="header_image" src="../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../EA3.htm">D2Payload</a> / <a href="EA212.htm">Extension</a> / <a href="../../index.htm">{ }</a> / <a href="EA214.htm"></a></p>
@@ -93,7 +119,7 @@
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">24.05.2018 08:21:31</td>
+			<td width="85%" class="ObjectDetailsValue">27.04.2018 17:05:57</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
@@ -142,14 +168,14 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{77D87A70-5930-4e5f-A439-8B7E0FD09D14}</td>
+			<td class="ObjectDetailsValue">{B3103D91-CCAA-4e66-96A0-79BFC2FA27AB}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
 			<td class="ObjectDetailsValue"><a href="EA210.htm">Extension</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">To create new DATEX II model elements in Enterprise Architect, use the &quot;UML Profile for DATEX II&quot;, under &quot;UML Profiles&quot; in the &quot;Resources&quot; tab.&lt;br/&gt;&lt;br/&gt;For D2Relation or D2LevelBExtension: click on the D2Relation or D2LevelBExtension stereotype in the DATEX UML profile tree in the &#8220;Resources&#8221; tab. Then with that still highlighted, drag between two classes in a class diagram to create a new D2Relation or D2LevelBExtension.&lt;br/&gt;&lt;br/&gt;For all other kinds of model element in the DATEX II UML profile: drag the relevant stereotype from the profile onto the class diagram.&lt;br/&gt;&lt;br/&gt;If you use another way, this may look correct in diagrams, but Enterprise Architect may not associate your elements with the correct DATEX II stereotypes, leading to problems if you use DATEX II tools to process your model.&lt;br/&gt;&lt;br/&gt;(You can also create plain UML generalization elements, which do not have a DATEX II stereotype.)&lt;br/&gt;&lt;br/&gt;</div>
+	<div class="ObjectDetailsNotes">Place extensions in the Extension package&lt;br/&gt;</div>
 
  </div>
  </td>

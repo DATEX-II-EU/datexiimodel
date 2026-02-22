@@ -1,5 +1,5 @@
-tocTab[tocTab.length] = new Array("0.4.6:1", "", "Namespace dependencies", "EARoot/EA4/EA6/EA1254.htm", "176.png", "114", "0", "", "Package diagram0","{30BDACDF-3CAF-41dc-ABBB-B8CCF08F749F}");
-tocTab[tocTab.length] = new Array("0.4.6:2", "", "Situation", "EARoot/EA4/EA6/EA1256.htm", "175.png", "113", "0", "", "Logical diagram0","{479207F3-3A7B-4042-B0B7-6D322D2D8D47}");
-tocTab[tocTab.length] = new Array("0.4.6.1", "1", "«D2Package» Classes", "EARoot/EA4/EA6/EA1/EA1262.htm", "4.png", "", "", "{9D8603F4-4745-4f1d-A671-66FFF8E44631}", "Package");
-tocTab[tocTab.length] = new Array("0.4.6.2", "1", "«D2Package» Enumerations", "EARoot/EA4/EA6/EA2/EA1353.htm", "4.png", "", "", "{9E2307F1-3590-4d2f-9EAA-0904DFD104E6}", "Package");
-tocTab[tocTab.length] = new Array("0.4.6.3", "1", "«D2Package» SituationPublication", "EARoot/EA4/EA6/EA3/EA1409.htm", "4.png", "", "", "{E732DE8D-F42B-4060-AE1C-9FEA82436001}", "Package");
+tocTab[tocTab.length] = new Array("0.4.6:1", "", "Namespace dependencies", "EARoot/EA4/EA6/EA1267.htm", "176.png", "114", "0", "", "Package diagram0","{30BDACDF-3CAF-41dc-ABBB-B8CCF08F749F}");
+tocTab[tocTab.length] = new Array("0.4.6:2", "", "Situation", "EARoot/EA4/EA6/EA1269.htm", "175.png", "113", "0", "", "Logical diagram0","{479207F3-3A7B-4042-B0B7-6D322D2D8D47}");
+tocTab[tocTab.length] = new Array("0.4.6.1", "1", "«D2Package» Classes", "EARoot/EA4/EA6/EA1/EA1275.htm", "4.png", "", "", "{9D8603F4-4745-4f1d-A671-66FFF8E44631}", "Package");
+tocTab[tocTab.length] = new Array("0.4.6.2", "1", "«D2Package» Enumerations", "EARoot/EA4/EA6/EA2/EA1366.htm", "4.png", "", "", "{9E2307F1-3590-4d2f-9EAA-0904DFD104E6}", "Package");
+tocTab[tocTab.length] = new Array("0.4.6.3", "1", "«D2Package» SituationPublication", "EARoot/EA4/EA6/EA3/EA1422.htm", "4.png", "", "", "{E732DE8D-F42B-4060-AE1C-9FEA82436001}", "Package");

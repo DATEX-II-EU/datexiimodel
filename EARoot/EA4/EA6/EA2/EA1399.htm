@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Enumerations::ServiceDisruptionTypeEnum</title>
+<title>Enumerations::TransitServiceInformationEnum</title>
 <link href="../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Enumerations::ServiceDisruptionTypeEnum </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Enumerations::TransitServiceInformationEnum </h1>
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA743.htm">PayloadPublication</a> / <a href="../EA1258.htm">Situation</a> / <a href="EA1353.htm">Enumerations</a> / <a href="EA1399.htm">ServiceDisruptionTypeEnum</a></p>
+			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA759.htm">PayloadPublication</a> / <a href="../EA1271.htm">Situation</a> / <a href="EA1366.htm">Enumerations</a> / <a href="EA1399.htm">TransitServiceInformationEnum</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,20 +110,20 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA1353.htm">Enumerations</a></ul>
+<a href="EA1366.htm">Enumerations</a></ul>
 
 					</td>
 					<td class="contentcell"><div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">ServiceDisruptionTypeEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
+	<span class="ObjectTitle">TransitServiceInformationEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">22.06.2004 13:21:09</td>
+			<td width="85%" class="ObjectDetailsValue">23.07.2004 08:07:22</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">29.11.2022 17:26:12</td>
+			<td class="ObjectDetailsValue">29.11.2022 17:26:11</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -142,11 +168,11 @@
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{A5D45882-2346-433c-9444-415689FC888E}</td>
+			<td class="ObjectDetailsValue">{4E0A980A-61AD-4dea-812C-F7D464E0854D}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA1351.htm">Enumerations</a></td>
+			<td class="ObjectDetailsValue"><a href="EA1364.htm">Enumerations</a></td>
 		</tr>
 	</table>
 	
@@ -165,7 +191,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					barClosed
+					<a name="{4D3DAAB6-7D96-4293-903E-6955118E0363}"></a>cancellations
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -175,14 +201,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Bar closed.<br>order=0<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Public transport, park-and-ride, rail or bus services are cancelled.<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					dieselShortage
+					<a name="{4CF89FCF-E7C5-4753-9F7B-85D67DDFB7C1}"></a>delayDueToBadWeather
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -192,14 +218,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=There is a shortage of diesel at the specified location.<br>order=1<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The specified service is delayed due to bad weather.<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					fuelShortage
+					<a name="{52875D82-5833-4438-81CC-9E2DD02C3842}"></a>delayDueToRepairs
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -209,14 +235,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=There is a shortage of fuel (of one or more types) at the specified location.<br>order=2<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The specified service is delayed due to the need for repairs.<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					lpgShortage
+					<a name="{54F73B97-E32E-4468-B243-69CBA6EBCB62}"></a>delayedUntilFurtherNotice
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -226,14 +252,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=There is a shortage of liquid petroleum gas at the specified location.<br>order=3<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The specified public transport service will be delayed until further notice.<br>order=3<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					methaneShortage
+					<a name="{865BD0C6-84E1-4a04-85AE-DE4D0F5ADA0C}"></a>delaysDueToFlotsam
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -243,14 +269,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=There is a shortage of methane at the specified location.<br>order=4<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The departure of the specified ferry service is delayed due to flotsam.<br>order=4<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					noDieselForHeavyVehicles
+					<a name="{93F265D1-4DFF-407b-8EA7-D4E27136708E}"></a>departureOnSchedule
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -260,14 +286,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=There is no diesel available for heavy goods vehicles at the specified location.<br>order=5<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The departure of the specified service is on schedule.<br>order=5<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					noDieselForLightVehicles
+					<a name="{1D0127FF-6D33-46b0-9223-5FF295C5337A}"></a>ferryReplacedByIceRoad
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -277,31 +303,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=There is no diesel available for light vehicles at the specified location.<br>order=6<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The ferry service has been replaced by an ice road.<br>order=6<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					noParkingAvailability
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=There is little or no availbility of parking<br>order=7<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					noPublicTelephones
+					<a name="{DE502738-3932-47ef-8831-3FF60005D965}"></a>freeShuttleServiceOperating
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -311,14 +320,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=There are no available public telephones at the specified location.<br>order=8<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=A shuttle service is operating at no charge between specified locations.<br>order=7<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					noToiletFacilities
+					<a name="{0BE013B6-ECAC-448d-8D1E-F91E8A3FEFA8}"></a>informationServiceNotAvailable
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -328,14 +337,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=There are no available public toilet facilities at the specified location.<br>order=9<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The information service relating to the specified transport system is not currently available.<br>order=8<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					noVehicleRepairFacilities
+					<a name="{F2B4A206-F303-4d7e-9BF9-A26F8D80818F}"></a>irregularServiceDelays
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -345,14 +354,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=There are no available vehicle repair facilities at the specified location.<br>order=10<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The specified service is subject to irregular delays.<br>order=9<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					petrolShortage
+					<a name="{23586DDF-A1E9-4ece-AC0D-D24CE2BD11D6}"></a>loadCapacityChanged
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -362,14 +371,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=There is a shortage of petrol at the specified location.<br>order=11<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The load capacity for the specified service has been changed.<br>order=10<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					restAreaBusy
+					<a name="{46A8CBC1-29CC-4bf2-B854-87444CCAD80E}"></a>restrictionsForLongerVehicles
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -379,14 +388,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The rest area at the specified location is busy.<br>order=12<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Long vehicles are subject to restrictions on the specified service.<br>order=11<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					restAreaClosed
+					<a name="{010DB483-7F1F-4067-868A-6F1D8F91C731}"></a>serviceDelays
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -396,14 +405,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The rest area at the specified location is closed.<br>order=13<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The specified service is subject to delays.<br>order=12<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					restAreaOvercrowdedDriveToAnotherRestArea
+					<a name="{E7814373-49AF-48e4-968F-E8DC6331B729}"></a>serviceDelaysOfUncertainDuration
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -413,14 +422,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The rest area at the specified location is close to capacity and motorists are advised to seek an alternative.<br>order=14<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The specified service is subject to delays whose predicted duration cannot be estimated accurately.<br>order=13<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					serviceAreaBusy
+					<a name="{646D176E-2ACD-4ae1-99E1-187A5A899ABA}"></a>serviceFullyBooked
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -430,14 +439,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The service area at the specified location is close to capacity.<br>order=15<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The departure of the specified service is fully booked.<br>order=14<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					serviceAreaClosed
+					<a name="{6A63A43E-CE71-44a7-81A1-865998DCD949}"></a>serviceNotOperating
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -447,14 +456,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The service area at the specified location is closed.<br>order=16<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The specified service is not operating.<br>order=15<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					serviceAreaFuelStationClosed
+					<a name="{D02FC4E8-3F00-472c-8867-0BFA3CA377E4}"></a>serviceNotOperatingSubstituteServiceAvailable
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -464,14 +473,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The fuel station at the specified service area is closed.<br>order=17<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The specified service is not operating but an alternative service is available.<br>order=16<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					serviceAreaOvercrowdedDriveToAnotherServiceArea
+					<a name="{B54329C5-0565-4bb7-AD73-6BE6FD65847F}"></a>serviceSuspended
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -481,14 +490,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The service area at the specified location is close to capacity and motorists are advised to seek an alternative.<br>order=18<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The specified service has been suspended.<br>order=17<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					serviceAreaRestaurantClosed
+					<a name="{7C5E9DBD-1BE2-4847-9520-C21AB0E5DE87}"></a>serviceWithdrawn
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -498,14 +507,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=The restaurant at the specified service area is closed.<br>order=19<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The specified service has been cancelled.<br>order=18<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					someCommercialServicesClosed
+					<a name="{382B9949-3698-4f40-A1DF-44F01D1470AE}"></a>shuttleServiceOperating
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -515,14 +524,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Some commercial services are closed at the specified location.<br>order=20<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=A shuttle service is operating between the specified locations.<br>order=19<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					waterShortage
+					<a name="{08E03111-946B-4a3c-8998-898F976D9F50}"></a>temporaryChangesToTimetables
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -532,8 +541,25 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=There is a shortage of water at the specified location.<br>order=21<br>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=The timetable for the specified service is subject to temporary changes.<br>order=20<br>
+						&nbsp;
+						
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow">
+					<a name="{8D99579B-3D3D-4faf-9911-CFBB588E4294}"></a>other
+				</td>
+				<td width="25%" class="TableRow">
+					Public 
+				</td>
+				<td width="25%" class="TableRow">
+					enumerationLiteral
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="3">
+					definition=Other than as defined in this enumeration.<br>order=21<br>
 						&nbsp;
 						
 				</td>
@@ -548,7 +574,7 @@
 		</tr>
 					<tr>
 				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">Types of disruption to services relevant to road users.</td>
+				<td width="50%" class="TableRow" valign="top">Types of public transport information.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">

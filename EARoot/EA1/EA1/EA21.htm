@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> Classes::PayloadPublication </h1>
-			<!-- <img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA10.htm">Common</a> / <a href="EA16.htm">Classes</a> / <a href="EA21.htm">PayloadPublication</a></p>
@@ -146,7 +172,7 @@
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="../../EA1.htm">D2Payload</a>, <a href="EA14.htm">Classes</a>, <a href="../../EA4/EA741.htm">PayloadPublication classes</a>, <a href="../../EA4/EA2/EA3/EA850.htm">EnergyInfrastructureStatusPublication</a>, <a href="../../EA4/EA2/EA4/EA856.htm">EnergyInfrastructureTablePublication</a>, <a href="../../EA4/EA1/EA2/EA782.htm">ControlledZonePublication</a>, <a href="../../EA4/EA7/EA4/EA1537.htm">TrafficRegulationPublication</a>, <a href="../../EA4/EA9/EA1/EA9/EA1750.htm">ParkingStatus</a>, <a href="../../EA4/EA9/EA4/EA1881.htm">ParkingStatusPublication</a>, <a href="../../EA4/EA9/EA4/EA1879.htm">ParkingStatusPublicationBig</a>, <a href="../../EA4/EA10/EA4/EA2009.htm">TmplanOperationPublication</a>, <a href="../../EA4/EA10/EA5/EA2014.htm">TmplanTablePublication</a>, <a href="../../EA2/EA2/EA4/EA289.htm">Structure</a></td>
+			<td class="ObjectDetailsValue"><a href="../../EA1.htm">D2Payload</a>, <a href="EA14.htm">Classes</a>, <a href="../../EA4/EA757.htm">PayloadPublication classes</a>, <a href="../../EA4/EA2/EA3/EA863.htm">EnergyInfrastructureStatusPublication</a>, <a href="../../EA4/EA2/EA4/EA869.htm">EnergyInfrastructureTablePublication</a>, <a href="../../EA4/EA9/EA1/EA9/EA1788.htm">ParkingStatus</a>, <a href="../../EA4/EA9/EA4/EA1919.htm">ParkingStatusPublication</a>, <a href="../../EA4/EA9/EA4/EA1917.htm">ParkingStatusPublicationBig</a>, <a href="../../EA4/EA10/EA4/EA2047.htm">TmplanOperationPublication</a>, <a href="../../EA4/EA10/EA5/EA2052.htm">TmplanTablePublication</a>, <a href="../../EA2/EA3/EA4/EA295.htm">Structure</a>, <a href="../../EA4/EA7/EA4/EA1554.htm">PredefinedConditionPublication</a>, <a href="../../EA4/EA7/EA5/EA1559.htm">TrafficRegulationPublication</a>, <a href="../../EA4/EA7/EA6/EA1574.htm">WarningPublication</a>, <a href="../../EA4/EA1/EA2/EA794.htm">ControlledZonePublication</a></td>
 		</tr>
 	</table>
 	
@@ -167,7 +193,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					defaultLanguage
+					<a name="{D4CA76F2-8F79-472b-9609-E100381745AB}"></a>defaultLanguage
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -177,14 +203,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=The default language used throughout the payload publication.<br>order=0<br>schemaAttribute=yes<br>schemaName=lang<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					feedDescription
+					<a name="{BDD43490-2EB9-4f87-946F-763960F47D3C}"></a>feedDescription
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -194,14 +220,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A description of the information which is to be found in the publications originating from the particular feed (URL).<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					feedType
+					<a name="{9C0E7124-DDF3-4b65-96E2-5B494BC13707}"></a>feedType
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -211,14 +237,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A classification of the information which is to be found in the publications originating from the particular feed.<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					publicationTime
+					<a name="{03D552FF-F3AE-48aa-9BCB-7E0FC9DE68C6}"></a>publicationTime
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -228,7 +254,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Date/time at which the payload publication was created.<br>order=3<br>
 						&nbsp;
 						
@@ -305,7 +331,7 @@
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow" valign="top">version</td>
-				<td width="50%" class="TableRow" valign="top">3.5</td>
+				<td width="50%" class="TableRow" valign="top">3.6</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -338,70 +364,49 @@
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA4/EA5/EA1100.htm">«D2Class» FaultPublication</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA4/EA3/EA1096.htm">«D2Class» DevicePublication</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA10/EA4/EA2013.htm">«D2Class» TmplanOperationPublication</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA3/EA4/EA754.htm">«D2Class» PredefinedLocationsPublication</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA3/EA7/EA2/EA993.htm">«D2Class» RatesPublication</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA7/EA6/EA1577.htm">«D2Identifiable» WarningPublication</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA18.htm">«D2Class» GenericPublication</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA2/EA4/EA876.htm">«D2Class» EnergyInfrastructureTablePublication</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA6/EA3/EA1410.htm">«D2Class» SituationPublication</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA5/EA3/EA1246.htm">«D2Class» ElaboratedDataPublication</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA1/EA2/EA787.htm">«D2Class» ControlledZoneTablePublication</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA1/EA2/EA802.htm">«D2Identifiable» DynamicActivationStatusPublication</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA4/EA6/EA1112.htm">«D2Class» StatusPublication</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Generalization</td>
-					<td width="10%" class="TableRow" valign="top">From</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA9/EA3/EA1878.htm">«D2Class» ParkingTablePublication</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Generalization</td>
-					<td width="10%" class="TableRow" valign="top">From</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA5/EA5/EA1247.htm">«D2Class» MeasuredDataPublication</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Generalization</td>
-					<td width="10%" class="TableRow" valign="top">From</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA10/EA5/EA2017.htm">«D2Class» TmplanTablePublication</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA4/EA6/EA1125.htm">«D2Class» StatusPublication</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
@@ -415,91 +420,126 @@
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA3/EA6/EA957.htm">«D2Class» OrganisationPublication</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA3/EA9/EA1057.htm">«D2Class» OperatingHoursPublication</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA2/EA3/EA855.htm">«D2Class» EnergyInfrastructureStatusPublication</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA9/EA3/EA1916.htm">«D2Class» ParkingTablePublication</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA5/EA3/EA1233.htm">«D2Class» ElaboratedDataPublication</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA10/EA5/EA2055.htm">«D2Class» TmplanTablePublication</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA2/EA4/EA863.htm">«D2Class» EnergyInfrastructureTablePublication</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA3/EA6/EA970.htm">«D2Class» OrganisationPublication</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA3/EA9/EA1044.htm">«D2Class» OperatingHoursPublication</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA5/EA6/EA1264.htm">«D2Class» MeasurementSiteTablePublication</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA8/EA4/EA1645.htm">«D2Class» VmsPublication</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA1/EA2/EA801.htm">«D2Identifiable» ControlledZoneTablePublication</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA4/EA3/EA1083.htm">«D2Class» DevicePublication</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA7/EA4/EA1558.htm">«D2Identifiable» PredefinedConditionPublication</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA5/EA6/EA1251.htm">«D2Class» MeasurementSiteTablePublication</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA8/EA4/EA1683.htm">«D2Class» VmsPublication</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA1/EA2/EA789.htm">«D2Class» CzDynamicActivationPublication</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA2/EA3/EA868.htm">«D2Class» EnergyInfrastructureStatusPublication</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA3/EA4/EA738.htm">«D2Class» PredefinedLocationsPublication</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA18.htm">«D2Class» GenericPublication</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA8/EA5/EA1650.htm">«D2Class» VmsTablePublication</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA6/EA3/EA1423.htm">«D2Class» SituationPublication</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA9/EA4/EA1889.htm">«D2Class» ParkingStatusPublication</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA10/EA4/EA2051.htm">«D2Class» TmplanOperationPublication</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA7/EA4/EA1540.htm">«D2Identifiable» TrafficRegulationPublication</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA5/EA5/EA1260.htm">«D2Class» MeasuredDataPublication</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Generalization</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA3/EA7/EA2/EA1006.htm">«D2Class» RatesPublication</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Generalization</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA8/EA5/EA1688.htm">«D2Class» VmsTablePublication</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Generalization</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA4/EA5/EA1113.htm">«D2Class» FaultPublication</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Generalization</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA9/EA4/EA1927.htm">«D2Class» ParkingStatusPublication</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Generalization</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../../EA4/EA7/EA5/EA1569.htm">«D2Identifiable» TrafficRegulationPublication</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Generalization</td>
 					<td width="10%" class="TableRow" valign="top">From</td>

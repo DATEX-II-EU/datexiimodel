@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,11 +91,11 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> LocationReferencing </h1>
-			<!-- <img class="header_image" src="../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="EA3.htm">D2Payload</a> / <a href="./EA3/EA463.htm">LocationReferencing</a></p>
+			<p><a href="EA3.htm">D2Payload</a> / <a href="./EA3/EA479.htm">LocationReferencing</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,12 +110,12 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<li><img src="../images/4.png" alt="Package"/> <a href="./EA3/EA1/EA470.htm">DataTypes</a></li>
-<li><img src="../images/4.png" alt="Package"/> <a href="./EA3/EA2/EA477.htm">Enumerations</a></li>
-<li><img src="../images/4.png" alt="Package"/> <a href="./EA3/EA3/EA518.htm">LocationReference</a></li>
-<li><img src="../images/4.png" alt="Package"/> <a href="./EA3/EA4/EA731.htm">PredefinedLocationsPublication</a></li>
-<li><img src="../images/176.png" alt="Diagram"/> <a href="./EA3/EA459.htm">LocationReferencing</a></li>
-<li><img src="../images/176.png" alt="Diagram"/> <a href="./EA3/EA461.htm">Namespace dependencies</a></li>
+<li><img src="../images/4.png" alt="Package"/> <a href="./EA3/EA1/EA486.htm">DataTypes</a></li>
+<li><img src="../images/4.png" alt="Package"/> <a href="./EA3/EA2/EA493.htm">Enumerations</a></li>
+<li><img src="../images/4.png" alt="Package"/> <a href="./EA3/EA3/EA534.htm">LocationReference</a></li>
+<li><img src="../images/4.png" alt="Package"/> <a href="./EA3/EA4/EA747.htm">PredefinedLocationsPublication</a></li>
+<li><img src="../images/176.png" alt="Diagram"/> <a href="./EA3/EA475.htm">LocationReferencing</a></li>
+<li><img src="../images/176.png" alt="Diagram"/> <a href="./EA3/EA477.htm">Namespace dependencies</a></li>
 </ul>
 
 					</td>
@@ -152,7 +178,7 @@
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA1.htm">D2Payload</a>, <a href="./EA3/EA461.htm">Namespace dependencies</a>, <a href="./EA4/EA2/EA805.htm">Namespace dependencies</a>, <a href="./EA4/EA3/EA883.htm">Namespace dependencies</a>, <a href="./EA4/EA5/EA1113.htm">Namespace dependencies</a>, <a href="./EA4/EA6/EA1254.htm">Namespace dependencies</a>, <a href="./EA4/EA8/EA1541.htm">Namespace dependencies</a>, <a href="./EA4/EA1/EA756.htm">namespace dependencies</a>, <a href="./EA4/EA7/EA1413.htm">namespace dependencies</a>, <a href="./EA4/EA9/EA1651.htm">namespace dependencies</a>, <a href="./EA4/EA10/EA1890.htm">Namespace dependencies</a>, <a href="./EA2/EA6/EA412.htm">Namespace dependencies</a>, <a href="./EA2/EA2/EA229.htm">Namespace dependencies</a>, <a href="./EA4/EA4/EA1051.htm">Namespace dependencies</a></td>
+			<td class="ObjectDetailsValue"><a href="EA1.htm">D2Payload</a>, <a href="./EA3/EA477.htm">Namespace dependencies</a>, <a href="./EA4/EA2/EA818.htm">Namespace dependencies</a>, <a href="./EA4/EA3/EA896.htm">Namespace dependencies</a>, <a href="./EA4/EA5/EA1126.htm">Namespace dependencies</a>, <a href="./EA4/EA6/EA1267.htm">Namespace dependencies</a>, <a href="./EA4/EA8/EA1579.htm">Namespace dependencies</a>, <a href="./EA4/EA9/EA1689.htm">namespace dependencies</a>, <a href="./EA4/EA10/EA1928.htm">Namespace dependencies</a>, <a href="./EA2/EA7/EA428.htm">Namespace dependencies</a>, <a href="./EA2/EA3/EA235.htm">Namespace dependencies</a>, <a href="./EA4/EA4/EA1064.htm">Namespace dependencies</a>, <a href="./EA4/EA7/EA1426.htm">namespace dependencies</a>, <a href="./EA4/EA1/EA772.htm">namespace dependencies</a></td>
 		</tr>
 	</table>
 	
@@ -197,72 +223,44 @@
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="./EA4/EA9/EA1655.htm">«D2Namespace» Parking</a></td>
-					<td width="10%" class="TableRow" valign="top">Package</td>
-					<td width="10%" class="TableRow" valign="top">Usage</td>
-					<td width="10%" class="TableRow" valign="top">From</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="./EA4/EA1/EA758.htm">«D2Namespace» ControlledZone</a></td>
-					<td width="10%" class="TableRow" valign="top">Package</td>
-					<td width="10%" class="TableRow" valign="top">Usage</td>
-					<td width="10%" class="TableRow" valign="top">From</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="./EA4/EA7/EA1417.htm">«D2Namespace» TrafficRegulation</a></td>
-					<td width="10%" class="TableRow" valign="top">Package</td>
-					<td width="10%" class="TableRow" valign="top">Usage</td>
-					<td width="10%" class="TableRow" valign="top">From</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="./EA4/EA3/EA887.htm">«D2Namespace» Facilities</a></td>
-					<td width="10%" class="TableRow" valign="top">Package</td>
-					<td width="10%" class="TableRow" valign="top">Usage</td>
-					<td width="10%" class="TableRow" valign="top">From</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="./EA4/EA743.htm">«D2Package» PayloadPublication</a></td>
-					<td width="10%" class="TableRow" valign="top">Package</td>
-					<td width="10%" class="TableRow" valign="top">Usage</td>
-					<td width="10%" class="TableRow" valign="top">From</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="./EA4/EA10/EA1894.htm">«D2Namespace» TrafficManagementPlan</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="./EA4/EA4/EA1066.htm">«D2Namespace» FaultAndStatus</a></td>
 					<td width="10%" class="TableRow" valign="top">Package</td>
 					<td width="10%" class="TableRow" valign="top">Dependency</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="./EA4/EA6/EA1258.htm">«D2Namespace» Situation</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="./EA4/EA3/EA900.htm">«D2Namespace» Facilities</a></td>
 					<td width="10%" class="TableRow" valign="top">Package</td>
 					<td width="10%" class="TableRow" valign="top">Usage</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="./EA2/EA6/EA438.htm">«D2Namespace» UrbanExtensions</a></td>
-					<td width="10%" class="TableRow" valign="top">Package</td>
-					<td width="10%" class="TableRow" valign="top">Dependency</td>
-					<td width="10%" class="TableRow" valign="top">From</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="./EA4/EA2/EA807.htm">«D2Namespace» EnergyInfrastructure</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="./EA4/EA8/EA1583.htm">«D2Namespace» Vms</a></td>
 					<td width="10%" class="TableRow" valign="top">Package</td>
 					<td width="10%" class="TableRow" valign="top">Usage</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="./EA2/EA2/EA239.htm">«D2Namespace» ReroutingManagementEnhanced</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="./EA4/EA6/EA1271.htm">«D2Namespace» Situation</a></td>
 					<td width="10%" class="TableRow" valign="top">Package</td>
-					<td width="10%" class="TableRow" valign="top">Dependency</td>
+					<td width="10%" class="TableRow" valign="top">Usage</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="./EA4/EA5/EA1130.htm">«D2Namespace» RoadTrafficData</a></td>
+					<td width="10%" class="TableRow" valign="top">Package</td>
+					<td width="10%" class="TableRow" valign="top">Usage</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="./EA4/EA1/EA774.htm">«D2Namespace» ControlledZone</a></td>
+					<td width="10%" class="TableRow" valign="top">Package</td>
+					<td width="10%" class="TableRow" valign="top">Usage</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
@@ -274,23 +272,30 @@
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="./EA4/EA4/EA1053.htm">«D2Namespace» FaultAndStatus</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="./EA2/EA7/EA454.htm">«D2Namespace» UrbanExtensions</a></td>
 					<td width="10%" class="TableRow" valign="top">Package</td>
 					<td width="10%" class="TableRow" valign="top">Dependency</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="./EA4/EA5/EA1117.htm">«D2Namespace» RoadTrafficData</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="./EA4/EA759.htm">«D2Package» PayloadPublication</a></td>
 					<td width="10%" class="TableRow" valign="top">Package</td>
 					<td width="10%" class="TableRow" valign="top">Usage</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="./EA4/EA8/EA1545.htm">«D2Namespace» Vms</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="./EA4/EA10/EA1932.htm">«D2Namespace» TrafficManagementPlan</a></td>
 					<td width="10%" class="TableRow" valign="top">Package</td>
-					<td width="10%" class="TableRow" valign="top">Usage</td>
+					<td width="10%" class="TableRow" valign="top">Dependency</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="./EA2/EA3/EA245.htm">«D2Namespace» ReroutingManagementEnhanced</a></td>
+					<td width="10%" class="TableRow" valign="top">Package</td>
+					<td width="10%" class="TableRow" valign="top">Dependency</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
@@ -298,6 +303,27 @@
 					<td width="30%" class="TableRow" valign="top"><a href="./EA2/EA212.htm">«D2Namespace» Extension</a></td>
 					<td width="10%" class="TableRow" valign="top">Package</td>
 					<td width="10%" class="TableRow" valign="top">Dependency</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="./EA4/EA7/EA1430.htm">«D2Namespace» TrafficRegulation</a></td>
+					<td width="10%" class="TableRow" valign="top">Package</td>
+					<td width="10%" class="TableRow" valign="top">Usage</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="./EA4/EA2/EA820.htm">«D2Namespace» EnergyInfrastructure</a></td>
+					<td width="10%" class="TableRow" valign="top">Package</td>
+					<td width="10%" class="TableRow" valign="top">Usage</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="./EA4/EA9/EA1693.htm">«D2Namespace» Parking</a></td>
+					<td width="10%" class="TableRow" valign="top">Package</td>
+					<td width="10%" class="TableRow" valign="top">Usage</td>
 					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>

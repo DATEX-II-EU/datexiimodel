@@ -1,3 +1,3 @@
-tocTab[tocTab.length] = new Array("0.2.4.1:1", "", "DataTypes", "EARoot/EA2/EA4/EA1/EA365.htm", "175.png", "198", "0", "", "Logical diagram0","{0B2F2738-3A1A-481e-A98A-6148EB8048FC}");
-tocTab[tocTab.length] = new Array("0.2.4.1:2", "", "«D2Datatype» DecibelHertz", "EARoot/EA2/EA4/EA1/EA368.htm", "230.png", "E1165", "0", "", "DataType0","{233E0F9E-073D-492c-92EF-A11EC8B11736}");
-tocTab[tocTab.length] = new Array("0.2.4.1:3", "", "«D2Datatype» Hertz", "EARoot/EA2/EA4/EA1/EA369.htm", "230.png", "E1166", "0", "", "DataType0","{4C577156-6258-4b16-B76C-A6E82082E623}");
+tocTab[tocTab.length] = new Array("0.2.5.1:1", "", "DataTypes", "EARoot/EA2/EA5/EA1/EA380.htm", "175.png", "198", "0", "", "Logical diagram0","{0B2F2738-3A1A-481e-A98A-6148EB8048FC}");
+tocTab[tocTab.length] = new Array("0.2.5.1:2", "", "«D2Datatype» DecibelHertz", "EARoot/EA2/EA5/EA1/EA383.htm", "230.png", "E1165", "0", "", "DataType0","{233E0F9E-073D-492c-92EF-A11EC8B11736}");
+tocTab[tocTab.length] = new Array("0.2.5.1:3", "", "«D2Datatype» Hertz", "EARoot/EA2/EA5/EA1/EA384.htm", "230.png", "E1166", "0", "", "DataType0","{4C577156-6258-4b16-B76C-A6E82082E623}");

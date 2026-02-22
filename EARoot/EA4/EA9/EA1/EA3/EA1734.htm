@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>CommonComponents</title>
+<link href="../../../../../css/ea.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="../../../../../js/displayToc.js" type="text/javascript"></script>
+<script>
+
+  function switchProjectProperties() {
+			if (document.getElementById("proj00").style.display == "none") {
+				document.getElementById("proj00").style.display = "revert";
+				document.getElementById("proj01").style.display = "revert";
+				document.getElementById("proj02").style.display = "revert";
+				document.getElementById("proj03").style.display = "revert";
+				document.getElementById("proj04").style.display = "revert";
+				document.getElementById("proj05").style.display = "revert";
+			} else {
+				document.getElementById("proj00").style.display = "none";
+				document.getElementById("proj01").style.display = "none";
+				document.getElementById("proj02").style.display = "none";
+				document.getElementById("proj03").style.display = "none";
+				document.getElementById("proj04").style.display = "none";
+				document.getElementById("proj05").style.display = "none";
+			}
+}
+
+		function switchAdvancedProperties(){
+
+			if (document.getElementById("adv00").style.display == "none") {;
+				document.getElementById("adv00").style.display = "revert";
+				document.getElementById("adv01").style.display = "revert";
+			} else {
+				document.getElementById("adv00").style.display = "none";
+				document.getElementById("adv01").style.display = "none";
+			}
+		}
+		function initPage()
+        {			
+			var divs = document.getElementsByClassName("ObjectDetailsNotes");
+			for (var j = 0; j < divs.length; j++) {
+				var tmpStr = divs[j].innerHTML;
+				tmpStr = tmpStr.replace(/#gt;/g, "&gt;");
+				tmpStr = tmpStr.replace(/#lt;/g, "&lt;");
+
+				tmpStr = tmpStr.replace(/&gt;/g, ">");
+				tmpStr = tmpStr.replace(/&lt;/g, "<");
+
+				divs[j].innerHTML = tmpStr;
+			}
+
+            if (document.getElementById('TableGroup') != null)
+            {
+                toggleItem(document.getElementById('TableGroup').getElementsByTagName('li')[0].id.replace("Title", ""));
+            }
+
+        }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
+</script>
+<style>
+
+</style>
+</head>
+<body onload="initPage();">
+<div class="section group" >
+
+		<div class="col span_2_of_2 header_frame">
+			<h1> CommonComponents </h1>
+			<!-- <img class="header_image" src="../../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../../images/datex2.jpg" align="right" alt="Header Image" />
+		</div>
+		<div class="col span_2_of_2 breadcrumb_frame">
+			<p><a href="../../../../EA3.htm">D2Payload</a> / <a href="../../../EA759.htm">PayloadPublication</a> / <a href="../../EA1693.htm">Parking</a> / <a href="../EA1700.htm">Classes</a> / <a href="EA1736.htm">CommonComponents</a> / <a href="EA1734.htm">CommonComponents</a></p>
+		</div>
+			
+		<table class="contentmaintable">
+			<!-- <tfoot>
+				<tr>
+					<td>foot1</td>
+					<td>foot2</td>
+				</tr>
+			</tfoot> -->
+			<tbody>
+				<tr>
+					<td class="indexcell">
+						<div class="projectBrowserTitle">Project: </div>
+						<ul>
+<li><img src="../../../../../images/175.png" alt="Diagram"/> <a href="EA1734.htm">CommonComponents</a></li>
+<li><img src="../../../../../images/5.png" alt="Class"/> <a href="EA1737.htm">AdditionalCharacteristics</a></li>
+<li><img src="../../../../../images/5.png" alt="Class"/> <a href="EA1738.htm">CertifiedSecureParking</a></li>
+<li><img src="../../../../../images/5.png" alt="Class"/> <a href="EA1739.htm">Characteristics</a></li>
+<li><img src="../../../../../images/5.png" alt="Class"/> <a href="EA1740.htm">CommonComponents</a></li>
+<li><img src="../../../../../images/5.png" alt="Class"/> <a href="EA1741.htm">DedicatedAccess</a></li>
+<li><img src="../../../../../images/5.png" alt="Class"/> <a href="EA1742.htm">ImageAlbum</a></li>
+<li><img src="../../../../../images/5.png" alt="Class"/> <a href="EA1743.htm">Marketing</a></li>
+<li><img src="../../../../../images/5.png" alt="Class"/> <a href="EA1744.htm">PermitsAndProhibitions</a></li>
+<li><img src="../../../../../images/5.png" alt="Class"/> <a href="EA1745.htm">RgbColour</a></li>
+<li><img src="../../../../../images/5.png" alt="Class"/> <a href="EA1746.htm">SafetyStandardClassification</a></li>
+</ul>
+
+					</td>
+					<td class="contentcell"><div class="PageBody">
+	<div class="diagram_image"> 
+<img src="EA1735.png" usemap="#EA1735" width="2533" height="1588" border="0" />
+
+<MAP NAME="EA1735">
+<area shape="rect" coords="1934,15,2171,188" href="../../../EA3/EA5/EA957.htm" target="_self">
+<area shape="rect" coords="855,1181,990,1256" href="../../../EA3/EA6/EA968.htm" target="_self">
+<area shape="rect" coords="755,959,1089,1073" href="../EA8/EA1787.htm" target="_self">
+<area shape="rect" coords="731,630,866,735" href="../EA8/EA1781.htm" target="_self">
+<area shape="rect" coords="1055,1142,1409,1256" href="../EA15/EA1834.htm" target="_self">
+<area shape="rect" coords="1164,924,1473,1071" href="../EA6/EA1766.htm" target="_self">
+<area shape="rect" coords="2280,147,2519,417" href="../../../EA3/EA4/EA944.htm" target="_self">
+<area shape="rect" coords="2190,1068,2448,1319" href="../../EA2/EA1890.htm" target="_self">
+<area shape="rect" coords="2189,794,2447,1029" href="../../EA2/EA1883.htm" target="_self">
+<area shape="rect" coords="1934,611,2199,744" href="EA1738.htm" target="_self">
+<area shape="rect" coords="1908,1187,2084,1359" href="../../EA2/EA1870.htm" target="_self">
+<area shape="rect" coords="1908,794,2147,1142" href="../../EA2/EA1884.htm" target="_self">
+<area shape="rect" coords="1934,446,2360,579" href="EA1741.htm" target="_self">
+<area shape="rect" coords="15,96,248,483" href="../../EA2/EA1894.htm" target="_self">
+<area shape="rect" coords="294,96,500,347" href="../../EA2/EA1859.htm" target="_self">
+<area shape="rect" coords="1377,176,1824,446" href="EA1734.htm" target="_self">
+<area shape="rect" coords="1934,216,2246,404" href="../EA2/EA1733.htm" target="_self">
+<area shape="rect" coords="288,375,494,509" href="EA1744.htm" target="_self">
+<area shape="rect" coords="521,1382,683,1574" href="../../EA2/EA1868.htm" target="_self">
+<area shape="rect" coords="518,1151,686,1358" href="../../EA2/EA1897.htm" target="_self">
+<area shape="rect" coords="315,1382,491,1571" href="../../EA2/EA1898.htm" target="_self">
+<area shape="rect" coords="1377,473,1794,723" href="EA1746.htm" target="_self">
+<area shape="rect" coords="329,1167,479,1340" href="../../EA2/EA1896.htm" target="_self">
+<area shape="rect" coords="288,545,585,717" href="EA1745.htm" target="_self">
+<area shape="rect" coords="294,744,720,1068" href="EA1739.htm" target="_self">
+<area shape="rect" coords="1544,959,1823,1112" href="EA1742.htm" target="_self">
+<area shape="rect" coords="1340,758,1544,872" href="EA1743.htm" target="_self">
+<area shape="rect" coords="750,167,1088,327" href="EA1734.htm" target="_self">
+</MAP>
+ </div>
+	<div class="ObjectTitle">CommonComponents : Class diagram</div>
+	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Created:</td>
+			<td width="85%" class="ObjectDetailsValue">22.04.2018 06:25:46</td>
+		</tr>
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Modified:</td>
+			<td width="85%" class="ObjectDetailsValue">22.11.2021 09:40:59</td>
+		</tr>
+		<tr style="padding-top: 10px;">
+			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="../../../../../images/plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
+		</tr>
+		<tr id="proj00" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
+			<td width="85%" class="ObjectDetailsValue">Jon</td>
+		</tr>
+		<tr id="proj01" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
+			<td width="85%" class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchAdvancedProperties()"><img src="../../../../../images/plus03.gif" align="absmiddle" id="adv" /></button>Advanced:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
+		</tr>
+		<tr id="adv00" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">ID:</td>
+			<td width="85%" class="ObjectDetailsValue">{79755A2C-7656-4442-A6F0-960DE77A320B}</td>
+		</tr>
+	</table>
+	
+</div>
+
+ </td>
+				</tr>
+			</tbody>
+		</table>
+		
+</div>
+</body>
+</html>
+

@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> Enumerations::SourceTypeEnum </h1>
-			<!-- <img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA10.htm">Common</a> / <a href="EA175.htm">Enumerations</a> / <a href="EA197.htm">SourceTypeEnum</a></p>
@@ -165,7 +191,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					automobileClubPatrol
+					<a name="{7BDCCBE7-848E-4d4d-B75E-C7B5FD8888AA}"></a>automobileClubPatrol
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -175,14 +201,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A patrol of an automobile club.<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					cameraObservation
+					<a name="{96BB015D-3E1E-438b-8330-BB08CC29845C}"></a>cameraObservation
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -192,14 +218,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A camera observation (either still or video camera).<br>order=1<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					freightVehicleOperator
+					<a name="{21AD9F4C-4EC1-4a54-861E-802828CBE7C7}"></a>freightVehicleOperator
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -209,14 +235,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=An operator of freight vehicles.<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					inductionLoopMonitoringStation
+					<a name="{5E447908-7805-4921-8795-C4CA6EBFD440}"></a>inductionLoopMonitoringStation
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -226,14 +252,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A station dedicated to the monitoring of the road network by processing inductive loop information.<br>order=3<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					infraredMonitoringStation
+					<a name="{203E364A-4488-4f46-863B-EAF6168BF9A9}"></a>infraredMonitoringStation
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -243,14 +269,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A station dedicated to the monitoring of the road network by processing infrared image information.<br>order=4<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					microwaveMonitoringStation
+					<a name="{C4859301-E1EC-4711-9523-CB7A540EACD2}"></a>microwaveMonitoringStation
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -260,14 +286,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A station dedicated to the monitoring of the road network by processing microwave information.<br>order=5<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					mobileTelephoneCaller
+					<a name="{FE279D82-4946-4bd5-AC1E-FD284FE39F74}"></a>mobileTelephoneCaller
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -277,14 +303,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A caller using a mobile telephone (who may be or not on the road network).<br>order=6<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					nonPoliceEmergencyServicePatrol
+					<a name="{87DC95DD-1C34-4076-9F56-24AE4A3576E3}"></a>nonPoliceEmergencyServicePatrol
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -294,14 +320,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Emergency service patrols other than police.<br>order=7<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					otherInformation
+					<a name="{7A239D6C-DA46-4589-B38A-7077C7E95F1D}"></a>otherInformation
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -311,14 +337,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Other sources of information.<br>order=8<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					otherOfficialVehicle
+					<a name="{A3DA3A29-4433-480d-9B14-231BE40CADE7}"></a>otherOfficialVehicle
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -328,14 +354,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Personnel from a vehicle belonging to the road operator or authority or any emergency service, including authorised breakdown service organisations.<br>order=9<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					policePatrol
+					<a name="{AD5B4B9A-8703-40ec-8F59-BD236C7362A8}"></a>policePatrol
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -345,14 +371,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A police patrol.<br>order=10<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					privateBreakdownService
+					<a name="{8926ABEE-C7C8-4c59-A8AC-D9F84108DFCA}"></a>privateBreakdownService
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -362,14 +388,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A private breakdown service.<br>order=11<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					publicAndPrivateUtilities
+					<a name="{3D80AB76-3974-45ee-B5B9-EF76BE280B02}"></a>publicAndPrivateUtilities
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -379,14 +405,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A utility organisation, either public or private.<br>order=12<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					registeredMotoristObserver
+					<a name="{9C99E53A-4AC4-46d6-B0AC-C3FD970DA0A1}"></a>registeredMotoristObserver
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -396,14 +422,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A motorist who is an officially registered observer.<br>order=13<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					roadAuthorities
+					<a name="{15BA140D-9AC6-4612-AE85-9981E4D1C41F}"></a>roadAuthorities
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -413,14 +439,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A road authority.<br>order=14<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					roadOperatorPatrol
+					<a name="{E8FD6F07-0C7B-4aa4-825F-FBA1ACFD7A07}"></a>roadOperatorPatrol
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -430,14 +456,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A patrol of the road operator or authority.<br>order=15<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					roadsideTelephoneCaller
+					<a name="{0BF1075F-5A1A-418a-9F46-C0440449BA6E}"></a>roadsideTelephoneCaller
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -447,14 +473,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A caller who is using an emergency roadside telephone.<br>order=16<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					spotterAircraft
+					<a name="{DD1A5A98-57EF-4c21-B7D8-498C74175B7D}"></a>spotterAircraft
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -464,14 +490,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A spotter aircraft of an organisation specifically assigned to the monitoring of the traffic network.<br>order=17<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					trafficMonitoringStation
+					<a name="{FB7FFB23-FE85-4af4-91A0-4996F2D45AB7}"></a>trafficMonitoringStation
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -481,14 +507,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A station, usually automatic, dedicated to the monitoring of the road network.<br>order=18<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					transitOperator
+					<a name="{5B4CDD76-07B8-4c2f-9396-7873EC89D2F5}"></a>transitOperator
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -498,14 +524,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=An operator of a transit service, e.g. bus link operator.<br>order=19<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					vehicleProbeMeasurement
+					<a name="{9F682EAF-5041-44ce-B458-5A0BFC81F3C0}"></a>vehicleProbeMeasurement
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -515,14 +541,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A specially equipped vehicle used to provide measurements.<br>order=20<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					videoProcessingMonitoringStation
+					<a name="{55F2578A-C352-410d-B401-6265CABA694E}"></a>videoProcessingMonitoringStation
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -532,7 +558,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=A station dedicated to the monitoring of the road network by processing video image information.<br>order=21<br>
 						&nbsp;
 						

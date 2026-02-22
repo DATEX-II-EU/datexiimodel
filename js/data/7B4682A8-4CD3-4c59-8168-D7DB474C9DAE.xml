@@ -1,8 +1,8 @@
-tocTab[tocTab.length] = new Array("0.3.3.5:1", "", "PointCoordinates", "EARoot/EA3/EA3/EA5/EA663.htm", "175.png", "40", "0", "", "Logical diagram0","{642704AA-245B-412a-8FCB-1BFE5150AB07}");
-tocTab[tocTab.length] = new Array("0.3.3.5:3", "", "«D2Class» AltitudeConfidence", "EARoot/EA3/EA3/EA5/EA669.htm", "5.png", "E293", "0", "", "Class0","{EA97E18E-D23D-48c8-9727-4726A3445AD1}");
-tocTab[tocTab.length] = new Array("0.3.3.5:4", "", "«D2Class» HeightCoordinate", "EARoot/EA3/EA3/EA5/EA670.htm", "5.png", "E294", "0", "", "Class0","{53F9434E-2BC3-4b61-ABFA-3219C6DED8A9}");
-tocTab[tocTab.length] = new Array("0.3.3.5:5", "", "«D2Class» PointByCoordinates", "EARoot/EA3/EA3/EA5/EA671.htm", "5.png", "E295", "0", "", "Class0","{C13A89CB-0DF5-4fad-8035-570916B75787}");
-tocTab[tocTab.length] = new Array("0.3.3.5:6", "", "«D2Class» PositionAccuracy", "EARoot/EA3/EA3/EA5/EA672.htm", "5.png", "E296", "0", "", "Class0","{C6918D1E-4D05-4ac6-ADD3-45E2F2A744CF}");
-tocTab[tocTab.length] = new Array("0.3.3.5:7", "", "«D2Class» PositionConfidenceEllipse", "EARoot/EA3/EA3/EA5/EA673.htm", "5.png", "E297", "0", "", "Class0","{DD314BF4-A2D6-4b44-BA57-9356E1CA18C5}");
-tocTab[tocTab.length] = new Array("0.3.3.5:8", "", "«D2Class» PointCoordinates", "EARoot/EA3/EA3/EA5/EA674.htm", "5.png", "E298", "0", "", "Class0","{46E260A6-C34E-43eb-B1D1-4BC0C63E224B}");
-tocTab[tocTab.length] = new Array("0.3.3.5:2", "", "PointCoordinates", "EARoot/EA3/EA3/EA5/EA665.htm", "182.png", "41", "E298", "", "CompositeStructure diagram0","{1A0912CF-5173-4fff-8C13-38CE4684761A}");
+tocTab[tocTab.length] = new Array("0.3.3.5:1", "", "PointCoordinates", "EARoot/EA3/EA3/EA5/EA679.htm", "175.png", "40", "0", "", "Logical diagram0","{642704AA-245B-412a-8FCB-1BFE5150AB07}");
+tocTab[tocTab.length] = new Array("0.3.3.5:3", "", "«D2Class» AltitudeConfidence", "EARoot/EA3/EA3/EA5/EA685.htm", "5.png", "E293", "0", "", "Class0","{EA97E18E-D23D-48c8-9727-4726A3445AD1}");
+tocTab[tocTab.length] = new Array("0.3.3.5:4", "", "«D2Class» HeightCoordinate", "EARoot/EA3/EA3/EA5/EA686.htm", "5.png", "E294", "0", "", "Class0","{53F9434E-2BC3-4b61-ABFA-3219C6DED8A9}");
+tocTab[tocTab.length] = new Array("0.3.3.5:5", "", "«D2Class» PointByCoordinates", "EARoot/EA3/EA3/EA5/EA687.htm", "5.png", "E295", "0", "", "Class0","{C13A89CB-0DF5-4fad-8035-570916B75787}");
+tocTab[tocTab.length] = new Array("0.3.3.5:6", "", "«D2Class» PositionAccuracy", "EARoot/EA3/EA3/EA5/EA688.htm", "5.png", "E296", "0", "", "Class0","{C6918D1E-4D05-4ac6-ADD3-45E2F2A744CF}");
+tocTab[tocTab.length] = new Array("0.3.3.5:7", "", "«D2Class» PositionConfidenceEllipse", "EARoot/EA3/EA3/EA5/EA689.htm", "5.png", "E297", "0", "", "Class0","{DD314BF4-A2D6-4b44-BA57-9356E1CA18C5}");
+tocTab[tocTab.length] = new Array("0.3.3.5:8", "", "«D2Class» PointCoordinates", "EARoot/EA3/EA3/EA5/EA690.htm", "5.png", "E298", "0", "", "Class0","{46E260A6-C34E-43eb-B1D1-4BC0C63E224B}");
+tocTab[tocTab.length] = new Array("0.3.3.5:2", "", "PointCoordinates", "EARoot/EA3/EA3/EA5/EA681.htm", "182.png", "41", "E298", "", "CompositeStructure diagram0","{1A0912CF-5173-4fff-8C13-38CE4684761A}");

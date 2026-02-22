@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>OperatingHoursPublication</title>
+<title>Namespace dependencies</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> OperatingHoursPublication </h1>
-			<!-- <img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Namespace dependencies </h1>
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA743.htm">PayloadPublication</a> / <a href="EA887.htm">Facilities</a> / <a href="./EA9/EA1039.htm">OperatingHoursPublication</a></p>
+			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA759.htm">PayloadPublication</a> / <a href="EA900.htm">Facilities</a> / <a href="EA896.htm">Namespace dependencies</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,106 +110,64 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<li><img src="../../../images/175.png" alt="Diagram"/> <a href="./EA9/EA1035.htm">OperatingHours</a></li>
-<li><img src="../../../images/175.png" alt="Diagram"/> <a href="./EA9/EA1037.htm">OperatingHoursPublication</a></li>
-<li><img src="../../../images/5.png" alt="Class"/> <a href="./EA9/EA1040.htm">ClosureInformation</a></li>
-<li><img src="../../../images/5.png" alt="Class"/> <a href="./EA9/EA1041.htm">OpenAllHours</a></li>
-<li><img src="../../../images/5.png" alt="Class"/> <a href="./EA9/EA1042.htm">OperatingHours</a></li>
-<li><img src="../../../images/5.png" alt="Class"/> <a href="./EA9/EA1043.htm">OperatingHoursByReference</a></li>
-<li><img src="../../../images/5.png" alt="Class"/> <a href="./EA9/EA1044.htm">OperatingHoursPublication</a></li>
-<li><img src="../../../images/5.png" alt="Class"/> <a href="./EA9/EA1045.htm">OperatingHoursSpecification</a></li>
-<li><img src="../../../images/5.png" alt="Class"/> <a href="./EA9/EA1046.htm">OperatingHoursTable</a></li>
-<li><img src="../../../images/5.png" alt="Class"/> <a href="./EA9/EA1047.htm">UndefinedOperatingHours</a></li>
-<li><img src="../../../images/5.png" alt="Class"/> <a href="./EA9/EA1048.htm">UnknownOperatingHours</a></li>
+<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA1/EA914.htm">Facility</a></li>
+<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA2/EA929.htm">DataTypes</a></li>
+<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA3/EA938.htm">DataValue</a></li>
+<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA4/EA943.htm">Enumerations</a></li>
+<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA5/EA956.htm">Dimension</a></li>
+<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA6/EA962.htm">OrganisationPublication</a></li>
+<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA7/EA977.htm">RatesPublication</a></li>
+<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA8/EA1043.htm">SupplementalFacility</a></li>
+<li><img src="../../../images/4.png" alt="Package"/> <a href="./EA9/EA1052.htm">OperatingHoursPublication</a></li>
+<li><img src="../../../images/176.png" alt="Diagram"/> <a href="EA896.htm">Namespace dependencies</a></li>
+<li><img src="../../../images/175.png" alt="Diagram"/> <a href="EA898.htm">Facilities</a></li>
 </ul>
 
 					</td>
-					<td class="contentcell"><div class="pageHeader"></div>
-<div class="PageBody">
-	<span class="ObjectTitle">OperatingHoursPublication  : Public  &lt;&lt;D2Package&gt;&gt; Package</span>
-	<table border="0" class="ObjectDetails">
+					<td class="contentcell"><div class="PageBody">
+	<div class="diagram_image"> 
+<img src="EA897.png" usemap="#EA897" width="767" height="521" border="0" />
+
+<MAP NAME="EA897">
+<area shape="rect" coords="518,318,752,477" href="../../EA3/EA475.htm" target="_self">
+<area shape="rect" coords="543,42,723,177" href="../../EA1/EA8.htm" target="_self">
+<area shape="rect" coords="15,15,224,294" href="EA896.htm" target="_self">
+</MAP>
+ </div>
+	<div class="ObjectTitle">Namespace dependencies : Package diagram</div>
+	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">31.07.2013 10:34:06</td>
+			<td width="85%" class="ObjectDetailsValue">08.06.2021 12:13:35</td>
 		</tr>
 		<tr>
-			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">06.10.2020 17:18:22</td>
+			<td width="15%" class="ObjectDetailsTopic">Modified:</td>
+			<td width="85%" class="ObjectDetailsValue">06.12.2021 09:19:08</td>
 		</tr>
-		<tr style="height: 10px"><td colspan="2"></td></tr>
-		<tr>
-			<td class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="../../../images/plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>
-			<td class="ObjectDetailsValue"></td>
+		<tr style="padding-top: 10px;">
+			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="../../../images/plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
 		</tr>
 		<tr id="proj00" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue">Freudenstein</td>
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
+			<td width="85%" class="ObjectDetailsValue">TMG</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
-			<td class="ObjectDetailsValue">1.0</td>
-		</tr>
-		<tr id="proj02" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Phase:</td>
-			<td class="ObjectDetailsValue">1.0</td>
-		</tr>
-		<tr id="proj03" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Status:</td>
-			<td class="ObjectDetailsValue">Proposed</td>
-		</tr>
-		<tr id="proj04" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Complexity:</td>
-			<td class="ObjectDetailsValue">Easy</td>
-		</tr>
-		<tr id="proj05" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Difficulty:</td>
-			<td class="ObjectDetailsValue"></td>
-		</tr>
-		<tr id="proj06" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Priority:</td>
-			<td class="ObjectDetailsValue"></td>
-		</tr>
-		<tr id="proj05" style="display: none;">
-			<td class="ObjectDetailsTopic" >Multiplicity:</td>
-			<td class="ObjectDetailsValue"></td>
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
+			<td width="85%" class="ObjectDetailsValue">1.0</td>
 		</tr>
 		<tr>
-			<td class="ObjectDetailsTopic"><button onclick="switchAdvancedProperties()"><img src="../../../images/plus03.gif" align="absmiddle" id="adv" /></button>Advanced:</td>
-			<td class="ObjectDetailsValue"></td>
+			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchAdvancedProperties()"><img src="../../../images/plus03.gif" align="absmiddle" id="adv" /></button>Advanced:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
 		</tr>
 		<tr id="adv00" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{2D39D879-51A2-4c39-9F40-FC54FAE9E3D9}</td>
-		</tr>
-		<tr id="adv01" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA885.htm">Facilities</a></td>
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">ID:</td>
+			<td width="85%" class="ObjectDetailsValue">{E6B896C8-A296-4e27-BFAF-CBA9CD7D804E}</td>
 		</tr>
 	</table>
 	
-	<div class="TableGroup" id="TableGroup">
-		<ul class="ItemTitle">
-			<li onClick="parent != null ? parent.toggleItem('TaggedVal') : toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
-		</ul>
-<div class="ItemBody" id="TaggedValTable">
-	<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
-		<tr>
-			<td width="50%" class="TableHeading">Tag</td>
-			<td width="50%" class="TableHeading">Value</td>
-		</tr>
-					<tr>
-				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">OperatingHours</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>
-	</table>
-</div>	</div>
- </div>
+</div>
+
  </td>
 				</tr>
 			</tbody>

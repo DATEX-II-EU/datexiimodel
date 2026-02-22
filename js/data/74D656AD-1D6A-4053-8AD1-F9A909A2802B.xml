@@ -1,5 +1,5 @@
-tocTab[tocTab.length] = new Array("0.3.1:1", "", "DataTypes", "EARoot/EA3/EA1/EA468.htm", "175.png", "24", "0", "", "Logical diagram0","{8F6C951C-924D-4fd8-9AE3-69F997C3197A}");
-tocTab[tocTab.length] = new Array("0.3.1:2", "", "«D2Datatype» AlertCLocationCode", "EARoot/EA3/EA1/EA471.htm", "230.png", "E156", "0", "", "DataType0","{22779E6E-6805-4e1f-8F2D-629E770D8C18}");
-tocTab[tocTab.length] = new Array("0.3.1:3", "", "«D2Datatype» GmlPosList", "EARoot/EA3/EA1/EA472.htm", "230.png", "E157", "0", "", "DataType0","{54C506D2-F537-4288-BA08-C5BCABF49ED6}");
-tocTab[tocTab.length] = new Array("0.3.1:4", "", "«D2Datatype» NutsCode", "EARoot/EA3/EA1/EA473.htm", "230.png", "E158", "0", "", "DataType0","{CC02DBA3-C472-4da8-A229-C3D814726B8E}");
-tocTab[tocTab.length] = new Array("0.3.1:5", "", "«D2Datatype» SubdivisionCode", "EARoot/EA3/EA1/EA474.htm", "230.png", "E159", "0", "", "DataType0","{B1668226-7D16-403e-9978-8359AFB7F478}");
+tocTab[tocTab.length] = new Array("0.3.1:1", "", "DataTypes", "EARoot/EA3/EA1/EA484.htm", "175.png", "24", "0", "", "Logical diagram0","{8F6C951C-924D-4fd8-9AE3-69F997C3197A}");
+tocTab[tocTab.length] = new Array("0.3.1:2", "", "«D2Datatype» AlertCLocationCode", "EARoot/EA3/EA1/EA487.htm", "230.png", "E156", "0", "", "DataType0","{22779E6E-6805-4e1f-8F2D-629E770D8C18}");
+tocTab[tocTab.length] = new Array("0.3.1:3", "", "«D2Datatype» GmlPosList", "EARoot/EA3/EA1/EA488.htm", "230.png", "E157", "0", "", "DataType0","{54C506D2-F537-4288-BA08-C5BCABF49ED6}");
+tocTab[tocTab.length] = new Array("0.3.1:4", "", "«D2Datatype» NutsCode", "EARoot/EA3/EA1/EA489.htm", "230.png", "E158", "0", "", "DataType0","{CC02DBA3-C472-4da8-A229-C3D814726B8E}");
+tocTab[tocTab.length] = new Array("0.3.1:5", "", "«D2Datatype» SubdivisionCode", "EARoot/EA3/EA1/EA490.htm", "230.png", "E159", "0", "", "DataType0","{B1668226-7D16-403e-9978-8359AFB7F478}");

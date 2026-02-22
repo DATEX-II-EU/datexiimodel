@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>TypeOfRegulations::AccessRestriction</title>
+<title>TrafficRegulationOrder</title>
 <link href="../../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> TypeOfRegulations::AccessRestriction </h1>
-			<!-- <img class="header_image" src="../../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> TrafficRegulationOrder </h1>
+			<!-- <img class="header_image" src="../../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../../EA3.htm">D2Payload</a> / <a href="../../../EA743.htm">PayloadPublication</a> / <a href="../../EA1417.htm">TrafficRegulation</a> / <a href="../EA1424.htm">Classes</a> / <a href="EA1479.htm">TypeOfRegulations</a> / <a href="EA1481.htm">AccessRestriction</a></p>
+			<p><a href="../../../../EA3.htm">D2Payload</a> / <a href="../../../EA759.htm">PayloadPublication</a> / <a href="../../EA1430.htm">TrafficRegulation</a> / <a href="../EA1439.htm">Classes</a> / <a href="EA1483.htm">TrafficRegulationOrder</a> / <a href="EA1481.htm">TrafficRegulationOrder</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,174 +110,60 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA1479.htm">TypeOfRegulations</a></ul>
+<li><img src="../../../../../images/175.png" alt="Diagram"/> <a href="EA1481.htm">TrafficRegulationOrder</a></li>
+<li><img src="../../../../../images/5.png" alt="Class"/> <a href="EA1485.htm">TemporaryTrafficRegulationOrder</a></li>
+<li><img src="../../../../../images/5.png" alt="Class"/> <a href="EA1486.htm">TrafficRegulationOrder</a></li>
+</ul>
 
 					</td>
-					<td class="contentcell"><div class="pageHeader"></div>
-<div class="PageBody">
-	<span class="ObjectTitle">AccessRestriction  : Public  &lt;&lt;D2Class&gt;&gt; Class</span>
-	<table border="0" class="ObjectDetails">
+					<td class="contentcell"><div class="PageBody">
+	<div class="diagram_image"> 
+<img src="EA1482.png" usemap="#EA1482" width="1263" height="718" border="0" />
+
+<MAP NAME="EA1482">
+<area shape="rect" coords="15,222,431,336" href="EA1485.htm" target="_self">
+<area shape="rect" coords="1041,129,1229,302" href="../EA2/EA1474.htm" target="_self">
+<area shape="rect" coords="972,324,1248,704" href="EA1484.htm" target="_self">
+<area shape="rect" coords="363,557,611,651" href="../../../../EA3/EA3/EA530.htm" target="_self">
+<area shape="rect" coords="681,495,959,651" href="../../../../EA1/EA1/EA4/EA92.htm" target="_self">
+<area shape="rect" coords="65,537,317,651" href="../EA2/EA1467.htm" target="_self">
+<area shape="rect" coords="470,15,858,227" href="EA1486.htm" target="_self">
+</MAP>
+ </div>
+	<div class="ObjectTitle">TrafficRegulationOrder : Class diagram</div>
+	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">28.02.2019 17:06:11</td>
+			<td width="85%" class="ObjectDetailsValue">14.05.2024 15:03:13</td>
 		</tr>
 		<tr>
-			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">29.11.2022 17:26:15</td>
+			<td width="15%" class="ObjectDetailsTopic">Modified:</td>
+			<td width="85%" class="ObjectDetailsValue">29.01.2025 11:59:30</td>
 		</tr>
-		<tr style="height: 10px"><td colspan="2"></td></tr>
-		<tr>
-			<td class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="../../../../../images/plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>
-			<td class="ObjectDetailsValue"></td>
+		<tr style="padding-top: 10px;">
+			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="../../../../../images/plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
 		</tr>
 		<tr id="proj00" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue">Kaltwasser</td>
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
+			<td width="85%" class="ObjectDetailsValue">TB</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
-			<td class="ObjectDetailsValue">1.0</td>
-		</tr>
-		<tr id="proj02" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Phase:</td>
-			<td class="ObjectDetailsValue">1.0</td>
-		</tr>
-		<tr id="proj03" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Status:</td>
-			<td class="ObjectDetailsValue">Proposed</td>
-		</tr>
-		<tr id="proj04" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Complexity:</td>
-			<td class="ObjectDetailsValue">Easy</td>
-		</tr>
-		<tr id="proj05" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Difficulty:</td>
-			<td class="ObjectDetailsValue"></td>
-		</tr>
-		<tr id="proj06" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Priority:</td>
-			<td class="ObjectDetailsValue"></td>
-		</tr>
-		<tr id="proj05" style="display: none;">
-			<td class="ObjectDetailsTopic" >Multiplicity:</td>
-			<td class="ObjectDetailsValue"></td>
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
+			<td width="85%" class="ObjectDetailsValue">1.0</td>
 		</tr>
 		<tr>
-			<td class="ObjectDetailsTopic"><button onclick="switchAdvancedProperties()"><img src="../../../../../images/plus03.gif" align="absmiddle" id="adv" /></button>Advanced:</td>
-			<td class="ObjectDetailsValue"></td>
+			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchAdvancedProperties()"><img src="../../../../../images/plus03.gif" align="absmiddle" id="adv" /></button>Advanced:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
 		</tr>
 		<tr id="adv00" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{42D14E03-1011-4507-AA79-8BE75D02E755}</td>
-		</tr>
-		<tr id="adv01" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA1477.htm">TypeOfRegulation</a></td>
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">ID:</td>
+			<td width="85%" class="ObjectDetailsValue">{3885535C-0231-4310-99DC-A2474B71D31A}</td>
 		</tr>
 	</table>
 	
-	<div class="TableGroup" id="TableGroup">
-		<ul class="ItemTitle">
-			<li onClick="parent != null ? parent.toggleItem('Attributes') : toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
-			<li onClick="parent != null ? parent.toggleItem('TaggedVal') : toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
-			<li onClick="parent != null ? parent.toggleItem('CustomProperties') : toggleItem('CustomProperties');" id="CustomPropertiesTitle">Advanced</li>
-			<li onClick="parent != null ? parent.toggleItem('Links') : toggleItem('Links');" id="LinksTitle">Other Links</li>
-		</ul>
-<div class="ItemBody" id="AttributesTable">
-	<table border="0" cellspacing="0" cellpadding="0" class="Table">
-		<tr>
-			<td width="50%" class="TableHeading">Attribute</td>
-			<td width="25%" class="TableHeading">Scope</td>
-			<td width="25%" class="TableHeading">Type</td>
-		</tr>
-						<tr>
-				<td width="50%" class="TableRow">
-					accessRestrictionType
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					<a href="../../EA3/EA1514.htm">AccessRestrictionTypeEnum</a>
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Type of access restriction.<br>order=1<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					nonVehicularRoadUser
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					<a href="../../EA3/EA1523.htm">NonVehicularRoadUserTypeEnum</a>
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Types of non vehicular road users for which the access restriction applies.<br>order=0<br>
-						&nbsp;
-						
-				</td>
-			</tr>
-	</table>
 </div>
-<div class="ItemBody" id="TaggedValTable">
-	<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
-		<tr>
-			<td width="50%" class="TableHeading">Tag</td>
-			<td width="50%" class="TableHeading">Value</td>
-		</tr>
-					<tr>
-				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">Class for access restriction, e.g. road closures for specific vehicle types.</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>
-	</table>
-</div>		<div class="ItemBody" id="CustomPropertiesTable">
-			<table class="Table ea_table">
-				<tr>
-					<td width="30%" class="TableHeading">Property</td>
-					<td width="70%" class="TableHeading">Value</td>
-				</tr>
-			<tr>
-				<td width="30%" class="TableRow">isFinalSpecialization:</td>
-				<td width="70%" class="TableRow">0</td>
-			</tr>
 
-
-			</table>
-		</div>		<div class="ItemBody" id="LinksTable">
-			<table class="Table ea_table">
-				<tr>
-					<td width="30%" class="TableHeading">Object</td>
-					<td width="10%" class="TableHeading">Type</td>
-					<td width="10%" class="TableHeading">Connection</td>
-					<td width="10%" class="TableHeading">Direction</td>
-					<td width="40%" class="TableHeading">Notes</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA1493.htm">«D2Class» TypeOfRegulation</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Generalization</td>
-					<td width="10%" class="TableRow" valign="top">To</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-
-			</table>
-		</div>
-	</div>
- </div>
  </td>
 				</tr>
 			</tbody>

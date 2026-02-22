@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -65,8 +91,8 @@
 
 		<div class="col span_2_of_2 header_frame">
 			<h1> Validity::SpecialDay </h1>
-			<!-- <img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../../images/datex.jpg" align="right" alt="Header Image" />
+			<!-- <img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
 			<p><a href="../../../EA3.htm">D2Payload</a> / <a href="../../EA10.htm">Common</a> / <a href="../EA16.htm">Classes</a> / <a href="EA94.htm">Validity</a> / <a href="EA103.htm">SpecialDay</a></p>
@@ -146,7 +172,7 @@
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA92.htm">Validity</a>, <a href="../../../EA4/EA3/EA9/EA1035.htm">OperatingHours</a>, <a href="../../../EA4/EA3/EA9/EA1037.htm">OperatingHoursPublication</a></td>
+			<td class="ObjectDetailsValue"><a href="EA92.htm">Validity</a>, <a href="../../../EA4/EA3/EA9/EA1048.htm">OperatingHours</a>, <a href="../../../EA4/EA3/EA9/EA1050.htm">OperatingHoursPublication</a></td>
 		</tr>
 	</table>
 	
@@ -168,7 +194,7 @@
 		</tr>
 						<tr>
 				<td width="50%" class="TableRow">
-					intersectWithApplicableDays
+					<a name="{A69352F5-FB1E-4225-8AE5-B5F10E777870}"></a>intersectWithApplicableDays
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -178,14 +204,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=When true, the period is the intersection of applicable days and this special day. When false, the period is the union of applicable days and this special day.<br>order=0<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					publicEvent
+					<a name="{761922E8-1B15-4a8d-9E6A-2CE8D33808D8}"></a>publicEvent
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -195,14 +221,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Type of public event on this special day.<br>order=2<br>
 						&nbsp;
 						
 				</td>
 			</tr>			<tr>
 				<td width="50%" class="TableRow">
-					specialDayType
+					<a name="{CA93F040-85F8-40fe-BA0C-8BBD0A86CC4D}"></a>specialDayType
 				</td>
 				<td width="25%" class="TableRow">
 					Public 
@@ -212,7 +238,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
+				<td class="TableRowBottomDashed"  colspan="3">
 					definition=Specification of a special day, for example schoolDay, publicHoliday, ...<br>order=1<br>
 						&nbsp;
 						
@@ -333,17 +359,17 @@
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA20.htm">«D2Class» NamedArea</a></td>
-					<td width="10%" class="TableRow" valign="top">Class</td>
-					<td width="10%" class="TableRow" valign="top">Weak</td>
-					<td width="10%" class="TableRow" valign="top">From</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
 					<td width="30%" class="TableRow" valign="top"><a href="EA102.htm">«D2Class» Period</a></td>
 					<td width="10%" class="TableRow" valign="top">Class</td>
 					<td width="10%" class="TableRow" valign="top">Strong</td>
 					<td width="10%" class="TableRow" valign="top">To</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA20.htm">«D2Class» NamedArea</a></td>
+					<td width="10%" class="TableRow" valign="top">Class</td>
+					<td width="10%" class="TableRow" valign="top">Weak</td>
+					<td width="10%" class="TableRow" valign="top">From</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 

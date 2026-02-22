@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Enumerations::PositionConfidenceCodedErrorEnum</title>
+<title>Enumerations</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 <script>
@@ -55,6 +55,32 @@
             }
 
         }
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			const img = document.querySelector('.diagram_image img');
+			const mapAreas = document.querySelectorAll('area');
+
+			if (img && mapAreas.length > 0) {
+				//Get original and rendered image dimensions
+				const originalWidth = img.naturalWidth;
+				const originalHeight = img.naturalHeight;
+				const renderedWidth = img.clientWidth || originalWidth; 
+				const renderedHeight = img.clientHeight || originalHeight; 
+				
+				//Calculate scaling factors
+				const scaleX = renderedWidth / originalWidth;
+				const scaleY = renderedHeight / originalHeight;
+
+				//Adjust map area coordinates
+				mapAreas.forEach((area) => {
+				  const originalCoords = area.getAttribute('coords').split(',').map(Number);
+				  const scaledCoords = originalCoords.map((coord, index) =>
+					index % 2 === 0 ? coord * scaleX : coord * scaleY
+				  );
+				  area.setAttribute('coords', scaledCoords.join(','));
+				});
+			}
+		});
 </script>
 <style>
 
@@ -64,12 +90,12 @@
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Enumerations::PositionConfidenceCodedErrorEnum </h1>
-			<!-- <img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />-->
-			<img class="header_image" src="../../../images/datex.jpg" align="right" alt="Header Image" />
+			<h1> Enumerations </h1>
+			<!-- <img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />-->
+			<img class="header_image" src="../../../images/datex2.jpg" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA463.htm">LocationReferencing</a> / <a href="EA477.htm">Enumerations</a> / <a href="EA491.htm">PositionConfidenceCodedErrorEnum</a></p>
+			<p><a href="../../EA3.htm">D2Payload</a> / <a href="../EA479.htm">LocationReferencing</a> / <a href="EA493.htm">Enumerations</a> / <a href="EA491.htm">Enumerations</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -84,154 +110,114 @@
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<a href="EA477.htm">Enumerations</a></ul>
+<li><img src="../../../images/175.png" alt="Diagram"/> <a href="EA491.htm">Enumerations</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA494.htm">AltitudeAccuracyEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA495.htm">AreaPlacesEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA496.htm">DirectionEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA497.htm">DirectionPurposeEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA498.htm">GeographicCharacteristicEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA499.htm">HeightTypeEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA500.htm">InfrastructureDescriptorEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA501.htm">NamedAreaTypeEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA502.htm">NutsCodeTypeEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA503.htm">OpenlrFormOfWayEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA504.htm">OpenlrFunctionalRoadClassEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA505.htm">OpenlrOrientationEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA506.htm">OpenlrSideOfRoadEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA507.htm">PositionConfidenceCodedErrorEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA508.htm">RelativePositionOnCarriagewayEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA509.htm">SubdivisionTypeEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA510.htm">TpegLoc01AreaLocationSubtypeEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA511.htm">TpegLoc01FramedPointLocationSubtypeEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA512.htm">TpegLoc01LinearLocationSubtypeEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA513.htm">TpegLoc01SimplePointLocationSubtypeEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA514.htm">TpegLoc03AreaDescriptorSubtypeEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA515.htm">TpegLoc03IlcPointDescriptorSubtypeEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA516.htm">TpegLoc03JunctionPointDescriptorSubtypeEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA517.htm">TpegLoc03OtherPointDescriptorSubtypeEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA518.htm">TpegLoc04HeightTypeEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA519.htm">AlertCDirectionEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA520.htm">CarriagewayEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA521.htm">HeightGradeEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA522.htm">LaneEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA523.htm">LinearElementNatureEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA524.htm">LinearDirectionEnum</a></li>
+<li><img src="../../../images/247.png" alt="Enumeration"/> <a href="EA525.htm">ReferentTypeEnum</a></li>
+</ul>
 
 					</td>
-					<td class="contentcell"><div class="pageHeader"></div>
-<div class="PageBody">
-	<span class="ObjectTitle">PositionConfidenceCodedErrorEnum  : Public  &lt;&lt;D2Enumeration&gt;&gt; Enumeration</span>
-	<table border="0" class="ObjectDetails">
+					<td class="contentcell"><div class="PageBody">
+	<div class="diagram_image"> 
+<img src="EA492.png" usemap="#EA492" width="2492" height="1711" border="0" />
+
+<MAP NAME="EA492">
+<area shape="rect" coords="17,257,152,449" href="EA502.htm" target="_self">
+<area shape="rect" coords="2163,914,2477,1281" href="EA494.htm" target="_self">
+<area shape="rect" coords="1853,1082,2133,1215" href="EA507.htm" target="_self">
+<area shape="rect" coords="1572,825,1788,978" href="EA499.htm" target="_self">
+<area shape="rect" coords="1863,906,2115,1040" href="EA497.htm" target="_self">
+<area shape="rect" coords="1857,723,2147,876" href="EA508.htm" target="_self">
+<area shape="rect" coords="1842,530,2175,702" href="EA498.htm" target="_self">
+<area shape="rect" coords="1856,27,2162,494" href="EA500.htm" target="_self">
+<area shape="rect" coords="2208,33,2427,636" href="EA501.htm" target="_self">
+<area shape="rect" coords="1595,447,1755,639" href="EA525.htm" target="_self">
+<area shape="rect" coords="1595,240,1784,413" href="EA524.htm" target="_self">
+<area shape="rect" coords="1595,23,1803,195" href="EA523.htm" target="_self">
+<area shape="rect" coords="1235,20,1496,638" href="EA522.htm" target="_self">
+<area shape="rect" coords="1040,15,1175,168" href="EA521.htm" target="_self">
+<area shape="rect" coords="506,15,758,461" href="EA520.htm" target="_self">
+<area shape="rect" coords="15,15,173,168" href="EA519.htm" target="_self">
+<area shape="rect" coords="746,1056,1092,1697" href="EA517.htm" target="_self">
+<area shape="rect" coords="1148,1056,1517,1170" href="EA516.htm" target="_self">
+<area shape="rect" coords="377,1056,701,1209" href="EA515.htm" target="_self">
+<area shape="rect" coords="27,1056,330,1365" href="EA514.htm" target="_self">
+<area shape="rect" coords="1077,882,1421,1016" href="EA513.htm" target="_self">
+<area shape="rect" coords="737,882,1038,996" href="EA512.htm" target="_self">
+<area shape="rect" coords="353,882,701,996" href="EA511.htm" target="_self">
+<area shape="rect" coords="27,882,317,1016" href="EA510.htm" target="_self">
+<area shape="rect" coords="860,563,1050,735" href="EA506.htm" target="_self">
+<area shape="rect" coords="585,563,803,735" href="EA505.htm" target="_self">
+<area shape="rect" coords="278,563,537,813" href="EA504.htm" target="_self">
+<area shape="rect" coords="29,563,216,813" href="EA503.htm" target="_self">
+<area shape="rect" coords="807,15,1004,500" href="EA496.htm" target="_self">
+<area shape="rect" coords="210,15,459,461" href="EA495.htm" target="_self">
+<area shape="rect" coords="1572,1056,1785,1385" href="EA518.htm" target="_self">
+</MAP>
+ </div>
+	<div class="ObjectTitle">Enumerations : Class diagram</div>
+	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">04.01.2018 09:21:35</td>
+			<td width="85%" class="ObjectDetailsValue">19.10.2015 00:00:00</td>
 		</tr>
 		<tr>
-			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">29.11.2022 17:25:59</td>
+			<td width="15%" class="ObjectDetailsTopic">Modified:</td>
+			<td width="85%" class="ObjectDetailsValue">13.05.2021 11:17:29</td>
 		</tr>
-		<tr style="height: 10px"><td colspan="2"></td></tr>
-		<tr>
-			<td class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="../../../images/plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>
-			<td class="ObjectDetailsValue"></td>
+		<tr style="padding-top: 10px;">
+			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="../../../images/plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
 		</tr>
 		<tr id="proj00" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue"></td>
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
+			<td width="85%" class="ObjectDetailsValue">TMG</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
-			<td class="ObjectDetailsValue">1.0</td>
-		</tr>
-		<tr id="proj02" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Phase:</td>
-			<td class="ObjectDetailsValue">1.0</td>
-		</tr>
-		<tr id="proj03" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Status:</td>
-			<td class="ObjectDetailsValue">Proposed</td>
-		</tr>
-		<tr id="proj04" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Complexity:</td>
-			<td class="ObjectDetailsValue">Easy</td>
-		</tr>
-		<tr id="proj05" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Difficulty:</td>
-			<td class="ObjectDetailsValue"></td>
-		</tr>
-		<tr id="proj06" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Priority:</td>
-			<td class="ObjectDetailsValue"></td>
-		</tr>
-		<tr id="proj05" style="display: none;">
-			<td class="ObjectDetailsTopic" >Multiplicity:</td>
-			<td class="ObjectDetailsValue"></td>
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
+			<td width="85%" class="ObjectDetailsValue">3.0</td>
 		</tr>
 		<tr>
-			<td class="ObjectDetailsTopic"><button onclick="switchAdvancedProperties()"><img src="../../../images/plus03.gif" align="absmiddle" id="adv" /></button>Advanced:</td>
-			<td class="ObjectDetailsValue"></td>
+			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchAdvancedProperties()"><img src="../../../images/plus03.gif" align="absmiddle" id="adv" /></button>Advanced:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
 		</tr>
 		<tr id="adv00" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{0ACCA60A-C588-4556-9210-B8E7EF78289D}</td>
-		</tr>
-		<tr id="adv01" style="display: none;">
-			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA475.htm">Enumerations</a></td>
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">ID:</td>
+			<td width="85%" class="ObjectDetailsValue">{34477AD0-038A-4fca-81EC-A348D2FCD5FA}</td>
 		</tr>
 	</table>
 	
-	<div class="TableGroup" id="TableGroup">
-		<ul class="ItemTitle">
-			<li onClick="parent != null ? parent.toggleItem('Attributes') : toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
-			<li onClick="parent != null ? parent.toggleItem('TaggedVal') : toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
-			<li onClick="parent != null ? parent.toggleItem('CustomProperties') : toggleItem('CustomProperties');" id="CustomPropertiesTitle">Advanced</li>
-		</ul>
-<div class="ItemBody" id="AttributesTable">
-	<table border="0" cellspacing="0" cellpadding="0" class="Table">
-		<tr>
-			<td width="50%" class="TableHeading">Attribute</td>
-			<td width="25%" class="TableHeading">Scope</td>
-			<td width="25%" class="TableHeading">Type</td>
-		</tr>
-						<tr>
-				<td width="50%" class="TableRow">
-					outOfRange
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Indicates the accuracy is out of range, i.e. greater than 4 093 cm for horizontal position.<br>order=0<br>
-						&nbsp;
-						
-				</td>
-			</tr>			<tr>
-				<td width="50%" class="TableRow">
-					unavailable
-				</td>
-				<td width="25%" class="TableRow">
-					Public 
-				</td>
-				<td width="25%" class="TableRow">
-					
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="3">										
-					definition=Indicates the accuracy information is unavailable.<br>order=1<br>
-						&nbsp;
-						
-				</td>
-			</tr>
-	</table>
 </div>
-<div class="ItemBody" id="TaggedValTable">
-	<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
-		<tr>
-			<td width="50%" class="TableHeading">Tag</td>
-			<td width="50%" class="TableHeading">Value</td>
-		</tr>
-					<tr>
-				<td width="50%" class="TableRow" valign="top">definition</td>
-				<td width="50%" class="TableRow" valign="top">Error code for horizontal or vertical position confidence</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>
-	</table>
-</div>		<div class="ItemBody" id="CustomPropertiesTable">
-			<table class="Table ea_table">
-				<tr>
-					<td width="30%" class="TableHeading">Property</td>
-					<td width="70%" class="TableHeading">Value</td>
-				</tr>
-			<tr>
-				<td width="30%" class="TableRow">isFinalSpecialization:</td>
-				<td width="70%" class="TableRow">0</td>
-			</tr>
 
-
-			</table>
-		</div>	</div>
- </div>
  </td>
 				</tr>
 			</tbody>
